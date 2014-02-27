@@ -1,0 +1,351 @@
+
+\chapter{Background material}
+\label{ch:background}
+
+\section{Diatomic molecule in DC field}
+\label{sec:moleculeInDCField}
+
+\section{Diatomic molecule in AC field}
+\label{sec:moleculeInACField}
+
+\section{Introduction to exciton}
+\label{sec: exciton}
+We describe the state of a crystal system by specifying the occupation state of each molecules that constitute the crystal. For example, we denote the crystal wavefunction as
+\begin{equation}
+\left. |N_{1f_{1}} N_{2f_{2}} ...N_{nf} ... \right\rangle \nonumber \ ,
+\end{equation}
+where $N_{nf}$ represents the occupation number of state $f$ in molecule $n$ and it is either 0 or 1. Accordingly, the occupation number operator is defined as
+\begin{equation}
+\hat{N}_{nf} |...N_{nf}...\rangle = N_{nf} |...N_{nf}...\rangle \ .
+\end{equation}
+For one molecule $n$, it must be in some state $g$, therefore
+\begin{equation}
+\sum_{g}\hat{N}_{ng} = 1 \ . \label{must-be-in-a-state}
+\end{equation}
+It is convenient to introduce two operators $b_{nf}^{\dagger}$ and $b_{nf}$ associated with molecule $n$ and state $f$,
+\begin{eqnarray}
+b_{nf}^{\dagger} |...N_{nf}...\rangle &=& (1-N_{nf})|...(N_{nf}+1)...\rangle \ , \nonumber \\
+b_{nf} |...N_{nf}...\rangle &=& N_{nf}|...(N_{nf}-1)...\rangle \ , \label{single-molecule-operator}
+\end{eqnarray}
+and express the occupation number operator as the product of these two operators,
+\begin{equation}
+\hat{N}_{nf} =b_{nf}^{\dagger} b_{nf} \ .
+\end{equation}
+The physical meaning of the two operators is clear: $b_{nf}$ creates a state $f$ in molecule $n$ and $b_{nf}$ destroy a state $f$ in molecule $n$.  It follows from Eq. (\ref{single-molecule-operator}) that
+\begin{eqnarray}
+b_{nf}b_{nf}^{\dagger} &+& b_{nf}^{\dagger}b_{nf} = 1 \ , \nonumber \\
+b_{nf}b_{nf}&=&b_{nf}^{\dagger}b_{nf}^{\dagger} =0 \ . \label{commutation-relation-single-molecule}
+\end{eqnarray}
+Because an operator for a specific molecule $n$ and state $f$ does not operate on other molecules and other states, any two operators that correspond to different molecules $n$ and $m$ or different states $f$ and $f'$ commute all the time. 
+
+Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it can be easily seen that the exciton creation and annihilation operators can be written as
+\begin{equation}
+P_{nf}^{\dagger} = b_{nf}^{\dagger} b_{n0} \ , \;\;P_{nf}=b_{n0}^{\dagger} b_{nf} \ . \label{creation&annihilation}
+\end{equation}
+Substituting Eq. (\ref{commutation-relation-single-molecule}), we have
+\begin{eqnarray}
+P_{nf}^{\dagger} P_{nf} &=& b_{nf}^{\dagger} b_{n0}b_{n0}^{\dagger} b_{nf} \nonumber \\
+                                      &=& b_{nf}^{\dagger}(1-b_{n0}^{\dagger}b_{n0})b_{nf} \nonumber \\
+                                      &=& \hat{N}_{nf} \ , \label{creation-annihilation}
+\end{eqnarray}
+\begin{eqnarray}
+P_{nf} P_{nf}^{\dagger} &=& b_{n0}^{\dagger} b_{nf} b_{nf}^{\dagger} b_{n0} \nonumber \\
+                                      &=& b_{n0}^{\dagger}(1-b_{nf}^{\dagger}b_{nf})b_{n0} \nonumber \\
+                                      &=& \hat{N}_{n0} \ . \label{annihilation-creation}
+\end{eqnarray}
+Subtracting Eq. (\ref{creation-annihilation}) from Eq. (\ref{annihilation-creation}) and making use of Eq. (\ref{must-be-in-a-state}), we obtain
+\begin{equation}
+P_{nf} P_{nf}^{\dagger} - P_{nf}^{\dagger} P_{nf} = 1-\hat{N}_{nf} - \sum_{g\neq 0} \hat{N}_{ng}  \ . \label{exact-relation}
+\end{equation}
+Because $P_{nf}$ and $P_{nf}^{\dagger}$ don't operate on a different
+molecule $m$, any exciton operators corresponding to different molecules
+commute with each other. Then the exact statistics is given by 
+\begin{equation}
+P_{nf}P_{n'f}^{\dagger}-P_{nf}^{\dagger}P_{n'f}  =  \delta_{nn'}\left(1-\hat{N}_{nf}-\sum_{g\neq0}\hat{N}_{ng}\right)  \label{exact-relation2}
+\end{equation}
+and 
+\begin{equation}
+P_{nf}P_{nf'}^{\dagger}-P_{nf}^{\dagger}P_{nf'}=\delta_{ff'}\ . 
+\end{equation}
+Unfortunately, it is cumbersome to take into account of the exact
+statistics of excitons in most cases. So it is often desirable to approximate excitons as Boses when only a small number of molecules in the crystal are excited. In other words, if the following inequality
+\begin{equation}
+\left\langle N_{nf} \right\rangle \ll 1 \label{condition-for-Bose-approx}
+\end{equation}
+holds, the exciton creation and annihilation operators satisfy the commutation rules for Bose operators
+\begin{equation}
+P_{n'f'}P_{nf}^{\dagger} - P_{nf}^{\dagger}P_{n'f'}=\delta_{nn'}\delta_{ff'} \ . \label{approx-relation}
+\end{equation}
+In the following derivation, we are assuming the exciton operators are Bose operators and satisfy Eq. (\ref{approx-relation}). 
+
+The way to use operator $P_{nf}$ and $P_{nf}^{\dagger}$ to describe excitons is called site representation. Due to the periodicity of crystal, there is another way to represent excitons by making use of the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$: 
+\begin{eqnarray}
+P_{nf} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}(k) e^{ikn} \nonumber \\
+P_{nf}^{\dagger} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}^{\dagger}(k) e^{-ikn} \ , \label{unitary-transform}
+\end{eqnarray}
+and this is called wavevector representation. Since the unitary transformation does not change the commutation rule of operators, we expect that the following equation
+\begin{equation}
+P_{f',k'}P_{f,k}^{\dagger} - P_{f,k}^{\dagger}P_{f',k'}=\delta_{kk'}\delta_{ff'} \ . \label{approx-relation-in-wavevector}
+\end{equation}
+also hold. This can be verified by substituting Eq. (\ref{unitary-transform}) into Eq. (\ref{approx-relation}). 
+
+
+
+
+\section{Review of angular momentum theory}
+\label{sec:angularMomentum}
+
+The energy difference between the excited sate and the ground state, $\Delta_{eg}$ can be easily calculated by diagonalizing  the total Hamiltonian including the external potential. We know how to calculate the potential due to dipole-dipole interaction 
+\begin{equation}
+\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\hat{R})\cdot(\mathbf{d}_{B}\cdot\hat{R})\right] \ , \nonumber
+\end{equation}
+($\vec{R}$ is the vector connecting the centers of mass of two molecules, and $\hat{R}$ is an unit vector in the direction of $\vec{R}$), 
+
+
+In this appendix, we will calculate the dipole-dipole interaction between two molecules by using the theory of angular momentum. The treatment of the theory of angular momentum is simplified so that only the necessary part that are directly used in the derivation of dipole-dipole interaction is covered. The structure of this appendix is  unconventional. We starts with a problem and then develop the techniques to solve it. In a sense, the appendix is a series of problem-solving blocks. However, in order not to interrupt the logic of problem solving, we will not separate them into different subsections. 
+
+We have two molecules A and B, which are in states $|N_{A}M_{A}\rangle$ and $|N_{B}M_{B}\rangle$ respectively. In free space, the molecules can rotate along the axis connecting their center of mass, then their state are expressed by
+\begin{equation}
+|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle |lm\rangle  \ , \nonumber
+\end{equation}
+where $l$ is the total angular momentum of A and B together. 
+
+However, in solid state or optical lattices, the position of molecules are fixed to a good approximation, they cannot rotate along that axis. In this case, their states are given by $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ if there is no interaction between them. If we consider the interaction between the two molecules, we can always use $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ as basis set. By expanding the Hamiltonian in this basis set and diagonalizing it, we can get the new eigenstates.
+
+As the first step, we have to know what the interaction between the two molecules is. If A has a permanent dipole of $\mathbf{d}_{A}$ and B has a permanent dipole of $\mathbf{d}_{B}$ and the vector connecting their centers of mass is $\mathbf{R}$, then the dipole-dipole interaction between A and B is given by
+\begin{equation}
+\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})\right]  \ . \label{dd-operator}
+\end{equation}
+Here we only consider the dipole moment, there also exists quadrupole, octopole, ..., etc., but their magnitudes are so small that we can ignore them at large distances, say, 400 nm. Our final goal is to evaluate the matrix element $\langle N_{A}M_{A}|\langle N_{B}M_{B} | \hat{V}_{\mbox{\tiny dd}}|N_{A}^{'}M_{A}^{'}\rangle |N_{B}^{'}M_{B}^{'}      \rangle$. The general scheme to calculate the matrix elements is based on the fact that the dipole-dipole operator (Eq. (\ref{dd-operator}) ) can be expressed in terms of harmonics operators. Then its matrix elements can be written in terms of 3-j symbols, which can be calculated numerically. 
+
+We first consider the simpler term in Eq. (\ref{dd-operator}), $\mathbf{d}_{A}\cdot\mathbf{d}_{B}$, which can be expressed in terms of a tensor product:
+\begin{equation}
+\mathbf{d}_{A}\cdot\mathbf{d}_{B} = - \sqrt{3} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)} \ . \label{dot-product}
+\end{equation}
+But why should we do that? The answer will become clear later when you see the tensor product is related to spherical harmonics. Now, the task is to prove Eq. (\ref{dot-product}). The proof is enclosed between two straight lines. 
+
+-----------------------------------------------------------------------------------------------
+
+Based on the property of tensor product, we have
+\begin{equation}
+\left[ A^{(1)} \otimes B^{(1)} \right]_{q}^{(k)} =\sum_{m} \langle 1m, 1\;q-m | kq \rangle A(1,m)B(1, q-m) \ , \label{tensor-product}
+\end{equation}
+where the superscript $(k)$ is the rank of the tensor. A tensor $T$ of rank one is a vector operator. It consists of three operators 
+\begin{equation}
+T(1,1) = - \frac{1}{\sqrt{2}} (x + i y) \ , \label{t11}
+\end{equation}
+\begin{equation}
+T(1,0) = z \ , \label{t10}
+\end{equation}
+and 
+\begin{equation}
+T(1,-1) =  \frac{1}{\sqrt{2}} (x - i y) \ .  \label{t1-1}
+\end{equation}
+
+The intuitive understanding of Eq. (\ref{tensor-product}) is that two angular momentums $j_{1} =1$ and $j_{2}=1$ couple to give rise to another angular momentum $j_{3}=k$ with the projection along some direction to be $q$. 
+
+In order to know the relation between $\mathbf{d}_{A}\cdot\mathbf{d}_{B}$ and $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$, we need to calculate $\langle 1m, 1\;q-m | kq \rangle$ in Eq. (\ref{tensor-product}). They are the Clebsch-Gordan coefficients, which appear when you express the couple representation $|j_{1} j_{2} j m\rangle$ in terms of the uncouple representation $|j_{1}m_{1}\rangle |j_{2}m_{2}\rangle$. Due to symmetry consideration, it is often convenient to expressed the coefficients by the 3-j symbols. The relation between Clebsch-Gordan coefficient and 3-j symbol is given by the following two equations:
+\begin{equation}
+\left( 
+\begin{array}{ ccc }
+j_{1} & j_{2} & j_{3} \\
+m_{1} & m_{2} & m_{3}
+\end{array}
+\right) \equiv (-1)^{j_{1} - j_{2} - m_{3}} (2j_{3} +1)^{-\frac{1}{2}} \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \ ,
+\end{equation}
+\begin{equation}
+ \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \equiv (-1)^{j_{1} - j_{2} + m_{3}} (2j_{3} +1)^{\frac{1}{2}}
+\left( 
+\begin{array}{ ccc }
+j_{1} & j_{2} & j_{3} \\
+m_{1} & m_{2} & -m_{3}
+\end{array}
+\right)  \ . \label{CG-3j}
+\end{equation}
+The 3-j symbols are more symmetric than Clebsch-Gordan coefficients. They have the following important property: 
+\begin{equation}
+\left\{
+\begin{array}{ccc}
+j_{1}&j_{2}&j_{3} \\
+m_{1}&m_{2}&m_{3}
+\end{array}
+\right\}
+=0 \;\;\;\; \mbox{unless } m_{1} + m_{2} + m_{3} = 0
+\end{equation}
+which physically means that only certain angular momentum eigenstates $\ket{j,m}$ are coupled.
+An even permutation of the columns of 3-j symbol does not change its value and an odd permutation multiplier the initial value by $(-1)^{j_{1} + j_{2} + j_{3}}$. Moreover,
+\begin{equation}
+\left\{
+\begin{array}{ccc}
+j_{1}&j_{2}&j_{3} \\
+m_{1}&m_{2}&m_{3}
+\end{array}
+\right\}
+=
+(-1)^{j_{1} + j_{2} + j_{3}}
+\left\{
+\begin{array}{ccc}
+j_{1}&j_{2}&j_{3} \\
+-m_{1}&-m_{2}&-m_{3}
+\end{array}
+\right\}
+\end{equation}
+This implies
+\begin{equation}
+\left\{
+\begin{array}{ccc}
+j_{1}&j_{2}&j_{3} \\
+0&0&0
+\end{array}
+\right\}
+=0 \;\; \;\;\mbox{unless } j_{1} + j_{2} + j_{3} = \mbox{even.}
+\end{equation}
+
+First, we consider the case where $k=1$ in Eq. (\ref{tensor-product}), that is $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$. Based on Eq. (\ref{tensor-product}), we obtain
+\begin{eqnarray}
+\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)} & = & \sum_{m=-1,0,1} \langle 1 m, 1 -m | 00\rangle \mathbf{d}_{A}(1, m) \mathbf{d}_{B}(1, -m) \nonumber \\
+&=& \langle 1 1, 1 -1 | 00\rangle \mathbf{d}_{A}(1, 1) \mathbf{d}_{B}(1, -1) + \langle 1 0, 1 0 | 00\rangle \mathbf{d}_{A}(1, 0) \mathbf{d}_{B}(1, 0) \nonumber \\
+&  & + \langle 1 -1, 1 1 | 00\rangle \mathbf{d}_{A}(1, -1) \mathbf{d}_{B}(1, 1) \nonumber \\
+&=&\frac{1}{\sqrt{3}} \mathbf{d}_{A}(1, 1) \mathbf{d}_{B}(1, -1) - \frac{1}{\sqrt{3}}\mathbf{d}_{A}(1, 0) \mathbf{d}_{B}(1, 0) +  \frac{1}{\sqrt{3}} \mathbf{d}_{A}(1, -1) \mathbf{d}_{B}(1, 1) \nonumber \\
+\end{eqnarray}
+(Mathematica can be used to evaluate the Clebsch-Gordan coefficients.)
+Substituting Eq. (\ref{t11}), (\ref{t10}) and (\ref{t1-1}) into the above equation, we obtain
+\begin{equation}
+\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}  = -\frac{1}{\sqrt{3}} (\mathbf{d}_{A,x}\mathbf{d}_{B,x} + \mathbf{d}_{A,y}\mathbf{d}_{B,y} + \mathbf{d}_{A,z}\mathbf{d}_{B,z}) = -\frac{1}{\sqrt{3}} \mathbf{d}_{A}\cdot\mathbf{d}_{B} \ .
+\end{equation}
+Therefore, the tensor product of rank $k=0$ is related to the scalar product. Similarly, it can be shown that the tensor product of rank $k=1$ is related to the cross product. 
+\begin{equation}
+\left[ A^{(1)} \otimes B^{(1)} \right]_{q}^{(k)} = (\mathbf{A}\times \mathbf{B})\cdot \mathbf{\hat{e}}_{q} \ ,
+\end{equation}
+where
+\begin{eqnarray}
+\mathbf{\hat{e}}_{+1} &=& -\frac{1}{\sqrt{2}}(\mathbf{\hat{X}} + i \mathbf{\hat{Y}}) \nonumber \\
+\mathbf{\hat{e}}_{0} &=& \mathbf{\hat{Z}} \nonumber \\
+\mathbf{\hat{e}}_{-1} &=& \frac{1}{\sqrt{2}}(\mathbf{\hat{X}} - i \mathbf{\hat{Y}})
+\end{eqnarray}
+
+
+-----------------------------------------------------------------------------------------------
+
+As for the second term in the square bracket in Eq. (\ref{dd-operator}), we can do the same thing. Instead of considering the product of two scalars $(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})$, we consider it as a special case of the scalar product of two vectors (thinking of a vector with two components being zero ). Then according to Eq. (\ref{dot-product}), we have
+\begin{equation}
+(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})= 3\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}  \ .
+\end{equation}
+There is a simple understanding of the above equation: an angular momentum $\mathbf{d}_{A}$ with $j_{1}=1$ couples  another angular momentum $\hat{R}$ with $j_{2}=1$ to give rise to a new angular momentum, and an angular momentum $\mathbf{d}_{B}$ with $j_{3}=1$ couples  another angular momentum $\hat{R}$ with $j_{4}=1$ to give rise to another new angular momentum, and then these two new angular momentum couples with each other. It is necessary to regroup these operators such that dipole operators are separated from the position operators. The regrouping of operators corresponds to different coupling schemes (orders) of the four angular momentums. In the following, we will talk about the coupling of four angular momentums.
+
+-----------------------------------------------------------------------------------------------
+
+The coupling of four angular momenta has more than one possible coupling scheme, and all these coupling schemes are related by unitary transformations. We might couple $j_{1}$, $j_{2}$, $j_{3}$ and $j_{4}$ in such a way that $j_{1} + j_{4}=j_{14}$, $j_{2} + j_{3}= j_{23}$, and $j_{14} + j_{23} = j$. The eigenfunctions in this coupling scheme is give by $|(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle$. The relation between the states corresponding to different coupling schemes is
+\begin{eqnarray}
+|(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle &=& \sum_{j_{12}}\sum_{j_{34}} \langle (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j  | (j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j \rangle \nonumber \\
+& & \times |(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle \ , \label{9-j1}
+\end{eqnarray}
+and the $9-j$ symbol is defined by
+\begin{eqnarray}
+&&\langle (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j | |(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j \rangle \nonumber \\
+& & = \sqrt{(2j_{12} + 1) (2j_{34} +1)(2j_{14}+1)(2j_{23} + 1)}
+\left\{
+\begin{array}{ccc}
+j_{1}& j_{2}&j_{12} \\
+j_{3}&j_{4}&j_{34} \\
+j_{14}&j_{23}&j 
+\end{array}
+\right\} \ . \label{9-j2}
+\end{eqnarray}
+The first two rows of the $9-j$ symbol is related to the coupling scheme served as the basis set and the last row is associated with the coupling scheme of $|(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle$, the eigenfunction that we want to expand. 
+
+-----------------------------------------------------------------------------------------------
+
+Let's expand $\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}$ in terms of another coupling scheme, namely $\mathbf{d}_{A}$ couples $\mathbf{d}_{B}$ and $\mathbf{\hat{R}}$ couples $\mathbf{\hat{R}}$. Based on Eq. (\ref{9-j1}) and (\ref{9-j2}), we have
+\begin{equation}
+(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})= 3\sum_{k}(2k + 1) 
+\left\{
+\begin{array}{ccc}
+1& 1&k \\
+1&1&k \\
+0&0&0 
+\end{array}
+\right\} 
+\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}\otimes \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}  \right]_{0}^{(0)} \ . \label{regrouping}
+\end{equation}
+Obviously, in the above $9-j$ symbol $1+1=k$ and $1+1=k$ is the new coupling scheme, and $0+0=0$ is the original coupling scheme. The $9-j$ symbols can be expressed in terms of $6-j$ symbols (related to the coupling of 3 angular momenta). In the special case where the final angular momentum $j_{9}=0$, we have
+\begin{eqnarray}
+\left\{
+\begin{array}{ccc}
+j_{1}& j_{2}&j_{3} \\
+j_{4}&j_{5}&j_{6} \\
+j_{7}&j_{8}&j_{9}
+\end{array}
+\right\} 
+&=&(-1)^{j_{2} + j_{3} + j_{4} + j_{7}}[(2j_{3} +1)(2j_{7} + 1)]^{-\frac{1}{2}} \nonumber \\
+&  & \times 
+\left\{
+\begin{array}{ccc}
+j_{1}& j_{2}&j_{3} \\
+j_{5}&j_{4}&j_{7} 
+\end{array}
+\right\} 
+\delta_{j_{3}j_{6}}\delta_{j_{7}j_{8}} \ . 
+\end{eqnarray}
+Then
+\begin{eqnarray}
+\left\{
+\begin{array}{ccc}
+1& 1&k \\
+1&1&k \\
+0&0&0 
+\end{array}
+\right\} 
+&=& (-1)^{k+2} (2k+1)^{-\frac{1}{2}}
+\left\{
+\begin{array}{ccc}
+1& 1&k \\
+1&1&0 
+\end{array}
+\right\} \nonumber \\
+&=& (-1)^{k+2} (2k+1)^{-\frac{1}{2}} 
+\left\{ 
+\begin{array}{cc}
+\frac{1}{3} (-1)^{-k} & 0\leq k \leq 2 \\
+0 & \mbox{otherwise}
+\end{array}
+\right.
+\end{eqnarray}
+Because $k$ results from the coupling of $j_{1}=1$ and $j_{2}=1$, it is in the range of $|j_{1}-j_{2}|, \cdots, |j_{1}+j_{2}|$, and the above equation can be simplified as
+\begin{equation}
+\left\{
+\begin{array}{ccc}
+1& 1&k \\
+1&1&k \\
+0&0&0 
+\end{array}
+\right\} = \frac{(2k + 1)^{-\frac{1}{2}}}{3} \ . \label{9-j-value}
+\end{equation}  
+Substituting Eq. (\ref{9-j-value}) into Eq. (\ref{regrouping}) and using Eq. (\ref{tensor-product}), we obtain
+\begin{eqnarray}
+(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})&=&\sum_{k=0,1,2}\sum_{q}(2k+1)^{\frac{1}{2}}\langle k q, k -q | 00 \rangle\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q}    \nonumber \\
+&=& \sum_{k=0,1,2}\sum_{q} (-1)^{k-q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q} \ . \label{scalarXscalar}
+\end{eqnarray}
+Since the tensor product of rank 1 is related to the cross product, $\left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k=1)}_{-q}$ is associated with $\mathbf{\hat{R}}\times\mathbf{\hat{R}}$ and it is zero. Then Eq. (\ref{scalarXscalar}) can be simplified further as
+\begin{eqnarray}
+(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})&=&\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(0)}_{0} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}_{0} \nonumber \\
+& & + \sum_{|q|=0,1,2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
+&=& (-\frac{1}{\sqrt{3}} \mathbf{d}_{A}\cdot \mathbf{d}_{B})(-\frac{1}{\sqrt{3}}\mathbf{\hat{R}}\cdot\mathbf{\hat{R}} ) \nonumber \\
+& & +  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
+&=& \frac{\mathbf{d}_{A}\cdot \mathbf{d}_{B}}{3}+  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\ 
+\label{term2}
+\end{eqnarray}
+Substitution of Eq. (\ref{term2}) into the expression for the dipole-dipole interaction (Eq. (\ref{dd-operator})) yields
+\begin{equation}
+\hat{V}_{\mbox{\tiny dd}}(\mathbf{R}) = \frac{-3}{R^{3}} \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \ .
+\end{equation}
+
+-----------------------------------------------------------------------------------------------
+
+Before we go on, it is helpful to get familiar with rotational matrices and spherical harmonics.
+
+
+-----------------------------------------------------------------------------------------------
+
+\section{Dipole-dipole interaction}
+\label{sec::ddInteraction}
