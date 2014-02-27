@@ -667,8 +667,8 @@ $\hat{H}_2 = E_f \sum\limits_n \hat{R}_n^\dag \hat{R}_n   + \sum\limits_{n,m \ne
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\linewidth]{Figure3.pdf}
-\caption{The energies of rotational levels as functions of the strength of the DC field. The dashed lines represent
-other rotational states with $M_{N} \neq 0$. 
+\caption{The rotational energies of a closed-shell polar molecule as functions of the strength of the DC field. The
+ dashed lines represent other rotational states with $M_{N} \neq 0$. 
 }
 \label{fig:rotationalEnergy}
 \end{figure}
@@ -839,6 +839,18 @@ where
 }
 The advantage of \autoref{eqn:trimerMatrixEqSymmetric} over \autoref{eqn:trimerMatrixEq} is that the matrix
 $\mathbf{B}$ is symmetric, which leads to easier diagonalization. 
+
+The energies of three-exciton states can be obtained by diagonalizing the matrix $\mathbf{B}$ in
+ \autoref{eqn:trimerMatrixEqSymmetric} and filtering out the eigenvalues whose corresponding eigenvectors don't
+ satisfiy \autoref{eqn:specificCondition}. As a proof-of-principle example, we have solved
+ \autoref{eqn:trimerMatrixEqSymmetric} for a small lattices under the nearest-neighbor approximation and presented
+ the results  in \autoref{fig:trimer}. As can be seen from the figure, three excitons may
+form a three-body bound state or a biexciton plus a free exciton. Since the energies of three-body bound states are
+located outside the energy continuum of a biexciton plus a free exciton, an interesting question arise: does 
+three-body bound states of excitons exist when two-body bound states don't form, that is, does the Efimov effect
+ occur in the current case? Unfortunately, our primitive numerical investigation shows that the three-body and
+ two-body bound states always occur at the same time when $D/J$ reaches 2, indicating no Efimov effect. However,
+this is not a conclusive result as only the interaction between nearest neighbors are included in the calculation. 
 
  
 

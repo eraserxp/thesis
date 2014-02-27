@@ -37,10 +37,10 @@
 \backcite {biexciton-theory-2}{{31}{3.3.3}{equation.3.3.71}}
 \backcite {vektaris}{{31}{3.3.3}{equation.3.3.71}}
 \backcite {note1}{{31}{3.3.3}{equation.3.3.71}}
-\backcite {felipe}{{34}{3.3.3}{figure.caption.9}}
+\backcite {felipe}{{34}{3.3.3}{figure.caption.12}}
 \backcite {efremov1973}{{35}{3.4}{section.3.4}}
 \backcite {Ezaki1994}{{35}{3.4}{section.3.4}}
-\backcite {demille}{{42}{3.6}{section.3.6}}
+\backcite {demille}{{44}{3.6}{section.3.6}}
 \backcite {felipe-polarons}{{44}{3.6}{section.3.6}}
 \backcite {exciton-cluster}{{44}{3.6}{section.3.6}}
 \backcite {photosynthesis-1}{{44}{3.6}{section.3.6}}
@@ -71,11 +71,11 @@
 \backcite {demille}{{49}{4.2}{equation.4.2.3}}
 \backcite {adiabatic-theo}{{50}{4.2}{equation.4.2.4}}
 \backcite {alignment-review}{{50}{4.2}{equation.4.2.5}}
-\backcite {agranovich}{{51}{4.2}{figure.caption.13}}
-\backcite {marina-bookchapter}{{51}{4.2}{figure.caption.13}}
-\backcite {kinematic-biexciton-agranovich}{{51}{4.2}{figure.caption.13}}
-\backcite {felipe}{{51}{4.2}{figure.caption.13}}
-\backcite {biexcitons}{{51}{4.2}{figure.caption.13}}
+\backcite {agranovich}{{51}{4.2}{figure.caption.16}}
+\backcite {marina-bookchapter}{{51}{4.2}{figure.caption.16}}
+\backcite {kinematic-biexciton-agranovich}{{51}{4.2}{figure.caption.16}}
+\backcite {felipe}{{51}{4.2}{figure.caption.16}}
+\backcite {biexcitons}{{51}{4.2}{figure.caption.16}}
 \backcite {focusing-books-1}{{53}{4.3}{equation.4.3.10}}
 \backcite {focusing-books-2}{{53}{4.3}{equation.4.3.10}}
 \backcite {focusing-books-1}{{53}{4.3}{equation.4.3.10}}
@@ -126,4 +126,4 @@
 \backcite {zimboras2012}{{68}{4.8}{section.4.8}}
 \backcite {zimboras2012}{{68}{4.8}{section.4.8}}
 \backcite {zimboras2012}{{68}{4.8}{section.4.8}}
-\backcite {felipe}{{81}{4.8}{chapter*.22}}
+\backcite {felipe}{{81}{4.8}{section*.26}}

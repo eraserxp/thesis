@@ -1,10 +1,10 @@
 \contentsline {chapter}{Abstract}{ii}{chapter*.1}
 \contentsline {chapter}{Preface}{iii}{chapter*.2}
-\contentsline {chapter}{Table of Contents}{iv}{chapter*.3}
-\contentsline {chapter}{List of Tables}{vi}{chapter*.4}
-\contentsline {chapter}{List of Figures}{vii}{chapter*.5}
-\contentsline {chapter}{Glossary}{xii}{chapter*.6}
-\contentsline {chapter}{Acknowledgments}{xiii}{chapter*.7}
+\contentsline {chapter}{Table of Contents}{iv}{section*.4}
+\contentsline {chapter}{List of Tables}{vi}{section*.6}
+\contentsline {chapter}{List of Figures}{vii}{section*.8}
+\contentsline {chapter}{Glossary}{xii}{chapter*.9}
+\contentsline {chapter}{Acknowledgments}{xiii}{chapter*.10}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Ultracold atoms and molecules}{1}{section.1.1}
 \contentsline {chapter}{\numberline {2}Background material}{2}{chapter.2}
@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {3.3.3}Properties of biexciton states}{31}{subsection.3.3.3}
 \contentsline {section}{\numberline {3.4}Non-optical creation of biexcitons}{35}{section.3.4}
 \contentsline {section}{\numberline {3.5}Extension to exciton trimers}{39}{section.3.5}
-\contentsline {section}{\numberline {3.6}Discussion}{42}{section.3.6}
+\contentsline {section}{\numberline {3.6}Discussion}{43}{section.3.6}
 \contentsline {chapter}{\numberline {4}Non-adiabatic control of quantum energy transfer in ordered and disordered arrays}{45}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction}{45}{section.4.1}
 \contentsline {section}{\numberline {4.2}Sudden phase transformation}{48}{section.4.2}
@@ -32,5 +32,5 @@
 \contentsline {section}{\numberline {4.6}Energy transfer in the presence of vacancies}{61}{section.4.6}
 \contentsline {section}{\numberline {4.7}Focusing in the presence of strong disorder}{63}{section.4.7}
 \contentsline {section}{\numberline {4.8}Conclusion}{66}{section.4.8}
-\contentsline {chapter}{Bibliography}{78}{chapter*.22}
+\contentsline {chapter}{Bibliography}{78}{section*.26}
 \contentsline {chapter}{\numberline {A}Supporting Materials}{88}{appendix.A}
