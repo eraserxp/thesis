@@ -18,6 +18,7 @@ that the proposed technique can allow control of energy transfer  in completely 
 
 
 \section{Introduction}
+\label{sec:energyTransferIntro}
 
 The experiments with ultracold atoms and molecules trapped in optical lattices have opened a new frontier of 
 condensed-matter physics research. The unique properties of these systems -- in particular, large ($>$ 400 nm) 
@@ -25,8 +26,10 @@ separation of lattice sites, the possibility of tuning the tunnelling amplitude 
  varying the trapping field and the possibility of controlling interparticle interactions with external electric or 
 magnetic fields -- offer many exciting applications ranging from quantum simulation of complex lattice models 
 \cite{Kohl2005, Barnett2006, micheli2006, Brennen2007, Buchler2007, McKay2008, Jordens2008, Schneider2008, 
-Carr, Carr2, Trefzger2010, Kestner2011, gorshkov, gorshkov2} to the study of novel quasi-particles \cite{biexcitons} that cannot be realized in solid-state crystals.
- In the limit of strong trapping field,  each site of an optical lattice is populated by a fixed number of ultracold atoms or molecules. 
+Carr, Carr2, Trefzger2010, Kestner2011, gorshkov, gorshkov2} to the study of novel quasi-particles \cite{biexcitons}
+ that cannot be realized in solid-state crystals.
+ In the limit of strong trapping field,  each site of an optical lattice is populated by a fixed number of ultracold atoms
+ or molecules. 
 Such states can be produced with either bosonic or fermionic particles \cite{Greiner2002, Jordens2008}. Here, we consider
  an optical lattice fully or partially filled with one particle per lattice site, and assume that tunnelling between lattice
  sites is completely suppressed. Such an array can be thought of as a prototype  of a  system,
@@ -79,15 +82,17 @@ lifetime of these excited states is limited by fast spontaneous emission \cite{e
 suppressing spontaneous decay by tailoring the properties of the excitation wave packets. 
 
 
-The paper has the following structure. Sections 2  and 3 present the results in terms of the general 
-Hamiltonian parameters.  Section 4 addresses the particular case of ultracold atoms and molecules.
- Section 5 discusses controlled energy transfer in systems with, specifically, 
-dipole - dipole interactions. Section 6 considers the effects of lattice vacancies on the possibility of controlling 
-energy transfer and Section 7 extends the proposed technique to
+The paper has the following structure. \Autoref{sec:phaseKicking} and \autoref{sec:focusing} present the results in terms of the general 
+Hamiltonian parameters.  \Autoref{sec:excitationAtomMolecule} addresses the particular case of ultracold atoms and molecules.
+\Autoref{sec:controlEnergyTransfer} discusses controlled energy transfer in systems with, specifically, 
+dipole - dipole interactions. \Autoref{sec:energyTransferVacancy} considers the effects of lattice vacancies on the possibility of controlling 
+energy transfer and \autoref{sec:focusingStrongDisorder} extends the proposed technique to
 control of excitation dynamics in strongly disordered arrays with a large
-concentration of impurities. Section 8 presents the conclusions.
+concentration of impurities. \Autoref{sec:energyTransferConclusion} presents the conclusions.
 
 \section{Sudden phase transformation}
+\label{sec:phaseKicking}
+
 Consider, first, an ensemble of ${N}$ coupled identical monomers
 possessing two internal states arranged in a one-dimensional array
 with translational symmetry. The Hamiltonian for such a system is
@@ -137,7 +142,7 @@ With atoms or molecules on an optical lattice, it is also possible to generate a
  (or a small number of sites) by applying a gradient of an external electric or magnetic field and inducing transitions in
  selected atoms by a pulse of resonant electromagnetic field \cite{demille}. The presence of a disorder potential, 
 whether coming from jitter in external fields or from incomplete population of lattice sites,  also results in spatial 
-localization. Similar to how Eq.~(\ref{basis}) defines the collective excited states in the basis of lattice sites, 
+localization. Similar to how \autoref{basis} defines the collective excited states in the basis of lattice sites, 
 any localized excitation $| \psi \rangle$ can be generally written as a coherent superposition of the exciton states
  $| \psi_{\rm exc}(k)\rangle$ with different $k$:
 
@@ -155,7 +160,7 @@ in an arbitrary part of the lattice. To achieve this, we propose
 to apply a series of site-dependent perturbations  that modify the phases of the quantum states of spatially separated monomers. 
 These phase transformations change the dynamics of the time evolution of the collective excitations. 
 Here we consider the transformations leading to acceleration or deceleration of collective excitations, while   
- the focusing phase transformations are described in Section 3. 
+ the focusing phase transformations are described in \autoref{sec:focusing}. 
 
 
 For modifying the group velocity of a collective excitation, the
@@ -166,7 +171,7 @@ in the expansion (\ref{basis}), so that each $| \psi_{\rm exc}(k)
 wave packets by $\delta$ in $k$-space while preserving their
 shape. As a result, one can engineer wave packets probing any part
 of the dispersion $E(k)$ leading to different group velocity and
-shape evolution. The feasibility of such transformation in an ensemble of atoms or molecules on an optical lattice is discussed below and in Section 4. 
+shape evolution. The feasibility of such transformation in an ensemble of atoms or molecules on an optical lattice is discussed below and in \autoref{sec:excitationAtomMolecule}. 
 
 Adding a site-dependent phase to the excitonic wavefunction
 exploits an interplay of the adiabatic and sudden time scales.
@@ -201,24 +206,19 @@ that of a thin prism on a wavefront of a monochromatic laser beam.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\linewidth]{momentum-kick.pdf}
-\caption{Example of controlled energy transfer in a one-dimensional array of quantum 
-monomers subjected to a linear phase transformation. The graph illustrates the evolution of the exciton wave packet   centered at $k=0$ and initially positioned at
- the center of the array. The phase of the wave function
+\caption{
+Example of controlled energy transfer in a one-dimensional array of quantum 
+monomers subjected to a linear phase transformation. The graph illustrates the evolution of the exciton wave packet  
+ centered at $k=0$ and initially positioned at the center of the array. The phase of the wave function
 is shown by color.  The brightness of color corresponds to the amplitude of the excitation with white color
  corresponding to zero amplitude. The calculation is for a one-dimensional array
-of 201 monomers with $\alpha = 22.83$ kHz and $\Delta E_{e-g} =
-12.14$ GHz,  and the linear phase transformation $\Phi_n \simeq \Phi_0  -1.29 n$. 
-As described in Section 4, these parameters correspond to
-LiCs molecules trapped on an
-optical lattice with lattice constant $a = 400$ nm and subjected
-to a homogeneous DC field of 1 kV/cm directed perpendicular to the
-intermolecular axis. The kicking potential leading to
-  this particular  phase transformation  can be provided by a
-$\lambda = 1064$ nm Gaussian laser beam, with the propagation
-direction along the array axis, focused to 5 $\mu$m, with the
-intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse
-is on between 0 and  $3$ $\mu$s. 
-} \label{momentum-kick}
+of 201 monomers with $\alpha = 22.83$ kHz and $\Delta E_{e-g} =12.14$ GHz,  and the linear phase transformation 
+$\Phi_n \simeq \Phi_0  -1.29 n$. These parameters correspond to LiCs molecules trapped on an optical lattice with lattice constant $a = 400$ nm and
+ subjected to a homogeneous DC field of 1 kV/cm directed perpendicular to the
+intermolecular axis. The kicking potential leading to this particular  phase transformation  can be provided by a
+$\lambda = 1064$ nm Gaussian laser beam, with the propagation direction along the array axis, focused to 5 $\mu$m, 
+with the intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse is on between 0 and  $3 \mu$s.}
+\label{momentum-kick}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -229,9 +229,9 @@ Schr\"{o}dinger equation with the unperturbed Hamiltonian
 (\ref{ham}),  subjected to a transient site-dependent external
 perturbation that temporarily modulates $\Delta E_{e-g}$.
 We choose the parameters $\Delta E_{e-g} =12.14\mbox{ GHz}$, $\alpha =22.83\mbox{ kHz}$ and the lattice constant $a=400\mbox{ nm}$ that correspond to an array of
-polar molecules trapped in an optical lattice, as described in detail in Section 4.
+polar molecules trapped in an optical lattice, as described in detail in \autoref{sec:excitationAtomMolecule}.
 The time-dependent perturbation has the form of a short pulse with the duration $T = 3\; \mu s$. %$\tb{T} \approx \frac{1}{15} \hbar/\alpha$.
-The phase acquired by the particles during this time is given by $\Phi_n \simeq \Phi_0  -1.29 n $, which can be achieved with a focused laser beam, as described in Section 4.
+The phase acquired by the particles during this time is given by $\Phi_n \simeq \Phi_0  -1.29 n $, which can be achieved with a focused laser beam, as described in \autoref{sec:excitationAtomMolecule}.
 
 
 
@@ -259,7 +259,7 @@ on an optical lattice, the dynamical interactions are important in the presence 
  molecular states of different parity are strongly mixed \cite{biexcitons, felipe}.
 At weak parity-mixing fields considered here, the exciton-exciton interactions insignificantly mix different $k$ states
  of the individual excitons, contributing weakly  to localization. These effects are expected to be much smaller than
- the disorder-induced perturbations,  discussed in Sections 6 and 7.
+ the disorder-induced perturbations,  discussed in \autoref{sec:energyTransferVacancy}  and \autoref{sec:focusingStrongDisorder}.
 
 
 
@@ -271,6 +271,7 @@ At weak parity-mixing fields considered here, the exciton-exciton interactions i
 
 
 \section{Focusing of a delocalized excitation}
+\label{sec:focusing}
 
 In order to achieve full control over excitation transfer, it is desirable to find a particular phase transformation
 that focuses a delocalized many-body excitation onto a small part of the lattice, ideally a single lattice site.
@@ -285,14 +286,14 @@ all monomers may turn a broad initial distribution $C_n(t=0)$ into
 a narrow one.
 
 The dynamics of the excitation state in the lattice is determined by the time dependence
-of the coefficients $C_n(t)$ in Eq. (\ref{basis}). In order to find the expression for $C_n(t)$, we expand the amplitudes
+of the coefficients $C_n(t)$ in  \autoref{basis}. In order to find the expression for $C_n(t)$, we expand the amplitudes
  at $t=0$ in a Fourier series
 \begin{eqnarray}
 C_n(t=0) = \sum_q
 \frac{e^{iqn}}{\sqrt{N}}C(q; t=0)
 \end{eqnarray}
 and apply the propagator $e^{-iE(q)t/\hbar}$ to each $q$-component with
-$E(q)$ representing the exciton energy given by Eq.~(\ref{dispersion}).
+$E(q)$ representing the exciton energy given by \autoref{dispersion}.
 Transforming the amplitudes $C(q)$ back to the site representation then yields
 \begin{equation}
 C_m(t) = \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [\Phi(n) +  k a
@@ -307,10 +308,10 @@ extended time interval as long as the accumulated phase gives the desired outcom
 
 
 
-As Eq. (\ref{Cn(t)}) shows, the focusing efficiency is determined by the phase transformation and
+As \autoref{Cn(t)} shows, the focusing efficiency is determined by the phase transformation and
 the shape of the dispersion curve $E(k)$. Given the cosine dispersion of excitons (\ref{dispersion}), is it possible to
  focus a delocalized excitation onto a single lattice site?
-To answer this question, we assume that $C_{n = n_0}(t=0) = 1$ and apply Eq. (\ref{Cn(t)}) to
+To answer this question, we assume that $C_{n = n_0}(t=0) = 1$ and apply \autoref{Cn(t)} to
  calculate the coefficients $C_m(t)$ at $t=-\tau$.  Using
 the expansion of an exponent in Bessel functions
 \begin{eqnarray}
@@ -404,7 +405,7 @@ focused and has a width
 \Phi_0^{*\,2} \tilde\sigma_x^4 / a^4 }} \approx a .
 \label{x-focusing-Gauss}
 \end{equation}
-For the time $t_*$ in Eq. (\ref{focus-time}) to be positive, $\alpha$ and $\Phi_0^*$ must have the same sign. Therefore, a convex quadratic phase profile
+For the time $t_*$ in \autoref{focus-time} to be positive, $\alpha$ and $\Phi_0^*$ must have the same sign. Therefore, a convex quadratic phase profile
 $\Phi(n)$ with $\Phi_0>0$ must focus collective excitations in a system with
 repulsive couplings between particles in different lattice sites ($\alpha>0$), and a concave quadratic phase
 profile $\Phi(n)$ with $\Phi_0<0$ must focus excitations in a system with
@@ -413,7 +414,7 @@ attractive couplings ($\alpha<0$).
 Second, consider a completely delocalized excitation (\ref{basis})
 with $C_n(k;t=0) = {e^{iakn}}/{\sqrt{N}}$ describing an eigenstate
 of an ideal system of $N$ coupled monomers.
-If $E(k)$ in Eq.~(\ref{Cn(t)}) is approximated as $E(k) = \D E_{e-g}
+If $E(k)$ in \autoref{Cn(t)}  is approximated as $E(k) = \D E_{e-g}
 -\alpha a^2 k^2$, the quadratic phase transformation $\vp(n) = \vp_0
 n^2$ yields
 
@@ -432,7 +433,7 @@ a (m + 2\alpha ak) ]}\times\\
 \end{array}\label{C_plane_wave}
 \end{equation}
 where $\Theta(z) = 1$ if $z$ is true and zero otherwise.
-In order to derive Eq. (\ref{C_plane_wave}), we
+In order to derive \autoref{C_plane_wave}, we
 used the approximate equality
 \begin{equation}\label{approx integral}
 \int\limits_{-M}^M dx\ e^{-i(ax^2 + b x)} \approx
@@ -443,18 +444,18 @@ ${\rm Erf}(\sqrt{i}x)$ by the sign function, which is accurate for
 large argument $x$.
 
 At time $t_* = 1/4\alpha\Phi_0$, the terms quadratic in $q$
-in Eq.~(\ref{C_plane_wave}) are canceled, and the sum over $q$ reduces to a
+in \autoref{C_plane_wave} are canceled, and the sum over $q$ reduces to a
 delta-function, if the summation limits are from $-\pi/a$ to
 $\pi/a$. Therefore, the choice $\Phi_0 = \pi / N$ yields $C_m(t) =
 \sqrt{i} e^{-i N a^2 k^2 / 4\pi} \delta_{m,-\nu_k}$, where   $\nu_k$
 is the index of the initial wave vector $k = 2\pi \nu_k / Na$, quantized due to the discreteness of the lattice.
 %However, this works well for a true quadratic dispersion only.
-According to Eq.~(\ref{C_plane_wave}), the dimensionless width
+According to \autoref{C_plane_wave}, the dimensionless width
 of the wave packet in the wave vector space is $\Delta_k(\Phi_0)
 \equiv a\sigma_{k}(\Phi_0) \approx 2N\Phi_0$. When $\Phi_0 = \pi /
 N$, the wave packet spreads over the entire Brillouin zone, including the
 linear parts of the exciton dispersion.
-Using Eq.~(\ref{approx integral}) we find that for an arbitrary
+Using \autoref{approx integral} we find that for an arbitrary
 value of $\Delta_{k}(\Phi_0)$, the site amplitudes at the time of
 focusing $t_* = 1/4\alpha\Phi_0$ are
 \begin{equation}
@@ -488,7 +489,7 @@ with all couplings accounted for. }\label{focusing-1d}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Eqs. (\ref{x-focusing-Gauss}) and (\ref{x-focusing-PlaneWave}) are
+\Autoref{x-focusing-Gauss} and \autoref{x-focusing-PlaneWave} are
 valid for a many-body system with nearest neighbor interactions
 only. In most physical systems, the energy dispersion is modified
 by long-range couplings. In order to confirm that the above
@@ -502,7 +503,7 @@ excitation (panels a and b) and a broad Gaussian wave packet (panels c and d) in
 system with all (first neighbour, second neighbour, etc.) couplings explicitly included  in the
 calculation. The results show that  
 the collective excitations can be focused to a few lattice sites. The role of the long-range coupling will be
-explicitly discussed in Section 6. 
+explicitly discussed in \autoref{sec:energyTransferVacancy}. 
 
 
 
@@ -535,8 +536,9 @@ at $t=0$.
 
 
 \section{Controlled excitations of ultracold atoms and molecules}
+\label{sec:excitationAtomMolecule}
 
-The techniques proposed in Sections 2 and 3 can be realized with ultracold atoms or molecules trapped in an
+The techniques proposed in \autoref{sec:phaseKicking}  and \autoref{sec:focusing}  can be realized with ultracold atoms or molecules trapped in an
 optical lattice  with one particle per lattice site \cite{atom-mott1, atom-mott2, atom-mott3, Ye-arrays-PRL12}.
 There are three general requirements that must be satisfied:
 
@@ -586,7 +588,7 @@ breaking the translational symmetry.
 
  %Due to the same conservation laws,
 %single-photon excitation of atomic ensembles always generates excitons with $k \approx 0$.
-Once collective excited states are created, the phase-kicking technique introduced in Section 2, 
+Once collective excited states are created, the phase-kicking technique introduced in  \autoref{sec:phaseKicking}, 
 if implemented on a time scale faster than the radiative lifetime of a single atom, 
 can be used to shift the excited states in the wave vector space
 away from the light cone (cf. Figure 1) and thus protect the excited states from fast spontaneous decay. This phase transformation can be induced by a pulse of an off-resonant laser field $\mathcal{E}_{AC}$,
@@ -660,8 +662,8 @@ applying a time-varying DC electric field $\mathcal{E}(t)
 =\mathcal{E}_{\ast} + \mathcal{E}(n)\sin^{2}(\pi t/T)$, where
 $\mathcal{E}(n)$ is linear with respect to $n$. Assuming that
 $\mathcal{E}(n) = (n-n_0) A$ and $\mathcal{E}(n) \ll
-\mathcal{E}_{{\ast}}$, and using Eqs. (\ref{phase}) and
-(\ref{DressedEnery-Sum}), gives  $\delta = 4 A
+\mathcal{E}_{{\ast}}$, and using \autoref{phase} and
+\autoref{DressedEnery-Sum}, gives  $\delta = 4 A
 \mathcal{E}_{{\ast}} \mu^2 T / 15 \hbar B a$. We have confirmed
 this result by a numerical computation showing that for LiCs
 molecules in an electric field of $\mathcal{E}_{{\ast}}=1$ kV/cm,
@@ -692,14 +694,14 @@ T) \ , \label{intensity-varying}
 where $I_{c}$ is the intensity at the center of the wave packet.
 This can be achieved if $z_0 = z_R/\sqrt{3}$ and ${\sigma}_x^{(2d)}
 a\lesssim 0.5 z_R$, where $z_0$ is the distance between
-the center of the wave packet and the beam center, and ${\sigma}_x^{(2d)}$ is the width (in the coordinate representation) of the two-dimensional wave packet. Using Eqs. (\ref{phase}), (\ref{DressedEnery-Sum}) and (\ref{gaussian-intensity-profile}), we estimate the momentum kick by such a pulse as $
+the center of the wave packet and the beam center, and ${\sigma}_x^{(2d)}$ is the width (in the coordinate representation) of the two-dimensional wave packet. Using \autoref{phase}, \autoref{DressedEnery-Sum} and (\ref{gaussian-intensity-profile}), we estimate the momentum kick by such a pulse as $
 %\begin{equation}
 \delta = -\sqrt{3}T I_{0} (\alpha_{\|}-\alpha_\perp) / 80 z_R
 %~. \label{Kick-AC}
 %\end{equation}
 $.
 The results presented in Figure 1 were obtained for a 1D array of LiCs molecules on an optical lattice with $a=400$ nm and the external perturbation
-given by the laser field pulse (\ref{intensity-varying}) with parameters $I_c$ and $I_1$ derived from Eq. (\ref{gaussian-intensity-profile}) with $z_0 = 45\; \mu$m and
+given by the laser field pulse (\ref{intensity-varying}) with parameters $I_c$ and $I_1$ derived from  \autoref{gaussian-intensity-profile} with $z_0 = 45\; \mu$m and
 $z_R=73.8\; \mu$m. The numerical results deviate from the analytical prediction for $\delta$ by less than 7 \%.
 
 The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can be used also to implement the quadratic phase transformations needed for focusing of collective excitations. %The quadratic phase transformations needed for focusing of collective excitations can also be implemented by a laser beam with a Gaussian intensity profile.
@@ -707,7 +709,7 @@ To achieve this, a 2D molecular array must be arranged in the $z=0$ plane,
 with the  $x$-axis defined to be along the polarization direction of a linearly polarized field.
 If the dimension of the molecular array is smaller than one third of the
 beam waist, the Gaussian intensity profile in
-Eq. (\ref{gaussian-intensity-profile}) can be approximated
+\autoref{gaussian-intensity-profile} can be approximated
 %\tb{``, to better than 90 \%," -- let's cancel it? This may depend on parameters of the system...} 
 by
 \begin{equation}
@@ -716,24 +718,25 @@ n_y^2)a^2}{w_0^2}\right].
 \label{quadratic-profile}
 \end{equation}
 This is a concave quadratic intensity
-profile which can be used to focus a wave packet  in a system with negative couplings $\alpha$ (see Section 3).
+profile which can be used to focus a wave packet  in a system with negative couplings $\alpha$ (see \autoref{sec:focusing}).
 
 
 
 \section{Control of energy transfer in dipolar systems}
+\label{sec:controlEnergyTransfer}
 
 Dipolar interactions play a central role in the study of long-range interaction effects using ultracold systems \cite{our-njp-review}.
-While, in general, the coupling constant $\alpha$ in Eq. (\ref{ham}) can be determined by a variety of interactions, the dominant contribution to $\alpha$ for atoms and molecules on an optical lattice is determined by the matrix elements of the dipole - dipole interaction. It is therefore particularly relevant to discuss the specifics of energy transfer in systems with dipolar interactions. 
+While, in general, the coupling constant $\alpha$ in \autoref{ham} can be determined by a variety of interactions, the dominant contribution to $\alpha$ for atoms and molecules on an optical lattice is determined by the matrix elements of the dipole - dipole interaction. It is therefore particularly relevant to discuss the specifics of energy transfer in systems with dipolar interactions. 
 
 The dipolar interactions are long-range and anisotropic. This long-range character
-manifests itself in the modification of the exciton dispersion (\ref{Eexc}). While Eq. (\ref{Eexc}) is valid for a system 
+manifests itself in the modification of the exciton dispersion (\ref{Eexc}). While \autoref{Eexc} is valid for a system 
 with nearest neighbour couplings only, higher-order couplings in the case of $\alpha(n-m) \propto 1/ |n-m|^3$ 
 modify the exciton dispersion leading to a cosine-like, 
 but non-analytic dispersion relation, both in 1D  and 2D. 
 To investigate the effect of this nonanalyticity in dispersion curve, we have performed a series of calculations with the long-range couplings neglected 
 after a certain lattice site separation $n-m$ for the 1D system. The results become  converged (to within 0.2 \%) when
  each molecule is directly coupled with 20 nearest molecules. While the calculations with only the nearest neighbor
- couplings are in good agreement  with the analytical predictions given by Eqs. (\ref{focus-time}) and (\ref{x-focusing-Gauss}), the full calculations reveal that long-range 
+ couplings are in good agreement  with the analytical predictions given by \autoref{focus-time} and \autoref{x-focusing-Gauss}, the full calculations reveal that long-range 
 couplings somewhat decrease the focusing efficiency. The long-range couplings also decrease the focusing time, 
 by up to a factor of 2. The dynamics of collective excitations leads to interference oscillation patterns clearly 
 visible in panels a and c of Figure \ref{focusing-1d}. These oscillations are much less pronounced when all but nearest
@@ -761,7 +764,7 @@ curve. This enables
 control over the sign and magnitude of the group velocity of an
 excitonic wave packet containing contributions with $k\neq 0$. Dynamically tuning $\theta$,
 one can propagate a localized excitation to different parts of the
-lattice, as shown in Figure \ref{control-exciton}b.
+lattice, as shown in Figure \ref{control-exciton} (b).
 
 In a 2D lattice, the intermolecular interactions depend on an additional azimuthal angle $\phi$ that describes
  the rotation of the electric field axis around the axis perpendicular to the lattice. The numerical calculations 
@@ -807,12 +810,13 @@ $a=400$ nm.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Energy transfer in the presence of vacancies}
+\label{sec:energyTransferVacancy}
 
 While experiments with ultracold atoms have produced states with one atom per lattice site with  99\%  fidelity \cite{atom-mott1, atom-mott2, atom-mott3},
 the latest experiments with molecules yield lattice-site populations about  10\% \cite{Ye-arrays-PRL12}.
 Multiple experiments are currently underway to  trap polar molecules on an optical lattice with close to the full population of the lattice.
 However, lattice vacancies may be unavoidable in the best experiments. In this section, we examine the effect of vacancies on the possibility of focusing collective excitations
-to a desired region of the lattice by the phase transformations discussed in Section 3. For concreteness, we perform calculations for the system described in Section 4,
+to a desired region of the lattice by the phase transformations discussed in \autoref{sec:focusing}. For concreteness, we perform calculations for the system described in \autoref{sec:excitationAtomMolecule},
 namely a 2D array of LiCs molecules on a square optical lattice with $a=400$ nm.
 
 
@@ -821,7 +825,7 @@ To explore the effect of vacancy-induced interactions, we performed simulations 
 different vacancy numbers using the same parameters for molecule-field and inter-molecular interactions as
 in the calculations presented in Figure \ref{focusing-2d}b. For each vacancy concentration, we carried out 48
 calculations with random distributions of empty lattice sites. The quadratic phase transformations are applied,
-as described in Section 3, in order to focus the collective excitation at time $t_{\ast}$ to
+as described in \autoref{sec:focusing}, in order to focus the collective excitation at time $t_{\ast}$ to
 the molecule in the middle of the 2D array.
 
 Vacancies disturb the translational symmetry of the system and produce an effective disorder potential that tends to
@@ -845,7 +849,7 @@ while the quantity $\chi$ illustrates the effect of the focusing phase transform
 Figure 6 presents the values of $\eta$ and $\chi$ as functions of the vacancy concentration.
 It illustrates two important observations. First, the disorder potential with vacancy concentrations $> 20$ \%
 renders the phase transformation ineffective. In the presence of strong disorder, the dynamics of the system is entirely
-determined by the disorder potential and the energy transfer becomes highly inefficient (however, see Section 7). On the other hand, vacancy
+determined by the disorder potential and the energy transfer becomes highly inefficient (however, see \autoref{sec:focusingStrongDisorder}). On the other hand, vacancy
 concentrations of less than 10 \% appear to have little effect on the efficacy of the focusing phase transformation.
 
 Our calculations indicate that the focusing time may be somewhat modified by the disorder potential, even if the
@@ -887,10 +891,11 @@ respectively. } \label{focusing-with-vacancy}
 \end{figure}
 
 \section{Focusing in the presence of strong disorder}
+\label{sec:focusingStrongDisorder}
 
 %\tb{We need to cite something about t-matrix focusing. Zhenia, could you insert citations into the following paragraphs? }
 
-Although the focusing method demonstrated in Sections 3 and 6 appears to be robust in the presence of a disorder potential induced by a small concentration of vacancies, it is important for practical applications to also consider controlled energy transfer in quantum arrays under a strong disorder potential. To consider focusing in a strongly disordered system, 
+Although the focusing method demonstrated in \autoref{sec:focusing} and \autoref{sec:energyTransferVacancy} appears to be robust in the presence of a disorder potential induced by a small concentration of vacancies, it is important for practical applications to also consider controlled energy transfer in quantum arrays under a strong disorder potential. To consider focusing in a strongly disordered system, 
 we employ an analogy with the {``transfer
 matrix'' methods for focusing of a collimated light beam in opaque
 medium \cite{opaque-1, Gigan-TMeasure-PRL10, Mosk-NPhot10, Cizmar-NPhot10, Silberberg-11, Chatel-Focusing-11, Lagendijk-Focusing-11, zhenia-11, cui-11, kim-11}}.
@@ -996,7 +1001,7 @@ from different blocks can be made to interfere constructively by adding
  a phase $\exp(-i \phi_{\gamma})$ to each occupied site in block
  $\gamma$. For $M$ blocks in the array and quasi-random evolution matrix, simply setting all the phases equal
  must lead to $\sim M$-fold increase of the excitation probability at the target molecule, as compared to
- a sum of $M$ quasi-random phasors in Eq. (\ref{blocks-contribution}) \cite{opaque-1}.
+ a sum of $M$ quasi-random phasors in \autoref{blocks-contribution} \cite{opaque-1}.
 
 Similarly to optics, the phases $-\phi_\gamma$ which must be added in each block, can be found experimentally provided
 that the same (or similar) realization of disorder persists in a series of
@@ -1029,7 +1034,7 @@ Since the Hamiltonian (1) is real, its eigenfunctions are real, and the evolutio
 c_j(T) = \sum_{i}U_{j, i}^\gamma (T) c_i(0) = U_{j, o}^\gamma (T) \ ,
 \end{equation}
 since $c_{o}(0) = 1$ and all other coefficients are zero. For a completely delocalized initial state, we assume that all coefficients
-in Eq. (\ref{planewave-initial}) are equal, so that  the phases $\phi_\gamma$ required for
+in auto\ref{planewave-initial} are equal, so that  the phases $\phi_\gamma$ required for
 block $\gamma$ are
 \begin{equation}
  |c_\gamma|\exp(- i \phi_{\gamma})  = \left[ \sum_{j}  c_j(T) \right]^* \ , \label{phase-applied}
@@ -1076,6 +1081,7 @@ Shown are the enhancement factors $\eta$ (red symbols) defined in Eq.(\ref{eta})
 \end{figure}
 
 \section{Conclusion}
+\label{sec:energyTransferConclusion}
 
 We have proposed a general method for controlling the time evolution of quantum energy transfer in ordered 1D and 2D arrays of coupled monomers.
 Any elementary excitation in an aggregate of coupled
