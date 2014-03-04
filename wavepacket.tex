@@ -162,6 +162,43 @@ These phase transformations change the dynamics of the time evolution of the col
 Here we consider the transformations leading to acceleration or deceleration of collective excitations, while   
  the focusing phase transformations are described in \autoref{sec:focusing}. 
 
+\subsection{Group velocity of wavepacket}
+\label{sec:groupVelocity} 
+
+The derivative of exciton dispesion curve $E(k)$ with respect to the wavevector $k$ determines the propagating 
+behavior of an exciton wavepacket in real space. This can be easily shown by the simple derivations. 
+
+In a perfect crystal, the eigenstates of the system is characterized by a wavevector $k$ and its time evolution is 
+determined by $E(k)$ through
+\multiline{
+\ket{k(t)} &=& e^{-i \frac{E(k)}{\hbar}t}\ket{k(t=0)} \nonumber \\
+&=&\frac{1}{\sqrt{N}} \sum_{n} e^{i \left[k n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \label{eqn:kState}
+}
+where $N$ is the number of sites in the crystal and $\ket{n(t=0)}$ represents the state of system in which only site
+$n$ is in the excited state. It can see from \autoref{eqn:kState} that the probability at each site is always $1/N$ for 
+state $\ket{k}$. So the plane wave $\ket{k}$ doesn't move in real space, which is expected. In the case of a
+ wavepacket which has a Gaussian distribution in real space, the time evolution is given by the following
+equation:
+\multiline{
+\ket{\psi(t)} &=&\frac{1}{\sqrt{\sigma \sqrt{2\pi}}} \sum_{n} e^{-\frac{(n-n_0)^2}{4\sigma^2}} \ket{n(t)} \nonumber \\
+&=&\frac{1}{\sqrt{N\sigma \sqrt{2\pi}}} \sum_{n} e^{-\frac{(n-n_0)^2}{4\sigma^2}}\sum_{k} e^{-i k n} \ket{k(t)} \nonumber \\
+&=& \frac{1}{N\sqrt{\sigma \sqrt{2\pi}}} \sum_{n} e^{-\frac{(n-n_0)^2}{4\sigma^2}}\sum_{k} e^{-i k n}\sum_{m} e^{i \left[k m - \frac{E(k)}{\hbar}t \right]} \ket{m(t=0)}
+}
+
+We have metioned that 
+Direct optical excitation can create an exciton wavepacket which center around $k=0$ in quasi-momentum space. 
+However, such a wavepacket hardly travel in real space as a whole and becomes broad very quickly because of the
+shape of exciton dispersion curve. 
+
+\addfigure{
+\includegraphics[width=\linewidth]{dispersion-curve-move-wavepacket.png}
+\caption{
+The dispersion curve of an exciton. The interaction between site $m$ and site $n$ is proportional to $1/|n-m|^3$. 
+}
+\label{fig:moveWavepacket}
+}
+
+
 
 For modifying the group velocity of a collective excitation, the
 essential idea is to add a factor $e^{i \delta a n}$ to each term
@@ -203,7 +240,7 @@ molecules'' \cite{alignment-review}, we call this transformation a
 that of a thin prism on a wavefront of a monochromatic laser beam.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{momentum-kick.pdf}
 \caption{
@@ -221,6 +258,7 @@ with the intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse is on 
 \label{momentum-kick}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 In order to illustrate the shifting of exciton wave packets in the
@@ -469,7 +507,7 @@ unpopulated, we choose the optimal focusing phase $\Phi_0^*
 \sim 1 /2N$, so that $\Delta_{k}( \Phi_0^*)\sim 1$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{focusing-1d.pdf}
 \caption{ Focusing of a completely delocalized collective
@@ -521,7 +559,7 @@ focussing efficiency in 2D is greater. The results also demonstrate that the del
 %Multiple phase kicks of varying profiles separated by periods of free evolution may enable arbitrary shaping of the excitonic wave packet in the coordinate and $k$-spaces.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{focusing-2d.pdf}
 \caption{Focusing of a delocalized excitation in a 2D array shown
@@ -776,7 +814,7 @@ many-body systems with anisotropic interparticle interactions.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{control-exciton.pdf}
 \caption{ Control of excitation transfer in a 1D many-body system with dipolar interactions by varying the 
@@ -794,7 +832,7 @@ of color corresponds to the probability of the excitation. }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{control-2d-wavepacket.pdf}
 \caption{ Control of excitation transfer in a 2D many-body system with dipolar interactions by varying the 
@@ -861,7 +899,7 @@ excitation on the target molecule by 16 times.
 
 % As you can see from Figure \ref{enhancement-vs-vacancy}, the enhancement factors decrease exponentially as vacancy percentage increases, but still a relatively good focusing can be achieved with 10\% of vacancies.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{enhancement-vs-vacancy.pdf}
 \caption{ Enhancement factors $\eta$ (red symbols) and
@@ -875,7 +913,7 @@ for the definitions of $\eta$ and $\chi$. The error bars are for 95\% of confide
 
 
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{focusing-with-vacancy.pdf}
 \caption{  Time snapshots of a collective excitation in a 2D
@@ -1042,7 +1080,7 @@ block $\gamma$ are
 where the index $j$ runs over all  occupied sites in block $\gamma$.
 Figure \ref{t-matrix-focusing} shows that this choice of phases leads to effective focusing of the collective excitation in a strongly disordered system. 
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{t-matrix-focusing.pdf}
 \caption{  Focusing of a collective excitation in a strongly disordered system with 60\% of lattice sites unoccupied.  Panel (a) shows different phases applied to
@@ -1065,7 +1103,7 @@ As can be seen, the transformations proposed above are effective for vacancy con
 concentrations of vacancies, the excited states become strongly localized and immobile. The focusing efficiency at
 vacancy concentrations 10\% and 20\% appears to be higher than that in the absence of vacancies, which we attribute to the effect of 
 the boundaries.
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{enhancement-vs-vacancy-t-matrix-other.pdf}
 \caption{Efficiency of focusing collective excitations in strongly disordered 2D lattices. The molecular 

@@ -278,6 +278,14 @@
 #1
 \end{eqnarray}
 }
+
+% a short cut to make figure
+\newcommand{\addfigure}[1]{
+\begin{figure}[htbp]
+\centering
+#1
+\end{figure}
+}
                           
 \def\vec#1{\mathbf{#1}}
 \def\k{\mathbf{k}}
@@ -326,7 +334,7 @@
   \begingroup%
   \def\chapterautorefname~##1\null{Chapter~(##1)\null}%
   \def\sectionautorefname~##1\null{Section~(##1)\null}%
-  \def\subsectionautorefname~##1\null{Sub--Section~(##1)\null}%
+  \def\subsectionautorefname~##1\null{Section~(##1)\null}%
   \def\figureautorefname~##1\null{Figure~(##1)\null}%
   \def\tableautorefname~##1\null{Table~(##1)\null}%
   \def\equationautorefname~##1\null{Equation~(##1)\null}%
