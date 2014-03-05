@@ -1,10 +1,10 @@
 \contentsline {chapter}{Abstract}{ii}{chapter*.1}
 \contentsline {chapter}{Preface}{iii}{chapter*.2}
-\contentsline {chapter}{Table of Contents}{iv}{chapter*.3}
-\contentsline {chapter}{List of Tables}{vi}{chapter*.4}
-\contentsline {chapter}{List of Figures}{vii}{chapter*.5}
-\contentsline {chapter}{Glossary}{xii}{chapter*.6}
-\contentsline {chapter}{Acknowledgments}{xiii}{chapter*.7}
+\contentsline {chapter}{Table of Contents}{iv}{section*.4}
+\contentsline {chapter}{List of Tables}{vi}{section*.6}
+\contentsline {chapter}{List of Figures}{vii}{section*.8}
+\contentsline {chapter}{Glossary}{xii}{chapter*.9}
+\contentsline {chapter}{Acknowledgments}{xiii}{chapter*.10}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Ultracold atoms and molecules}{1}{section.1.1}
 \contentsline {chapter}{\numberline {2}Background material}{2}{chapter.2}
@@ -27,11 +27,12 @@
 \contentsline {section}{\numberline {4.1}Introduction}{46}{section.4.1}
 \contentsline {section}{\numberline {4.2}Sudden phase transformation}{49}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Group velocity of wavepacket}{50}{subsection.4.2.1}
-\contentsline {section}{\numberline {4.3}Focusing of a delocalized excitation}{54}{section.4.3}
-\contentsline {section}{\numberline {4.4}Controlled excitations of ultracold atoms and molecules}{60}{section.4.4}
-\contentsline {section}{\numberline {4.5}Control of energy transfer in dipolar systems}{65}{section.4.5}
-\contentsline {section}{\numberline {4.6}Energy transfer in the presence of vacancies}{69}{section.4.6}
-\contentsline {section}{\numberline {4.7}Focusing in the presence of strong disorder}{70}{section.4.7}
-\contentsline {section}{\numberline {4.8}Conclusion}{77}{section.4.8}
-\contentsline {chapter}{Bibliography}{80}{chapter*.23}
-\contentsline {chapter}{\numberline {A}Supporting Materials}{90}{appendix.A}
+\contentsline {subsection}{\numberline {4.2.2}Phase kicking in $k$ space}{52}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Focusing of a delocalized excitation}{55}{section.4.3}
+\contentsline {section}{\numberline {4.4}Controlled excitations of ultracold atoms and molecules}{61}{section.4.4}
+\contentsline {section}{\numberline {4.5}Control of energy transfer in dipolar systems}{66}{section.4.5}
+\contentsline {section}{\numberline {4.6}Energy transfer in the presence of vacancies}{70}{section.4.6}
+\contentsline {section}{\numberline {4.7}Focusing in the presence of strong disorder}{71}{section.4.7}
+\contentsline {section}{\numberline {4.8}Conclusion}{78}{section.4.8}
+\contentsline {chapter}{Bibliography}{81}{section*.27}
+\contentsline {chapter}{\numberline {A}Supporting Materials}{91}{appendix.A}

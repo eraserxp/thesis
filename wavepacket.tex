@@ -165,8 +165,9 @@ Here we consider the transformations leading to acceleration or deceleration of 
 \subsection{Group velocity of wavepacket}
 \label{sec:groupVelocity} 
 
-The derivative of exciton dispesion curve $E(k)$ with respect to the wavevector $k$ determines the propagating 
-behavior of an exciton wavepacket in real space. This can be easily shown by the simple derivations. 
+Before we discuss how to accelerate or decelerate the motion of collective excitations, we first need to figure out 
+what determine their propagation behaviors.  It turn out that the propagation behavior of an exciton wavepacket can be implied from the exciton dispesion curve. More specifically, the first derivative of the dispersion curve
+gives approximately the propagation speed of a wavepacket in real space. This can be easily shown by  simple derivations. 
 
 In a perfect crystal, the eigenstates of the system is characterized by a wavevector $k$ and its time evolution is 
 determined by $E(k)$ through
@@ -176,19 +177,40 @@ determined by $E(k)$ through
 }
 where $N$ is the number of sites in the crystal and $\ket{n(t=0)}$ represents the state of system in which only site
 $n$ is in the excited state. It can see from \autoref{eqn:kState} that the probability at each site is always $1/N$ for 
-state $\ket{k}$. So the plane wave $\ket{k}$ doesn't move in real space, which is expected. In the case of a
- wavepacket which has a Gaussian distribution in real space, the time evolution is given by the following
-equation:
+state $\ket{k}$. So the plane wave $\ket{k}$ doesn't move in real space, which is expected. Different from a plane
+ wave state, a wavepacket composed of different $\ket{k(t)}$ states is not stationary in real space. This is because
+ different $\ket{k(t)}$ components correspond to different energy $E(k)$ thus different evolutions, leading to a 
+time-dependent interference pattern in real space. To illustrate this point, we consider a Gaussian wavepacket in $k$
+space 
 \multiline{
-\ket{\psi(t)} &=&\frac{1}{\sqrt{\sigma \sqrt{2\pi}}} \sum_{n} e^{-\frac{(n-n_0)^2}{4\sigma^2}} \ket{n(t)} \nonumber \\
-&=&\frac{1}{\sqrt{N\sigma \sqrt{2\pi}}} \sum_{n} e^{-\frac{(n-n_0)^2}{4\sigma^2}}\sum_{k} e^{-i k n} \ket{k(t)} \nonumber \\
-&=& \frac{1}{N\sqrt{\sigma \sqrt{2\pi}}} \sum_{n} e^{-\frac{(n-n_0)^2}{4\sigma^2}}\sum_{k} e^{-i k n}\sum_{m} e^{i \left[k m - \frac{E(k)}{\hbar}t \right]} \ket{m(t=0)}
+\ket{\psi(t)} &=&A \sum_{k} e^{-\frac{(k-k_0)^2}{2\sigma^2_{k}}} \ket{k(t)} \nonumber \\
+&=& \frac{A}{\sqrt{N}} \sum_{k} e^{-\frac{(k-k_0)^2}{2\sigma^2_{k}}} \sum_{n} e^{i \left[k n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \ ,
 }
+where $A$ is the normalization constant. 
+Expanding $E(k)$ around the point $k=k_0$ and ignore second and higher-order terms of $(k-k_0)$, and replacing the
+ summation over $k$ by integration, we obtain an equation that describes the time-evolution of the wavepacket in 
+real space:
+\multiline{
+\ket{\psi(t)} = A^{'}\sum_{n} e^{-\frac{(n-v_{\rm g}t)^2}{2(1/\sigma_{k})^2}}\ket{n(t=0)} \ ,
+}
+where $A^{'}$ is some constant that normalizes the wavefunction and the group velocity
+\oneline{
+v_{\rm g} = \frac{1}{\hbar}\left.\frac{d E(k)}{d k}\right|_{k=k_0} \label{eqn:groupVelocity}
+}
+determines how fast the center of the wavepacket moves in real space. 
 
-We have metioned that 
-Direct optical excitation can create an exciton wavepacket which center around $k=0$ in quasi-momentum space. 
-However, such a wavepacket hardly travel in real space as a whole and becomes broad very quickly because of the
-shape of exciton dispersion curve. 
+\subsection{Phase kicking in $k$ space}
+
+\Autoref{fig:moveWavepacket} presents an exciton dispersion. It can seen  that different regions of the 
+dispersion curve correspond to different group velocities. 
+Direct optical excitation can create an exciton wavepacket which center around $k=0$ in the $k$ space. 
+However, such a wavepacket hardly travel in real space as a whole as their group velocity is zero. Based on 
+\autoref{fig:moveWavepacket} , if we want accelerate a $k=0$ wavepacket, a sensible way is to move the 
+wavepacket to the region near $k=\pi/2$ where the slop of the dispersion curve is deep. Similarly, to decelerate a
+ wavepacket we should move it to a place where the slop is more shallow. Now the problem of
+accelerating/decelerating an exciton wavepacket becomes the problem of moving the wavepacket  as
+a whole in $k$ space. 
+
 
 \addfigure{
 \includegraphics[width=\linewidth]{dispersion-curve-move-wavepacket.png}
@@ -199,6 +221,15 @@ The dispersion curve of an exciton. The interaction between site $m$ and site $n
 }
 
 
+But how do we move an exciton wavepacket in $k$ space without changing its shape? We can get some hint from the
+expression of the plane wave state
+\oneline{
+\ket{k(t)} = \frac{1}{\sqrt{N}}\sum_n e^{i k n} \ket{n(t)} \ . \label{eqn:kStateExpansion}
+}
+The exponent $e^{i k n}$ in \autoref{eqn:kStateExpansion} is fixed, we can't do anything about it. 
+It can be seen from \autoref{eqn:kStateExpansion} that we can change $\ket{k}$ to $\ket{k+\delta}$ by adding a
+ factor $e^{i \delta n}$ to each term in the expansion.  Since the increment $\delta$ is independent of the $\ket{k}$
+state, 
 
 For modifying the group velocity of a collective excitation, the
 essential idea is to add a factor $e^{i \delta a n}$ to each term
