@@ -117,7 +117,7 @@ In general, the expansion coefficients $C_n$ are complicated functions of $n$ de
  If an ideal, periodic system with lattice constant $a$ is excited by a single-photon transition, 
 the expansion coefficients are  $C_n =
 e^{iakn}/\sqrt{N}$ and  $|\psi_{\rm exc} \rangle \Rightarrow
-|\psi_{\rm exc}(k)\rangle$ represents a quasi-particle called
+|k\rangle$ represents a quasi-particle called
 Frenkel exciton, characterized by the wave vector $k$
 \cite{agranovich}. The magnitude of the wave vector $k$ is determined by the conservation of the total (exciton plus photon) momentum. 
 The energy of the exciton is given by $E(k) =
@@ -144,10 +144,10 @@ With atoms or molecules on an optical lattice, it is also possible to generate a
 whether coming from jitter in external fields or from incomplete population of lattice sites,  also results in spatial 
 localization. Similar to how \autoref{basis} defines the collective excited states in the basis of lattice sites, 
 any localized excitation $| \psi \rangle$ can be generally written as a coherent superposition of the exciton states
- $| \psi_{\rm exc}(k)\rangle$ with different $k$:
+ $|k\rangle$ with different $k$:
 
 \begin{eqnarray}
-| \psi \rangle = \sum_{k} G_k | \psi_{\rm exc}(k) \rangle.
+| \psi \rangle = \sum_{k} G_k | k \rangle.
 \label{k-rep}
 \end{eqnarray}
 
@@ -173,7 +173,7 @@ In a perfect crystal, the eigenstates of the system is characterized by a waveve
 determined by $E(k)$ through
 \multiline{
 \ket{k(t)} &=& e^{-i \frac{E(k)}{\hbar}t}\ket{k(t=0)} \nonumber \\
-&=&\frac{1}{\sqrt{N}} \sum_{n} e^{i \left[k n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \label{eqn:kState}
+&=&\frac{1}{\sqrt{N}} \sum_{n} e^{i \left[k a n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \label{eqn:kState}
 }
 where $N$ is the number of sites in the crystal and $\ket{n(t=0)}$ represents the state of system in which only site
 $n$ is in the excited state. It can see from \autoref{eqn:kState} that the probability at each site is always $1/N$ for 
@@ -184,10 +184,10 @@ time-dependent interference pattern in real space. To illustrate this point, we 
 space 
 \multiline{
 \ket{\psi(t)} &=&A \sum_{k} e^{-\frac{(k-k_0)^2}{2\sigma^2_{k}}} \ket{k(t)} \nonumber \\
-&=& \frac{A}{\sqrt{N}} \sum_{k} e^{-\frac{(k-k_0)^2}{2\sigma^2_{k}}} \sum_{n} e^{i \left[k n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \ ,
+&=& \frac{A}{\sqrt{N}} \sum_{k} e^{-\frac{(k-k_0)^2}{2\sigma^2_{k}}} \sum_{n} e^{i \left[k a n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \ ,
 }
 where $A$ is the normalization constant. 
-Expanding $E(k)$ around the point $k=k_0$ and ignore second and higher-order terms of $(k-k_0)$, and replacing the
+Expanding $E(k)$ around the point $k=k_0$ and ignoring second and higher-order terms of $(k-k_0)$, and replacing the
  summation over $k$ by integration, we obtain an equation that describes the time-evolution of the wavepacket in 
 real space:
 \multiline{
@@ -197,15 +197,15 @@ where $A^{'}$ is some constant that normalizes the wavefunction and the group ve
 \oneline{
 v_{\rm g} = \frac{1}{\hbar}\left.\frac{d E(k)}{d k}\right|_{k=k_0} \label{eqn:groupVelocity}
 }
-determines how fast the center of the wavepacket moves in real space. 
+determines how fast the center of the wavepacket moves in real space. Therefore, once the exciton dispersion curve is known, the propagation speed of a wavepacket that centered around $k_0$ in momentum space can be calculated from the slope of dispersion curve at $k_0$.
 
-\subsection{Phase kicking in $k$ space}
+\subsection{Phase kicking in quasimomentum space}
 
-\Autoref{fig:moveWavepacket} presents an exciton dispersion. It can seen  that different regions of the 
-dispersion curve correspond to different group velocities. 
-Direct optical excitation can create an exciton wavepacket which center around $k=0$ in the $k$ space. 
-However, such a wavepacket hardly travel in real space as a whole as their group velocity is zero. Based on 
-\autoref{fig:moveWavepacket} , if we want accelerate a $k=0$ wavepacket, a sensible way is to move the 
+As an example, \autoref{fig:moveWavepacket} presents an exciton dispersion curve. It can seen  that different
+ regions of the dispersion curve have different slopes that correspond to different group velocities. 
+Direct optical excitation can create an exciton wavepacket which center around $k\approx 0$ in the $k$ space. 
+However, such a wavepacket hardly travel in real space as a whole since its group velocity is zero. Based on 
+\autoref{fig:moveWavepacket} , if we want accelerate a $k = 0$ wavepacket, a sensible way is to move the 
 wavepacket to the region near $k=\pi/2$ where the slop of the dispersion curve is deep. Similarly, to decelerate a
  wavepacket we should move it to a place where the slop is more shallow. Now the problem of
 accelerating/decelerating an exciton wavepacket becomes the problem of moving the wavepacket  as
@@ -224,18 +224,16 @@ The dispersion curve of an exciton. The interaction between site $m$ and site $n
 But how do we move an exciton wavepacket in $k$ space without changing its shape? We can get some hint from the
 expression of the plane wave state
 \oneline{
-\ket{k(t)} = \frac{1}{\sqrt{N}}\sum_n e^{i k n} \ket{n(t)} \ . \label{eqn:kStateExpansion}
+\ket{k(t)} = \frac{1}{\sqrt{N}}\sum_n e^{i k a n} \ket{n(t)} \ . \label{eqn:kStateExpansion}
 }
-The exponent $e^{i k n}$ in \autoref{eqn:kStateExpansion} is fixed, we can't do anything about it. 
 It can be seen from \autoref{eqn:kStateExpansion} that we can change $\ket{k}$ to $\ket{k+\delta}$ by adding a
- factor $e^{i \delta n}$ to each term in the expansion.  Since the increment $\delta$ is independent of the $\ket{k}$
+ factor $e^{i \delta a n}$ to each term in the expansion.  Since the increment $\delta$ is independent of the $\ket{k}$
 state, 
-
-For modifying the group velocity of a collective excitation, the
-essential idea is to add a factor $e^{i \delta a n}$ to each term
-in the expansion (\ref{basis}), so that each $| \psi_{\rm exc}(k)
-\rangle$ component in a wave packet is transformed into $|
-\psi_{\rm exc}(k+\delta)\rangle$. This transformation shifts the
+%For modifying the group velocity of a collective excitation, the
+%essential idea is to add a factor $e^{i \delta a n}$ to each term
+%in the expansion (\ref{basis}), so that 
+each $| k\rangle$ component in a wave packet (\autoref{basis}) can be transformed into $|
+k+\delta\rangle$ in this way. This transformation shifts the
 wave packets by $\delta$ in $k$-space while preserving their
 shape. As a result, one can engineer wave packets probing any part
 of the dispersion $E(k)$ leading to different group velocity and

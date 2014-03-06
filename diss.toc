@@ -27,8 +27,8 @@
 \contentsline {section}{\numberline {4.1}Introduction}{46}{section.4.1}
 \contentsline {section}{\numberline {4.2}Sudden phase transformation}{49}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Group velocity of wavepacket}{50}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Phase kicking in $k$ space}{52}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Focusing of a delocalized excitation}{55}{section.4.3}
+\contentsline {subsection}{\numberline {4.2.2}Phase kicking in quasimomentum space}{52}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Focusing of a delocalized excitation}{56}{section.4.3}
 \contentsline {section}{\numberline {4.4}Controlled excitations of ultracold atoms and molecules}{61}{section.4.4}
 \contentsline {section}{\numberline {4.5}Control of energy transfer in dipolar systems}{66}{section.4.5}
 \contentsline {section}{\numberline {4.6}Energy transfer in the presence of vacancies}{70}{section.4.6}

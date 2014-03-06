@@ -2,3 +2,8 @@
 *.gz
 *.log
 *~
+*.brf
+*.lof
+*.out
+*.bbl
+*.toc
