@@ -8,3 +8,9 @@
 *.bbl
 *.toc
 *.blg
+LICENSE
+README
+Makefile
+exportbundle
+doc.pdf
+FAQ
