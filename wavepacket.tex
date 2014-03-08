@@ -387,11 +387,18 @@ extended time interval as long as the accumulated phase gives the desired outcom
 As \autoref{Cn(t)} shows, the focusing efficiency is determined by the phase transformation and
 the shape of the dispersion curve $E(k)$. Given the cosine dispersion of excitons (\ref{dispersion}), is it possible to
  focus a delocalized excitation onto a single lattice site?
-To answer this question, we assume that $C_{n = n_0}(t=0) = 1$ and apply \autoref{Cn(t)} to
- calculate the coefficients $C_m(t)$ at $t=-\tau$. This backforward-in-time calculation yields the site
- representation, i.e., $C_m(t)$, of the initial wave packet that will focus onto the lattice site $n_0$ after evolving for 
-time $\tau$. 
- Using the expansion of an exponent in Bessel functions
+%To answer this question, we assume that $C_{n = n_0}(t=0) = 1$ and apply \autoref{Cn(t)} to
+ %calculate the coefficients $C_m(t)$ at $t=-\tau$. This backforward-in-time calculation yields the site
+ %representation, i.e., $C_m(t)$, of the initial wave packet that will focus onto the lattice site $n_0$ after evolving for 
+%time $\tau$. 
+To answer this question, we assume an initial condition where the excitation is localized to the site $n_0$, that is,
+\multiline{
+C_n (t=0) = \delta_{n, n_0} \ ,
+}
+and run a backward-in-time evolution to calculate the coefficients $C_m(t)$ at $t=-\tau$. This  
+calculation will yields the site representation, i.e., $C_m(t)$, of the initial wave packet that will focus onto the lattice 
+site $n_0$ after evolving for time $\tau$. 
+Using the expansion of an exponent in Bessel functions (Jacobi–Anger expansion, see Ref. \cite{ jacobi-anger})
 \begin{eqnarray}
 e^{-ia\cos x} = \sum_{n} e^{i(x-\pi/2)n} J_n(a)
 \end{eqnarray}

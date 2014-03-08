@@ -1,96 +1,9 @@
 
 \chapter{Background material}
 \label{ch:background}
-
-\section{Diatomic molecule in DC field}
-\label{sec:moleculeInDCField}
-
-\section{Diatomic molecule in AC field}
-\label{sec:moleculeInACField}
-
-\section{Introduction to exciton}
-\label{sec: exciton}
-We describe the state of a crystal system by specifying the occupation state of each molecules that constitute the crystal. For example, we denote the crystal wavefunction as
-\begin{equation}
-\left. |N_{1f_{1}} N_{2f_{2}} ...N_{nf} ... \right\rangle \nonumber \ ,
-\end{equation}
-where $N_{nf}$ represents the occupation number of state $f$ in molecule $n$ and it is either 0 or 1. Accordingly, the occupation number operator is defined as
-\begin{equation}
-\hat{N}_{nf} |...N_{nf}...\rangle = N_{nf} |...N_{nf}...\rangle \ .
-\end{equation}
-For one molecule $n$, it must be in some state $g$, therefore
-\begin{equation}
-\sum_{g}\hat{N}_{ng} = 1 \ . \label{must-be-in-a-state}
-\end{equation}
-It is convenient to introduce two operators $b_{nf}^{\dagger}$ and $b_{nf}$ associated with molecule $n$ and state $f$,
-\begin{eqnarray}
-b_{nf}^{\dagger} |...N_{nf}...\rangle &=& (1-N_{nf})|...(N_{nf}+1)...\rangle \ , \nonumber \\
-b_{nf} |...N_{nf}...\rangle &=& N_{nf}|...(N_{nf}-1)...\rangle \ , \label{single-molecule-operator}
-\end{eqnarray}
-and express the occupation number operator as the product of these two operators,
-\begin{equation}
-\hat{N}_{nf} =b_{nf}^{\dagger} b_{nf} \ .
-\end{equation}
-The physical meaning of the two operators is clear: $b_{nf}$ creates a state $f$ in molecule $n$ and $b_{nf}$ destroy a state $f$ in molecule $n$.  It follows from Eq. (\ref{single-molecule-operator}) that
-\begin{eqnarray}
-b_{nf}b_{nf}^{\dagger} &+& b_{nf}^{\dagger}b_{nf} = 1 \ , \nonumber \\
-b_{nf}b_{nf}&=&b_{nf}^{\dagger}b_{nf}^{\dagger} =0 \ . \label{commutation-relation-single-molecule}
-\end{eqnarray}
-Because an operator for a specific molecule $n$ and state $f$ does not operate on other molecules and other states, any two operators that correspond to different molecules $n$ and $m$ or different states $f$ and $f'$ commute all the time. 
-
-Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it can be easily seen that the exciton creation and annihilation operators can be written as
-\begin{equation}
-P_{nf}^{\dagger} = b_{nf}^{\dagger} b_{n0} \ , \;\;P_{nf}=b_{n0}^{\dagger} b_{nf} \ . \label{creation&annihilation}
-\end{equation}
-Substituting Eq. (\ref{commutation-relation-single-molecule}), we have
-\begin{eqnarray}
-P_{nf}^{\dagger} P_{nf} &=& b_{nf}^{\dagger} b_{n0}b_{n0}^{\dagger} b_{nf} \nonumber \\
-                                      &=& b_{nf}^{\dagger}(1-b_{n0}^{\dagger}b_{n0})b_{nf} \nonumber \\
-                                      &=& \hat{N}_{nf} \ , \label{creation-annihilation}
-\end{eqnarray}
-\begin{eqnarray}
-P_{nf} P_{nf}^{\dagger} &=& b_{n0}^{\dagger} b_{nf} b_{nf}^{\dagger} b_{n0} \nonumber \\
-                                      &=& b_{n0}^{\dagger}(1-b_{nf}^{\dagger}b_{nf})b_{n0} \nonumber \\
-                                      &=& \hat{N}_{n0} \ . \label{annihilation-creation}
-\end{eqnarray}
-Subtracting Eq. (\ref{creation-annihilation}) from Eq. (\ref{annihilation-creation}) and making use of Eq. (\ref{must-be-in-a-state}), we obtain
-\begin{equation}
-P_{nf} P_{nf}^{\dagger} - P_{nf}^{\dagger} P_{nf} = 1-\hat{N}_{nf} - \sum_{g\neq 0} \hat{N}_{ng}  \ . \label{exact-relation}
-\end{equation}
-Because $P_{nf}$ and $P_{nf}^{\dagger}$ don't operate on a different
-molecule $m$, any exciton operators corresponding to different molecules
-commute with each other. Then the exact statistics is given by 
-\begin{equation}
-P_{nf}P_{n'f}^{\dagger}-P_{nf}^{\dagger}P_{n'f}  =  \delta_{nn'}\left(1-\hat{N}_{nf}-\sum_{g\neq0}\hat{N}_{ng}\right)  \label{exact-relation2}
-\end{equation}
-and 
-\begin{equation}
-P_{nf}P_{nf'}^{\dagger}-P_{nf}^{\dagger}P_{nf'}=\delta_{ff'}\ . 
-\end{equation}
-Unfortunately, it is cumbersome to take into account of the exact
-statistics of excitons in most cases. So it is often desirable to approximate excitons as Boses when only a small number of molecules in the crystal are excited. In other words, if the following inequality
-\begin{equation}
-\left\langle N_{nf} \right\rangle \ll 1 \label{condition-for-Bose-approx}
-\end{equation}
-holds, the exciton creation and annihilation operators satisfy the commutation rules for Bose operators
-\begin{equation}
-P_{n'f'}P_{nf}^{\dagger} - P_{nf}^{\dagger}P_{n'f'}=\delta_{nn'}\delta_{ff'} \ . \label{approx-relation}
-\end{equation}
-In the following derivation, we are assuming the exciton operators are Bose operators and satisfy Eq. (\ref{approx-relation}). 
-
-The way to use operator $P_{nf}$ and $P_{nf}^{\dagger}$ to describe excitons is called site representation. Due to the periodicity of crystal, there is another way to represent excitons by making use of the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$: 
-\begin{eqnarray}
-P_{nf} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}(k) e^{ikn} \nonumber \\
-P_{nf}^{\dagger} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}^{\dagger}(k) e^{-ikn} \ , \label{unitary-transform}
-\end{eqnarray}
-and this is called wavevector representation. Since the unitary transformation does not change the commutation rule of operators, we expect that the following equation
-\begin{equation}
-P_{f',k'}P_{f,k}^{\dagger} - P_{f,k}^{\dagger}P_{f',k'}=\delta_{kk'}\delta_{ff'} \ . \label{approx-relation-in-wavevector}
-\end{equation}
-also hold. This can be verified by substituting Eq. (\ref{unitary-transform}) into Eq. (\ref{approx-relation}). 
-
-
-
+This chapter  briefly outlines the background knowledge that is directly related to the research in later chapters.
+Instead of giving a comprehensive picture as various books have already done, we take a pragmatic approach that 
+is more concerned with numerical calculations and intuitive understanding.  
 
 \section{Review of angular momentum theory}
 \label{sec:angularMomentum}
@@ -349,3 +262,96 @@ Before we go on, it is helpful to get familiar with rotational matrices and sphe
 
 \section{Dipole-dipole interaction}
 \label{sec::ddInteraction}
+
+\section{Diatomic molecule in DC field}
+\label{sec:moleculeInDCField}
+
+
+\section{Diatomic molecule in AC field}
+\label{sec:moleculeInACField}
+
+\section{Introduction to exciton}
+\label{sec: exciton}
+We describe the state of a crystal system by specifying the occupation state of each molecules that constitute the crystal. For example, we denote the crystal wavefunction as
+\begin{equation}
+\left. |N_{1f_{1}} N_{2f_{2}} ...N_{nf} ... \right\rangle \nonumber \ ,
+\end{equation}
+where $N_{nf}$ represents the occupation number of state $f$ in molecule $n$ and it is either 0 or 1. Accordingly, the occupation number operator is defined as
+\begin{equation}
+\hat{N}_{nf} |...N_{nf}...\rangle = N_{nf} |...N_{nf}...\rangle \ .
+\end{equation}
+For one molecule $n$, it must be in some state $g$, therefore
+\begin{equation}
+\sum_{g}\hat{N}_{ng} = 1 \ . \label{must-be-in-a-state}
+\end{equation}
+It is convenient to introduce two operators $b_{nf}^{\dagger}$ and $b_{nf}$ associated with molecule $n$ and state $f$,
+\begin{eqnarray}
+b_{nf}^{\dagger} |...N_{nf}...\rangle &=& (1-N_{nf})|...(N_{nf}+1)...\rangle \ , \nonumber \\
+b_{nf} |...N_{nf}...\rangle &=& N_{nf}|...(N_{nf}-1)...\rangle \ , \label{single-molecule-operator}
+\end{eqnarray}
+and express the occupation number operator as the product of these two operators,
+\begin{equation}
+\hat{N}_{nf} =b_{nf}^{\dagger} b_{nf} \ .
+\end{equation}
+The physical meaning of the two operators is clear: $b_{nf}$ creates a state $f$ in molecule $n$ and $b_{nf}$ destroy a state $f$ in molecule $n$.  It follows from Eq. (\ref{single-molecule-operator}) that
+\begin{eqnarray}
+b_{nf}b_{nf}^{\dagger} &+& b_{nf}^{\dagger}b_{nf} = 1 \ , \nonumber \\
+b_{nf}b_{nf}&=&b_{nf}^{\dagger}b_{nf}^{\dagger} =0 \ . \label{commutation-relation-single-molecule}
+\end{eqnarray}
+Because an operator for a specific molecule $n$ and state $f$ does not operate on other molecules and other states, any two operators that correspond to different molecules $n$ and $m$ or different states $f$ and $f'$ commute all the time. 
+
+Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it can be easily seen that the exciton creation and annihilation operators can be written as
+\begin{equation}
+P_{nf}^{\dagger} = b_{nf}^{\dagger} b_{n0} \ , \;\;P_{nf}=b_{n0}^{\dagger} b_{nf} \ . \label{creation&annihilation}
+\end{equation}
+Substituting Eq. (\ref{commutation-relation-single-molecule}), we have
+\begin{eqnarray}
+P_{nf}^{\dagger} P_{nf} &=& b_{nf}^{\dagger} b_{n0}b_{n0}^{\dagger} b_{nf} \nonumber \\
+                                      &=& b_{nf}^{\dagger}(1-b_{n0}^{\dagger}b_{n0})b_{nf} \nonumber \\
+                                      &=& \hat{N}_{nf} \ , \label{creation-annihilation}
+\end{eqnarray}
+\begin{eqnarray}
+P_{nf} P_{nf}^{\dagger} &=& b_{n0}^{\dagger} b_{nf} b_{nf}^{\dagger} b_{n0} \nonumber \\
+                                      &=& b_{n0}^{\dagger}(1-b_{nf}^{\dagger}b_{nf})b_{n0} \nonumber \\
+                                      &=& \hat{N}_{n0} \ . \label{annihilation-creation}
+\end{eqnarray}
+Subtracting Eq. (\ref{creation-annihilation}) from Eq. (\ref{annihilation-creation}) and making use of Eq. (\ref{must-be-in-a-state}), we obtain
+\begin{equation}
+P_{nf} P_{nf}^{\dagger} - P_{nf}^{\dagger} P_{nf} = 1-\hat{N}_{nf} - \sum_{g\neq 0} \hat{N}_{ng}  \ . \label{exact-relation}
+\end{equation}
+Because $P_{nf}$ and $P_{nf}^{\dagger}$ don't operate on a different
+molecule $m$, any exciton operators corresponding to different molecules
+commute with each other. Then the exact statistics is given by 
+\begin{equation}
+P_{nf}P_{n'f}^{\dagger}-P_{nf}^{\dagger}P_{n'f}  =  \delta_{nn'}\left(1-\hat{N}_{nf}-\sum_{g\neq0}\hat{N}_{ng}\right)  \label{exact-relation2}
+\end{equation}
+and 
+\begin{equation}
+P_{nf}P_{nf'}^{\dagger}-P_{nf}^{\dagger}P_{nf'}=\delta_{ff'}\ . 
+\end{equation}
+Unfortunately, it is cumbersome to take into account of the exact
+statistics of excitons in most cases. So it is often desirable to approximate excitons as Boses when only a small number of molecules in the crystal are excited. In other words, if the following inequality
+\begin{equation}
+\left\langle N_{nf} \right\rangle \ll 1 \label{condition-for-Bose-approx}
+\end{equation}
+holds, the exciton creation and annihilation operators satisfy the commutation rules for Bose operators
+\begin{equation}
+P_{n'f'}P_{nf}^{\dagger} - P_{nf}^{\dagger}P_{n'f'}=\delta_{nn'}\delta_{ff'} \ . \label{approx-relation}
+\end{equation}
+In the following derivation, we are assuming the exciton operators are Bose operators and satisfy Eq. (\ref{approx-relation}). 
+
+The way to use operator $P_{nf}$ and $P_{nf}^{\dagger}$ to describe excitons is called site representation. Due to the periodicity of crystal, there is another way to represent excitons by making use of the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$: 
+\begin{eqnarray}
+P_{nf} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}(k) e^{ikn} \nonumber \\
+P_{nf}^{\dagger} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}^{\dagger}(k) e^{-ikn} \ , \label{unitary-transform}
+\end{eqnarray}
+and this is called wavevector representation. Since the unitary transformation does not change the commutation rule of operators, we expect that the following equation
+\begin{equation}
+P_{f',k'}P_{f,k}^{\dagger} - P_{f,k}^{\dagger}P_{f',k'}=\delta_{kk'}\delta_{ff'} \ . \label{approx-relation-in-wavevector}
+\end{equation}
+also hold. This can be verified by substituting Eq. (\ref{unitary-transform}) into Eq. (\ref{approx-relation}). 
+
+
+
+
+
