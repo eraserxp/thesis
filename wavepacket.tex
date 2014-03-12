@@ -395,27 +395,27 @@ To answer this question, we assume an initial condition where the excitation is 
 \multiline{
 C_n (t=0) = \delta_{n, n_0} \ ,
 }
-and run a backward-in-time evolution to calculate the coefficients $C_m(t)$ at $t=-\tau$. This  
-calculation will yields the site representation, i.e., $C_m(t)$, of the initial wave packet that will focus onto the lattice 
-site $n_0$ after evolving for time $\tau$. 
-Using the expansion of an exponent in Bessel functions (Jacobi–Anger expansion, see Ref. \cite{ jacobi-anger})
+and run a backward-in-time evolution to calculate the coefficients $C_m(t)$ at $t=-\tau$:
+using the expansion of an exponent in Bessel functions (Jacobi-Anger expansion, see Ref. \cite{ jacobi-anger})
 \begin{eqnarray}
-e^{-ia\cos x} = \sum_{n} e^{i(x-\pi/2)n} J_n(a)
+e^{ia\cos x} = \sum_{n} e^{-i(x-\pi/2)n} J_n(a) \ ,
 \end{eqnarray}
-and the orthonormality  of the Bessel functions
-\begin{eqnarray}
-\sum_{n} J_n(x) J_{n-m}(x) = \delta_{m,0},
-\end{eqnarray}
-in \autoref{basis}, we obtain
+we obtain
 \multiline{
-C_m (-\tau) = 
+C_m (-\tau) &=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [k a
+(m-n) - E(k) (-\tau)/\hbar ]} \nonumber \\
+&=& e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha \tau/\hbar\right) \ , \label{eqn:cosineFocusing}
 }
-%we find that the wave packet (\ref{basis}) with the expansion coefficients
-%\begin{equation}\label{C_ideal}
-%C_n^{(n_0)} = J_{n-n_0}(2\alpha \tau) e^{i \pi (n-n_0) /2}
-%\end{equation}
-%focuses, upon coherent evolution, in time $\tau$ on a single site $n_0$.
-This shows that a phase transformation alone is, generally,  not sufficient to create a collective excitation state that focuses
+where $J$ is the Bessel function of first kind. 
+This  calculation shows that an wavepacket with  the site representation, i.e., 
+$C_m(0)= e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha t/\hbar\right)$,  will focus onto the lattice 
+site $n_0$ after evolving for time $t$. We can be easily verify the result by running a forward-in-time evolution
+starting with the initial wave packet and making use of 
+the orthonormality  of the Bessel functions
+\begin{eqnarray}
+\sum_{n} J_n(x) J_{n-m}(x) = \delta_{m,0} \ .
+\end{eqnarray}
+\Autoref{eqn:cosineFocusing} shows that a phase transformation alone is, generally,  not sufficient to create a collective excitation state that focuses
 onto a single lattice site.
 The best focusing must involve both the phase and amplitude modulations, which may be difficult to realize in
 experiments. A simpler procedure can be implemented if the phase transformations are restricted to a particular part of
@@ -424,8 +424,8 @@ the exciton dispersion.
 
 From wave optics, waves with quadratic dispersion can be
 focused, while those with linear dispersion propagate without changing
-the wave packet shape \cite{focusing-books-1,focusing-books-2}. It is this interplay of the quadratic (at low $k$) and linear (at $k \approx \pm \pi/2a$)
-parts of the cosine-like exciton dispersion (\ref{dispersion}) that precludes perfect focusing of a general collective excitation.
+the wave packet shape \cite{focusing-books-1,focusing-books-2}. It is this interplay of the quadratic (at low $k$) and
+ linear (at $k \approx \pm \pi/2a$) parts of the cosine-like exciton dispersion (\autoref{dispersion}) that precludes perfect  focusing of a general collective excitation.
 In order to avoid the undesirable amplitude modulations, it may be possible to focus delocalized excitations by a phase transformation that
  constrains the wave packet (\ref{k-rep}) to the quadratic part of the dispersion $E(k)$.  For such wave packets, adding a quadratic phase
 $\vp(n) = \vp_{0} (n-n_0)^2$ must lead to
