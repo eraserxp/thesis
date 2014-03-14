@@ -440,22 +440,50 @@ focusing around site $n_0$. Below we illustrate the effect of the quadratic phas
 
 
 
-Consider a Gaussian wave packet with a narrow width $\sigma_{k}$ which centers around $k=0$ in $k$ space
+Consider a Gaussian wave packet with a narrow width $\sigma_{k, 0}$ which centers around $k=0$ in $k$ space
 \multiline{
-C_k(t=0) =  A e^{-\frac{ a^2 k^2}{2\sigma ^2_{k} } } \ , \label{eqn:initialWavepacketInk}
+C_k =  A e^{-\frac{ a^2 k^2}{2\sigma ^2_{k, 0} } } \ , \label{eqn:initialWavepacketInk}
 }
 where $A$ is some normalization factor. Since these normalization factors doesn't matter for the discussion
  here, we will just ignore them in the following derivations. The wave packet represented by
  \autoref{eqn:initialWavepacketInk} is also a Gaussian wave packet in coordinate space. This can be verified
-by the following transformation:
+by the following transformation from $k$ space to coordinate space :
 \multiline{
-C_n(t=0) &=& \sum_{k} C_k(t=0) e^{ - i k a n} \nonumber \\
-&\approx& \int_{-\infty}^{\infty} dk \; e^{-\frac{a^2 k^2}{2\sigma ^2_{k} }  - i k a n}  \nonumber \\
-&=& e^{-\frac{n^2 }{2\sigma ^2_{k} } }\int_{-\infty}^{\infty} dk \; A\; e^{-\frac{1}{2\sigma ^2_{k} } (k a + i  n \sigma^2 )^2 } \nonumber \\
-&=& \frac{\sigma \sqrt{2\pi} }{a} \;A\; e^{-\frac{n^2 \sigma ^2_{k} }{2 } } \nonumber \\
-&\propto&  e^{-\frac{n^2 }{2(1/\sigma_k) ^2} }
+C_n &=&\frac{1}{\sqrt{N}} \sum_{k} C_k(t=0) e^{ - i k a n} \nonumber \\
+&\approx& \frac{A}{\sqrt{N}} \int_{-\infty}^{\infty} dk \; e^{-\frac{a^2 k^2}{2\sigma ^2_{k, 0} }  - i k a n}  \nonumber \\
+&=& \frac{A}{\sqrt{N}} e^{-\frac{n^2 }{2\sigma ^2_{k, 0} } }\int_{-\infty}^{\infty} dk \;  e^{-\frac{1}{2\sigma ^2_{k, 0} } (k a + i  n \sigma^2 )^2 } \nonumber \\
+&=& \frac{A}{\sqrt{N}} \frac{\sigma_{k, 0} \sqrt{2\pi} }{a} \; e^{-\frac{n^2 \sigma ^2_{k, 0} }{2 } } \nonumber \\
+&\propto&  e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \ , \label{eqn:initialWavepacketInRealSpace}
 } 
+where in the second step we use the integration to approximate the summation of $k$ in the first Brillouin zone and 
+extend the integration range from $(-\pi/a, \pi/a]$ to $(-\infty, \infty)$ since the width $\sigma_k$ is very small. 
+\Autoref{eqn:initialWavepacketInRealSpace} also shows the width of the wave packet in coordinate space is the 
+inverse of its width in $k$ space, that is, $\sigma_{x, 0} = 1/\sigma_{k, 0}$. 
 
+To focus the wave packet, we apply an inhomogeneous phase $\Phi(n) = \Phi_0 (n-n_0)^2$ at $t=0$.  Then the wave 
+packet becomes
+\multiline{
+C_n(t=0) \propto e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \; e^{i \Phi_0 (n-n_0)^2}\ ,
+}
+which upon a transformation from coordinate space to $k$ space gives rise to
+\multiline{
+C_k(t=0) &=& \frac{1}{\sqrt{N}}  \sum_{n} C_n(t=0) e^{i k a n} \nonumber \\
+&\approx& \frac{1}{\sqrt{N}} \int_{\infty}^{\infty} dn\; C_n(t=0) e^{i k a n} \nonumber \\
+&\propto& e^{\frac{-a^2 k^2+4 a k n_0 \Phi_0 +2 i n_0^2 \sigma_{k, 0}^2 \Phi_0 }{2 \left(\sigma_{k, 0}^2-2 i \Phi_0 \right)}} \ . \label{eqn:wavepacketInKAfterPhase}
+}
+The power of $e$ in \autoref{eqn:wavepacketInKAfterPhase} can be separated into a real part and an imaginary part.
+Since the imaginary part contributes only a trivial phase to the wavefunction and doesn't change the shape of the 
+wave packet, we can ignore it and obtain
+\multiline{
+C_k(t=0) \propto e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \ .
+}
+So the width of the wave packet after adding the phase is
+\multiline{
+\sigma_k(t=0) = \sqrt{ \sigma_{k, 0}^2 +4 \Phi_0^2 / \sigma_{k, 0}^2} \ ,
+}
+which is obviously larger than the initial width  $\sigma_{k, 0}$. This indicates that the phase applied for focusing
+cannot be too large otherwise the wave packet will be broadened beyond the quadratic region of the dispersion
+ curve. 
 
 First, consider a broad Gaussian wave packet (\ref{basis}) with
 \oneline{
