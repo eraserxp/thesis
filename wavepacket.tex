@@ -475,38 +475,75 @@ The power of $e$ in \autoref{eqn:wavepacketInKAfterPhase} can be separated into 
 Since the imaginary part contributes only a trivial phase to the wavefunction and doesn't change the shape of the 
 wave packet, we can ignore it and obtain
 \multiline{
-C_k(t=0) \propto e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \ .
+C_k(t=0) \propto e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \ . \label{eqn:wavepacketInKAfterPhase2}
 }
 So the width of the wave packet after adding the phase is
 \multiline{
-\sigma_k(t=0) = \sqrt{ \sigma_{k, 0}^2 +4 \Phi_0^2 / \sigma_{k, 0}^2} \ ,
+\sigma_k(t=0) = \sqrt{ \sigma_{k, 0}^2 + \frac{4 \Phi_0^2 } { \sigma_{k, 0}^2} } \ ,
 }
 which is obviously larger than the initial width  $\sigma_{k, 0}$. This indicates that the phase applied for focusing
 cannot be too large otherwise the wave packet will be broadened beyond the quadratic region of the dispersion
- curve. 
+ curve where the focusing scheme doesn't work. Note that the phase does not affect the width of the wave packet 
+ in coordinate space since it only adds some phase to the coefficients $C_n(t=0)$ in
+ \autoref{eqn:initialWavepacketInRealSpace}. 
 
-First, consider a broad Gaussian wave packet (\ref{basis}) with
+To see how the wave packet evolves after the phase adding, we can apply the propagator $e^{-i E(k) t/\hbar}$ to 
+\autoref{eqn:wavepacketInKAfterPhase2} and convert the wavefunction into coordinate space. Assuming the width
+ $\sigma_k(t=0)$ is very small so that a large proportion of the wave packet is within the quadratic region of the
+ dispersion curve, then the eigen energy of of the $\ket{k}$ state can be approximated as
 \oneline{
-C_n(\tilde\sigma_x;t=0) =\sqrt{{a}/{\tilde\sigma_x \sqrt{\pi}} }
- \exp \left[- {a^2 (n-n_0)^{2}} / {2\tilde\sigma_{x}^2 } \right]
+E(k) \approx E_0 + \beta a^2 k^2 \ .  \label{eqn:quadraticApprox}
 }
-where $\tilde\sigma_x \gg a$ {is the initial width. The corresponding width
-in the wave vector space is given by $\sigma_k = 1/\tilde\sigma_x$.
-The application of an inhomogeneous phase $\Phi(n) = \vp_0
-(n-n_0)^2$ at $t=0$ results in additional broadening of the
-initial state, and the total width of the wave packet in the
-wave vector space with the account of the phase-induced contribution
-becomes}
-\cite{focusing-books-1,focusing-books-2} %By applying the quadratic phase to the
+Using \autoref{eqn:quadraticApprox},
+we obtain the wavefunction of the wave packet after time $t$
+\multiline{
+C_n(t) &=& \frac{1}{\sqrt{N} }\sum_{k} e^{- i k a n} e^{-i E(k) t} C_k(0) \nonumber \\
+&\propto& \sum_{k} e^{- i k a n} e^{-i E(k) t/\hbar} e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \nonumber \\
+&\propto& e^{- \frac{(n + 4 t \beta\Phi_0  n_0)^2 }{2 \sigma_{x}(t)^2 } }
+}
+where $\sigma_{x}(t)$ is a time-dependent width given by
+\oneline{
+\sigma_{x}(t) = \sigma_{x, 0} \sqrt{ (1 + 4 t \beta \Phi_0 )^2 +  \frac{4 t^2 \beta^2}{\sigma_{x, 0}^4 }} \ .
+}
+Taking the derivative of $\sigma_{x}(t)$ with respect to time and setting it to zero, we can find the time at which the
+wave packet is most focused:
+\multiline{
+T_{\rm F} = -\frac{\Phi_0  \sigma _{x, 0}^4}{\beta  \left(1+4 \Phi_0 ^2 \sigma _{x, 0}^4\right)} \ .
+}
+At time $T_{\rm F}$, the minimum width is
+\oneline{
+\sigma_{x, {\rm F}} = \frac{\sigma _{x, 0} }{\sqrt{ 1+4 \Phi_0 ^2 \sigma _{x, 0}^4 } } \ , \label{eqn:widthAtFocus}
+}
+and the center of the wave packet is 
+\oneline{
+n_{\rm c} = 4 T_{\rm F} \beta \Phi_0 n_0 =  \frac{4 \Phi_0 ^2}{\sigma_{k, 0} ^4+4 \Phi_0 ^2} n_0\approx n_0 \ .
+}
+\Autoref{eqn:widthAtFocus} shows that the wave packet will become more focused at site $n_0$ at $T_{\rm F}$ since $\sigma_{x, {\rm F}} < \sigma _{x, 0} $ and a larger phase $\Phi_0$ will leads to a better focusing effect. However, as we have
+discussed before, large values of $\Phi_0$ may take the wave packet outside the quadratic part of the dispersion
+ making \autoref{eqn:quadraticApprox} invalid. Therefore, the best focusing effect can only be achieved by balancing
+the two influences. 
+%First, consider a broad Gaussian wave packet (\ref{basis}) with
+%\oneline{
+%C_n(\tilde\sigma_x;t=0) =\sqrt{{a}/{\tilde\sigma_x \sqrt{\pi}} }
+% \exp \left[- {a^2 (n-n_0)^{2}} / {2\tilde\sigma_{x}^2 } \right]
+%}
+%where $\tilde\sigma_x \gg a$ {is the initial width. The corresponding width
+%in the wave vector space is given by $\sigma_k = 1/\tilde\sigma_x$.
+%The application of an inhomogeneous phase $\Phi(n) = \vp_0
+%(n-n_0)^2$ at $t=0$ results in additional broadening of the
+%initial state, and the total width of the wave packet in the
+%wave vector space with the account of the phase-induced contribution
+%becomes}
+%\cite{focusing-books-1,focusing-books-2} %By applying the quadratic phase to the
 %Gaussian wave packet with quadratic dispersion, we have changed
 %the original wave packet and the new width in momentum space
 %\cite{focusing-books-1,focusing-books-2} becomes
 %
-\begin{equation}
-\sigma_{k}(\tilde\sigma_x, \Phi_0)  =
-\frac{1}{\tilde\sigma_x}\,{\sqrt{1 + 4 \Phi_0^2 \tilde\sigma_x^4 /
-a^4 }}. \label{sigma-k}
-\end{equation}
+%\begin{equation}
+%\sigma_{k}(\tilde\sigma_x, \Phi_0)  =
+%\frac{1}{\tilde\sigma_x}\,{\sqrt{1 + 4 \Phi_0^2 \tilde\sigma_x^4 /
+%a^4 }}. \label{sigma-k}
+%\end{equation}
 %
 %Then we can leave the wave packet to propagate by itself, and
 %after some time it will become focused. Since the free propagation
@@ -518,16 +555,17 @@ a^4 }}. \label{sigma-k}
 %principle. Therefore, one would expect to see better focusing when
 %large values of $\Phi_0$ produces larger $\sigma_{k}$ according to
 %Eq. (\ref{sigma-k}).
+%By analogy with optics, one should expect better focusing
+%with larger $\Phi_0$ (the width of the wave packet in real space
+%is $\sigma_x(\Phi_0) = 1/\sigma_k(\tilde\sigma_x,\Phi_0))$.
+%However, large values of $\Phi_0$ may take the wave packet outside the quadratic
+%part of the dispersion, impeding the focusing.
 
-By analogy with optics, one should expect better focusing
-with larger $\Phi_0$ (the width of the wave packet in real space
-is $\sigma_x(\Phi_0) = 1/\sigma_k(\tilde\sigma_x,\Phi_0))$.
-However, large values of $\Phi_0$ may take the wave packet outside the quadratic
-part of the dispersion, impeding the focusing.
+In the case of exciton with the cosine dispersion curve represented by \autoref{dispersion}, $\beta = -\alpha a^2$. 
 To find the optimal phase $\Phi_0^*$ that keeps the wave packet
 within the quadratic dispersion while focusing it, we use the
-condition ??need something here %$\Delta_k = a \sigma_k \lesssim 1$, which yields
-$\Phi_0^* = \pm a/2 \tilde\sigma_x$ for the optimal focusing. At
+condition $\sigma_{k, 0} \lesssim 1$, which yields
+$\Phi_0^* = \pm 1/2 \sigma_{x, 0}$ for the optimal focusing. At
 time
 \begin{equation}
 t_* \approx 1 / 4 \alpha \Phi_0^* \ , \label{focus-time}
@@ -536,11 +574,12 @@ the wave packet is most
 focused and has a width
 %
 \begin{equation}
-\sigma_{x,F} (\Phi_0^*) =  \frac{\tilde\sigma_x} {\sqrt{1 + 4
-\Phi_0^{*\,2} \tilde\sigma_x^4 / a^4 }} \approx a .
+a\sigma_{x,F} (\Phi_0^*) =  \frac{ a \sigma_{x, 0}} {\sqrt{1 + 4
+\Phi_0^{*\,2} \sigma_{x, 0}^4  }} \sim a .
 \label{x-focusing-Gauss}
 \end{equation}
-For the time $t_*$ in \autoref{focus-time} to be positive, $\alpha$ and $\Phi_0^*$ must have the same sign. Therefore, a convex quadratic phase profile
+For the time $t_*$ in \autoref{focus-time} to be positive, $\alpha$ and $\Phi_0^*$ must have the same sign.
+ Therefore, a convex quadratic phase profile
 $\Phi(n)$ with $\Phi_0>0$ must focus collective excitations in a system with
 repulsive couplings between particles in different lattice sites ($\alpha>0$), and a concave quadratic phase
 profile $\Phi(n)$ with $\Phi_0<0$ must focus excitations in a system with
@@ -605,6 +644,26 @@ In order to keep the linear part of the dispersion spectrum
 unpopulated, we choose the optimal focusing phase $\Phi_0^*
 \sim 1 /2N$, so that $\Delta_{k}( \Phi_0^*)\sim 1$.
 
+
+
+\subsection{Numerical results}
+
+\Autoref{x-focusing-Gauss} and \autoref{x-focusing-PlaneWave} are
+valid for a many-body system with nearest neighbor interactions
+only. In most physical systems, the energy dispersion is modified
+by long-range couplings. In order to confirm that the above
+predictions are also valid for systems with long-range
+ interactions and illustrate the focusing of
+delocalized excitations, we compute the time evolution of the wave
+packets by solving the wave equation numerically for a system with
+long-range dipole-dipole interactions. Figure \ref{focusing-1d}
+illustrates the focusing dynamics of a completely delocalized
+excitation (panels a and b) and a broad Gaussian wave packet (panels c and d) in a
+system with all (first neighbour, second neighbour, etc.) couplings explicitly included  in the
+calculation. The results show that  
+the collective excitations can be focused to a few lattice sites. The role of the long-range coupling will be
+explicitly discussed in \autoref{sec:energyTransferVacancy}. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htbp]
 \centering
@@ -624,25 +683,6 @@ E_{e-g}$ as in Figure \ref{momentum-kick}. The results are computed
 with all couplings accounted for. }\label{focusing-1d}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\Autoref{x-focusing-Gauss} and \autoref{x-focusing-PlaneWave} are
-valid for a many-body system with nearest neighbor interactions
-only. In most physical systems, the energy dispersion is modified
-by long-range couplings. In order to confirm that the above
-predictions are also valid for systems with long-range
- interactions and illustrate the focusing of
-delocalized excitations, we compute the time evolution of the wave
-packets by solving the wave equation numerically for a system with
-long-range dipole-dipole interactions. Figure \ref{focusing-1d}
-illustrates the focusing dynamics of a completely delocalized
-excitation (panels a and b) and a broad Gaussian wave packet (panels c and d) in a
-system with all (first neighbour, second neighbour, etc.) couplings explicitly included  in the
-calculation. The results show that  
-the collective excitations can be focused to a few lattice sites. The role of the long-range coupling will be
-explicitly discussed in \autoref{sec:energyTransferVacancy}. 
-
-
 
 The focusing scheme demonstrated above can be generalized to  systems of higher
 dimensionality. To illustrate this, we repeated the calculations
@@ -710,7 +750,7 @@ The lifetime of these excited states is limited by the spontaneous emission of t
 in the range of 10 - 30 ns.
 However, the collective excited states can be protected from spontaneous emission if the wave vector range populated by excitons in the wave packet (\ref{k-rep}) is
 %sufficiently far from zero \cite{cone-matter-papers}. Due to momentum conservation,
-outside of the so-called light cone, so that $k >\Delta E_{e-g}/\hbar c$.\footnote{\color{blue}  
+outside of the so-called light cone, so that $k >\Delta E_{e-g}/\hbar c$.\footnote{  
 The number of $k$-states in the bright and dark regions depends on the relation between the wavelength of the 
 excitation $\lambda_0 = 2\pi c \hbar / \Delta E_{e-g} $ and the lattice constant, with bright states appearing at $k < k_* = 2\pi / \lambda_0$, and dark
 states at $k_* < k < \pi/a$. For Frenkel excitons originating from electronic transitions in solid-state crystals, $\lambda_0 \gg a$ and $k_*
