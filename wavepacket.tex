@@ -366,7 +366,7 @@ of the coefficients $C_n(t)$ in  \autoref{basis}. In order to find the expressio
  at $t=0$ in a Fourier series
 \begin{eqnarray}
 C_n(t=0) = \sum_q
-\frac{e^{iqn}}{\sqrt{N}}C(q; t=0)
+\frac{e^{iq a n}}{\sqrt{N}}C(q; t=0)
 \end{eqnarray}
 and apply the propagator $e^{-iE(q)t/\hbar}$ to each $q$-component with
 $E(q)$ representing the exciton energy given by \autoref{dispersion}.
@@ -383,14 +383,11 @@ instantaneously. The phase  $\Phi(n, t)$ can be applied continuously over an
 extended time interval as long as the accumulated phase gives the desired outcome  $\int_0^{T}\Phi(n, t)dt = \Phi(n)$.
 
 
-
+\subsection{Focusing to a single site}
+\label{sec:singleSiteFocusing}
 As \autoref{Cn(t)} shows, the focusing efficiency is determined by the phase transformation and
 the shape of the dispersion curve $E(k)$. Given the cosine dispersion of excitons (\ref{dispersion}), is it possible to
  focus a delocalized excitation onto a single lattice site?
-%To answer this question, we assume that $C_{n = n_0}(t=0) = 1$ and apply \autoref{Cn(t)} to
- %calculate the coefficients $C_m(t)$ at $t=-\tau$. This backforward-in-time calculation yields the site
- %representation, i.e., $C_m(t)$, of the initial wave packet that will focus onto the lattice site $n_0$ after evolving for 
-%time $\tau$. 
 To answer this question, we assume an initial condition where the excitation is localized to the site $n_0$, that is,
 \multiline{
 C_n (t=0) = \delta_{n, n_0} \ ,
@@ -404,6 +401,11 @@ we obtain
 \multiline{
 C_m (-\tau) &=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [k a
 (m-n) - E(k) (-\tau)/\hbar ]} \nonumber \\
+&=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [k a (m-n)}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
+&=& \frac{1}{N} \sum_{n,k} \delta_{n, n_0} e^{i [k a (m-n)}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
+&=&  \frac{1}{N} \sum_{k} e^{i k a (m-n_0 )}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
+&=& \sum_{n'} e^{i\pi n'}  J_{n'}(2\alpha \tau/\hbar) \left( \frac{1}{N}\sum_{k} e^{i k a (m-n_0 - n')}\right) \nonumber \\
+&=& \sum_{n'} e^{i\pi n'}  J_{n'}(2\alpha \tau/\hbar) \delta_{n', m-n_0} \nonumber \\
 &=& e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha \tau/\hbar\right) \ , \label{eqn:cosineFocusing}
 }
 where $J$ is the Bessel function of first kind. 
@@ -415,13 +417,18 @@ the orthonormality  of the Bessel functions
 \begin{eqnarray}
 \sum_{n} J_n(x) J_{n-m}(x) = \delta_{m,0} \ .
 \end{eqnarray}
-\Autoref{eqn:cosineFocusing} shows that a phase transformation alone is, generally,  not sufficient to create a collective excitation state that focuses
-onto a single lattice site.
-The best focusing must involve both the phase and amplitude modulations, which may be difficult to realize in
-experiments. A simpler procedure can be implemented if the phase transformations are restricted to a particular part of
+\Autoref{eqn:cosineFocusing} shows that  the focusing of a wave packet onto a
+ single site would require not only adding the phase $\Phi(n) = {\rm Arg}[C_m(-\tau)]$, but also the amplitude
+ modulations of the coefficients equal to the absolute values of $C_m(-\tau)$. This second task is
+ beyond the manipulation tools considered here. However, creating such a wave packet may require multiple and 
+complicated phase transformations, which may be difficult to realize in experiments. 
+
+
+\subsection{Focusing a broad wavepacket in coordinate space}
+\label{sec:wavepacketFocusing}
+
+A simpler procedure can be implemented if the phase transformations are restricted to a particular part of
 the exciton dispersion.
-
-
 From wave optics, waves with quadratic dispersion can be
 focused, while those with linear dispersion propagate without changing
 the wave packet shape \cite{focusing-books-1,focusing-books-2}. It is this interplay of the quadratic (at low $k$) and
@@ -429,21 +436,32 @@ the wave packet shape \cite{focusing-books-1,focusing-books-2}. It is this inter
 In order to avoid the undesirable amplitude modulations, it may be possible to focus delocalized excitations by a phase transformation that
  constrains the wave packet (\ref{k-rep}) to the quadratic part of the dispersion $E(k)$.  For such wave packets, adding a quadratic phase
 $\vp(n) = \vp_{0} (n-n_0)^2$ must lead to
-focusing around site $n_0$. Below we illustrate the effect of the quadratic phase transformation for two types of initial states.
+focusing around site $n_0$. Below we illustrate the effect of the quadratic phase transformation for a broad wave packet in coordinate space. In the next subsection (\autoref{sec:planewaveFocusing}), we continue to explore the case of a plane wave. 
 
 
 
+Consider a Gaussian wave packet with a narrow width $\sigma_{k}$ which centers around $k=0$ in $k$ space
+\multiline{
+C_k(t=0) =  A e^{-\frac{ a^2 k^2}{2\sigma ^2_{k} } } \ , \label{eqn:initialWavepacketInk}
+}
+where $A$ is some normalization factor. Since these normalization factors doesn't matter for the discussion
+ here, we will just ignore them in the following derivations. The wave packet represented by
+ \autoref{eqn:initialWavepacketInk} is also a Gaussian wave packet in coordinate space. This can be verified
+by the following transformation:
+\multiline{
+C_n(t=0) &=& \sum_{k} C_k(t=0) e^{ - i k a n} \nonumber \\
+&\approx& \int_{-\infty}^{\infty} dk \; e^{-\frac{a^2 k^2}{2\sigma ^2_{k} }  - i k a n}  \nonumber \\
+&=& e^{-\frac{n^2 }{2\sigma ^2_{k} } }\int_{-\infty}^{\infty} dk \; A\; e^{-\frac{1}{2\sigma ^2_{k} } (k a + i  n \sigma^2 )^2 } \nonumber \\
+&=& \frac{\sigma \sqrt{2\pi} }{a} \;A\; e^{-\frac{n^2 \sigma ^2_{k} }{2 } } \nonumber \\
+&\propto&  e^{-\frac{n^2 }{2(1/\sigma_k) ^2} }
+} 
 
-
-%As Eq. (\ref{Cn(t)}) shows,  the shape of the dispersion curve $E(k)$ is crucial for the focusing efficiency: while waves with quadratic dispersion can be focused, those with linear dispersion propagate without changing the wave packet shape \cite{focusing-books-1,focusing-books-2}. The cosine-like dispersion of excitons (\ref{dispersion}) offers both the quadratic (at low $k$) and linear (at $k \approx \pm \pi/2a$) regions.
-
-%\tm{For the cosine dispersion, the wave packet (\ref{basis}) with $\Phi(n) = 0$ and \begin{equation}\label{C_ideal} C_n^{(n_0)} = J_{n-n_0}(2\alpha \tau) e^{i \pi (n-n_0) /2}, \end{equation} where $J_n$ is the Bessel function of order $n$, must focus onto the single site $n_0$ at time $\tau$. This can be directly checked by substituting these coefficients into Eq.~(\ref{Cn(t)}) and using the expansion of an exponent in Bessel functions: $e^{-ia\cos x} = \sum_{n} e^{i(x-\pi/2)n} J_n(a)$ and orthogonality properties of the Bessel functions: $\sum_{n} J_n(x) J_{n-m}(x) = \delta_{m,0}$ for any $x$. Therefore, the focusing of a wave packet onto a single site would require not only adding the phase $\Phi(n) = {\rm Arg}[C_n^{(n_0)}]$, but also the amplitude modulations of the $C_n$ coefficients equal to the absolute values of $C_n^{(n_0)}$. This second task is beyond the manipulation tools considered here. %However, creating such a wave
-%packet may require multiple and complicated phase transformations.
-%For practical applications, it may be easier to Instead, one can} constrain all phase transformations in such a way that the wave packet always remains in the quadratic part of the cosine dispersion (\ref{dispersion}). For such wave packets, adding a quadratic phase $\vp(n) = \vp_0 (n-n_0)^2$ leads to focusing around site $n_0$. Below we illustrate the effect of the quadratic phase transformation for two types of initial states.
 
 First, consider a broad Gaussian wave packet (\ref{basis}) with
-$C_n(\tilde\sigma_x;t=0) =\sqrt{{a}/{\tilde\sigma_x \sqrt{\pi}} }$
-$ \exp \left[- {a^2 (n-n_0)^{2}} / {2\tilde\sigma_{x}^2 } \right]$
+\oneline{
+C_n(\tilde\sigma_x;t=0) =\sqrt{{a}/{\tilde\sigma_x \sqrt{\pi}} }
+ \exp \left[- {a^2 (n-n_0)^{2}} / {2\tilde\sigma_{x}^2 } \right]
+}
 where $\tilde\sigma_x \gg a$ {is the initial width. The corresponding width
 in the wave vector space is given by $\sigma_k = 1/\tilde\sigma_x$.
 The application of an inhomogeneous phase $\Phi(n) = \vp_0
@@ -473,9 +491,9 @@ a^4 }}. \label{sigma-k}
 %large values of $\Phi_0$ produces larger $\sigma_{k}$ according to
 %Eq. (\ref{sigma-k}).
 
-{By analogy with optics, one should expect better focusing
+By analogy with optics, one should expect better focusing
 with larger $\Phi_0$ (the width of the wave packet in real space
-is $\sigma_x(\Phi_0) = 1/\sigma_k(\tilde\sigma_x,\Phi_0))$.}
+is $\sigma_x(\Phi_0) = 1/\sigma_k(\tilde\sigma_x,\Phi_0))$.
 However, large values of $\Phi_0$ may take the wave packet outside the quadratic
 part of the dispersion, impeding the focusing.
 To find the optimal phase $\Phi_0^*$ that keeps the wave packet
@@ -500,6 +518,8 @@ repulsive couplings between particles in different lattice sites ($\alpha>0$), a
 profile $\Phi(n)$ with $\Phi_0<0$ must focus excitations in a system with
 attractive couplings ($\alpha<0$).
 
+\subsection{Focusing a plane wave in coordinate space}
+\label{sec:planewaveFocusing}
 Second, consider a completely delocalized excitation (\ref{basis})
 with $C_n(k;t=0) = {e^{iakn}}/{\sqrt{N}}$ describing an eigenstate
 of an ideal system of $N$ coupled monomers.
