@@ -449,9 +449,9 @@ where $A$ is some normalization factor. Since these normalization factors doesn'
  \autoref{eqn:initialWavepacketInk} is also a Gaussian wave packet in coordinate space. This can be verified
 by the following transformation from $k$ space to coordinate space :
 \multiline{
-C_n &=&\frac{1}{\sqrt{N}} \sum_{k} C_k(t=0) e^{ - i k a n} \nonumber \\
-&\approx& \frac{A}{\sqrt{N}} \int_{-\infty}^{\infty} dk \; e^{-\frac{a^2 k^2}{2\sigma ^2_{k, 0} }  - i k a n}  \nonumber \\
-&=& \frac{A}{\sqrt{N}} e^{-\frac{n^2 }{2\sigma ^2_{k, 0} } }\int_{-\infty}^{\infty} dk \;  e^{-\frac{1}{2\sigma ^2_{k, 0} } (k a + i  n \sigma^2 )^2 } \nonumber \\
+C_n &=&\frac{1}{\sqrt{N}} \sum_{k} C_k(t=0) e^{  i k a n} \nonumber \\
+&\approx& \frac{A}{\sqrt{N}} \int_{-\infty}^{\infty} dk \; e^{-\frac{a^2 k^2}{2\sigma ^2_{k, 0} }  + i k a n}  \nonumber \\
+&=& \frac{A}{\sqrt{N}} e^{-\frac{n^2 }{2\sigma ^2_{k, 0} } }\int_{-\infty}^{\infty} dk \;  e^{-\frac{1}{2\sigma ^2_{k, 0} } (k a - i  n \sigma^2 )^2 } \nonumber \\
 &=& \frac{A}{\sqrt{N}} \frac{\sigma_{k, 0} \sqrt{2\pi} }{a} \; e^{-\frac{n^2 \sigma ^2_{k, 0} }{2 } } \nonumber \\
 &\propto&  e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \ , \label{eqn:initialWavepacketInRealSpace}
 } 
@@ -467,8 +467,8 @@ C_n(t=0) \propto e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \; e^{i \Phi_0 (n-n_0
 }
 which upon a transformation from coordinate space to $k$ space gives rise to
 \multiline{
-C_k(t=0) &=& \frac{1}{\sqrt{N}}  \sum_{n} C_n(t=0) e^{i k a n} \nonumber \\
-&\approx& \frac{1}{\sqrt{N}} \int_{\infty}^{\infty} dn\; C_n(t=0) e^{i k a n} \nonumber \\
+C_k(t=0) &=& \frac{1}{\sqrt{N}}  \sum_{n} C_n(t=0) e^{-i k a n} \nonumber \\
+&\approx& \frac{1}{\sqrt{N}} \int_{\infty}^{\infty} dn\; C_n(t=0) e^{-i k a n} \nonumber \\
 &\propto& e^{\frac{-a^2 k^2+4 a k n_0 \Phi_0 +2 i n_0^2 \sigma_{k, 0}^2 \Phi_0 }{2 \left(\sigma_{k, 0}^2-2 i \Phi_0 \right)}} \ . \label{eqn:wavepacketInKAfterPhase}
 }
 The power of $e$ in \autoref{eqn:wavepacketInKAfterPhase} can be separated into a real part and an imaginary part.
@@ -497,8 +497,8 @@ E(k) \approx E_0 + \beta a^2 k^2 \ .  \label{eqn:quadraticApprox}
 Using \autoref{eqn:quadraticApprox},
 we obtain the wavefunction of the wave packet after time $t$
 \multiline{
-C_n(t) &=& \frac{1}{\sqrt{N} }\sum_{k} e^{- i k a n} e^{-i E(k) t} C_k(0) \nonumber \\
-&\propto& \sum_{k} e^{- i k a n} e^{-i E(k) t/\hbar} e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \nonumber \\
+C_n(t) &=& \frac{1}{\sqrt{N} }\sum_{k} e^{ i k a n} e^{-i E(k) t} C_k(0) \nonumber \\
+&\propto& \sum_{k} e^{ i k a n} e^{-i E(k) t/\hbar} e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \nonumber \\
 &\propto& e^{- \frac{(n + 4 t \beta\Phi_0  n_0)^2 }{2 \sigma_{x}(t)^2 } }
 }
 where $\sigma_{x}(t)$ is a time-dependent width given by
@@ -591,24 +591,50 @@ attractive couplings ($\alpha<0$).
 Consider a completely delocalized excitation (\ref{basis})
 with $C_n(k;t=0) = {e^{iakn}}/{\sqrt{N}}$ describing an eigenstate
 of an ideal system of $N$ coupled monomers.
-If $E(k)$ in \autoref{Cn(t)}  is approximated as $E(k) = \D E_{e-g}
--\alpha a^2 k^2$, the quadratic phase transformation $\vp(n) = \vp_0
-n^2$ yields
-
-\begin{equation}
-\begin{array}{c}
-\displaystyle C_m(t) = \frac{e^{-i\alpha a^2 k^2}}{N}\
+Suppose $E(k)$ in \autoref{Cn(t)}  can be approximated as $E(k) = \D E_{e-g}
+-\alpha a^2 k^2$. As we have seen in the derivation of last section, the effect of $E(k)$ on the wave packet is to
+add a phase due to time evolution, i.e. $e^{-i E(k) t}$. Since $\D E_{e-g}$ in $E(k)$ contributes the same phase to all
+$k$ component and thus adds a trivial phase to the whole wavefunction, we can saftely ignore it if only the shape of
+the wavefunction is concerned. Therefore, we use   $E(k) = -\alpha a^2 k^2$ instead in the following derivation. To
+focus the plane wave, the quadratic phase $\vp(n) = \vp_0
+n^2$ are applied at $t=0$. This changes the initial wavefunction to 
+\multiline{
+C_n(k; t=0) &=&  \frac{1}{\sqrt{N}}  e^{i k a n } e^{i \Phi_0 n^2 } \ ,
+}
+which renders the wavefunction a wave packet in $k$ space with the coefficient:
+\multiline{
+C_q(t=0) =\frac{1}{\sqrt{N}} \sum_{n} e^{- i q a n} C_n(k; t=0) \ . \label{eqn:qComponent}
+}
+Each $q$ component in \autoref{eqn:qComponent} evolves according to 
+\multiline{
+C_q(t) = e^{-i E(q) t} C_q(0) = e^{i \alpha a^2 q^2} C_q(0) \ ,
+}
+then the wavefunction in coordinate space after time $t$ is given by
+\multiline{
+C_m(t) &=& \frac{1}{\sqrt{N}}  \sum_{q} e^{i q a m} C_q(t) \nonumber \\
+&=& \frac{1}{N \sqrt{N}}\sum_{q} e^{i q a m} e^{i \alpha a^2 q^2}  \sum_{n} e^{- i q a n} e^{i k a n } e^{i \Phi_0 n^2 } \nonumber \\
+&=& \frac{e^{-i\alpha a^2 k^2}}{N}\
 \sqrt{\frac{i\pi}{N \Phi_0}} \sum\limits_q e^{i[a^2(k-q)^2 (\alpha
 t - 1/4\Phi_0) + q
-a (m + 2\alpha ak) ]}\times\\
-
-\\
-
-\displaystyle\times\Theta\left(-\frac{N\Phi_0}{a} < k-q <
+a (m + 2\alpha ak) ]} \nonumber \\
+&&\hspace{0.5cm} \times \Theta\left(-\frac{N\Phi_0}{a} < k-q <
 \frac{N\Phi_0}{a}
-\right),\\
-\end{array}\label{C_plane_wave}
-\end{equation}
+\right) \ , \label{C_plane_wave}
+}
+%\begin{equation}
+%\begin{array}{c}
+%\displaystyle C_m(t) = \frac{e^{-i\alpha a^2 k^2}}{N}\
+%\sqrt{\frac{i\pi}{N \Phi_0}} \sum\limits_q e^{i[a^2(k-q)^2 (\alpha
+%t - 1/4\Phi_0) + q
+%a (m + 2\alpha ak) ]}\times\\
+%
+%\\
+%
+%\displaystyle\times\Theta\left(-\frac{N\Phi_0}{a} < k-q <
+%\frac{N\Phi_0}{a}
+%\right),\\
+%\end{array}\label{C_plane_wave}
+%\end{equation}
 where $\Theta(z) = 1$ if $z$ is true and zero otherwise.
 In order to derive \autoref{C_plane_wave}, we
 used the approximate equality
@@ -623,11 +649,14 @@ large argument $x$.
 At time $t_* = 1/4\alpha\Phi_0$, the terms quadratic in $q$
 in \autoref{C_plane_wave} are canceled, and the sum over $q$ reduces to a
 delta-function, if the summation limits are from $-\pi/a$ to
-$\pi/a$. Therefore, the choice $\Phi_0 = \pi / N$ yields $C_m(t) =
-\sqrt{i} e^{-i N a^2 k^2 / 4\pi} \delta_{m,-\nu_k}$, where   $\nu_k$
+$\pi/a$. Therefore, the choice $\Phi_0 = \pi / N$ yields 
+\oneline{
+C_m(t) =\sqrt{i} e^{-i N a^2 k^2 / 4\pi} \delta_{m,-\nu_k} \ , \label{eqn:cmPlaneWave}
+}
+where   $\nu_k$
 is the index of the initial wave vector $k = 2\pi \nu_k / Na$, quantized due to the discreteness of the lattice.
 %However, this works well for a true quadratic dispersion only.
-According to \autoref{C_plane_wave}, the dimensionless width
+According to step function  $\Theta(z)$ in \autoref{C_plane_wave}, the dimensionless width
 of the wave packet in the wave vector space is $\Delta_k(\Phi_0)
 \equiv a\sigma_{k}(\Phi_0) \approx 2N\Phi_0$. When $\Phi_0 = \pi /
 N$, the wave packet spreads over the entire Brillouin zone, including the
