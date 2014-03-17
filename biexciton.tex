@@ -81,7 +81,7 @@ which gives rise to
 \oneline{
 \p{m}\pd{n} = \delta_{m,n} + (1 - 2\delta_{m,n})\pd{n}\p{m} \ . \label{eqn:commutation-relation2}
 } 
-We will make frequent usage of \autoref{eqn:commutation-relation2} when evaluating the matrix elements of hamiltonians. 
+We will make frequent usage of \autoref{eqn:commutation-relation2} when evaluating the matrix elements of Hamiltonians. 
 
 
 Multiple excitations lead to dynamical exciton--exciton interactions described by \cite{agranovich}:
@@ -95,18 +95,18 @@ D(n - m)& =& \langle e_{n}, e_{m} | \hat{V}_{dd}(n-m) | e_{n}, e_{m} \rangle +
 \langle g_{n}, g_{m} | \hat{V}_{dd}(n-m) | g_{n}, g_{m} \rangle  \nonumber \\
 & & - 2\langle e_{n}, g_{m} |\hat{V}_{dd}(n-m) | e_{n}, g_{m} \rangle ,
 \end{eqnarray} 
-and the factor 1/2 is there to cancell the effect of double couting of the pairs $(n, m)$. In the above summations, we
- have restricted that $m$ cannot be equal to $n$ because two excitations cannot sit at the same lattice (or in other
+and the factor 1/2 is there to cancel the effect of double couting of the pairs $(n, m)$. In the above summations, we
+ have restricted that $m$ cannot not equal to $n$ because two excitations cannot sit at the same lattice site (or in other
  word a molecule can't be excited twice to the same excited state). The dipole - dipole interaction operator
  $\hat{V}_{dd}(n-m)$ can only couple states of different parity \cite{RotSpect}. If $|g \rangle$ and $| e \rangle$ are
- states of well-defined parity, such as the rotational states $|NM_N \rangle$, the matrix elements $D(n-m)$ must be
+ states of well-defined parity, such as the rotational states $|N, M_N \rangle$, the matrix elements $D(n-m)$ must be
  zero. 
 
  The inversion symmetry (parity) of molecules on an optical lattice can be broken by applying an external dc electric
  field. In an electric field, $|g_{n} \rangle$ and $| e_{n} \rangle$ are eigenstates of the Hamiltonian 
 $\hat{H}^{\rm mol}_n = B_e \hat{N}_n^2 - {\vec d}_n \cdot  {\vec {\cal E}_f}$, where ${\vec d}_n$ is the dipole moment
  of molecule in site $n$ and ${\vec {\cal E}_f}$ is the electric field vector. They can be expressed as 
-$| g \rangle = \sum_N a_N |N M_N = 0 \rangle$ and $| e \rangle = \sum_N b_N |N M_N = 0 \rangle$, where 
+$| g \rangle = \sum_N a_N |N, M_N = 0 \rangle$ and $| e \rangle = \sum_N b_N |N, M_N = 0 \rangle$, where 
  $a_N$ and $b_N$ are determined by the electric field strength.  
  
  The Hamiltonian (\ref{exciton}) can be diagonalized by the Fourier transforms: $\hat{P}^\dag(k) = \frac{1}{\sqrt{N_{\rm mol}}}
@@ -136,15 +136,15 @@ two-particle continuum. The splitting is the biexciton binding energy.
 
 \subsection{Method to calculate biexciton energies}
 \label{subsec:biexcitonEnergy}
-In the following, we discuss how to calculate the energies of biexciton. We start from the Hamiltonian
+In the following, we discuss how to calculate the energy of a biexciton. We start from the Hamiltonian
 \multiline{
 \hat{H} &=& \hat{H}_{\rm exc} + \hat{H}_{\rm dyn}  \nonumber \\
 &=& \underbrace{E_0 \sum\limits_{n=1}^{N_{\rm mol}} \hat{P}_n^\dag\hat{P}_n}_\text{\circled{1}} + 
  \underbrace{ \sum\limits_{n,m }^{N_{\rm mol}}J(n-m)\hat{P}_n^\dag \hat{P}_m}_\text{\circled{2}} +
 \underbrace{ \frac{1}{2} \sum\limits_{n,m }^{N_{\rm mol}} D(n-m)\hat{P}_{n}^\dag \hat{P}_{m}^\dag \hat{P}_{n} \hat{P}_{m} }_\text{\circled{3}} \ ,
 }
-where the constraint that $m\neq n$ is removed by assuming $J(0) = 0$ and $D(0) = 0$. The task is to find  out the 
-eigenvalues and eigenfunctions of the above hamiltonian using the wavefunction that are expanded in the
+where the constraint that $m\neq n$ is removed by assuming $J(0) = 0$ and $D(0) = 0$. The task is to find   the 
+eigenvalues and eigenfunctions of the above Hamiltonian  in the
  two-excitation basis sets:
 \oneline {
 \ket{\psi} =\sum_{n, m} C_{n, m}\pd{n}\pd{m}\ket{0} \ . \label{eqn:twoExcitonWavefunc}
@@ -166,21 +166,22 @@ and are to be normalized by
 \sum_{n,m}|C_{n,m}|^2 = 1
 }
 
-Assuming the wavefunction $\ket{\psi}$ satisfies the Schr{\" o}dinger equation
+Assuming the wavefunction $\psi$ satisfies the Schr{\" o}dinger equation
 \oneline{
 \hat{H} \ket{\psi} = E \ket{\psi} \ , \label{eqn:schrodinger}
 }
 we can obtain the equations for the coefficients $C_{n, m}$. Note since the terms $C_{n, n}$ are added into
  \autoref{eqn:coeffMomentumSpace} for artifical purposes, their values are not determined by the Schr{\" o}dinger
- equation. To derive the equations for $C_{n, m}$, we let the hamiltonian $\hat{H}$ operating on the wavefunction
+ equation. To derive the equations for $C_{n, m}$, we let the Hamiltonian $\hat{H}$ operate on the wavefunction
  term by term. The first term in \autoref{eqn:schrodinger} gives rise to:
 \multiline{
 \text{\circled{1}}\ket{\psi} &=& E_0 \sum_{n', n, m}C_{n,m}\pd{n'}\p{n'}\pd{n}\pd{m}\ket{0} \nonumber \\
 &=& E_0  \sum_{n', n, m}C_{n,m}\pd{n'}\left[\delta_{n', n} + (1-2\delta_{n', n})\pd{n}\p{n'} \right]\pd{m}\ket{0} \nonumber \\
 &=&E_0  \sum_{n', n, m} C_{n,m}\left[\delta_{n', n}\pd{n'}\pd{m} + (1-2\delta_{n', n})\pd{n'}\pd{n}\p{n'} \pd{m}\right]\ket{0} \nonumber \\
 &=& E_0  \sum_{n', n, m} C_{n,m}\left[\delta_{n', n}\pd{n'}\pd{m} + (1-2\delta_{n', n})\pd{n'}\pd{n}\delta_{n', m}\right]\ket{0} \nonumber \\
-&=&E_0  \sum_{ n, m} C_{n,m}\left[ \pd{n}\pd{m} + (1-2\delta_{m, n})\pd{m}\pd{n}\right]\ket{0} \label{eqn:term1}
+&=&E_0  \sum_{ n, m} C_{n,m}\left[ \pd{n}\pd{m} + (1-2\delta_{m, n})\pd{m}\pd{n}\right]\ket{0} \ , \label{eqn:term1}
 } 
+where $\ket{0}$ is the vacuum state that every particle is in the ground state. 
 In the above derivation, \autoref{eqn:commutation-relation2} and $\p{n}\ket{0} = 0$ has been used. Similarly, the
  second term and the third term give rise to 
 \oneline{
@@ -213,8 +214,9 @@ When $n=m$, the above equation becomes
 && (E - 2E_0 )C_{n, m} -  \sum_{n'}J(n'-n)C_{n', m} -  \sum_{n'}J(n'-m)C_{n, n'} \nonumber \\
 && = (E - 2E_0 )C_{n,n} - 2\sum_{n'}J(n-n')C_{n,n'} \ . \label{eqn:nEqualm}
 }
-Note the two sides of  \autoref{eqn:nEqualm} are equivalent, you cannot obtain the value of $C_{n,n}$ from it. 
-Therefore, it is consistent with the previous assumption that $C_{n,n} = 0$. 
+Note the two sides of  \autoref{eqn:nEqualm} are equivalent, so we cannot obtain the value of $C_{n,n}$ from it. 
+This is consistent with the previous assumption that $C_{n,n} = 0$ because \autoref{eqn:nEqualm} allows us to take
+an arbitrary value for $C_{n,n}$. 
 By Combining \autoref{eqn:nNotEqualm} for $n\neq m$ and \autoref{eqn:nEqualm} for $n = m$, we obtain a new 
 equation 
 \multiline{
@@ -223,10 +225,10 @@ equation
 }
 which is valid for all coefficients $C_{n, m}$. The left hand side of \autoref{eqn:forAllnm} now corresponds to the case 
 of two noninteracing bosons since the summations include terms like $C_{m,m}$ and $C_{n,n}$. On the right hand side,
- the first two terms describe the kinematical interaction of excitons due to \autoref{eqn:commutation-relation} and
+ the first two terms describe the kinematic interaction of excitons due to \autoref{eqn:commutation-relation} and
  \autoref{eqn:commutation-relation2}, and the last term represents the dynamical interaction of excitons.
 
-The dimension of \autoref{eqn:forAllnm} is about $N_{\rm mol}\times N_{\rm mol}$, which is large even for a lattices
+The dimension of the system of coupled equations (\ref{eqn:forAllnm}) is about $N_{\rm mol}\times N_{\rm mol}$, which is large even for a lattice
  with moderate size. To reduce the number of equations that we need to solve, we make use of the translational
  symmetry of the lattices and convert \autoref{eqn:forAllnm} into a quasimomentum representation. Since the
  conversion involves some nontrivial derivations, we give the details for \text{\circled{8}} in \autoref{eqn:forAllnm}
@@ -242,10 +244,18 @@ The dimension of \autoref{eqn:forAllnm} is about $N_{\rm mol}\times N_{\rm mol}$
 &=&  \frac{1}{N_{\rm mol}^2} \sum_{k_3} e^{i k_3 (n - m)}\sum_{k_1, k_2} e^{i (k_1 n + k_2 m)} C_{k_1, k_2}\left[ \Tilde{J}(k_1) + \Tilde{J}(k_2)\right ] \nonumber \\
 &=& \frac{1}{N_{\rm mol}^2}\sum_{k_1, k_2, k_3} e^{i(k_1 + k_3)n} e^{i(k_2 - k_3)m}C_{k_1, k_2} \left[ \Tilde{J}(k_1) + \Tilde{J}(k_2) \right] \nonumber \\
 &=& \frac{1}{N_{\rm mol}^2}\sum_{k_1^{'} = k_1 + k_3, k_2^{'} = k_2 - k_3} e^{i (k_1^{'} n + k_2^{'} m)}C_{k_1^{'} - k_3, k_2^{'} + k_3}\sum_{k_3} \left[ \Tilde{J}(k_1^{'} - k_3) + \Tilde{J}(k_2^{'} + k_3 ) \right]  \nonumber \\
-&=& \frac{1}{N_{\rm mol}^2}\sum_{k_1, k_2} e^{i (k_1 n + k_2 m)}C_{k_1 - k_3, k_2 + k_3}\sum_{k_3} \left[ \Tilde{J}(k_1 - k_3) + \Tilde{J}(k_2 + k_3 ) \right]
+&=& \frac{1}{N_{\rm mol}^2}\sum_{k_1, k_2} e^{i (k_1 n + k_2 m)}C_{k_1 - k_3, k_2 + k_3}\sum_{k_3} \left[ \Tilde{J}(k_1 - k_3) + \Tilde{J}(k_2 + k_3 ) \right] \ . \label{eqn:characteristicDerivation}
 }
-During the above derivation, we have made use of \autoref{eqn:coeffMomentumSpace}, the definition of 
-$\Tilde{J}(k)$ and the normalization relation of plane wave. In the last step, since $k_1^{'}$ and $k_2^{'}$ have the
+In the above derivation, we have made use of \autoref{eqn:coeffMomentumSpace}, the definition of 
+$\Tilde{J}(k)$:
+\oneline{
+\Tilde{J}(k) \equiv \sum_{n} e^{i k n} J(n)
+}
+ and the normalization relation of plane wave:
+\oneline{
+\frac{1}{N} \sum_{k} e^{i k (n - m)} = \delta_{n, m} \ .
+}
+ In the last step of \autoref{eqn:characteristicDerivation}, since $k_1^{'}$ and $k_2^{'}$ have the
  same range as $k_1$ and $k_2$, we have dropped their prime superscripts. Similar derivations like the above yield
 \multiline{
 \text{\circled{4}} = \frac{(E - 2 E_0 )}{N_{\rm mol}} \sum_{k_1, k_2} C_{k_1, k_2} e^{i (k_1 n + k_2 m)} \ ,
@@ -288,7 +298,7 @@ Because of \autoref{eqn:cnnConstraint}, we can eliminate $E$ terms in first summ
 }
 Note in the above equation, the range of the wavectors $k_1$, $k_2$ and $k_3$ is $[-\pi, \pi)$. Then the range of 
 $k_1 - k_3$ and $k_2 + k_3$ is $(-2\pi, 2\pi)$ which is outside the first Brillouin zone. However, due to the symmetry
- property of the lattices, we can always bring $k_1 - k_3$ or $k_2 + k_3$ back to the first Brillouin zone by adding or 
+ property of the lattice, we can always bring $k_1 - k_3$ or $k_2 + k_3$ back to the first Brillouin zone by adding or 
 subtracting $2\pi$. Thus, we define two new wavevectors
 \oneline {
 k_1^{'} = k_1 - k_3 \pm 2\pi \ , 
@@ -303,23 +313,23 @@ in which $+$ or $-$ is used to make sure the values of $k_1^{'}$ and $k_2^{'}$ a
 \left[ E - \epsilon(k_1) -  \epsilon(k_2)\right] C_{k_1, k_2} =
  \frac{1}{N_{\rm mol}}\sum_{k_1^{'} + k_2^{'} = k_1 + k_2} \left[\Tilde{D}(k_1 - k_1^{'}) - \epsilon(k_1^{'}) - \epsilon(k_2^{'}) \right]C_{k_1^{'}, k_2^{'}} \ . \label{eqn:forAllkPairs}
 }
-To avoid double counting of exciton pairs $(k_1, k_2)$, we can restrict that $k_1 \ge k_2$ and $k_1^{'} \ge k_2^{'}$ to
- reduce the dimension of \autoref{eqn:forAllkPairs} by half. This leads to 
+To avoid double counting of exciton pairs $(k_1, k_2)$, we can restrict the summation to $k_1 \ge k_2$ and $k_1^{'} \ge k_2^{'}$,
+ reducing the dimension of \autoref{eqn:forAllkPairs} by half. This leads to 
 \multiline{
 \left[ E - \epsilon(k_1) -  \epsilon(k_2)\right] C_{k_1, k_2}  &=&
  \frac{1}{N_{\rm mol}}\sum\limits_{\substack { k_1^{'} \ge k_2^{'} \\ k_1^{'} + k_2^{'} = k_1 + k_2 }} \left\{\Tilde{D}(k_1 - k_1^{'}) + (1 - \delta_{k_1^{'}, k_2^{'} })\Tilde{D}(k_1 - k_2^{'}) \right. \nonumber \\
 &-& \left. (2-\delta_{k_1^{'}, k_2^{'} } )\left[\epsilon(k_1^{'}) + \epsilon(k_2^{'}\right] \right\}C_{k_1^{'}, k_2^{'}} \ . \label{eqn:forAllkDistinctPairs}
 }
-As can be seen from the above equation, each coefficient $C_{k_1, k_2}$ only couples to other coefficients $C_{k_1^{'},
- k_2^{'}}$ for which $k_1 + k_2 = k_1^{'} + k_2^{'} $. Therefore we can separate \autoref{eqn:forAllkDistinctPairs} into 
-different sets and solve them one by one. This will reduce the number of equation by a factor of $N_{\rm mol}$, which
- is the reason that we want to convert \autoref{eqn:forAllnm} in site representation to the quasimomentum
- representation. For each set of equations, the summation of wavevectors $k_1 + k_2 =  K$ are fixed for all pairs,
- then \autoref{eqn:forAllkDistinctPairs} can be written in the form of eigenvalue equation 
+As can be seen from the above equation, each coefficient $C_{k_1, k_2}$ is only coupled to other coefficients $C_{k_1^{'},
+ k_2^{'}}$ when $k_1 + k_2 = k_1^{'} + k_2^{'} $. Therefore we can separate \autoref{eqn:forAllkDistinctPairs} into 
+different sets and solve them independently. This will reduce the number of equation by a factor of $N_{\rm mol}$, which
+ is the reason that we want to convert \autoref{eqn:forAllnm} from the site representation to the quasimomentum
+ representation. For each set of equations, the summation of wavevectors $k_1 + k_2 =  K$ is fixed for all pairs,
+ so \autoref{eqn:forAllkDistinctPairs} can be written in the form of eigenvalue equation 
 \oneline{
 \mathbf{A}(K) \mathbf{C} = E(K)\mathbf{C}(K) \label{eqn:eigenProblem}
 }
-where the matrix $\mathbf{A}(K)$ is given by
+where the elements of the matrix $\mathbf{A}(K)$ are given by
 \multiline{
 \mathbf{A}_{(k_1, k_2), (k_1^{'}, k_2^{'})} &=& \frac{1}{N_{\rm mol}} \left\{\Tilde{D}(k_1 - k_1^{'}) + (1 - \delta_{k_1^{'}, k_2^{'} })\Tilde{D}(k_1 - k_2^{'}) \right. \nonumber \\
 &-& \left. (2-\delta_{k_1^{'}, k_2^{'} } )\left[\epsilon(k_1^{'}) + \epsilon(k_2^{'})\right] \right\} \nonumber \\
@@ -346,12 +356,11 @@ two-exciton system. Under some conditions, a set of eigen energies is split from
 \subsection{Analytical derivation of biexciton wavefunction}
 \label{sec:biexcitonWavefunction}
 To gain a deeper understanding of the biexciton state, we aim to derive the biexciton wavefunction in site
- representation using the nearest neighbor approximation. In this section, I will sketch the whole derivation and give
- some details on the difficult part. 
+ representation using the nearest neighbor approximation. In this section, I will sketch the entire derivation and give
+ some details of the difficult part. 
 
-To begin with, let's examine the coefficients $C_{n,m}$ in the most general two-exciton wavefunction
- \autoref{eqn:twoExcitonWavefunc}. These $C_{n,m}$'s are related to the wavevectors $k_1$ and $k_2$ of exciton
- pairs by \autoref{eqn:coeffMomentumSpace}:
+To begin, let's examine the coefficients $C_{n,m}$ in the most general two-exciton wavefunction
+ \autoref{eqn:twoExcitonWavefunc}. These $C_{n,m}$'s are related to $C_{k_1, k_2}$ by \autoref{eqn:coeffMomentumSpace}:
 \oneline{
 C_{n,m} = \frac{1}{N_{\rm mol}}\sum_{k_1, k_2} C_{k_1, k_2} e^{i(k_1 n + k_2 m)}  \ . \nonumber
 }
@@ -382,7 +391,7 @@ Then the two-exciton wavefunction (\autoref{eqn:twoExcitonWavefunc}) can be writ
 \oneline{
 \ket{\psi} = \frac{1}{\sqrt{N_{\rm mol}}} \sum_{n, m} \sum_{K} C^{K}(n-m) e^{i K (n+m)/2} \pd{n}\pd{m}\ket{0} \ .
 } 
-The above equation inspired us to introduce a wavefunction that corresponds to a particular $K$:
+The above equation inspires us to introduce a wavefunction that corresponds to a particular $K$:
 \oneline{
 \ket{\psi^{K}_{b}} = \frac{1}{\sqrt{N_{\rm mol}}} \sum_{n, m} C^{K}(n-m) e^{i K (n+m)/2} \pd{n}\pd{m}\ket{0} \ ,
 } 
@@ -398,8 +407,8 @@ This indicates that the wavefunctions for different $K$'s are orthogonal and the
 } 
 
 
-Now the problem of finding the biexciton wavefunction becomes the problem of finding the value of $C^{K}(l)$ that 
-satisfy \autoref{eqn:normalization}. As usual, wavefunctions can be obtained by solving Schr{\" o}dinger equations, so
+Now the problem of finding the biexciton wavefunction becomes the problem of finding the values of $C^{K}(l)$ that 
+satisfy \autoref{eqn:normalization}. As usual, wavefunctions can be obtained by solving the Schr{\" o}dinger equation, so
  we work with \autoref{eqn:forAllkPairs} which is equivalent to the Schr{\" o}dinger equation for the biexciton states. 
 The main idea is to substitute \autoref{eqn:CKk} into \autoref{eqn:forAllkPairs} and get rid of the individual 
 wavevector $k_1$, $k_2$, $k_2^{'}$ and $k_2^{'}$. In this way, we will finally obtain an equation for $C^{K}(l)$ that
@@ -414,7 +423,7 @@ G^{K}(n) &=& \frac{1}{N_{\rm mol}} \sum_{q} \frac{e^{i q n}}{E - \epsilon(K/2 + 
 &=& \frac{1}{N_{\rm mol}} \sum_{k_1 + k_2 = 2 K} \frac{e^{i ( k_1 - k_2 ) n/2}}{E - \epsilon(k_1) - \epsilon(k_2) } \ . 
 \label{eqn:GKn}
 }
-In the nearest neighbor approximation,  the energy $\epsilon(k_1)$ of an exciton with wavevector $k_1$ is given by
+In the nearest neighbor approximation where only the interaction between the nearest sites is considered,  the energy $\epsilon(k_1)$ of an exciton with wavevector $k_1$ is given by
 \oneline{
 \epsilon(k_1) = E_0 + 2 J \cos(k_1)  \ , 
 }
@@ -452,7 +461,7 @@ For the derivations of the above two equations, please refer to page 88 of Econo
 in the following discussions. 
 
 The reason why we want to calculate $G^{K}(n)$ before working with \autoref{eqn:forAllkPairs} is that
- \autoref{eqn:forAllkPairs}  contains $G^{K}_{k_1, k_2}$ and $G^{K}_{k_1, k_2}$ is the fourier transform of  $G^{K}(n)$,
+ \autoref{eqn:forAllkPairs}  contains $G^{K}_{k_1, k_2}$ and $G^{K}_{k_1, k_2}$ is the Fourier transform of  $G^{K}(n)$,
 \oneline{
 G^{K}_{k_1, k_2} = \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \ .  \label{eqn:GKConvertedToGn}
 }
@@ -466,7 +475,7 @@ $G^{K}_{k_1, k_2}$ to get
 This is the equation we work with to derive an equation for $C^{K}(n)$. Since the derivation is not straightforward, we
 illustrate some difficult points by dealing with the equation term by term.  
 
-Substitution of \autoref{eqn:GKConvertedToGn} and \autoref{eqn:CKk} to \autoref{eqn:eqToStart} gives rise to:
+Substitution of \autoref{eqn:GKConvertedToGn} and \autoref{eqn:CKk} into \autoref{eqn:eqToStart} gives rise to:
 \oneline{
 \text{\circled{10}} = \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1 - k_2 ) l /2} \ ,
 }
@@ -507,7 +516,7 @@ a crystal with infinite size, then we can replace the summation over $l$ with th
 \sum_{l}G^{K}(l) e^{- i (k_1 - k_2 ) l /2} &=& \sum_{l-m}G^{K}(l-m) e^{- i (k_1 - k_2 )( l-m) /2} \nonumber \\
 &=&  \sum_{l}G^{K}(l-m) e^{- i (k_1 - k_2 )( l-m) /2} \ . \label{eqn:getRidOfExponent}
 }
-Although this equation is only strictly valid for a lattices with infinite number of sites, we can still use it for the case
+Although this equation is only strictly valid for a lattice with infinite number of sites, we can still use it for the case
 of a sufficiently large lattices with a large $N_{\rm mol}$.  Substituting \autoref{eqn:getRidOfExponent} into 
 \autoref{eqn:term11AfterExchangingIndex}, we can obtain
 \oneline{
@@ -543,12 +552,13 @@ C^{K}(n) = \frac{\sqrt{D^2 - J_K^{2} }}{2 D} \left(\frac{J_K}{D}\right)^{|n|-1} 
 So the biexciton wave function in the site representation in the nearest neighbor approximation is:
 \begin{eqnarray}
 &&| \Psi_b(K) \rangle = \sum\limits_{n,m \neq n} e^{iK(n+m)/2}
-\psi(|n-m|) | \hat P_n^\dag \hat P_m^\dag \rangle , \nonumber \\
+\psi_{K}(|n-m|) | \hat P_n^\dag \hat P_m^\dag \rangle , \nonumber \\
 &&\psi_{K}(r) = \frac{\sqrt{D^2 - 4 J^2\cos^2 (K/2)}}{2D \sqrt{N_{\rm  mol}}} \left(
 \frac{2 J\cos(K/2)}{D} \right)^{|r|-1} , \nonumber
 \end{eqnarray}
-where $r=n-m$ is the distance between two excitations. From the biexciton wavefunction, we can see the amplitude
-for two excitations to appear at two sites decays exponentially with the distance between the two sites, which
+where $r=n-m$ is the distance between two excitations. Since $J_{K} = 2 J \cos(K/2) > J$, we can see from the 
+biexciton wavefunction that the amplitude $\psi_{K}(r)$ for two excitations to appear at two sites decays 
+exponentially with the distance between the two sites, which
  indicates that the biexciton states are indeed bound states. 
 
 
@@ -704,8 +714,7 @@ transformation to diagonalize $\mathbf{H}$
 }
  so that $\mathbf{C}$ in the new basis set can then be solved by direct
  integration and then $\mathbf{C}$ in the original basis set can be found by the inverse basis-set transformation. 
-Mathematically speaking, we multiply $\mathbf{U^{T}}$ on both sides of \autoref{eqn:matrixDifferentialEqs} and 
-obtain
+Multiplying both sides of \autoref{eqn:matrixDifferentialEqs}  by $\mathbf{U^{T}}$, we obtain
 \multiline{
 i\hbar\mathbf{U^{T}} \mathbf{\dot{C}} &=& \mathbf{U^{T}} \mathbf{H} \mathbf{U} \mathbf{U^{T}}\mathbf{C} \ , \label{eqn:matrixDifferentialEqsModified}
 }
@@ -726,11 +735,11 @@ which can solved easily by direct integration:
 \oneline{
 \mathbf{A}(t) = e^{-\frac{i}{\hbar} \mathbf{D} \; t} \mathbf{A}(0) \ .  \label{eqn:solForA}
 }
-Substituting \autoref{eqn:changeBasis} to \autoref{eqn:solForA}, we get
+Substituting \autoref{eqn:changeBasis} into \autoref{eqn:solForA}, we get
 \oneline{
 \mathbf{C}(t) = \mathbf{U} e^{-\frac{i}{\hbar} \mathbf{D} \; t} \mathbf{U^{T}} \mathbf{C}(0) \ ,  \label{eqn:solForC}
 }
-where $\mathbf{D}$ is a diagonal matrix whose non-zero elements are eigenvalues of $\mathbf{H}$, and each
+where $\mathbf{D}$ is a diagonal matrix whose non-zero elements are the eigenvalues of $\mathbf{H}$, and each
 column of $\mathbf{U}$ is an eigenvector of $\mathbf{H}$. Therefore, given the eigenvalues and eigenvectors of the
 total Hamiltonian and the initial wavefunction $\mathbf{C}(0)$, the wavefunction $\mathbf{C}(t)$ at any time $t$ can
 be calculated from \autoref{eqn:solForC}. In our numerical calculations, we use subroutines from the LAPACK library
@@ -758,7 +767,7 @@ The efficiency of the population transfer can be maximized if the electric field
 \label{sec:trimers}
 In \autoref{sec:biexciton}, it is shown that Frenkel rotational biexcitons exist under some conditions in optical lattices. 
 Then the question arises naturally: if two excitons can bind together, what about three excitons? In this section, we
-try to extend the method to handle the three-exciton case and answer the question about exciton trimers. 
+extend the method to handle the three-exciton case and answer the question about exciton trimers. 
 
 Similar to the case of biexciton, we define a three-exciton wavefunction in site representation
 \oneline{
@@ -774,14 +783,14 @@ Since two excitations can't sit at the same molecule, we have the constraint on 
 C_{n_1, n_2, n_3} = 0 \;\; \mbox{\rm if $n_1 = n_2$ or $n_2 = n_3$ or $n_1 = n_3$} \ . \label{eqn:trimerConstraint}
 } 
 After similar derivations as we did for the biexciton case, \autoref{eqn:schrodingerTrimer} and
- \autoref{eqn:trimerConstraint} leads to
+ \autoref{eqn:trimerConstraint} lead to
 \multiline{
 &&\left[3 E _0 D(n_1-n_2) + D(n_1-n_3) + D(n_2 - n_3) - E_{\rm trimer} \right] C_{n_1, n_2, n_3} \nonumber \\
 && \hspace{0.5cm} + \sum _n\left[J(n- n_1)C_{n, n_2, n_3} + J(n-n_2)C_{n_1, n, n_3} + J(n-n_3 )C_{n_1, n_2, n}\right] \nonumber \\
 && = 2\delta _{n_1,n_2}\sum _{n}J(n_1-n)C_{n, n_2, n_3} + 2\delta _{n_2, n_3}\sum _{n}J(n_2 -n)C_{n_1, n, n_3} \nonumber \\
 &&  \hspace{0.5cm} + 2\delta _{n_1,n_3}\sum _{n} J(n_3 -n)C_{n_1, n_2, n}  \ . \nonumber \\ \label{eqn:schrodingerTrimerSite}
 }
-Note the equation can't be used to determine the values of $C_{n_1, n_2, n_3}$ when any two of $n_1$, $n_2$, and $n_3$ are equal. Using the following Fourier transform
+Note that the equation can't be used to determine the values of $C_{n_1, n_2, n_3}$ when any two of $n_1$, $n_2$, and $n_3$ are equal. Using the following Fourier transform
 \oneline{
 C_{n_1, n_2, n_3} = \frac{1}{\left(\sqrt{N_{\rm mol}}\right)^3}\sum_{k_1, k_2, k_3} C(k_1, k_2, k_3) e^{i (k_1 n_1 + k_2 n_2 + k_3 n_3) }
 }
@@ -803,13 +812,13 @@ where
 &&\hspace{1.5cm} +  \delta_{k_2, k_2^{'}} \left[ \Tilde{D}(k_3 - k_3^{'}) -2 \Tilde{J}(k_3^{'})  \right] \nonumber \\
 &&\hspace{1.5cm} \left. +  \delta_{k_3, k_3^{'}} \left[ \Tilde{D}(k_1 - k_1^{'}) -2 \Tilde{J}(k_1^{'})  \right] \right\} \ .
 }
-The above equations clearly show that only those $C(k_1, k_2, k_3)$'s whose wavevectors add up to a fixed $K$
+The above equations clearly show that only those coefficients $C(k_1, k_2, k_3)$ whose wavevectors add up to a fixed $K$
  are coupled to each other. Therefore, the eigenvalues for each value of $K$ can be calculated independently.
-However, \autoref{eqn:trimerMatrixEq} is not the whole story. Since we have assumed that $C_{n_1, n_2, n_3} = 0$
+However, since we assumed that $C_{n_1, n_2, n_3} = 0$
 when any two of $n_1, n_2, n_3$ are equal, we need to take care of the constraint when solving
  \autoref{eqn:trimerMatrixEq}. 
 
-Let's see what does the constraint on $C_{n_1, n_2, n_3}$ imply for $C(k_1, k_2, k_3)$. Assuming $k_3$ is fixed, we have
+Let's examine the effect of  the constraint on $C_{n_1, n_2, n_3}$. Assuming $k_3$ is fixed, we have
 \multiline{
 \sum_{k_1 + k_2 = K - k_3} C(k_1, k_2, k_3) &=& \sum_{k_1}\sum_{n_1, n_2, n_3 }\frac{1}{\left( \sqrt{N_{\rm mol}}\right)^3} e^{i (k_1 n_1 + k_2 n_2 + k_3 n_3 )} C_{n_1, n_2, n_3} \nonumber \\
 &=& \sum_{n_1, n_2, n_3 }\frac{1}{ \sqrt{N_{\rm mol}}} \left( \frac{1}{N_{\rm mol}}\sum_{k_1}e^{i k_1 (n_1 - n_2) }\right) e^{i (K - k_3 ) n_2} e^{i k_3 n_3} C_{n_1, n_2, n_3} \nonumber \\
@@ -820,7 +829,7 @@ Let's see what does the constraint on $C_{n_1, n_2, n_3}$ imply for $C(k_1, k_2,
 
 
 Since the fixed wavector $k_3$ can be chosen arbitrarily, a condition similar to  \autoref{eqn:specificCondition} will
-holds for a fixed $k_1$ and a fixed $k_2$ as well. This means:  for a particular $K$ if you add up all  
+hold for a fixed $k_1$ and a fixed $k_2$ as well. This means:  for a particular $K$ if you add up all  
 $C(k_1^{'}, k_2^{'}, k_3^{'})$ whose first (second or third) wavevector $k_1^{'} ( k_2^{'} \mbox{ or }  k_3^{'})$ equal to a fixed $k$, you will get zero. Thus we can add the zero
 \multiline{
 &&\frac{1}{N_{\rm mol}} \sum_{k_1^{'}, k_2^{'}, k_3^{'} } \left[ -2\Tilde{J}(k_2) \delta_{k_1^{'}, k_1} C(k_1^{'}, k_2^{'}, k_3^{'})  -2\Tilde{J}(k_3) \delta_{k_2^{'}, k_2} C(k_1^{'}, k_2^{'}, k_3^{'}) \right. \nonumber \\
@@ -848,9 +857,10 @@ The energies of three-exciton states can be obtained by diagonalizing the matrix
 form a three-body bound state or a biexciton plus a free exciton. Since the energies of three-body bound states are
 located outside the energy continuum of a biexciton plus a free exciton, an interesting question arise: does 
 three-body bound states of excitons exist when two-body bound states don't form, that is, does the Efimov effect
- occur in the current case? Unfortunately, our primitive numerical investigation shows that the three-body and
+ occur in the current case? Unfortunately, numerical investigation shows that the three-body and
  two-body bound states always occur at the same time when $D/J$ reaches 2, indicating no Efimov effect. However,
-this is not a conclusive result as only the interaction between nearest neighbors are included in the calculation. 
+this is not a conclusive result as only the interaction between nearest neighbors are included in the calculation and 
+the effect of long-range interaction need to be examined.
 
  
 
