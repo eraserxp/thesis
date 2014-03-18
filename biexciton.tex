@@ -107,7 +107,9 @@ and the factor 1/2 is there to cancel the effect of double couting of the pairs 
 $\hat{H}^{\rm mol}_n = B_e \hat{N}_n^2 - {\vec d}_n \cdot  {\vec {\cal E}_f}$, where ${\vec d}_n$ is the dipole moment
  of molecule in site $n$ and ${\vec {\cal E}_f}$ is the electric field vector. They can be expressed as 
 $| g \rangle = \sum_N a_N |N, M_N = 0 \rangle$ and $| e \rangle = \sum_N b_N |N, M_N = 0 \rangle$, where 
- $a_N$ and $b_N$ are determined by the electric field strength.  
+ $a_N$ and $b_N$ are determined by the electric field strength. Note that we choose $M_N=0$ states because they
+ adiabatically connects to nondegenerate rotational bare states as the external field goes to zero, leading to a single isolated exciton band. For other $M_N\neq0$ states, for example $M_N = 1$ states, there will be two crossing exciton
+bands corresponding to the excitation from the dressed state $\ket{0, 1}$ to $\ket{1, 1}$. See figure 2 in Ref. \cite{felipe}. 
  
  The Hamiltonian (\ref{exciton}) can be diagonalized by the Fourier transforms: $\hat{P}^\dag(k) = \frac{1}{\sqrt{N_{\rm mol}}}
 \sum\limits_n e^{ikn} \hat{P}_n^\dag$ and $\hat{P}(k) =
