@@ -257,11 +257,14 @@ the evolution of the free monomer states, $T\gg T_m$, each eigenstate $|f\rangle
 state-dependent phase shift \cite{adiabatic-theo}
 %
 \begin{eqnarray}
-\ket{f_n (T)} = e^{-i \phi_{n}^f}\ket{f_n(0)},
+\ket{f_n (T)} = e^{i \phi_{n}^f}\ket{f_n(0)},
 \label{adiabatic-theorem} \label{phase}
 \end{eqnarray}
 %
-where $\phi_{n}^f = \frac{1}{\hbar}\int_{0}^{T} E_{n}^f(t )dt$,
+where 
+\oneline{
+\phi_{n}^f = -\frac{1}{\hbar}\int_{0}^{T} E_{n}^f(t )dt \ , \label{eqn:expressionOfPhase}
+}
 $E_{n}^f (t)$ is the instantaneous eigenenergy and $f$ can be $e$
 or $g$.
 %The operator $\hat{P}_n^\dag = |e_n\rangle\langle g_n |$ acquires the phase $\Phi_n = \phi_{n}^e-\phi_{n}^g$.
@@ -900,8 +903,16 @@ E_{J,M_J}  &\approx&  BJ(J+1) +  \frac{\mu^2 \mathcal{E}_{DC}^2
  \label{DressedEnery-Sum}
 \end{eqnarray}
 %
-where $B$ is the rotational constant,  $G(0,0) = -1/3$, $G(1,0) =
-1/5$, $F(0,0) = -1/3$, $F(1,0) = -3/5$, $\mathcal{E}_{AC}$ is the
+where $B$ is the rotational constant,  and $G(J, M_J)$ is given by
+\oneline{
+G(J, M_J) = \frac{J^2 - | M_J |^2}{J (2 J + 1) (2 J - 1)} - \frac{(J+1)^2 - | M_J |^2}{(J + 1) (2 J + 1) (2 J + 3)} \ ,
+}
+and $F(J, M_J)$ is given by
+\oneline{
+F(J, M_J ) = -\frac{1}{2} \left[ 1 - \frac{(2 |M_J | - 1) (2 | M_J | + 1)}{ (2 J - 1) (2 J + 3)} \right] \ ,
+}
+%$G(0,0) = -1/3$, $G(1,0) =1/5$, $F(0,0) = -1/3$, $F(1,0) = -3/5$, 
+and $\mathcal{E}_{AC}$ is the
 envelope of the quickly oscillating AC field, $\alpha_\|$ and
 $\alpha_{\perp}$ are the parallel and perpendicular
 polarizabilities and $\mu$ is the permanent dipole moment of the
@@ -912,13 +923,26 @@ applying a time-varying DC electric field $\mathcal{E}(t)
 =\mathcal{E}_{\ast} + \mathcal{E}(n)\sin^{2}(\pi t/T)$, where
 $\mathcal{E}(n)$ is linear with respect to $n$. Assuming that
 $\mathcal{E}(n) = (n-n_0) A$ and $\mathcal{E}(n) \ll
-\mathcal{E}_{{\ast}}$, and using \autoref{phase} and
-\autoref{DressedEnery-Sum}, gives  $\delta = 4 A
-\mathcal{E}_{{\ast}} \mu^2 T / 15 \hbar B a$. We have confirmed
+\mathcal{E}_{{\ast}}$, and using \autoref{eqn:expressionOfPhase} and
+\autoref{DressedEnery-Sum}, we obtain the phase accumulated by the excited state $\ket{1, 0}_{n}$ at site $n$ with
+ respect to the ground state:
+\multiline{
+\phi(n) &=&  -\frac{1}{\hbar}\int_{0}^{T} \left[ E_{n}^e (t ) - E_{n}^g (t)\right] dt \nonumber \\
+&=&  -\frac{1}{\hbar}\int_{0}^{T} \frac{\mu^2 \mathcal{E}_{DC}^2
+}{2B}  \left[ G(1,0) - G(0,0)\right] dt \nonumber \\
+&=& -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast} + A\sin^{2}(\pi t/T) (n - n_0)^2\right] dt \nonumber \\
+&\approx& -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 + 2 \mathcal{E}_{\ast} A\sin^{2}(\pi t/T) (n - n_0)\right] dt \nonumber \\
+&=&  -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 T +  T \mathcal{E}_{\ast} A (n - n_0) \right] \ .
+}
+In the above equation, the term that is linear with lattice index $n$ will gives the phase kick
+\oneline{
+\delta = - 4 A \mathcal{E}_{{\ast}} \mu^2 T / 15 \hbar B a \ .
+}
+ We have confirmed
 this result by a numerical computation showing that for LiCs
 molecules in an electric field of $\mathcal{E}_{{\ast}}=1$ kV/cm,
 an electric field pulse with $A=7.434\times 10^{-4}$ kV/cm and
-$T=1$ $\mu$s results in a kick of $\delta = \pi/2 a$, bringing an
+$T=1$ $\mu$s results in a kick of $\delta =- \pi/2 a$, bringing an
 excitonic wave packet from the $k=0$ region to the middle of the
 dispersion zone.
 
