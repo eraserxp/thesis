@@ -120,8 +120,10 @@ e^{iakn}/\sqrt{N}$ and  $|\psi_{\rm exc} \rangle \Rightarrow
 |k\rangle$ represents a quasi-particle called
 Frenkel exciton, characterized by the wave vector $k$
 \cite{agranovich}. The magnitude of the wave vector $k$ is determined by the conservation of the total (exciton plus photon) momentum. 
-The energy of the exciton is given by $E(k) =
-\Delta E_{e-g} + \alpha(k)$ with $\alpha(k) =\sum_n \alpha(n)
+The energy of the exciton is given by 
+\oneline{
+E(k) =\Delta E_{e-g} + \alpha(k) \label{eqn:dispersionExact}
+} with $\alpha(k) =\sum_n \alpha(n)
 e^{-i  a k n}$. In the nearest neighbor approximation,
 \begin{eqnarray}
 E(k) = \Delta E_{e-g} + 2 \alpha \cos ak, \label{dispersion}
@@ -786,22 +788,44 @@ collective excitations depends on the internal states
 \label{sec:excitationAtoms}
 
 For ultracold alkali metal atoms in an optical lattice, an optical excitation may generate collective states (\ref{basis}),
-as discussed in Ref. \cite{electronic-exciton1, electronic-exciton2}.
-During the optical excitation, the energy and momentum are conserved, which leads to 
-\oneline{
-E_{\rm photon} =\hbar c \sqrt{k_{\parallel}^2 + k_{\perp}^2} = E_{\rm exciton}(k_{\rm ex})
-}
-where the collective excitation and the photon have the same wavevector $k$. 
-The lifetime of these excited states is limited by the spontaneous emission of the electronically excited atoms and is
+as discussed in Ref. \cite{electronic-exciton1, electronic-exciton2}. The lifetime of these excited states is limited by the spontaneous emission of the electronically excited atoms and is
 in the range of 10 - 30 ns.
 However, the collective excited states can be protected from spontaneous emission if the wave vector range populated by excitons in the wave packet (\ref{k-rep}) is
 %sufficiently far from zero \cite{cone-matter-papers}. Due to momentum conservation,
-outside of the so-called light cone, so that $k >\Delta E_{e-g}/\hbar c$.  
-The number of $k$-states in the bright and dark regions depends on the relation between the wavelength of the 
-excitation $\lambda_0 = 2\pi c \hbar / \Delta E_{e-g} $ and the lattice constant, with bright states appearing at $k < k_* = 2\pi / \lambda_0$, and dark
-states at $k_* < k < \pi/a$. For Frenkel excitons originating from electronic transitions in solid-state crystals, $\lambda_0 \gg a$ and $k_*
-\approx 0$. For atoms trapped in optical lattices, the typical values of $\lambda_0 \sim 2a$, and the dark region may be narrow. 
- In an ideal infinite system these states have infinitely long radiative lifetimes, as there is no free-space 
+outside of the so-called light cone, so that $k >\Delta E_{e-g}/\hbar c$.  To understand why this is the case, we 
+investigate the interaction of the collective excitation state of atoms with light. An photon can excite an exciton
+ state of ultracold atoms and the exciton can also decay as a photon. 
+During these optical processes,  the energy is conserved, which leads to 
+\oneline{
+E_{\rm ph} =\hbar c k = \hbar c \sqrt{k_{\parallel}^2 + k_{\perp}^2} = E_{\rm ex}(k_{\rm ex}) \ , \label{eqn:photonExciton}
+}
+where $k$ and $k_{\rm ex}$ are the wave vectors of the photon and the exciton respectively. As written in
+ \autoref{eqn:photonExciton}, the wave vector of the photon can be decomposed into two parts: the part 
+($k_{\parallel}$) that is parallel to $k_{\rm ex}$; and the other part ($k_{\perp}$) that is perpendicular to
+ $k_{\rm ex}$. Since only the parallel component of $k$ is conserved in the optical excitation, we have
+\oneline{
+k_{\parallel} = k_{\rm ex} < k \ . \label{eqn:wavevectorConservation}
+}
+The exciton energy $E_{\rm ex}(k_{\rm ex})$ in \autoref{eqn:photonExciton} can be approximated by the
+ corresponding excitation energy $ \Delta E_{e-g}$ since the interaction $\alpha$ between atoms is much smaller
+ than the energy gap between the ground state and the excited state of a single atom 
+(see \autoref{eqn:dispersionExact}). Then the wave vector of the photon can be calculated from \autoref{eqn:photonExciton}:
+\oneline{
+k_* = \frac {\Delta E_{e-g}}{ \hbar c} \ .
+}
+Since the wave vector $k_{\rm ex}$ is just the parallel component of $k_{*}$, only the excitonic states with 
+$k_{\rm ex} \leq k_*$  can satisfy both the energy conservation (\autoref{eqn:photonExciton}) and the momentum
+ conservation (\autoref{eqn:wavevectorConservation}) at the same time, and thus interact with light. 
+%The number of $k$-states in the bright and dark regions depends on the relation between the wavelength of the 
+%excitation $\lambda_0 = 2\pi c \hbar / \Delta E_{e-g} $ and the lattice constant, with bright states appearing at $k < k_* = 2\pi / \lambda_0$, and dark
+%states at $k_* < k < \pi/a$. 
+By comparing $k_*$ and the largest value of $k_{\rm ex}$ in the first Brillouin zone $(-\pi/a, \pi/a]$, we can obtain
+the number of excitonic $k$-states in the bright and dark regions. 
+For Frenkel excitons originating from electronic transitions in solid-state crystals, the wavelength of excitation light
+ $\lambda_0$ ($\sim$ several hundred nm) is much bigger than the lattice constant $a$ ($\sim$ a few {\AA}), the bright region is 
+narrow: $ k_{\rm ex} < k_* = 2\pi/\lambda_0\approx 0$. For atoms trapped in optical lattices, the typical values of $\lambda_0$ are of the same magnitude as the lattice constant $a$ (several hundred nm), and a large portion of the
+ dispersion curve lies in the bright region and the dark region may be narrow. 
+ In an ideal infinite system those states in the dark region have infinitely long radiative lifetimes, as there is no free-space 
 photon they can emit, assuming the conservation of both energy and momentum \cite{electronic-exciton1, 
 electronic-exciton2, agranovich1966, agranovich}.
 In finite and/or disordered systems, the emission of photons may occur at the array boundaries or due to perturbations 
@@ -814,7 +838,7 @@ breaking the translational symmetry.
 Once collective excited states are created, the phase-kicking technique introduced in  \autoref{sec:phaseKicking}, 
 if implemented on a time scale faster than the radiative lifetime of a single atom, 
 can be used to shift the excited states in the wave vector space
-away from the light cone (cf. Figure 1) and thus protect the excited states from fast spontaneous decay. This phase transformation can be induced by a pulse of an off-resonant laser field $\mathcal{E}_{AC}$,
+away from the bright region (cf. \autoref{momentum-kick}) and thus protect the excited states from fast spontaneous decay. This phase transformation can be induced by a pulse of an off-resonant laser field $\mathcal{E}_{AC}$,
 detuned from the  $e \leftrightarrow g$ resonance by the value  $\delta\omega$, leading to the
 AC Stark shift {(see e.g. Ref.\cite{focusing-books-1})}
 \begin{equation}
@@ -824,7 +848,7 @@ where $V_{eg}$ is the matrix element of the dipole-induced transition.   By choo
 $\delta \omega = 3 V_{eg}$, and the laser intensity $I = 5\times10^{10}$ W/cm$^2$, we obtain that the shift
  $\phi = \D E_{AC} \times T_{\rm pulse} = \pi $ can be achieved in less than 1 ns. 
 %{This shift brings a wave packet initially centered at $k=0$ to the ``dark" edge of the Brillouin zone, where the dispersion of excitons is still quadratic and all the focusing schemes discussed in Section 3 can be applied. 
-Another phase transformation can bring the excited state back to the light cone region, where it can be observed via fast spontaneous emission. 
+Another phase transformation can bring the excited state back to the bright region, where it can be observed via fast spontaneous emission. 
  The experiments with ultracold atoms have demonstrated  the lattice filling factor reaching 99 \%  \cite{atom-mott1, atom-mott2, atom-mott3}.
  The phase transformations proposed here can be used to stabilize excitonic states in ultracold atomic ensembles against spontaneous emission  
 for multiple interesting applications \cite{Zoubi1, Zoubi-review}. 
