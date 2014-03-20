@@ -790,7 +790,8 @@ collective excitations depends on the internal states
  of the particles used in the experiment and the momentum distribution of the excitonic states in the wave packet
 (\ref{k-rep}). In the following two subsections, we discuss the case of ultracold atoms and the case of ultracold molecules separately. 
 
-\subsection{Collective excitation of ultracold atoms}
+%\subsection{Collective excitation of ultracold atoms}
+\subsection{Supressing spontaneous emission in system of ultracold atoms}
 \label{sec:excitationAtoms}
 
 For ultracold alkali metal atoms in an optical lattice, an optical excitation may generate collective states (\ref{basis}),
@@ -868,7 +869,8 @@ for multiple interesting applications \cite{Zoubi1, Zoubi-review}.
 %shift $\phi = \D E_{AC} \times T_{\rm pulse} = \pi $ can be achieved
 %in less than 10 ns.
 
-\subsection{Collective excitation of ultracold molecules}
+%\subsection{Collective excitation of ultracold molecules}
+\subsection{Phase kicking in system of ultracold molecules}
 \label{sec:excitationMolecules}
 
 The spontaneous decay problem can be completely avoided by using rotational excitations in an ensemble of
@@ -1033,33 +1035,41 @@ $z_R=73.8\; \mu$m and find the results (shown in Figure
 analytical estimation.
 
 
-The quadratic phases needed for focusing can also be implemented by a gaussian
-beam. We can put the 2D square molecular array on the $z = 0$ radial plane of a linearly
-polarized laser beam. The
-$x$-axis of this $z=0$ radial plane is defined to be along the
-laser polarization direction. The 2D square lattice is oriented
-such that its $x$ and $y$ axes coincided with the $x$ and $y$ axes
-of the gaussian beam. For reason that will become evident later,
-we apply here a weak DC field along the $x$-axis rather than along
-the direction perpendicular to the lattice plane. Assuming that
+%The quadratic phases needed for focusing can also be implemented by a gaussian
+%beam. We can put the 2D square molecular array on the $z = 0$ radial plane of a linearly
+%polarized laser beam. The
+%$x$-axis of this $z=0$ radial plane is defined to be along the
+%laser polarization direction. The 2D square lattice is oriented
+%such that its $x$ and $y$ axes coincided with the $x$ and $y$ axes
+%of the gaussian beam. For reason that will become evident later,
+%we apply here a weak DC field along the $x$-axis rather than along
+%the direction perpendicular to the lattice plane. 
+
+\subsection{Focusing in system of ultracold molecules}
+\label{sec:focusingMolecules}
+The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can also be used  to implement the quadratic phase transformations needed for focusing of collective excitations. 
+To achieve this, a molecular array (1D or 2D) must be arranged in the $z=0$ plane,
+with the  $x$-axis defined to be along the polarization direction of a linearly polarized field.
+Assuming that
 the center of the wave packet is at the beam center and the unit
 length is the lattice constant $a$, the molecules in the lattice
 can be indexed by the $x$, $y$ coordinates $(n_x, n_y)$. 
-
 If the
 dimension of the molecular array is smaller than one third of the
 beam waist, we can approximate the gaussian intensity profile in
-Eq. (\ref{gaussian-intensity-profile}) by
+\autoref{gaussian-intensity-profile} by
 \begin{equation}
 I(r, z=0) \approx I_{0}\left[1- \frac{2(n_x^2 +
 n_y^2)a^2}{w_0^2}\right] \ ,  \label{quadratic-profile}
 \end{equation}
 with an accuracy of 90\%. This is a concave quadratic intensity
 profile which can be used to focus a wave packet with attractive
-coupling ( see the discussion in Section 3). From Figure
-\ref{control-exciton}a, we can see that when the DC field is on
+coupling ($\alpha < 0$) ( see \autoref{sec:wavepacketFocusing}). From Figure
+\ref{control-exciton} (a), we can see that when the DC field is parallel to $x$ axis of
 the lattice plane ($\theta = 0$), the coupling $\alpha$ between
-molecules is negative.  This indicates that we have to apply the
+molecules is negative.  Since 
+
+This indicates that we have to apply the
 DC field along the $x$-axis of the lattice.  From previous
 discussions, we know that good focusing occur when $\Phi_0 =
 -a/2\sigma_x$ if $\alpha<0$. In the following, we will show that a
@@ -1095,59 +1105,47 @@ This is not a problem considering that $T_f$ is inversely
 proportional to the coupling strength $\alpha$ which can be tunned
 to be very small through changing the magnitude of the DC field
 \cite{felipe} by only a few kV/cm. In addition, considering the
-long coherent time ($>$ 1s) for a rotational excitation (or
+long coherent time ($> 1$s) for a rotational excitation (or
 exciton), the long focusing time should not be a problem.
 
 
 
-
-The above analysis shows that both the completely delocalized exciton state and a partially localized Gaussian wavepacket can be focused by a quadratic phase transformation to $\sim
-5$ lattice sites.  For a plane wave, the optimal kick strength
-$\Phi_0^*$ explicitly depends on the array size $N$, while for a
-Gaussian the initial size $\sigma_x(t=0)$ determines the phase. At
-the time of focusing $t_*$, the excitation phase of a Gaussian
-wave packet is site-independent, while for a plane wave the phase
-in Eq.(\ref{x-focusing-PlaneWave}) varies from site to site. These
-conclusions are confirmed by numerical calculations, see
-Fig.~\ref{figure2}.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-With the 1D molecular array arranged along the $z$-axis, the laser field intensity
-can be made to vary nearly linearly along the array,
-\begin{equation}
-I(r=na, z=0; t) \approx [I_{c} + n I_1 ] \, \sin^{2}(\pi t/T) \; \;\; (0 < t <
-T) \ , \label{intensity-varying}
-\end{equation}
-where $I_{c}$ is the intensity at the center of the wave packet.
-This can be achieved if $z_0 = z_R/\sqrt{3}$ and ${\sigma}_x^{(2d)}
-a\lesssim 0.5 z_R$, where $z_0$ is the distance between
-the center of the wave packet and the beam center, and ${\sigma}_x^{(2d)}$ is the width (in the coordinate representation) of the two-dimensional wave packet. Using \autoref{phase}, \autoref{DressedEnery-Sum} and (\ref{gaussian-intensity-profile}), we estimate the momentum kick by such a pulse as $
+%With the 1D molecular array arranged along the $z$-axis, the laser field intensity
+%can be made to vary nearly linearly along the array,
 %\begin{equation}
-\delta = -\sqrt{3}T I_{0} (\alpha_{\|}-\alpha_\perp) / 80 z_R
-%~. \label{Kick-AC}
+%I(r=na, z=0; t) \approx [I_{c} + n I_1 ] \, \sin^{2}(\pi t/T) \; \;\; (0 < t <
+%T) \ , \label{intensity-varying}
 %\end{equation}
-$.
-The results presented in Figure 1 were obtained for a 1D array of LiCs molecules on an optical lattice with $a=400$ nm and the external perturbation
-given by the laser field pulse (\ref{intensity-varying}) with parameters $I_c$ and $I_1$ derived from  \autoref{gaussian-intensity-profile} with $z_0 = 45\; \mu$m and
-$z_R=73.8\; \mu$m. The numerical results deviate from the analytical prediction for $\delta$ by less than 7 \%.
+%where $I_{c}$ is the intensity at the center of the wave packet.
+%This can be achieved if $z_0 = z_R/\sqrt{3}$ and ${\sigma}_x^{(2d)}
+%a\lesssim 0.5 z_R$, where $z_0$ is the distance between
+%the center of the wave packet and the beam center, and ${\sigma}_x^{(2d)}$ is the width (in the coordinate representation) of the two-dimensional wave packet. Using \autoref{phase}, \autoref{DressedEnery-Sum} and (\ref{gaussian-intensity-profile}), we estimate the momentum kick by such a pulse as $
+%%\begin{equation}
+%\delta = -\sqrt{3}T I_{0} (\alpha_{\|}-\alpha_\perp) / 80 z_R
+%%~. \label{Kick-AC}
+%%\end{equation}
+%$.
+%The results presented in Figure 1 were obtained for a 1D array of LiCs molecules on an optical lattice with $a=400$ nm and the external perturbation
+%given by the laser field pulse (\ref{intensity-varying}) with parameters $I_c$ and $I_1$ derived from  \autoref{gaussian-intensity-profile} with $z_0 = 45\; \mu$m and
+%$z_R=73.8\; \mu$m. The numerical results deviate from the analytical prediction for $\delta$ by less than 7 \%.
 
-The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can be used also to implement the quadratic phase transformations needed for focusing of collective excitations. %The quadratic phase transformations needed for focusing of collective excitations can also be implemented by a laser beam with a Gaussian intensity profile.
-To achieve this, a 2D molecular array must be arranged in the $z=0$ plane,
-with the  $x$-axis defined to be along the polarization direction of a linearly polarized field.
-If the dimension of the molecular array is smaller than one third of the
-beam waist, the Gaussian intensity profile in
-\autoref{gaussian-intensity-profile} can be approximated
-%\tb{``, to better than 90 \%," -- let's cancel it? This may depend on parameters of the system...} 
-by
-\begin{equation}
-I(r=na, z=0; t) \approx I_{0}\left[1- \frac{2(n_x^2 +
-n_y^2)a^2}{w_0^2}\right]. 
-\label{quadratic-profile}
-\end{equation}
-This is a concave quadratic intensity
-profile which can be used to focus a wave packet  in a system with negative couplings $\alpha$ (see \autoref{sec:focusing}).
+%The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can be used also to implement the quadratic phase transformations needed for focusing of collective excitations. 
+%To achieve this, a 2D molecular array must be arranged in the $z=0$ plane,
+%with the  $x$-axis defined to be along the polarization direction of a linearly polarized field.
+%If the dimension of the molecular array is smaller than one third of the
+%beam waist, the Gaussian intensity profile in
+%\autoref{gaussian-intensity-profile} can be approximated
+%%\tb{``, to better than 90 \%," -- let's cancel it? This may depend on parameters of the system...} 
+%by
+%\begin{equation}
+%I(r=na, z=0; t) \approx I_{0}\left[1- \frac{2(n_x^2 +
+%n_y^2)a^2}{w_0^2}\right]. 
+%\label{quadratic-profile}
+%\end{equation}
+%This is a concave quadratic intensity
+%profile which can be used to focus a wave packet  in a system with negative couplings $\alpha$ (see \autoref{sec:focusing}).
 
 
 
