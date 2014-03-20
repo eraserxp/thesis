@@ -293,11 +293,14 @@ monomers subjected to a linear phase transformation. The graph illustrates the e
 is shown by color.  The brightness of color corresponds to the amplitude of the excitation with white color
  corresponding to zero amplitude. The calculation is for a one-dimensional array
 of 201 monomers with $\alpha = 22.83$ kHz and $\Delta E_{e-g} =12.14$ GHz,  and the linear phase transformation 
-$\Phi_n \simeq \Phi_0  -1.29 n$. These parameters correspond to LiCs molecules trapped on an optical lattice with lattice constant $a = 400$ nm and
- subjected to a homogeneous DC field of 1 kV/cm directed perpendicular to the
-intermolecular axis. The kicking potential leading to this particular  phase transformation  can be provided by a
-$\lambda = 1064$ nm Gaussian laser beam, with the propagation direction along the array axis, focused to 5 $\mu$m, 
-with the intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse is on between 0 and  $3 \mu$s.}
+$\Phi_n \simeq \Phi_0  -1.29 n$. The corresponding experimental setup is illustrated in
+ \autoref{fig:experimentalSetup}
+%These parameters correspond to LiCs molecules trapped on an optical lattice with lattice constant $a = 400$ nm and
+% subjected to a homogeneous DC field of 1 kV/cm directed perpendicular to the
+%intermolecular axis. The kicking potential leading to this particular  phase transformation  can be provided by a
+%$\lambda = 1064$ nm Gaussian laser beam, with the propagation direction along the array axis, focused to 5 $\mu$m, 
+%with the intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse is on between 0 and  $3 \mu$s.
+}
 \label{momentum-kick}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -932,7 +935,7 @@ $\mathcal{E}(n) = (n-n_0) A$ and $\mathcal{E}(n) \ll
 }{2B}  \left[ G(1,0) - G(0,0)\right] dt \nonumber \\
 &=& -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast} + A\sin^{2}(\pi t/T) (n - n_0)^2\right] dt \nonumber \\
 &\approx& -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 + 2 \mathcal{E}_{\ast} A\sin^{2}(\pi t/T) (n - n_0)\right] dt \nonumber \\
-&=&  -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 T +  T \mathcal{E}_{\ast} A (n - n_0) \right] \ .
+&=&  -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 T +  T \mathcal{E}_{\ast} A (n - n_0) \right] \ . \label{eqn:estimatePhaseDCField}
 }
 In the above equation, the term that is linear with lattice index $n$ will gives the phase kick
 \oneline{
@@ -948,7 +951,12 @@ dispersion zone.
 
 \addfigure{
 \includegraphics[width=\linewidth]{accelerate-wavepacket-experiment.pdf}
-\caption{experimental setup}
+\caption{The experimental setup for the calculation corresponding to \autoref{momentum-kick}. A 1D array of LiCs molecules trapped on an optical lattice with lattice constant $a = 400$ nm is 
+ subjected to a homogeneous DC field of 1 kV/cm directed perpendicular to the
+intermolecular axis. The kicking potential leading to the  phase transformation  presented by \autoref{Kick-AC} can be provided by a
+$\lambda = 1064$ nm Gaussian laser beam, with the propagation direction along the array axis, focused to a radius of
+ 5 $\mu$m, with the intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse is on between 0 and  $3 \mu$s.
+ }
 \label{fig:experimentalSetup}
 }
 
@@ -965,6 +973,147 @@ where $I_0$ is the light intensity at the beam center, $r$ is the
 radial distance from the center axis of the beam, $z$ is the axial
 distance from the beam center,  $z_R=\pi w_0^2/\lambda$ is
 Rayleigh range, $w_0$ is the beam waist and $\lambda$ is the wavelength.
+%% %%%%%%%% recover my old writing %%%%%%%%%%%
+As shown in \autoref{fig:experimentalSetup}, we put the 1D molecular array  along the z-axis of
+the beam so that $r=0$ for all the molecules. 
+Based on Eq.
+(\ref{gaussian-intensity-profile}), we can write out the
+intensity for each molecule of the array:
+\begin{equation}
+I(n) = \frac{I_0}{1+ \frac{(z_0 + na)^2}{z_R^2}} \  ,
+\label{gaussian-intensity-profile2}
+\end{equation}
+where $n$ is the molecule index and $z_0$ is the distance between
+the center of the wave packet and the beam center.
+Suppose the width of
+the wave packet in coordinate space is about $S_x$ (positive
+integer) times of the lattice constant $a$ and we want to use the
+laser gaussian beam to give the wave packet a momentum kick. For
+convenience,  the molecule at the center of the wave packet is
+indexed as 0, the molecules to the left are indexed by negative
+integers and  the molecules to the right by positive integers.  In
+practices, we can assume that the wave packet is confined within
+the range $[-S_x a, S_x a]$ for a time period much shorter than
+$1/\alpha$.  
+To make the intensity $I(n)$ varies linearly with $n$, the natural way is to put the molecular array far away from the beam center such that $na << z_0$.
+In this case, we can Taylor expand the intensity fuction as follows:
+\begin{equation}
+I(n) =I_0\left\{ \frac{z_R^2}{z_0^2+z_R^2}-\frac{2 a n z_0 z_R^2}{\left(z_0^2+ z_R^2\right)^2}+\frac{a^2 n^2 z_R^2 \left(3 z_0^2-z_R^2\right)}{\left(z_0^2+z_R^2\right)^3}  + O(n^3)\right\} \ , \label{taylor-expansion}
+\end{equation}
+and ignore the terms that are higher than linear order in $n$. However, when $z_0$ is large enough such that
+ omission of higher terms is justified, the slope of the approximately linear intensity function $I(n)$ is small which
+ means that more powerful laser is needed to give the momentum kick. This is undesirable for experimentalists.
+Instead, we find that one doesn’t need to put the molecular array very far away from the beam center
+to obtain a linear intensity profile. The trick is let $z_0 = z_R /\sqrt{3}$ so that some higher terms (like the 
+second-oder term) in \autoref{taylor-expansion} will vanish. Rather than working with the
+Taylor series, we find it is more convenient to work with the original intensity function directly. Substituting
+$z_0 = z_R /\sqrt{3}$ and assuming $1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R}$, we have
+\multiline{
+I(n) &=& \frac{I_0}{1+ \frac{(z_0 + na)^2}{z_R^2}} = \frac{I_0 \left( 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} \right)}{\left[ 1 + \left(\frac{1}{\sqrt{3} } + \frac{n a}{z_R}\right)^2 \right] \left( 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} \right) } \nonumber \\
+&=& \frac{ 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} } {\frac{4}{3}\left[ 1 - \frac{3\sqrt{3}}{8} \left( \frac{a n}{z_R } \right)^3 \right] } \ . \label{eqn:IntensitySpecial}
+}
+For $I(n)$ to be linear within the range $[ - S_x , S_x ]$, the second term in the square bracket in
+ \autoref{eqn:IntensitySpecial} should be much less than 1.
+This leads to a restriction on the width of the wave packet:
+\begin{equation}
+S_x a\lesssim 0.5 z_R
+\end{equation}
+Therefore if the two conditions $z_0 = z_R/\sqrt{3}$ and $S_x
+a\lesssim 0.5 z_R$ are satisfied, we can implement the momentum
+kick for the wave packet. Using \autoref{phase} ,
+\autoref{DressedEnery-Sum} and \autoref{eqn:IntensitySpecial}, we carry on a similar calculation similar to that in
+ \autoref{eqn:estimatePhaseDCField} and estimate the momentum kick by such a pulse as 
+\begin{equation}
+\delta = -\sqrt{3}T I_{0} (\alpha_{\|}-\alpha_\perp) / 80 z_R \ . \label{Kick-AC}
+\end{equation}
+To demonstrate the feasibility of momentum kick by laser
+pulse, we have run a simulation with $z_0 = 45\; \mu$m and
+$z_R=73.8\; \mu$m and find the results (shown in Figure
+\ref{momentum-kick}. ) only deviate about $7\%$ from the
+analytical estimation.
+
+
+The quadratic phases needed for focusing can also be implemented by a gaussian
+beam. We can put the 2D square molecular array on the $z = 0$ radial plane of a linearly
+polarized laser beam. The
+$x$-axis of this $z=0$ radial plane is defined to be along the
+laser polarization direction. The 2D square lattice is oriented
+such that its $x$ and $y$ axes coincided with the $x$ and $y$ axes
+of the gaussian beam. For reason that will become evident later,
+we apply here a weak DC field along the $x$-axis rather than along
+the direction perpendicular to the lattice plane. Assuming that
+the center of the wave packet is at the beam center and the unit
+length is the lattice constant $a$, the molecules in the lattice
+can be indexed by the $x$, $y$ coordinates $(n_x, n_y)$. 
+
+If the
+dimension of the molecular array is smaller than one third of the
+beam waist, we can approximate the gaussian intensity profile in
+Eq. (\ref{gaussian-intensity-profile}) by
+\begin{equation}
+I(r, z=0) \approx I_{0}\left[1- \frac{2(n_x^2 +
+n_y^2)a^2}{w_0^2}\right] \ ,  \label{quadratic-profile}
+\end{equation}
+with an accuracy of 90\%. This is a concave quadratic intensity
+profile which can be used to focus a wave packet with attractive
+coupling ( see the discussion in Section 3). From Figure
+\ref{control-exciton}a, we can see that when the DC field is on
+the lattice plane ($\theta = 0$), the coupling $\alpha$ between
+molecules is negative.  This indicates that we have to apply the
+DC field along the $x$-axis of the lattice.  From previous
+discussions, we know that good focusing occur when $\Phi_0 =
+-a/2\sigma_x$ if $\alpha<0$. In the following, we will show that a
+quadratic phase profile with $\Phi_0 = -a/2\sigma_x$ can be
+implemented if a relatively long laser pulse is used.
+Specifically, we are using a pulse with a short ramp-up and
+ramp-down time $T_s$ and a long steady time $T_l$:
+\begin{equation}
+I_0 (t)=\left\{
+\begin{array}{ll}
+I_{m}\sin^2\left(\frac{\pi\tau}{2 T_{s}}\right) & (0\le \tau<T_s) \\
+I_{m} & (T_s \le \tau \le T_s + T_{l}) \\
+I_{m}\sin^2\left[\frac{\pi(\tau- T_s - T_{l}) }{2 T_{s}} +
+\frac{\pi}{2}\right] & (T_s+ T_{l}<\tau \le 2T_s+ T_{l})
+\end{array}
+\right. \label{pulse-profile}
+\end{equation}
+Assuming the laser power is $P$ and the initial width of the wave
+packet is $\sigma_x = \sigma_y = S a$, we can estimate the
+duration of the laser pulse to be
+\begin{equation}
+T_l + T_s \approx \frac{15
+w_0^4}{2Sa^2(\alpha_{\|}-\alpha_\perp)P} \ .
+\label{pulse-duration}
+\end{equation}
+For LiCs molecules trapped on a optical lattices, if the beam
+waist is 3 times of the width of the initial wave packet,  the
+pulse duration calculated from Eq. (\ref{pulse-duration}) is about
+770 $\mu$s for a laser power of 10 W. To ensure the focusing works
+as expected, the focusing time $T_f$ for the wave packet to become
+most focused must be longer than the duration of the laser pulse.
+This is not a problem considering that $T_f$ is inversely
+proportional to the coupling strength $\alpha$ which can be tunned
+to be very small through changing the magnitude of the DC field
+\cite{felipe} by only a few kV/cm. In addition, considering the
+long coherent time ($>$ 1s) for a rotational excitation (or
+exciton), the long focusing time should not be a problem.
+
+
+
+
+The above analysis shows that both the completely delocalized exciton state and a partially localized Gaussian wavepacket can be focused by a quadratic phase transformation to $\sim
+5$ lattice sites.  For a plane wave, the optimal kick strength
+$\Phi_0^*$ explicitly depends on the array size $N$, while for a
+Gaussian the initial size $\sigma_x(t=0)$ determines the phase. At
+the time of focusing $t_*$, the excitation phase of a Gaussian
+wave packet is site-independent, while for a plane wave the phase
+in Eq.(\ref{x-focusing-PlaneWave}) varies from site to site. These
+conclusions are confirmed by numerical calculations, see
+Fig.~\ref{figure2}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 With the 1D molecular array arranged along the $z$-axis, the laser field intensity
 can be made to vary nearly linearly along the array,
 \begin{equation}
