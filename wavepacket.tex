@@ -331,7 +331,36 @@ wave packet does not evolve in the $k$-representation and moves
 with the acquired uniform velocity in the coordinate
 representation.
 
-The results presented in Figure 1 and all subsequent results of this work are for a single 
+%% add the block oscillation part %%%%%%%%%%%%%%%%%%%
+As a side note, we find that if the laser intensity remains the
+same after reaching the maximum, the oscillation
+of the wave packet in momentum and coordinate space can be observed  (see 
+\autoref{bloch-osci}). This phenomenon is a special Bloch oscillation
+since the force is acting on a quasi-particle rather than real
+particles in conventional cases  \cite{b-oscillation}, which allows for the possibility to study condensed-matter excitations and energy transport without statistical averaging.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{bloch-osci.pdf}
+\caption{``Bloch oscillation" of the exciton wave
+packet in the momentum and coordinate spaces. The phase of the
+wave function is shown by color as in  \autoref{momentum-kick}. A low laser intensity of $10^6$
+W/cm$^2$ is used and all other parameters are the same as in
+\autoref{momentum-kick}. Part (a) shows that the wave packet moves in $k$ space
+in response to the linear laser field. However, since the wave vector is limited in the first Brillouin zone,
+when the wave packet reaches $-\pi$ or $\pi$, it disappears at the boundary and reappears at the other 
+boundary. Part (b) presents the motion of the wave packet in coordinate space in accordance with the phase
+kicking in $k$ space. Note that the wave packet  spreads in both the momentum and coordinate spaces
+because the laser intensity profile along the molecular array is not perfect and this is amplified over extended
+time period. 
+} 
+\label{bloch-osci}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The results presented in \autoref{momentum-kick}  and all subsequent results of this work are for a single 
 collective excitaion in an interacting many-particle system. A general experimental implementation may result in 
 multiple excitations, leading to non-linear exciton interactions. There are two mechanisms for exciton - exciton 
 interactions: kinematic interactions arising from the statistical properties of excitons and dynamical 
@@ -871,7 +900,7 @@ for multiple interesting applications \cite{Zoubi1, Zoubi-review}.
 
 %\subsection{Collective excitation of ultracold molecules}
 \subsection{Phase kicking in system of ultracold molecules}
-\label{sec:excitationMolecules}
+\label{sec:phaseKickingMolecules}
 
 The spontaneous decay problem can be completely avoided by using rotational excitations in an ensemble of
 ultracold polar molecules trapped in an optical lattice.
@@ -956,7 +985,7 @@ dispersion zone.
 \caption{The experimental setup for the calculation corresponding to \autoref{momentum-kick}. A 1D array of LiCs molecules trapped on an optical lattice with lattice constant $a = 400$ nm is 
  subjected to a homogeneous DC field of 1 kV/cm directed perpendicular to the
 intermolecular axis. The kicking potential leading to the  phase transformation  presented by \autoref{Kick-AC} can be provided by a
-$\lambda = 1064$ nm Gaussian laser beam, with the propagation direction along the array axis, focused to a radius of
+$\lambda = 1064$ nm Gaussian laser beam that is linearly polarized in the direction of the DC field, with the propagation direction along the array axis, focused to a radius of
  5 $\mu$m, with the intensity at the focus equal to $10^7$ W/cm$^2$. The laser pulse is on between 0 and  $3 \mu$s.
  }
 \label{fig:experimentalSetup}
@@ -976,6 +1005,7 @@ radial distance from the center axis of the beam, $z$ is the axial
 distance from the beam center,  $z_R=\pi w_0^2/\lambda$ is
 Rayleigh range, $w_0$ is the beam waist and $\lambda$ is the wavelength.
 %% %%%%%%%% recover my old writing %%%%%%%%%%%
+In order for the dressed rotational states $\ket{J, M_J}$ have a definite space quantization axis, the laser is linearly polarized in the direction of the DC field. 
 As shown in \autoref{fig:experimentalSetup}, we put the 1D molecular array  along the z-axis of
 the beam so that $r=0$ for all the molecules. 
 Based on Eq.
@@ -1047,15 +1077,18 @@ analytical estimation.
 
 \subsection{Focusing in system of ultracold molecules}
 \label{sec:focusingMolecules}
-The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can also be used  to implement the quadratic phase transformations needed for focusing of collective excitations. 
-To achieve this, a molecular array (1D or 2D) must be arranged in the $z=0$ plane,
-with the  $x$-axis defined to be along the polarization direction of a linearly polarized field.
+The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can also be used  to implement the quadratic phase 
+transformations needed for focusing of collective excitations. 
+To achieve this, a molecular array (1D or 2D) must be arranged in the $z=0$ plane of the Gaussian beam. As
+ mentioned in \autoref{sec:phaseKickingMolecules}, an extra  DC field is also needed here to lift the degeneracy of 
+rotational states and to avoid mixing of different exciton bands.  In addition, the laser is linearly polarized along the
+ direction of the DC field in order for the system to have a well-defined space quantization axis. 
 Assuming that
 the center of the wave packet is at the beam center and the unit
 length is the lattice constant $a$, the molecules in the lattice
 can be indexed by the $x$, $y$ coordinates $(n_x, n_y)$. 
 If the
-dimension of the molecular array is smaller than one third of the
+dimension of the wave packet is smaller than one third of the
 beam waist, we can approximate the gaussian intensity profile in
 \autoref{gaussian-intensity-profile} by
 \begin{equation}
