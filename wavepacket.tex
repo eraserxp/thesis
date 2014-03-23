@@ -1083,31 +1083,39 @@ To achieve this, a molecular array (1D or 2D) must be arranged in the $z=0$ plan
  mentioned in \autoref{sec:phaseKickingMolecules}, an extra  DC field is also needed here to lift the degeneracy of 
 rotational states and to avoid mixing of different exciton bands.  In addition, the laser is linearly polarized along the
  direction of the DC field in order for the system to have a well-defined space quantization axis. 
-Assuming that
-the center of the wave packet is at the beam center and the unit
-length is the lattice constant $a$, the molecules in the lattice
-can be indexed by the $x$, $y$ coordinates $(n_x, n_y)$. 
-If the
-dimension of the wave packet is smaller than one third of the
+%Since the experiment
+%setup is different for the 1D and 2D arrays, we discuss the two cases separately in the following.
+
+\addfigure{
+\includegraphics[width=\linewidth]{quadratic-phase-experiment.png}
+\caption{Use gaussian beam to implement the quadratic phase. 
+ }
+\label{fig:quadraticExperimentalSetup}
+}
+
+First, we consider the case of 1D molecular array. The wave packet that we want to focus is a Gaussian wave packet
+with the width $\sigma_x$. 
+We put  the beam center at the center of the wave packet and define the $x$-axis of the $z=0$ plane to be along the intermolecular 
+axis. Assuming the unit length is the lattice constant $a$, the molecules in the lattice
+can be indexed by theirs $x$ coordinates $n_x$. 
+If the dimension of the wave packet is smaller than one third of the
 beam waist, we can approximate the gaussian intensity profile in
 \autoref{gaussian-intensity-profile} by
 \begin{equation}
-I(r, z=0) \approx I_{0}\left[1- \frac{2(n_x^2 +
-n_y^2)a^2}{w_0^2}\right] \ ,  \label{quadratic-profile}
+I(x, y=0, z=0) \approx I_{0}\left(1- \frac{2 n_x^2 a^2}{w_0^2}\right) \ ,  \label{quadratic-profile-1D}
 \end{equation}
-with an accuracy of 90\%. This is a concave quadratic intensity
+with an accuracy of 90\%. \Autoref{quadratic-profile-1D} presents a concave quadratic intensity
 profile which can be used to focus a wave packet with attractive
-coupling ($\alpha < 0$) ( see \autoref{sec:wavepacketFocusing}). From Figure
-\ref{control-exciton} (a), we can see that when the DC field is parallel to $x$ axis of
-the lattice plane ($\theta = 0$), the coupling $\alpha$ between
-molecules is negative.  Since 
+coupling ($\alpha < 0$) (see \autoref{sec:wavepacketFocusing}). This indicates that we need to make the coupling $\alpha$ between molecules negative, which can be
+done by orientating the DC field in a proper direction. 
+As shown in \autoref{control-exciton} (a), the coupling $\alpha$ between
+molecules is negative when the angle $\theta$ between the DC field and the intermolecular axis (or $x$-axis) is in 
+the range $[0, 57.3^{\circ})$. 
 
-This indicates that we have to apply the
-DC field along the $x$-axis of the lattice.  From previous
-discussions, we know that good focusing occur when $\Phi_0 =
--a/2\sigma_x$ if $\alpha<0$. In the following, we will show that a
-quadratic phase profile with $\Phi_0 = -a/2\sigma_x$ can be
-implemented if a relatively long laser pulse is used.
+From previous
+discussions in \autoref{sec:wavepacketFocusing}, we know that good focusing effect occurs when the quadratic 
+phase profile applied is $\Phi(n) = \Phi_0 n^2$ with $\Phi_0 = -a/2\sigma_x$ if $\alpha<0$. So we will use this
+ particular value of $\Phi_0$ to estimate the power of the laser that are needed for the focusing.  
 Specifically, we are using a pulse with a short ramp-up and
 ramp-down time $T_s$ and a long steady time $T_l$:
 \begin{equation}
