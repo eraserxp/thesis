@@ -1088,7 +1088,11 @@ rotational states and to avoid mixing of different exciton bands.  In addition, 
 
 \addfigure{
 \includegraphics[width=\linewidth]{quadratic-phase-experiment.png}
-\caption{Use gaussian beam to implement the quadratic phase. 
+\caption{An illustration to show the orientations of 1D  and 2D molecular arrays inside the gaussian beam. (a): the
+1D lattice lies along the $x$-axis of the $z=0$ plane and the DC field is at some angle with the $x$-axis
+such that the coupling $\alpha$ between molecules is negative. (b): the 2D square lattice is at the the center of
+the $z=0$ plane and the DC field is at $45^\circ$ degree with the $x$-axis. In both cases, the laser is linearly
+polarized along the direction of the DC field.
  }
 \label{fig:quadraticExperimentalSetup}
 }
@@ -1096,8 +1100,8 @@ rotational states and to avoid mixing of different exciton bands.  In addition, 
 First, we consider the case of 1D molecular array. The wave packet that we want to focus is a Gaussian wave packet
 with the width $\sigma_x$. 
 We put  the beam center at the center of the wave packet and define the $x$-axis of the $z=0$ plane to be along the intermolecular 
-axis. Assuming the unit length is the lattice constant $a$, the molecules in the lattice
-can be indexed by theirs $x$ coordinates $n_x$. 
+axis (see \autoref{fig:quadraticExperimentalSetup} (a)). Then the molecules in the lattice
+can be indexed by theirs $x$ coordinates $n_x a$. 
 If the dimension of the wave packet is smaller than one third of the
 beam waist, we can approximate the gaussian intensity profile in
 \autoref{gaussian-intensity-profile} by
@@ -1106,17 +1110,19 @@ I(x, y=0, z=0) \approx I_{0}\left(1- \frac{2 n_x^2 a^2}{w_0^2}\right) \ ,  \labe
 \end{equation}
 with an accuracy of 90\%. \Autoref{quadratic-profile-1D} presents a concave quadratic intensity
 profile which can be used to focus a wave packet with attractive
-coupling ($\alpha < 0$) (see \autoref{sec:wavepacketFocusing}). This indicates that we need to make the coupling $\alpha$ between molecules negative, which can be
-done by orientating the DC field in a proper direction. 
-As shown in \autoref{control-exciton} (a), the coupling $\alpha$ between
-molecules is negative when the angle $\theta$ between the DC field and the intermolecular axis (or $x$-axis) is in 
-the range $[0, 57.3^{\circ})$. 
+coupling ($\alpha < 0$) (see \autoref{sec:wavepacketFocusing}). This indicates that we need to make the coupling 
+$\alpha$ between molecules negative. 
+A calculation of the dipole-dipole interaction between molecules in DC field shows that $\alpha$ is proportional
+to $(1/3 - \cos^2\theta)$ where $\theta$ is the angle between the DC field and the intermolecular axis 
+(or $x$-axis). Therefore, we can orientate the DC field to a proper direction to achieve the attractive coupling 
+between molecules. As shown in \autoref{control-exciton} (a), $\theta$ must be in the range  $[0, 57.3^{\circ})$
+to ensure the attractive coupling. 
 
 From previous
 discussions in \autoref{sec:wavepacketFocusing}, we know that good focusing effect occurs when the quadratic 
 phase profile applied is $\Phi(n) = \Phi_0 n^2$ with $\Phi_0 = -a/2\sigma_x$ if $\alpha<0$. So we will use this
  particular value of $\Phi_0$ to estimate the power of the laser that are needed for the focusing.  
-Specifically, we are using a pulse with a short ramp-up and
+Specifically, we are using a laser pulse with a short ramp-up and
 ramp-down time $T_s$ and a long steady time $T_l$:
 \begin{equation}
 I_0 (t)=\left\{
@@ -1128,27 +1134,60 @@ I_{m}\sin^2\left[\frac{\pi(\tau- T_s - T_{l}) }{2 T_{s}} +
 \end{array}
 \right. \label{pulse-profile}
 \end{equation}
-Assuming the laser power is $P$ and the initial width of the wave
-packet is $\sigma_x = \sigma_y = S a$, we can estimate the
+Based on \autoref{eqn:expressionOfPhase} and \autoref{DressedEnery-Sum}, the phase acquired by a molecule
+at site $n_x$ with respect to the molecule at the beam center is given by
+\multiline{
+\phi(n_x) &=& - \frac{2 (\alpha_{\|}-\alpha_\perp) I_0 n_x^2 a^2} {15 w_0^2}\left( \frac{T_s}{2} + T_{l} \right) \nonumber \\
+&\approx& - \frac{2 (\alpha_{\|}-\alpha_\perp) I_0 n_x^2 a^2 T_{l} } {15 w_0^2} \ ,
+}
+where $T_{l} \ll T_{s}$ is assumed in the last step. Equating $\phi(n_x)$ with the optimal phase profile 
+$\Phi(n_x) = \Phi_0 n_x^2 = -a/2\sigma_x n_x^2$,
+and assuming the laser power is $P$ and the initial width of the wave
+packet is $\sigma_x = S a$, we can estimate the
 duration of the laser pulse to be
 \begin{equation}
-T_l + T_s \approx \frac{15
-w_0^4}{2Sa^2(\alpha_{\|}-\alpha_\perp)P} \ .
+T_l \approx \frac{15 \pi
+w_0^4}{4 Sa^2(\alpha_{\|}-\alpha_\perp)P} \ .
 \label{pulse-duration}
 \end{equation}
-For LiCs molecules trapped on a optical lattices, if the beam
-waist is 3 times of the width of the initial wave packet,  the
+For LiCs molecules trapped on a optical lattice with the lattice constant $a = 400 $nm, if the initial width of the 
+wave packet is about 100 lattice sites and the beam waist is 3 times larger than that width,  the
 pulse duration calculated from Eq. (\ref{pulse-duration}) is about
-770 $\mu$s for a laser power of 10 W. To ensure the focusing works
-as expected, the focusing time $T_f$ for the wave packet to become
+335 $\mu$s for a laser Gaussian beam with the power of 10 W. To ensure the focusing works
+as expected, the wave packet should be exposed to the laser field for long enough time to accumulate the required phases, so the focusing time $T_f$ for the wave packet to become
 most focused must be longer than the duration of the laser pulse.
 This is not a problem considering that $T_f$ is inversely
-proportional to the coupling strength $\alpha$ which can be tunned
-to be very small through changing the magnitude of the DC field
-\cite{felipe} by only a few kV/cm. In addition, considering the
-long coherent time ($> 1$s) for a rotational excitation (or
-exciton), the long focusing time should not be a problem.
+proportional to the coupling strength $\alpha$:
+\oneline{
+T_f \approx \frac{1}{4 \alpha \Phi_0} \ , 
+}
+and $\alpha$ can be tunned to be very small through changing the magnitude of the DC field
+\cite{felipe} by only a few kV/cm or by increasing the angle $\theta$. For instance, when the DC field is about 1 kV/cm and orientate along the intermolecular axis,  the focusing time 
+\oneline{
+T_f \approx  \frac{1}{4 \alpha \Phi_0} = \frac{1}{4 (-20 \mbox{ kHz}) (-\frac{1}{200})} = 2.5 \mbox{ ms}
+}
+is much longer than the duration of the laser pulse, leaving enough time for the accumulation of the phases. 
 
+Second, we consider the case of 2D molecular array. The situation is similar to the 1D case except that anisotropy
+of the dipole-dipole interaction comes into play. Instead of only considering the coupling between molecules in 
+the $x$-axis, we also have to consider the dipole-dipole interactions along $y$-axis and along other directions
+between $x$-axis and $y$-axis. This is because the DC field will be at different angles with the different chains of 
+molecules, giving rises to different dipole-dipole interactions in different directions. For simplicity, we use the
+ nearest neighbor approximation here and only consider
+the dipole-dipole interactions along the $x$-axis and $y$-axis. Assuming the dimension of the wave packet is
+ smaller than one third of the beam waist, we can approximate the gaussian intensity profile in
+\autoref{gaussian-intensity-profile} by
+\begin{equation}
+I(x, y=0, z=0) \approx I_{0}\left[1- \frac{2 \left(n_x^2 + n_y^2 \right) a^2}{w_0^2}\right] \ .  \label{quadratic-profile-2D} 
+\end{equation}
+Similar to \autoref{quadratic-profile-1D} in the 1D case, \autoref{quadratic-profile-2D} is also a concave quadratic
+ intensity profile which can be used to focus a wave packet with attractive coupling. But the difference here is
+ that we need to make sure both the couplings along $x$-axis and $y$-axis are negative. Since the interaction
+ along $x$-axis and $y$-axis are independent of each other, the dependence of $\alpha$ on $\theta$ in the 1D
+case can be applied for the 2D case. Therefore, in order for the focusing scheme to work, the angle $\theta_x$ 
+between the DC field and the $x$-axis and the angle $\theta_y$ between the DC field and the $y$-axis should be
+in the range  $[0, 57.3^{\circ})$. As an example, \autoref{fig:quadraticExperimentalSetup} shows one 
+configuration $(\theta_x = \theta_y = 45^\circ)$ which will ensure attractive coupling along both axes. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
