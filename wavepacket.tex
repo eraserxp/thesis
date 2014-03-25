@@ -1331,11 +1331,39 @@ many-body systems with anisotropic interparticle interactions.
 In this subsection, we show some numerical details for the calculations presented in 
 \autoref{sec:anisotropy}.
 
+As discussed in \autoref{sec::ddInteraction}, the dipole-dipole interaction between molecule $A$ and $B$ separated by 
+$\vec{R}$ in optical lattices is given by
+\oneline{
+\hat{V}_{\rm dd}(R) = -2 \sqrt{\frac{6 \pi }{5}} \left( \frac{1}{R} \right)^3 \sum_{q} (-1)^q Y_{2, -q}(\theta_{R}, \phi_{R}) \left[ d_{A}^{(1)} \otimes d_{B}^{(1)}\right]_{q}^{(2)}
+}
+where the angles $(\theta_{R}, \phi_{R})$ describe the orientation of the vector  $\vec{R}$ in the coordinate
+ system whose $z$-axis coincides with the the direction of DC field and $Y_{2, -q}$ are these spherical harmonics:
+\multiline{
+Y_{2, -2} &=& \frac{1}{4} \sqrt{\frac{15}{2\pi}}\sin^2 \theta_{R} e^{- 2 i \phi_{R}} \nonumber \\
+Y_{2, -1} &=& \frac{1}{2} \sqrt{\frac{15}{2\pi}}\sin \theta_{R} \cos \theta_{R} e^{-  i \phi_{R}} \nonumber \\
+Y_{2, 0} &=& \frac{1}{4} \sqrt{\frac{5}{\pi}} (3\cos^2\theta_{R} - 1) \nonumber \\
+Y_{2, 1} &=& -\frac{1}{2} \sqrt{\frac{15}{2\pi}}\sin \theta_{R} \cos \theta_{R} e^{  i \phi_{R}} \nonumber \\
+Y_{2, 2} &=& \frac{1}{4} \sqrt{\frac{15}{2\pi}}\sin^2 \theta_{R} e^{2 i \phi_{R}}
+}
+As depicted in \autoref{fig:1Dand2D} (a), rotating the coordinate system around its $z$-axis does not change the 
+physical properties of the molecular array as the relative orientation of the the DC field with respect to the
+ intermolecular axis remains the same. Therefore for the 1D case we have the freedom to choose $\phi_{R} = 0$. 
+Now, let's turn to the 2D case. Since the physical properties of the system is only dependent on the angle 
+$\theta_{R}$, we can decompose the 2D molecular array into many pairs of molecules with different intermolecular 
+axes and  then treat them in the same way as the 1D case. 
+
 \addfigure{
 \includegraphics[width=\linewidth]{1Dand2D.pdf}
-\caption{The orientations of the DC field and molecular arrays in the coordinate systems.
+\caption{The orientations of the DC field and molecular arrays in the coordinate systems. (a): The DC field is along 
+the $z$-axis and the 1D molecular array is in the direction represented by $\theta_{R}$ and $\phi_{R}$. (b): The 2D
+molecular array is on the $XY$ plane and the orientation of DC field is represented by $(\theta, \phi)$. For clarity,
+we have only drawn the molecules (as blue dots) along a particular axis which is at angle $\gamma$ with the $X$-axis.
+It is to be understood that there are also other intermolecular axes which are at different angles with the $X$-axis.
+Note part (a) and part (b) have different coordinate systems and the meaning of $(\theta_R, \phi_R )$ is different
+from that of $(\theta, \phi)$. In fact, the angle $\theta_{R}$ between the DC field and the molecular array in (b)
+is related to $\theta$ and $\phi$ by $\cos \theta_{R} = \cos\theta \cos(\phi - \gamma)$. 
  }
-\label{fig:quadraticExperimentalSetup}
+\label{fig:1Dand2D}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
