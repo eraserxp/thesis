@@ -1243,6 +1243,44 @@ manifests itself in the modification of the exciton dispersion (\ref{Eexc}). Whi
 with nearest neighbour couplings only, higher-order couplings in the case of $\alpha(n-m) \propto 1/ |n-m|^3$ 
 modify the exciton dispersion leading to a cosine-like, 
 but non-analytic dispersion relation, both in 1D  and 2D. 
+
+To see why the dispersion curve is non-analytic, we start from the expression for $E(k)$:
+\multiline{
+E (k) &=& \Delta E_{eg} + \sum_{n} \alpha(n) e^{- i k a n} \nonumber \\
+&=&  \Delta E_{eg} + \sum_{n} \frac{\alpha}{|n|^3} e^{- i k a n} \ , \label{eqn:dispersionCurveExpression}
+}
+where $n$ is the difference of two molecular indexes and the summation goes from $-\infty$ to $-1$ and from
+$1$ to $\infty$ for a crystal of inifinite size. Restricting $n$ to be a positive integer,
+\autoref{eqn:dispersionCurveExpression} can be written as
+\multiline{
+E (k) &=& \Delta E_{eg} + \sum_{n = 1}^{\infty} \frac{2 \alpha \cos(k a n) }{n^3} \ . \label{eqn:EkPositiveN}
+}
+Then the first derivative of the dispersion curve is given by
+\multiline{
+\frac{d E(k)}{d (k a)} = -\sum_{n = 1}^{\infty} \frac{2 \alpha \sin(k a n) }{n^2} \ , \label{eqn:firstDerivative}
+}
+and the second derivative of the dispersion curve is given by
+\multiline{
+\frac{d^2 E(k)}{d (k a)^2} = -\sum_{n = 1}^{\infty} \frac{2 \alpha \cos(k a n) }{n} \ . \label{eqn:secondDerivative}
+}
+The series in \autoref{eqn:EkPositiveN} and \autoref{eqn:firstDerivative} converge with respect to $n$, but the 
+series in \autoref{eqn:secondDerivative} doesn't. 
+For example, when $k a = 0$ or $\pi$, the series in \autoref{eqn:secondDerivative} becomes the harmonic series and
+ it diverges with respect to $n$. 
+Therefore, the dispersion curve cannot be taylor expanded as follows:
+\multiline{
+E(k) = E(k_0) + \left.\frac{d E(k)}{d k}\right|_{k_0} (k - k_0) +  \left.\frac{d^2 E(k)}{d k^2}\right|_{k_0} (k - k_0)^2 + \cdots  \ . \label{eqn:taylorExpansionInvalid}
+} 
+
+
+Conventionally, we only consider the interactions between nearest neighbors and take $n=1$ in
+ \autoref{eqn:EkPositiveN}, this might be justified if only a rough estimate of the dispersion curve is wanted
+because the series in \autoref{eqn:EkPositiveN} converges very fast with respect to the distance $n$. Given the 
+consideration on the convergence, more neighbors should be included in the summation to calculate the properties 
+dependent on the first derivative of the dispersion curve, and all neighbors are probably needed to calculate 
+properties determined by the second derivative. 
+
+
 To investigate the effect of this nonanalyticity in dispersion curve, we have performed a series of calculations with the long-range couplings neglected 
 after a certain lattice site separation $n-m$ for the 1D system. The results become  converged (to within 0.2 \%) when
  each molecule is directly coupled with 20 nearest molecules. While the calculations with only the nearest neighbor
@@ -1250,7 +1288,9 @@ after a certain lattice site separation $n-m$ for the 1D system. The results bec
 couplings somewhat decrease the focusing efficiency. The long-range couplings also decrease the focusing time, 
 by up to a factor of 2. The dynamics of collective excitations leads to interference oscillation patterns clearly 
 visible in panels a and c of Figure \ref{focusing-1d}. These oscillations are much less pronounced when all but nearest
- neighbor couplings are omitted. The numerical results of Figures 1 - 3 are particularly important
+ neighbor couplings are omitted. Given that the analytical derivation in \autoref{sec:focusing} are based on possible 
+invalid taylor expansion of dispersion curve (\autoref{eqn:taylorExpansionInvalid}), the numerical results of 
+\autoref{focusing-1d} and \autoref{focusing-2d} are particularly important
  because they demonstrate that the phase transformations introduced in the present work are effective  for 
 systems with dipolar interactions. 
 
