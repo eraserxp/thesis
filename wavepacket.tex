@@ -1328,8 +1328,9 @@ many-body systems with anisotropic interparticle interactions.
 \subsection{Numerical details}
 \label{sec:numerical}
 
-In this subsection, we show some numerical details for the calculations presented in 
-\autoref{sec:anisotropy}. 
+In this subsection, we show how to carry on the calculations presented in \autoref{sec:anisotropy}. We first evaluate 
+dipole-dipole interaction in the 1D and 1D molecular arrays and form the Hamiltonian
+matrix, then present some  details about coding. 
 
 As discussed in \autoref{sec::ddInteraction}, the dipole-dipole operator for molecule $A$ and molecule $B$ separated by 
 $\vec{R}$ in optical lattices is given by
@@ -1396,6 +1397,8 @@ or along the direction of laser polarization, that is,
 \oneline{
 \ket{\Tilde{N}, |M|} = \sum_{N} C_{N, M} \ket{N, M} \ .
 }
+Note that the coefficients $C_{N, M}$ only depend on the magnitude of the external field and have nothing to do  
+with the angles $\theta_{R}$ and $\phi_{R}$. 
 Because those dressed states with different 
 projections $|M|$ have different energies, we can choose to work with the states with a particular value of $|M|$ 
 by tunning the excitation energy to just match the corrsponding energy levels. 
@@ -1414,19 +1417,70 @@ Then the dipole-dipole interaction between two dressed state with $|M| = 0$ can 
 between the intermolecular axis and the external field if only the dressed rotational states with $|M|=0$ are
  involved. This is valid for both 1D and 2D cases.  
 
-As a 1D molecular array can be treated as a limiting case of a 2D molecular array with only a single intermolecular
+Since a 1D molecular array can be treated as a limiting case of a 2D molecular array with only a single intermolecular
  axis, we focus on the discussion of the 2D case. As described by \autoref{fig:1Dand2D}, we suppose the 2D molecular 
 array is on the $XY$ plane, and the orientation of the external field is presented by $(\theta, \phi)$. For any two 
 molecules in the intermolecular axis that are at angle $\gamma$ with the $X$-axis, $\cos^2\theta_{R}$ in
- \autoref{eqn:ddM=0} can be calculated as
+ can be calculated as
 \multiline{
 \cos^2\theta_{R} &=& \left[\cos\left(\frac{\pi}{2}-\theta\right) \cos(\phi - \gamma)\right]^2 \nonumber \\
-&=& \sin^2\theta \left(\cos\phi \cos\gamma + \sin\phi \sin\gamma \right)^2 \ .
+&=& \sin^2\theta \left(\cos\phi \cos\gamma + \sin\phi \sin\gamma \right)^2 \ . \label{eqn:threeAnglesRelation}
 }
-Then the dipole-dipole interaction between two molecules can be calculated from \autoref{eqn:ddM=0} and
+Therefore the dipole-dipole interaction between two molecules can be calculated from \autoref{eqn:ddM=0} and
  \autoref{eqn:ddM=0Dressed} provided that the angle between the intermolecular axis and the $X$-axis is known. 
 
 
+Once the dipole-dipole interaction is known, we can form the Hamiltonian matrix by expanding the Hamiltonian in 
+the basis of individual sites. Suppose the 2D molecular array is a square lattice with $\mathbb{N}\times\mathbb{N}$
+sites and the coordinate system is orientated such that its $X$-axis and $Y$-axis coincide with the
+bottom and left edge of the 2D lattice respectively, then the position of the
+molecule in the array can be represented by its coordinates $(x, y)$. Without the loss of generality, we consider only 
+the case where the external field is orientated such that $0\le \theta\le 90^\circ$ and $0 \le \phi \le 90^\circ$, and
+give the indexes $0, 1, 2, \cdots, \mathbb{N}^2-1$ to every molecule in the 2D array, starting from the bottom to 
+the top of the array and from left to right in each row. Based on \autoref{eqn:ddM=0} and
+ \autoref{eqn:ddM=0Dressed},  the matrix element $H_{i,j}$ corresponding to two sites $i$ and $j$ is given by
+\multiline{
+ H_{i,j} &=& \bra{\Tilde{0},0}_i \bra{\Tilde{1},0}_j H_0 + \hat{V}_{\rm dd} \ket{\Tilde{1}, 0}_i \ket{\Tilde{0}, 0}_j \nonumber \\
+&=&  \sum_{N_A} \sum_{N_B} \sum_{N_A^{'}} \sum_{N_B^{'}} - \frac{\sqrt{6} F}{2 R_{i,j}^3}  (3\cos^2\theta_{R}(i,j)-1) D_0^A D_0^B C_{N_A, 0}^{*} C_{N_B, 0}^{*} C_{N_A^{'}, 0}  C_{N_B^{'}, 0} \ , \nonumber \\ \label{eqn:hij2D}
+}
+where $R_{i,j}$ is the distance between molecule $i$ and $j$, and $\theta_{R}(i,j)$ is angle between the external field
+and the intermolecular axis. Assuming the unit length of the coordinate system is the lattice constant of the 2D array,
+then the distance between the two site $i$ and $j$ can be calculated from their coordinates
+\oneline{
+R_{i,j} = a \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} \ ,
+}
+where
+\multiline{
+x_i &=&  i \% \mathbb{N} \nonumber \\
+y_i &=& i/\mathbb{N} \ .
+}
+Since the angle $\gamma$ between the external field and the 
+intermolecular axis connecting from molecule $i$ to molecule $j$ is given by
+\oneline{
+\gamma = \arccos\left[ \frac{x_j - y_i }{\sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} } \right] \ ,
+}
+the value of $\cos^2\theta_{R}(i,j)$ in \autoref{eqn:hij2D} can be calculated from \autoref{eqn:threeAnglesRelation}.
+
+With the Hamiltonian matrix $H$, we can now run the simulations presented in \autoref{sec:anisotropy}. The 
+essential problem is to solve the time-dependent Schr{\"o}dinger equation
+\oneline{
+\dot{\Psi}(t) = \frac{1}{i\hbar} H(t) \Psi(t) \ .
+} 
+In the calculations, we change the direction of the DC field adiabatically with respect to the time scale of excitation
+ hopping while keeping the magnitude of the field, therefore the coefficients $C_{N_A, 0}$, $C_{N_B, 0}$, $C_{N_A^{'}, 0}$, and $C_{N_B^{'}, 0}$ in \autoref{eqn:hij2D} will remains the same and the time dependence of
+the Hamiltonian matrix is solely due to the time dependence of $\theta_{R}(t)$. Based on this observation, we can
+separate the Hamiltonian matrix into two parts: 
+\oneline{
+H(t) = H_{1}(\theta(t), \phi(t) ) * H_{2} \ ,
+}
+where $H_{1}$ is the time-dependent part that needed to be updated whenever $\theta(t)$ and $\phi(t)$ change
+$H_{2}$ is the time-independent part that can be computed only once, and ``*'' means elementwise multiplication. 
+\oneline{
+H_{1}(\theta(t), \phi(t) ) = 3\cos^2[\theta(t) ]*\bigg\{\cos[\phi(t)]*H_{\cos} + \sin[\phi(t)]*H_{\sin} \bigg\}**2 - 1
+}
+
+$\cos^2 \theta_{R}(t)$ can be 
+calculated from \autoref{eqn:threeAnglesRelation} given the orientation of the DC field $(\theta(t), \phi(t) )$.
 
 
 
