@@ -1457,15 +1457,17 @@ y_i &=& i/\mathbb{N} \ .
 Since the angle $\gamma$ between the external field and the 
 intermolecular axis connecting from molecule $i$ to molecule $j$ is given by
 \oneline{
-\gamma = \arccos\left[ \frac{x_j - y_i }{\sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} } \right] \ ,
+\gamma(i, j) = \arccos\left[ \frac{x_j - y_i }{\sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} } \right] \ ,
 }
 the value of $\cos^2\theta_{R}(i,j)$ in \autoref{eqn:hij2D} can be calculated from \autoref{eqn:threeAnglesRelation}.
 
 With the Hamiltonian matrix $H$, we can now run the simulations presented in \autoref{sec:anisotropy}. The 
 essential problem is to solve the time-dependent Schr{\"o}dinger equation
 \oneline{
-\dot{\Psi}(t) = \frac{1}{i\hbar} H(t) \Psi(t) \ .
+\dot{\Psi}(t) = \frac{1}{i\hbar} H(t) \Psi(t) \ . \label{eqn:tdse2d}
 } 
+Solving the above differential equations  involves the computation of the Hamiltonian matrix at many different 
+time points. To make the simulation as fast as possible,we now explore how to evaluate $H(t)$ efficiently.
 In the calculations, we change the direction of the DC field adiabatically with respect to the time scale of excitation
  hopping while keeping the magnitude of the field, therefore the coefficients $C_{N_A, 0}$, $C_{N_B, 0}$, $C_{N_A^{'}, 0}$, and $C_{N_B^{'}, 0}$ in \autoref{eqn:hij2D} will remains the same and the time dependence of
 the Hamiltonian matrix is solely due to the time dependence of $\theta_{R}(t)$. Based on this observation, we can
@@ -1473,16 +1475,41 @@ separate the Hamiltonian matrix into two parts:
 \oneline{
 H(t) = H_{1}(\theta(t), \phi(t) ) * H_{2} \ ,
 }
-where $H_{1}$ is the time-dependent part that needed to be updated whenever $\theta(t)$ and $\phi(t)$ change
-$H_{2}$ is the time-independent part that can be computed only once, and ``*'' means elementwise multiplication. 
+where  ``*'' means element-wise multiplication, $H_{1}$ is the time-dependent part that needs to be 
+updated whenever $\theta(t)$ and $\phi(t)$ change, and $H_{2}$ is the time-independent part that can be 
+computed once and be saved into memory for later retrieve. It is easy to derive from 
+ \autoref{eqn:hij2D} the expression of $H_2$:
 \oneline{
-H_{1}(\theta(t), \phi(t) ) = 3\cos^2[\theta(t) ]*\bigg\{\cos[\phi(t)]*H_{\cos} + \sin[\phi(t)]*H_{\sin} \bigg\}**2 - 1
+H_{2} = \sum_{N_A} \sum_{N_B} \sum_{N_A^{'}} \sum_{N_B^{'}} - \frac{\sqrt{6} F}{2 R_{i,j}^3} D_0^A D_0^B C_{N_A, 0}^{*} C_{N_B, 0}^{*} C_{N_A^{'}, 0}  C_{N_B^{'}, 0} \ .
 }
+Because of the angle $\gamma$ in \autoref{eqn:threeAnglesRelation} is only dependent on positions of the lattice sites, we can further separate the evalulation of $H_1$ into different parts for the purpose of computing efficiency. The expression of $H_1$ is given by
+\oneline{
+H_{1}(\theta(t), \phi(t) ) = 3\cos^2[\theta(t) ]*\bigg\{\cos[\phi(t)]*K^{\cos} + \sin[\phi(t)]*K^{\sin} \bigg\}**2 - 1
+}
+where ``**2'' means element-wise square, and $K^{\cos}$ is a matrix whose elements is given by 
+\oneline{
+K^{\cos}_{i, j}= \cos\left(\gamma(i, j)\right) \ ,
+}
+and $K^{\sin}$ is a matrix whose elements is given by 
+\oneline{
+K^{\sin}_{i, j}= \sin\left(\gamma(i, j)\right) \ . 
+}
+Since $K^{\cos}$ and  $K^{\sin}$ are independent of time, we compute them once and save them into memory 
+for later usage. In summary, the efficient computation of $H(t)$ is carried on in three steps: 1. calculate $H_2$, 
+$K^{\cos}$, and $K^{\sin}$ and save them into memory; 2. compute $\theta(t)$ and $\phi(t)$ and then use
+the values of $K^{\cos}$, and $K^{\sin}$ in memory to calculate $H_1$; 3. use the value of $H_2$ in memory to 
+compute $H$.  
 
-$\cos^2 \theta_{R}(t)$ can be 
-calculated from \autoref{eqn:threeAnglesRelation} given the orientation of the DC field $(\theta(t), \phi(t) )$.
-
-
+In the simulation, I have used a complex ordinary differential equation solver called ``ZVODE'' to solve 
+\autoref{eqn:tdse2d}. Given an initial state $\Psi(t=0)$, the
+derivative $\dot{\Psi}$ of the wavefunction with respect to time, and the desired accurary for the calculation,
+the solver can give the wavefuntion $\Psi(t)$ at a later time $t$. In my experience, the ZVODE solver is not 
+good at solving a stiff system of differential equations where the potential change is very steep. 
+If this is the case, it is better to convert
+the time-dependent Schr\"odinger equation into a real  ordinary differential equation and use the corresponding
+ODE solver called ``DVODE'' that can handle stiff systems much better. As a reference
+ for future students, we show below the conversion from the time-dependent Schr\"odinger equation to a real 
+ordinary differential equation. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htbp]
