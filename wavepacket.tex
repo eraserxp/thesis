@@ -1361,12 +1361,13 @@ controlled by varying both $\theta$ and $\phi$.
 In addition to the phase transformation discussed earlier, this allows for a dynamical energy transfer in quantum 
 many-body systems with anisotropic interparticle interactions.
 
-\subsection{Numerical details}
+\subsection{Computation details}
 \label{sec:numerical}
 
-In this subsection, we show how to carry on the calculations presented in \autoref{sec:anisotropy}. We first evaluate 
-dipole-dipole interaction in the 1D and 1D molecular arrays and form the Hamiltonian
-matrix, then present some  details about coding. 
+In this subsection, we show how to carry on the calculations presented in \autoref{sec:anisotropy}. We first 
+evaluate dipole-dipole interaction in the 1D and 2D molecular arrays , then discuss how to form the Hamiltonian
+matrix in an efficient way, and finally present some approximations that can reduce the computation cost 
+significantly. 
 
 As discussed in \autoref{sec::ddInteraction}, the dipole-dipole operator for molecule $A$ and molecule $B$ separated by 
 $\vec{R}$ in optical lattices is given by
@@ -1645,10 +1646,20 @@ namely a 2D array of LiCs molecules on a square optical lattice with $a=400$ nm.
 
 To explore the effect of vacancy-induced interactions, we performed simulations for
 different vacancy numbers using the same parameters for molecule-field and inter-molecular interactions as
-in the calculations presented in Figure \ref{focusing-2d}b. For each vacancy concentration, we carried out 48
+in the calculations presented in Figure \ref{focusing-2d} (b). For each vacancy concentration, we carried out 48
 calculations with random distributions of empty lattice sites. The quadratic phase transformations are applied,
 as described in \autoref{sec:focusing}, in order to focus the collective excitation at time $t_{\ast}$ to
 the molecule in the middle of the 2D array.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{enhancement-vs-vacancy.pdf}
+\caption{ Enhancement factors $\eta$ (red symbols) and
+$\chi$ (blue symbols) as functions of vacancy percentage in a 2D lattices. See text
+for the definitions of $\eta$ and $\chi$. The error bars are for 95\% of confidence interval. 
+} 
+\label{enhancement-vs-vacancy}
+\end{figure}
 
 Vacancies disturb the translational symmetry of the system and produce an effective disorder potential that tends to
 localize collective excitations \cite{perez-rios2010}.
@@ -1668,34 +1679,11 @@ phase transformation,
 The time $t_*$ is the focusing time found numerically for the corresponding vacancy-free system.
  The quantity $\eta$ illustrates the actual enhancement of the probability to focus a collective excitation,
 while the quantity $\chi$ illustrates the effect of the focusing phase transformation.
-Figure 6 presents the values of $\eta$ and $\chi$ as functions of the vacancy concentration.
+\Autoref{enhancement-vs-vacancy} presents the values of $\eta$ and $\chi$ as functions of the vacancy concentration.
 It illustrates two important observations. First, the disorder potential with vacancy concentrations $> 20$ \%
 renders the phase transformation ineffective. In the presence of strong disorder, the dynamics of the system is entirely
 determined by the disorder potential and the energy transfer becomes highly inefficient (however, see \autoref{sec:focusingStrongDisorder}). On the other hand, vacancy
 concentrations of less than 10 \% appear to have little effect on the efficacy of the focusing phase transformation.
-
-Our calculations indicate that the focusing time may be somewhat modified by the disorder potential, even if the
- concentration of vacancies is less than 10 \%.  Figure 7 depicts the excitation wave functions
- at the time of the maximal enhancement on the target molecule, chosen as molecule (71,71).  Figure \ref{focusing-with-vacancy} shows that
-despite the presence of multiple vacancies, the focusing transformation enhances the probability to find the
-excitation on the target molecule by 16 times.
-
-
-% As you can see from Figure \ref{enhancement-vs-vacancy}, the enhancement factors decrease exponentially as vacancy percentage increases, but still a relatively good focusing can be achieved with 10\% of vacancies.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\linewidth]{enhancement-vs-vacancy.pdf}
-\caption{ Enhancement factors $\eta$ (red symbols) and
-$\chi$ (blue symbols) as functions of vacancy percentage in a 2D lattices. See text
-for the definitions of $\eta$ and $\chi$. The error bars are for 95\% of confidence interval. 
-} 
-\label{enhancement-vs-vacancy}
-\end{figure}
-
-%Due to the presence of vacancies in optical lattices, the focusing time $T_{\tiny \mbox{target}}$ for a full lattices would not be the focusing time for a partial lattices. So it is a little unfair to use  $T_{\tiny \mbox{target}}$ as the time for comparison in Figure \ref{enhancement-vs-vacancy} and actually the focusing, as shown in Figure \ref{focusing-with-vacancy},  can be better if the real focusing time is chosen.
-
-
 
 \begin{figure}[htbp]
 \centering
@@ -1711,6 +1699,22 @@ with the same parameters as in Figure \ref{focusing-2d}. The
 probabilities in (b) and (d) are magnified by 16 and 6
 respectively. } \label{focusing-with-vacancy}
 \end{figure}
+
+Our calculations indicate that the focusing time may be somewhat modified by the disorder potential, even if the
+ concentration of vacancies is less than 10 \%. \Autoref{focusing-with-vacancy} depicts the excitation wave functions
+ at the time of the maximal enhancement on the target molecule, chosen as molecule (71,71).  Figure \ref{focusing-with-vacancy} shows that
+despite the presence of multiple vacancies, the focusing transformation enhances the probability to find the
+excitation on the target molecule by 16 times.
+
+
+% As you can see from Figure \ref{enhancement-vs-vacancy}, the enhancement factors decrease exponentially as vacancy percentage increases, but still a relatively good focusing can be achieved with 10\% of vacancies.
+
+
+
+%Due to the presence of vacancies in optical lattices, the focusing time $T_{\tiny \mbox{target}}$ for a full lattices would not be the focusing time for a partial lattices. So it is a little unfair to use  $T_{\tiny \mbox{target}}$ as the time for comparison in Figure \ref{enhancement-vs-vacancy} and actually the focusing, as shown in Figure \ref{focusing-with-vacancy},  can be better if the real focusing time is chosen.
+
+
+
 
 \section{Focusing in the presence of strong disorder}
 \label{sec:focusingStrongDisorder}
@@ -1776,13 +1780,17 @@ can be divided into $M$ blocks, each containing many molecules, and that the blo
 \label{blocks-contribution}
 \end{equation}
 %
-where
+where the contribution from block $\gamma$ is given by
 %
 \begin{equation} c_\gamma(T) \equiv |c_\gamma| e^{i\phi_\gamma}= \sum_{i\in
  \gamma} U_{o, i}(T)c_i(t=0) \ .
 \label{inblock-contribution}
 \end{equation}
+In \autoref{inblock-contribution}, the time evolution operator $U$ depends on the randomness of vacancy sites 
+and thus is out of control, but we can manipulate the initial state $c_i(t=0)$. 
 %
+%
+%---------------------------------------------------------------
 %
 %So we work with sub-blocks of lattice sites and Eq.v(\ref{site-contribution}) becomes
 %\begin{equation}
@@ -1818,11 +1826,13 @@ where
 %c_M(T) = \sum_{j=1}^{n} U_{o, j}^M (T) c_j^{M}(0) = |c_M| \exp(i
 %\phi_{M}) \ . \label{cM}
 %\end{equation}
-This equation implies that the contributions
+%
+%------------------------------------------------------
+It turns out that the contributions
 from different blocks can be made to interfere constructively by adding
  a phase $\exp(-i \phi_{\gamma})$ to each occupied site in block
  $\gamma$. For $M$ blocks in the array and quasi-random evolution matrix, simply setting all the phases equal
- must lead to $\sim M$-fold increase of the excitation probability at the target molecule, as compared to
+ may lead to $\sim M$-fold increase of the excitation probability at the target molecule, as compared to
  a sum of $M$ quasi-random phasors in \autoref{blocks-contribution} \cite{opaque-1}.
 
 Similarly to optics, the phases $-\phi_\gamma$ which must be added in each block, can be found experimentally provided
@@ -1838,32 +1848,6 @@ rapid development \cite{Gigan-TMeasure-PRL10, Mosk-NPhot10, Cizmar-NPhot10, Silb
 
 
 %\tz{However, numerically we find the phases $\phi_M$ in a faster way.{ CONSULT WITH PING WHETHER WHAT IS BELOW IS EXACTLY WHAT HE DID IN THE CALCULATION}} 
-
-For a proof-of-principle calculation, we consider a 2D lattice of size 101$\times$101 with 60\% of sites vacant and each non-vacant site occupied by a single LiCs molecule. 
-Due to time reversibility of the time
-evolution operator $U(T)$, 
-%the phase $\exp(-i \phi_{M})$ can be obtained as follows:
-\begin{equation}
-|c_\gamma | \exp(-i \phi_{\gamma}) = \left[ \sum_{j=1}^{n} U_{o, j}^\gamma (T) c_j^{\gamma}(0)\right]^* 
-=\left[ \sum_{j=1}^{n} U_{j, o}^\gamma (-T) c_j^{\gamma}(0)\right]^* \ .
-\end{equation}
-The matrix element $U_{j, o}^\gamma (-T)$ can be
-calculated by performing a backward time propagation starting from a
-local excitation at site ``$o$'' and calculating the coefficient
-$c_j(t)$ at time $-T$. Alternatively, one can propagate the evolution equations forward in time, finding $c_j(T)$: 
-Since the Hamiltonian (1) is real, its eigenfunctions are real, and the evolution matrix $U$ is symmetric, $U_{o, j} = U_{j, o}$. Thus we find
-\begin{equation}
-c_j(T) = \sum_{i}U_{j, i}^\gamma (T) c_i(0) = U_{j, o}^\gamma (T) \ ,
-\end{equation}
-since $c_{o}(0) = 1$ and all other coefficients are zero. For a completely delocalized initial state, we assume that all coefficients
-in auto\ref{planewave-initial} are equal, so that  the phases $\phi_\gamma$ required for
-block $\gamma$ are
-\begin{equation}
- |c_\gamma|\exp(- i \phi_{\gamma})  = \left[ \sum_{j}  c_j(T) \right]^* \ , \label{phase-applied}
-\end{equation}
-where the index $j$ runs over all  occupied sites in block $\gamma$.
-Figure \ref{t-matrix-focusing} shows that this choice of phases leads to effective focusing of the collective excitation in a strongly disordered system. 
-
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{t-matrix-focusing.pdf}
@@ -1878,15 +1862,33 @@ probabilities in (b) and (d) are magnified by 60 and 5,
 respectively. } \label{t-matrix-focusing}
 \end{figure}
 
+For a proof-of-principle calculation, we consider a 2D lattice of size 101$\times$101 with 60\% of sites vacant and 
+each non-vacant site occupied by a single LiCs molecule. 
+First, we figure out the phase $\exp(-i\phi_{\gamma})$ applied to block $\gamma$.  Due to time reversibility of the time
+evolution operator $U(T)$ and \autoref{inblock-contribution}, we obtain 
+%the phase $\exp(-i \phi_{M})$ can be obtained as follows:
+\begin{equation}
+|c_\gamma | \exp(-i \phi_{\gamma}) = \left[ \sum_{j=1}^{n} U_{o, j}^\gamma (T) c_j^{\gamma}(0)\right]^* 
+=\left[ \sum_{j=1}^{n} U_{j, o}^\gamma (-T) c_j^{\gamma}(0)\right]^* \ . \label{eqn:backInTime}
+\end{equation}
+The matrix element $U_{j, o}^\gamma (-T)$ can be
+calculated by performing a backward time propagation starting from a
+local excitation at site ``$o$'' and calculating the coefficient
+$c_j(t)$ at time $-T$. 
+Alternatively, one can propagate the evolution equations forward in time, finding $c_j(T)$: 
+Since the Hamiltonian (1) is real, its eigenfunctions are real, and the evolution matrix $U$ is symmetric, $U_{o, j} = U_{j, o}$. Thus we find
+\begin{equation}
+c_j(T) = \sum_{i}U_{j, i}^\gamma (T) c_i(0) = U_{j, o}^\gamma (T) \ ,
+\end{equation}
+since $c_{o}(0) = 1$ and all other coefficients are zero. For a completely delocalized initial state, we assume that all coefficients
+in \autoref{planewave-initial} are equal, so that  the phases $\phi_\gamma$ required for
+block $\gamma$ are
+\begin{equation}
+ |c_\gamma|\exp(- i \phi_{\gamma})  = \left[ \sum_{j}  c_j(T) \right]^* \ , \label{phase-applied}
+\end{equation}
+where the index $j$ runs over all  occupied sites in block $\gamma$.
+Figure \ref{t-matrix-focusing} shows that this choice of phases leads to effective focusing of the collective excitation in a strongly disordered system. 
 
-To illustrate the efficiency of the focussing method described above, we have carried out a series of calculations 
-with different vacancy concentrations. For each vacancy concentration, we performed 48 calculations with random
- distributions of empty lattice sites. The phase transformations are calculated individually for each random 
-distribution of vacancy sites as described above. The results are shown in Figure \ref{enhancement-vs-vacancy-t-matrix}. 
-As can be seen, the transformations proposed above are effective for vacancy concentration $<$ 70\%. At higher 
-concentrations of vacancies, the excited states become strongly localized and immobile. The focusing efficiency at
-vacancy concentrations 10\% and 20\% appears to be higher than that in the absence of vacancies, which we attribute to the effect of 
-the boundaries.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{enhancement-vs-vacancy-t-matrix-other.pdf}
@@ -1901,6 +1903,17 @@ Shown are the enhancement factors $\eta$ (red symbols) defined in Eq.(\ref{eta})
 } 
 \label{enhancement-vs-vacancy-t-matrix}
 \end{figure}
+
+
+To illustrate the efficiency of the focussing method described above, we have carried out a series of calculations 
+with different vacancy concentrations. For each vacancy concentration, we performed 48 calculations with random
+ distributions of empty lattice sites. The phase transformations are calculated individually for each random 
+distribution of vacancy sites as described above. The results are shown in Figure \ref{enhancement-vs-vacancy-t-matrix}. 
+As can be seen, the transformations proposed above are effective for vacancy concentration $<$ 70\%. At higher 
+concentrations of vacancies, the excited states become strongly localized and immobile. The focusing efficiency at
+vacancy concentrations 10\% and 20\% appears to be higher than that in the absence of vacancies, which we attribute to the effect of 
+the boundaries.
+
 
 \section{Conclusion}
 \label{sec:energyTransferConclusion}
