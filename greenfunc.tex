@@ -15,6 +15,93 @@ a disorder.
 \section{Equation of motion for Green's function}
 \label{sec:equationOfMotion}
 
+To derive the equation of motion for Green's function, we start from the Hamiltonian for the system. We are 
+considering a periodic lattice with the Hamiltonian:
+\multiline{
+\hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{\delta\neq 0} t_{l, l+\delta} \pd{l}\p{l+\delta} + \sum_{l}\sum_{\delta\neq 0} d_{l, l+\delta} \pd{l}\pd{l+\delta}\p{l}\p{l+\delta} \ ,
+}
+where $e_l$ is the energy of the particle at site $l$, $\pd{l}$ create a particle at site $l$, $t_{l, l+\delta}$ represents the hopping interaction between
+site $l$ and site $l+\delta$, and $d_{l, l+\delta}$ represents the dynamic interaction between
+site $l$ and site $l+\delta$. The Green's operator is defined in terms of the Hamiltonian,
+\oneline{
+\hat{G}(z) \equiv (z - \hat{H})^{-1} \ ,
+}
+where $z = E + i\eta$ is the complex energy. From the definition of the Green's operator, it is clear that  
+\oneline{
+(z - \hat{H}) \hat{G}(z) = 1 \ . \label{eqn:equationForG}
+}
+The above equation contains all information about the system. 
+
+Depending on the system in consideration, the creation and anhilation opreators will satisfy different commutation
+rules. For instance, if the particles are femions, $\pd{n}$ and $\p{m}$ satisfy the anticommutation relations:
+\multiline{
+&&\{\pd{n}, \p{m}\} = \pd{n}\p{m} + \p{m}\pd{n} = \delta_{n, m} \ , \nonumber \\
+&&\{\pd{n}, \pd{m}\} = \{\p{n}, \p{m}\} = 0 \ ,
+}
+and if particles are bosons, $\pd{n}$ and $\p{m}$ satisfy the commutation relations:
+\multiline{
+&&[\pd{n}, \p{m}] = \pd{n}\p{m} - \p{m}\pd{n} = \delta_{n, m} \ , \nonumber \\
+&&[\pd{n}, \pd{m}] = [\p{n}, \p{m}] = 0 \ .
+}
+In the current study, we are considering collective excitations of atom or molecules in the lattice. They have the 
+characteristics of both fermions and bosons. When two excitations reside at different sites, they behave like
+bosons, that is,
+\oneline{
+\pd{n}\p{m} - \p{m}\pd{n} = 0 \label{eqn:boson-like}
+}
+if $n \neq m$; when excitations are at the same site, they behave like fermions, that is,
+\oneline{
+\pd{n}\p{m} + \p{m}\pd{n} = 0 \label{eqn:fermion-like}
+}
+if $n = m$. For convenience, we can combine \autoref{eqn:boson-like} and \autoref{eqn:fermion-like} into one equation:
+\oneline{
+\p{m}\pd{n} = \delta_{m, n} + (1- 2 \delta_{m, n}) \pd{n}\p{m} \ .  \label{eqn:excitonCommutation}
+}
+
+Using the two-particle basis set $\ket{n}\ket{m}$, \autoref{eqn:equationForG} can be rewritten as
+\oneline{
+\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } = \bra{n} \bra{m} \ket{n^{\prime} } \ket{m^{\prime} } \ . \label{eqn:startEqnForG}
+}
+To simplify the above equation, we make use of \autoref{eqn:excitonCommutation} and evaluate the effect of the 
+Hamiltonian operating on the basis set:
+\multiline{
+\hat{H} \ket{n} \ket{m} &=& (e_{n} + e_{m} ) \ket{n} \ket{m} + \sum_{\delta \neq 0} t_{n-\delta, n} \ket{n-\delta} \ket{m} + \sum_{\delta \neq 0} t_{m-\delta, m} \ket{n} \ket{m - \delta} \nonumber \\
+&& +  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta} \ket{n} \ket{m} \ ,
+}
+then the left hand side of \autoref{eqn:startEqnForG} becomes
+\multiline{
+&&\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} }= (z - e_{n} - e_{m} ) G(n, m, n^{\prime}, m^{\prime}; z) \nonumber \\
+&&- \sum_{\delta \neq 0} t_{n-\delta, n} G(n-\delta, m, n^{\prime}, m^{\prime}; z) - \sum_{\delta \neq 0} t_{m-\delta, m} G(n, m-\delta, n^{\prime}, m^{\prime}; z) \nonumber \\
+&& -  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta}  G(n, m, n^{\prime}, m^{\prime}; z) \ ,
+}
+where $G(n, m, n^{\prime}, m^{\prime}; z)$ represents the matrix element of the Green's operator in the two-particle 
+basis set and it is given by
+\oneline{
+G(n, m, n^{\prime}, m^{\prime}; z) =  \bra{n} \bra{m} \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } \ .
+}
+Similarly, substituting \autoref{eqn:excitonCommutation} into the right hand side of \autoref{eqn:startEqnForG}  gives
+rise to 
+\oneline{
+ \bra{n} \bra{m} \ket{n^{\prime} } \ket{m^{\prime} }= \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
+}
+Therefore, the equation of the motion for the Green's function is given by
+\multiline{
+&&\left(z - e_{n} - e_{m} -  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta} \right) G(n, m, n^{\prime}, m^{\prime}; z) \nonumber \\
+&& - \sum_{\delta \neq 0} t_{n-\delta, n} G(n-\delta, m, n^{\prime}, m^{\prime}; z) - \sum_{\delta \neq 0} t_{m-\delta, m} G(n, m-\delta, n^{\prime}, m^{\prime}; z) \nonumber \\
+&& =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ . \label{eqn:eqnOfMotion}
+}
+Since all the Green's function in \autoref{eqn:eqnOfMotion} have the same parameters $n^{\prime}$ and
+ $m^{\prime}$, we define 
+\oneline{
+\Tilde{G} (n, m; z) = G(n, m, n^{\prime}, m^{\prime}; z) \ 
+}
+to simplify the notation. Then \autoref{eqn:eqnOfMotion} can be written as
+\multiline{
+&&\left(z - e_{n} - e_{m} -  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta} \right) G(n, m; z) \nonumber \\
+&& - \sum_{\delta \neq 0} t_{n-\delta, n} G(n-\delta, m; z) - \sum_{\delta \neq 0} t_{m-\delta, m} G(n, m-\delta; z) \nonumber \\
+&& =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ . \label{eqn:eqnOfMotionSimplified}
+}
+
 \section{Numerical calculation of Green's function}
 \label{sec:numericGreen}
 
