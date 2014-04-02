@@ -241,6 +241,31 @@
     urlbordercolor={0.8 0.8 0.8},%
     pagebackref,linktocpage%
     ]{hyperref}
+
+
+% draw arrows with text over it
+%\usepackage{mathtools}
+
+%command to produce a column vector
+% usage \colvec{5}{a}{b}{c}{d}{e}.
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
+
+
 %% The following change how the the back-references text is typeset in a
 %% bibliography when `backref' or `pagebackref' are used
 \renewcommand\backrefpagesname{\(\rightarrow\) pages}

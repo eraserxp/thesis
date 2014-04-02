@@ -18,11 +18,13 @@ a disorder.
 To derive the equation of motion for Green's function, we start from the Hamiltonian for the system. We are 
 considering a periodic lattice with the Hamiltonian:
 \multiline{
-\hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{\delta\neq 0} t_{l, l+\delta} \pd{l}\p{l+\delta} + \sum_{l}\sum_{\delta\neq 0} d_{l, l+\delta} \pd{l}\pd{l+\delta}\p{l}\p{l+\delta} \ ,
+\hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{r\neq 0} t_{l, l+r} \pd{l}\p{l+r} + \sum_{l}\sum_{r\neq 0} d_{l, l+r} \pd{l}\pd{l+r}\p{l}\p{l+r} \ ,
 }
-where $e_l$ is the energy of the particle at site $l$, $\pd{l}$ create a particle at site $l$, $t_{l, l+\delta}$ represents the hopping interaction between
-site $l$ and site $l+\delta$, and $d_{l, l+\delta}$ represents the dynamic interaction between
-site $l$ and site $l+\delta$. The Green's operator is defined in terms of the Hamiltonian,
+where $e_l$ is the energy of the particle at site $l$, $\pd{l}$ create a particle at site $l$, $t_{l, l+r}$ represents the hopping interaction between
+site $l$ and site $l+r$, and $d_{l, l+r}$ represents the dynamic interaction between
+site $l$ and site $l+r$. Note that the Hamiltonian $\hat{H}$ is very general as there is no restriction on the values 
+of $e_l$, $t_{l, l+r}$, and $d_{l, l+r}$, and thus it can describe both an ordered system and an 
+disordered system. The Green's operator is defined in terms of the Hamiltonian,
 \oneline{
 \hat{G}(z) \equiv (z - \hat{H})^{-1} \ ,
 }
@@ -58,21 +60,25 @@ if $n = m$. For convenience, we can combine \autoref{eqn:boson-like} and \autore
 \p{m}\pd{n} = \delta_{m, n} + (1- 2 \delta_{m, n}) \pd{n}\p{m} \ .  \label{eqn:excitonCommutation}
 }
 
-Using the two-particle basis set $\ket{n}\ket{m}$, \autoref{eqn:equationForG} can be rewritten as
+Using the two-particle basis set $\ket{n}\ket{m}$ (and $n \neq m$), \autoref{eqn:equationForG} can be rewritten as
 \oneline{
 \bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } = \bra{n} \bra{m} \ket{n^{\prime} } \ket{m^{\prime} } \ . \label{eqn:startEqnForG}
 }
 To simplify the above equation, we make use of \autoref{eqn:excitonCommutation} and evaluate the effect of the 
 Hamiltonian operating on the basis set:
 \multiline{
-\hat{H} \ket{n} \ket{m} &=& (e_{n} + e_{m} ) \ket{n} \ket{m} + \sum_{\delta \neq 0} t_{n-\delta, n} \ket{n-\delta} \ket{m} + \sum_{\delta \neq 0} t_{m-\delta, m} \ket{n} \ket{m - \delta} \nonumber \\
-&& +  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta} \ket{n} \ket{m} \ ,
+\hat{H} \ket{n} \ket{m} &=& (e_{n} + e_{m} ) \ket{n} \ket{m} + \sum_{r \neq 0}(1-\delta_{n-r, m}) t_{n-r, n} \ket{n-r} \ket{m}  \nonumber \\
+&& + \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \ket{n} \ket{m - r} +  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \ket{n} \ket{m}  \ ,  \nonumber \\
 }
+where the factors like $(1-\delta_{n-r, m})$ appear because only the two-particle states $\ket{n}\ket{m}$ with 
+$n \neq m$ are included in the basis set, 
 then the left hand side of \autoref{eqn:startEqnForG} becomes
 \multiline{
-&&\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} }= (z - e_{n} - e_{m} ) G(n, m, n^{\prime}, m^{\prime}; z) \nonumber \\
-&&- \sum_{\delta \neq 0} t_{n-\delta, n} G(n-\delta, m, n^{\prime}, m^{\prime}; z) - \sum_{\delta \neq 0} t_{m-\delta, m} G(n, m-\delta, n^{\prime}, m^{\prime}; z) \nonumber \\
-&& -  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta}  G(n, m, n^{\prime}, m^{\prime}; z) \ ,
+&&\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } \nonumber \\
+&&= (z - e_{n} - e_{m} ) G(n, m, n^{\prime}, m^{\prime}; z) 
+- \sum_{r \neq 0} (1-\delta_{n-r, m}) t_{n-r, n} G(n-r, m, n^{\prime}, m^{\prime}; z) \nonumber \\
+&& - \sum_{r \neq 0}(1-\delta_{n, m-r}) t_{m-r, m} G(n, m-r, n^{\prime}, m^{\prime}; z) 
+ -  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r}  G(n, m, n^{\prime}, m^{\prime}; z) \ , \nonumber \\
 }
 where $G(n, m, n^{\prime}, m^{\prime}; z)$ represents the matrix element of the Green's operator in the two-particle 
 basis set and it is given by
@@ -86,10 +92,16 @@ rise to
 }
 Therefore, the equation of the motion for the Green's function is given by
 \multiline{
-&&\left(z - e_{n} - e_{m} -  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta} \right) G(n, m, n^{\prime}, m^{\prime}; z) \nonumber \\
-&& - \sum_{\delta \neq 0} t_{n-\delta, n} G(n-\delta, m, n^{\prime}, m^{\prime}; z) - \sum_{\delta \neq 0} t_{m-\delta, m} G(n, m-\delta, n^{\prime}, m^{\prime}; z) \nonumber \\
+&&\left(z - e_{n} - e_{m} -  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \right) G(n, m, n^{\prime}, m^{\prime}; z) \nonumber \\
+&& - \sum_{r \neq 0} (1-\delta_{n-r, m}) t_{n-r, n} G(n-r, m, n^{\prime}, m^{\prime}; z) \nonumber \\
+&& - \sum_{r \neq 0} (1-\delta_{n, m-r})t_{m-r, m} G(n, m-r, n^{\prime}, m^{\prime}; z) \nonumber \\
 && =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ . \label{eqn:eqnOfMotion}
 }
+Because two excitations cannot reside at the same lattice site, we know the Green's function 
+$G(n, m, n^{\prime}, m^{\prime}; z)$ is meaningless whenever $n=m$ or $n^{\prime} = m^{\prime}$. It is clear that
+\autoref{eqn:eqnOfMotion} can't guarantee all the Green's functions that it contains are physical even if we restrict
+the basis set to be just 
+
 Since all the Green's function in \autoref{eqn:eqnOfMotion} have the same parameters $n^{\prime}$ and
  $m^{\prime}$, we define 
 \oneline{
@@ -97,13 +109,54 @@ Since all the Green's function in \autoref{eqn:eqnOfMotion} have the same parame
 }
 to simplify the notation. Then \autoref{eqn:eqnOfMotion} can be written as
 \multiline{
-&&\left(z - e_{n} - e_{m} -  \sum_{\delta \neq 0} d_{n, m} \delta_{n-m, \pm\delta} \right) G(n, m; z) \nonumber \\
-&& - \sum_{\delta \neq 0} t_{n-\delta, n} G(n-\delta, m; z) - \sum_{\delta \neq 0} t_{m-\delta, m} G(n, m-\delta; z) \nonumber \\
+&&\left(z - e_{n} - e_{m} -  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \right) \Tilde{G}(n, m; z) \nonumber \\
+&& - \sum_{r \neq 0} (1-\delta_{n-r, m}) t_{n-r, n} \Tilde{G}(n-r, m; z) - \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \Tilde{G}(n, m-r; z) \nonumber \\
 && =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ . \label{eqn:eqnOfMotionSimplified}
 }
 
 \section{Numerical calculation of Green's function}
 \label{sec:numericGreen}
+
+The equation of motion of Green's function, \autoref{eqn:eqnOfMotionSimplified}, is our starting point to calculate
+the Green's function. In the nearest neighbor approximation, the distance between two interacting sites $r$ can only 
+be 1 or $-1$, then the quation of motion of Green's function becomes
+\multiline{
+&&\left(z - e_{n} - e_{m} -   d_{n, m} \delta_{n-m, \pm 1} \right) \Tilde{G}(n, m; z) \nonumber \\
+&& - (1- \delta_{n-1, m}) t_{n-1, n} \Tilde{G}(n-1, m; z) - (1- \delta_{n+1, m}) t_{n+1, n} \Tilde{G}(n+1, m; z) \nonumber \\
+&& - (1- \delta_{n, m-1}) t_{m-1, m}\Tilde{G}(n, m-1; z) - (1- \delta_{n, m+1}) t_{m+1, m} \Tilde{G}(n, m+1; z) \nonumber \\
+&& =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ . \label{eqn:eqnOfMotionNNA}
+}
+As metioned before, the factors like $(1- \delta_{n-1, m})$ in \autoref{eqn:eqnOfMotionNNA} are used to eliminate 
+the unphysical Green's functions like $\Tilde{G}(i, i; z)$. For instance, when $n = m - 1$, $\Tilde{G}(n+1, m; z)$ and 
+$\Tilde{G}(n, m-1; z)$ will disappear in \autoref{eqn:eqnOfMotionNNA} because of the factors in front of them. 
+\Autoref{eqn:eqnOfMotionNNA} shows that $\Tilde{G}(n, m; z)$ only relates directly with at most four other Green's
+functions in the nearest neighbor approximation. This relationship can be shown schematically as follows:
+\multiline{
+& \vdots & \nonumber \\
+\Tilde{G}(n-1, m+1; z) &\rightarrow& \bigg\{  \Tilde{G}(n-2, m+1; z),  \Tilde{G}(n-1, m; z), \Tilde{G}(n, m+1; z),\Tilde{G}(n-1, m+2; z) \bigg\} \nonumber \\
+\Tilde{G}(n, m; z) &\rightarrow& \bigg\{  \Tilde{G}(n-1, m; z),  \Tilde{G}(n, m-1; z), \Tilde{G}(n+1, m; z),\Tilde{G}(n, m+1; z) \bigg\} \nonumber \\
+\Tilde{G}(n+1, m-1; z) &\rightarrow& \bigg\{  \Tilde{G}(n, m-1; z),  \Tilde{G}(n+1, m-2; z), \Tilde{G}(n+2, m-1; z),\Tilde{G}(n+1, m; z) \bigg\} \nonumber \\
+& \vdots &  \nonumber \\
+}
+For the Green's function $\Tilde{G}(i, j; z)$ on the left, the summation of parameters $i + j = n + m$ is fixed. For the 
+Green's functions $\Tilde{G}(i^{\prime}, j^{\prime}; z)$ on the right, the summation of parameters
+ $i^{\prime} + j^{\prime}$ can only be either $n+m-1$ or $n+m+1$. 
+This inspire us to group some Green's functions into a vector $\mathbf{V}_{K}$ according to their parameters $n$ and $m$, that is,
+\oneline{
+\mathbf{V}_{K} = \colvec{5}{\cdots}{\Tilde{G}(i-1, j+1; z)}{\Tilde{G}(i, j; z)}{\Tilde{G}(i+1, j-1; z)}{\vdots} \ ,
+} 
+then \autoref{eqn:eqnOfMotionNNA} can be written as
+\multiline{
+\mathbf{V}_{K} = \boldsymbol\alpha_{K}(z) \mathbf{V}_{K-1} +\boldsymbol\beta_{K}(z)\mathbf{V}_{K+1} 
+}
+if $n^{\prime} + m^{\prime} \neq K$, and as
+\multiline{
+\mathbf{V}_{K} =  \boldsymbol\alpha_{K}(z) \mathbf{V}_{K-1} +\boldsymbol\beta_{K}(z)\mathbf{V}_{K+1}  + \mathbf{C}
+}
+if $n^{\prime} + m^{\prime} = K$. In the above two equations, $\boldsymbol\alpha_{K}(z)$ and
+ $\boldsymbol\beta_{K}(z)$
+are matrices and $\mathbf{C}$ is a constant vector, and their values will be determined later.  
+
 
 \section{The tunneling of biexciton state through a disorder}
 \label{sec:biexcitonTunneling}
