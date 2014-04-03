@@ -147,15 +147,30 @@ This inspire us to group some Green's functions into a vector $\mathbf{V}_{K}$ a
 } 
 then \autoref{eqn:eqnOfMotionNNA} can be written as
 \multiline{
-\mathbf{V}_{K} = \boldsymbol\alpha_{K}(z) \mathbf{V}_{K-1} +\boldsymbol\beta_{K}(z)\mathbf{V}_{K+1} 
+\mathbf{V}_{K} = \boldsymbol\alpha_{K}(z) \mathbf{V}_{K-1} +\boldsymbol\beta_{K}(z)\mathbf{V}_{K+1} \label{eqn:VkNotEqual}
 }
 if $n^{\prime} + m^{\prime} \neq K$, and as
 \multiline{
-\mathbf{V}_{K} =  \boldsymbol\alpha_{K}(z) \mathbf{V}_{K-1} +\boldsymbol\beta_{K}(z)\mathbf{V}_{K+1}  + \mathbf{C}
+\mathbf{V}_{K} =  \boldsymbol\alpha_{K}(z) \mathbf{V}_{K-1} +\boldsymbol\beta_{K}(z)\mathbf{V}_{K+1}  + \mathbf{C} \label{eqn:VkEqual}
 }
 if $n^{\prime} + m^{\prime} = K$. In the above two equations, $\boldsymbol\alpha_{K}(z)$ and
  $\boldsymbol\beta_{K}(z)$
-are matrices and $\mathbf{C}$ is a constant vector, and their values will be determined later.  
+are matrices and $\mathbf{C}$ is a constant vector, and their values can be determined from \autoref{eqn:eqnOfMotionNNA}.  It is clear from 
+\autoref{eqn:VkNotEqual} and \autoref{eqn:VkEqual} that $\mathbf{V}_{K}$ relates only with  $\mathbf{V}_{K-1}$ and 
+ $\mathbf{V}_{K+1}$. This gives the opportunity to solve for individual $\mathbf{V}_{K}$ recursively provided that 
+a starting point is given. For example, given the values for two particular $\mathbf{V}_{K}$ and 
+$\mathbf{V_{K-1}}$, we can obtain $\mathbf{V}_{K+1}$, and then calculate $\mathbf{V}_{K+2}$ from $\mathbf{V}_{K}$ 
+and $\mathbf{V}_{K+1}$, and etc.  
+
+But where do we start? The hint comes from the following physical arguments: $G(n+\delta n, m+\delta m, n, m; z)$ is 
+expected to approach zero as $\delta n \rightarrow \infty$ and $\delta m \rightarrow \infty$ because its Fourier
+transform $G(n+\delta n, m+\delta m, n, m; t)$ represents the amplitude for the two particles to move a distance
+ $\delta n$ and  $\delta m$ respectively in time $t$ \cite{economou2006, Berciu2010}. To figures out what Green's 
+functions can be approximated by zero, we fix  the values of $n^{\prime}$ and $m^{\prime}$. Suppose
+ $K_c = n^{\prime} + m^{\prime}$, then we can assume $\mathbf{V}_{K}$ approaches zero when 
+$|K - K_c | \rightarrow \infty$. For the purpose of numerical computation, a cutoff distance $N$ is chosen such that
+$\mathbf{V}_{K_c - N}$ and $\mathbf{V}_{K_c + N}$ are very small. Under this assumption, the infinite crystal is 
+replaced by a finite cystal whose centers are site $n^{\prime}$ and $m^{\prime}$. 
 
 
 \section{The tunneling of biexciton state through a disorder}
