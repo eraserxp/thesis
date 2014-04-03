@@ -16,7 +16,7 @@ a disorder.
 \label{sec:equationOfMotion}
 
 To derive the equation of motion for Green's function, we start from the Hamiltonian for the system. We are 
-considering a periodic lattice with the Hamiltonian:
+considering a 1D periodic lattice with the Hamiltonian:
 \multiline{
 \hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{r\neq 0} t_{l, l+r} \pd{l}\p{l+r} + \sum_{l}\sum_{r\neq 0} d_{l, l+r} \pd{l}\pd{l+r}\p{l}\p{l+r} \ ,
 }
@@ -114,8 +114,8 @@ to simplify the notation. Then \autoref{eqn:eqnOfMotion} can be written as
 && =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ . \label{eqn:eqnOfMotionSimplified}
 }
 
-\section{Numerical calculation of Green's function}
-\label{sec:numericGreen}
+\section{Recursive calculation of Green's function}
+\label{sec:recursiveGreen}
 
 The equation of motion of Green's function, \autoref{eqn:eqnOfMotionSimplified}, is our starting point to calculate
 the Green's function. In the nearest neighbor approximation, the distance between two interacting sites $r$ can only 
@@ -163,14 +163,105 @@ $\mathbf{V_{K-1}}$, we can obtain $\mathbf{V}_{K+1}$, and then calculate $\mathb
 and $\mathbf{V}_{K+1}$, and etc.  
 
 But where do we start? The hint comes from the following physical arguments: $G(n+\delta n, m+\delta m, n, m; z)$ is 
-expected to approach zero as $\delta n \rightarrow \infty$ and $\delta m \rightarrow \infty$ because its Fourier
+expected to approach zero as $|\delta n| \rightarrow \infty$ and $|\delta m| \rightarrow \infty$ because its Fourier
 transform $G(n+\delta n, m+\delta m, n, m; t)$ represents the amplitude for the two particles to move a distance
- $\delta n$ and  $\delta m$ respectively in time $t$ \cite{economou2006, Berciu2010}. To figures out what Green's 
+ $\delta n$ and  $\delta m$ respectively in time $t$ \cite{economou2006, Berciu2010}. To figures out which Green's 
 functions can be approximated by zero, we fix  the values of $n^{\prime}$ and $m^{\prime}$. Suppose
  $K_c = n^{\prime} + m^{\prime}$, then we can assume $\mathbf{V}_{K}$ approaches zero when 
-$|K - K_c | \rightarrow \infty$. For the purpose of numerical computation, a cutoff distance $N$ is chosen such that
-$\mathbf{V}_{K_c - N}$ and $\mathbf{V}_{K_c + N}$ are very small. Under this assumption, the infinite crystal is 
-replaced by a finite cystal whose centers are site $n^{\prime}$ and $m^{\prime}$. 
+$|K - K_c | \rightarrow \infty$. For the purpose of numerical computation, a cutoff distance $M$ is chosen such that
+$\mathbf{V}_{K_c - M}$ and $\mathbf{V}_{K_c + M}$ are very small. In this case, the infinite crystal is 
+replaced by a finite crystal whose centeral region contains site $n^{\prime}$ and site $m^{\prime}$. To ensure the
+convergence of the results, the finite crystal must be large enough such that its boundaries are  far away
+from both site $n$ and site $m$. Assuming the 1D finite crystal has $N+1$ lattice sites indexed by $0, 1, \cdots, 
+N-1, N$, the starting point for the recursive calculation of the Green's function are the following two 
+approximations:
+\multiline{
+\mathbf{V}_{2N-1} &\approx& 0 \ , \nonumber \\
+\mathbf{V}_{1} &\approx& 0 \ . \label{eqn:startPoint}
+}
+
+Given the two approximations in \autoref{eqn:startPoint}, we are ready to calculate the Green's functions
+ recursively. Instead of working with the vectors $\mathbf{V}_{K}$ directly, we define two quantities 
+$\mathbf{A}_{K}$ and $\mathbf{\Tilde{A}}_{K} $ that relates
+two consecutive vectors $\mathbf{V}_{K}$ and $\mathbf{V}_{K-1}$. For $n \ge K_c + 1$, we have
+\multiline{
+\mathbf{V}_{n+1} = \mathbf{A}_{n+1} \mathbf{V}_{n} \ , \label{eqn:definitionForA}
+}
+and for $n \le K_c - 1$, we have
+\multiline{
+\mathbf{V}_{n} = \mathbf{\Tilde{A}}_{n} \mathbf{V}_{n+1} \ .  \label{eqn:definitionForTildeA}
+}
+The validity of the above two equations can be verified by substituting \autoref{eqn:startPoint} into
+ \autoref{eqn:VkNotEqual} and solving $\mathbf{V}_{K}$ recursively. Because $\mathbf{V}_{K_c}$ satisfies 
+\autoref{eqn:VkEqual} rather than \autoref{eqn:VkNotEqual}, \autoref{eqn:definitionForA} and 
+\autoref{eqn:definitionForTildeA} are not valid for $n = K_c$. At the left boundary of the crystal for which $n=1$, we have
+\multiline{
+\mathbf{V}_{1} = \boldsymbol\beta_{1}(z)\mathbf{V}_{2} \label{eqn:V1}
+}
+because of \autoref{eqn:VkNotEqual}, and compare it with \autoref{eqn:definitionForTildeA}, we conclude 
+\oneline{
+\mathbf{\Tilde{A}}_{1} =  \boldsymbol\beta_{1}(z) \ . \label{eqn:TildeA1}
+}
+There is a recursive relation between different $\mathbf{\Tilde{A}}_{n}$. Substituting 
+$\mathbf{V}_{n-1} = \mathbf{\Tilde{A}}_{n-1} \mathbf{V}_{n} $ into \autoref{eqn:VkNotEqual}, we obtain
+\multiline{
+\mathbf{V}_{n} = \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right]^{-1}\boldsymbol\beta_{n}(z) \mathbf{V}_{n+1} \ ,
+}
+which upon comparsion with \autoref{eqn:definitionForTildeA} gives rise to
+\multiline{
+\mathbf{\Tilde{A}}_{n} = \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right]^{-1}\boldsymbol\beta_{n}(z)  \ . \label{eqn:recursionForTildeA}
+}
+Similarly at the right boundary of the crystal for which $n=2N-1$, we obtain the starting value of $\mathbf{A}_{K}$
+\oneline{
+\mathbf{A}_{2N-1} =  \boldsymbol\alpha_{2N-1}(z) \ , \label{eqn:ARightEnd}
+}
+and the recursive relation
+\oneline{
+\mathbf{A}_{n} = \left[ 1 - \boldsymbol\beta_{n}(z) \mathbf{A}_{n+1}\right]^{-1} \boldsymbol\alpha_{n}(z) \ . \label{eqn:recursionForA}
+}
+To calculate the Green's functions, we  
+start from the left boundary of the crystal and calculate $\mathbf{\Tilde{A}}_{1}$, 
+$\mathbf{\Tilde{A}}_{2}$, $\cdots$, from left to
+center until $\mathbf{\Tilde{A}}_{K_c - 1}$ is reached. We have to stop there because  
+\autoref{eqn:definitionForTildeA} is not valid for  $\mathbf{V}_{K_c}$. 
+Then we proceed from the right boundary to the center and calculate $\mathbf{A}_{2N-1}$, 
+$\mathbf{A}_{2N-2}$, $\cdots$ and stop until we reach $\mathbf{A}_{K_c + 1}$ beyond which
+\autoref{eqn:definitionForA} is not valid. Knowning the value of $\mathbf{A}_{K_c + 1}$ and 
+$\mathbf{\Tilde{A}}_{K_c - 1}$, we rewrite $\mathbf{V}_{K_c +1}$ and $\mathbf{V}_{K_c - 1}$ in terms of
+ $\mathbf{V}_{K_c}$:
+\multiline{
+\mathbf{V}_{K_c+1} &=& \mathbf{A}_{K_c +1} \mathbf{V}_{K_c} \ , \nonumber \\
+\mathbf{V}_{K_c - 1} &=& \mathbf{\Tilde{A}}_{K_c -1} \mathbf{V}_{K_c} \ ,
+}
+and substitute them into \autoref{eqn:VkEqual} to obtain the solution for $\mathbf{V}_{K_c}$:
+\multiline{
+\mathbf{V}_{K_c} =  \left[ 1 - \boldsymbol\alpha_{K_c}(z)  \mathbf{\Tilde{A}}_{K_c -1}  - \boldsymbol\beta_{K_c}(z) \mathbf{A}_{K_c +1} \right]^{-1} \mathbf{C} \ . \label{eqn:solForKc}
+}
+Once $\mathbf{V}_{K_c}$ is known, all $\mathbf{V}_{n}$ can be calculated from \autoref{eqn:definitionForA} and
+\autoref{eqn:definitionForTildeA} given the values for $\mathbf{A}_{n+1}$ and $\mathbf{\Tilde{A}}_{n}$.
+
+In summary, the aforementioned calculation of Green's function is carried on in the following steps: 
+\begin{enumerate}
+%%
+\item{fix the value of $n^{\prime}$ and $m^{\prime}$ in the Green's function $G(n, m, n^{\prime}, m^{\prime}; z)$, 
+assume the two approximations in \autoref{eqn:startPoint}, and calculate $\mathbf{\Tilde{A}}_{1}$ from 
+\autoref{eqn:TildeA1} and $\mathbf{A}_{2N-1}$ from \autoref{eqn:ARightEnd} }
+%%
+\item{start from $\mathbf{\Tilde{A}}_{1}$ and calculate $\mathbf{\Tilde{A}}_{2}$, $\mathbf{\Tilde{A}}_{3}$, $\cdots$, 
+$\mathbf{\Tilde{A}}_{K_c - 1}$ from \autoref{eqn:recursionForTildeA} }
+%%
+\item{start from $\mathbf{A}_{2N-1}$ and calculate $\mathbf{A}_{2N-1}$, 
+$\mathbf{A}_{2N-2}$, $\cdots$, $\mathbf{A}_{K_c + 1}$ from \autoref{eqn:recursionForA} }
+%%
+\item{use the values of $\mathbf{\Tilde{A}}_{K_c - 1}$ and $\mathbf{A}_{K_c + 1}$ to calculate $\mathbf{V}_{K_c}$ 
+from \autoref{eqn:solForKc} }
+%%
+\item{start from $\mathbf{V}_{K_c}$ and calculate $\mathbf{V}_{K_c-1}$, $\mathbf{V}_{K_c-2}$, $\cdots$, 
+$\mathbf{V}_{1}$ from \autoref{eqn:definitionForTildeA} }
+%%
+\item{start from $\mathbf{V}_{K_c}$ and calculate $\mathbf{V}_{K_c+1}$, $\mathbf{V}_{K_c+2}$, $\cdots$, $\mathbf{V}_{2N-1}$ from \autoref{eqn:definitionForA} }
+%%
+\end{enumerate}
 
 
 \section{The tunneling of biexciton state through a disorder}
