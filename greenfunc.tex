@@ -18,7 +18,7 @@ a disorder.
 To derive the equation of motion for Green's function, we start from the Hamiltonian for the system. We are 
 considering a 1D periodic lattice with the Hamiltonian:
 \multiline{
-\hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{r\neq 0} t_{l, l+r} \pd{l}\p{l+r} + \sum_{l}\sum_{r\neq 0} d_{l, l+r} \pd{l}\pd{l+r}\p{l}\p{l+r} \ ,
+\hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{r\neq 0} t_{l, l+r} \pd{l}\p{l+r} + \sum_{l}\sum_{r\neq 0} d_{l, l+r} \pd{l}\pd{l+r}\p{l}\p{l+r} \ , \label{eqn:initialHam}
 }
 where $e_l$ is the energy of the particle at site $l$, $\pd{l}$ create a particle at site $l$, $t_{l, l+r}$ represents the hopping interaction between
 site $l$ and site $l+r$, and $d_{l, l+r}$ represents the dynamic interaction between
@@ -100,7 +100,7 @@ Therefore, the equation of the motion for the Green's function is given by
 Because two excitations cannot reside at the same lattice site, we know the Green's function 
 $G(n, m, n^{\prime}, m^{\prime}; z)$ is meaningless whenever $n=m$ or $n^{\prime} = m^{\prime}$. It is clear that
 \autoref{eqn:eqnOfMotion} can't guarantee all the Green's functions that it contains are physical even if we restrict
-the basis set to be just 
+the basis set to be just $\ket{i}\ket{j}$ where $i \neq j$. That's why the factors like  $(1-\delta_{n, m-r})$ appear. 
 
 Since all the Green's function in \autoref{eqn:eqnOfMotion} have the same parameters $n^{\prime}$ and
  $m^{\prime}$, we define 
@@ -116,6 +116,9 @@ to simplify the notation. Then \autoref{eqn:eqnOfMotion} can be written as
 
 \section{Recursive calculation of Green's function}
 \label{sec:recursiveGreen}
+
+\subsection{In the nearest neighbor approximation}
+\label{sec:nna}
 
 The equation of motion of Green's function, \autoref{eqn:eqnOfMotionSimplified}, is our starting point to calculate
 the Green's function. In the nearest neighbor approximation, the distance between two interacting sites $r$ can only 
@@ -143,7 +146,7 @@ Green's functions $\Tilde{G}(i^{\prime}, j^{\prime}; z)$ on the right, the summa
  $i^{\prime} + j^{\prime}$ can only be either $n+m-1$ or $n+m+1$. 
 This inspire us to group some Green's functions into a vector $\mathbf{V}_{K}$ according to their parameters $n$ and $m$, that is,
 \oneline{
-\mathbf{V}_{K} = \colvec{5}{\cdots}{\Tilde{G}(i-1, j+1; z)}{\Tilde{G}(i, j; z)}{\Tilde{G}(i+1, j-1; z)}{\vdots} \ ,
+\mathbf{V}_{K} = \colvec{5}{\cdots}{\Tilde{G}(i-1, j+1; z)}{\Tilde{G}(i, j; z)}{\Tilde{G}(i+1, j-1; z)}{\vdots} \ , \label{eqn:defVk}
 } 
 then \autoref{eqn:eqnOfMotionNNA} can be written as
 \multiline{
@@ -155,13 +158,56 @@ if $n^{\prime} + m^{\prime} \neq K$, and as
 }
 if $n^{\prime} + m^{\prime} = K$. In the above two equations, $\boldsymbol\alpha_{K}(z)$ and
  $\boldsymbol\beta_{K}(z)$
-are matrices and $\mathbf{C}$ is a constant vector, and their values can be determined from \autoref{eqn:eqnOfMotionNNA}.  It is clear from 
+are matrices and $\mathbf{C}$ is a constant vector, and their values can be determined from 
+\autoref{eqn:eqnOfMotionNNA}. Because the two excitations are indistinguishable from each other, $\Tilde{G}(n, m; z)$ is equivalent 
+to $\Tilde{G}(m, n; z)$. In the following discussion, we require $n<m$ in all $\Tilde{G}(n, m; z)$ to reduce the dimension
+ of $\mathbf{V}_{K}$ by half.
+
+ Deriving the expression for $\boldsymbol\alpha_{K}(z)$ and
+ $\boldsymbol\beta_{K}(z)$ by hand is tedious, we choose to do that in a programmable way. The 
+pseudocode is given below:
+\begin{algorithmic}[1]
+\State Form all the vectors $\mathbf{V}_{K}$ for $K=1$ to $2N-1$
+\State Generate the index $\mathbf{I}(n,m)$ of every $\Tilde{G}(n, m; z)$ such that the $\mathbf{I}(n,m)$th element 
+of $\mathbf{V}_{n+m}$ is $\Tilde{G}(n, m; z)$, that is $\mathbf{V}_{n+m}[\mathbf{I}(n,m)] = \Tilde{G}(n, m; z)$
+\For{every $\Tilde{G}(i, j; z)$ in $\mathbf{V}_{K}$ }
+%     \State leftNeighborFirst $\gets$ null
+ %    \State leftNeighborSecond $\gets$ null
+     \State $n^{\rm th}$ $\gets$ $\mathbf{I}(i,j)$
+    % obtain alpha
+     \State Set every element of $\boldsymbol\alpha_{K}$ to 0
+      \If {$i-1\geq 0$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i-1, j)$  
+                   \State $\boldsymbol\alpha_{K}(n^{\rm th}, m^{\rm th})$ $\gets$ $\frac{t_{i-1, i}}{z - e_{i} - e_{j} -   d_{i, j} \delta_{j-i, 1}}$
+       \EndIf
+%
+      \If {$j-1 > i$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i, j-1)$  
+                   \State $\boldsymbol\alpha_{K}(n^{\rm th}, m^{\rm th})$ $\gets$ $\frac{t_{j-1, j}}{z - e_{i} - e_{j} -   d_{i, j} \delta_{j-i, 1}}$
+       \EndIf
+    %obtain beta
+        \State Set every element of $\boldsymbol\beta_{K}$ to 0
+      \If {$i+1\leq j$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i+1, j)$  
+                   \State $\boldsymbol\beta_{K}(n^{\rm th}, m^{\rm th})$ $\gets$ $\frac{t_{i, i+1}}{z - e_{i} - e_{j} -   d_{i, j} \delta_{j-i, 1}}$
+       \EndIf
+%
+      \If {$j+1\leq N$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i, j+1)$  
+                   \State $\boldsymbol\beta_{K}(n^{\rm th}, m^{\rm th})$ $\gets$ $\frac{t_{j, j+1}}{z - e_{i} - e_{j} -   d_{i, j} \delta_{j-i, 1}}$
+       \EndIf
+\EndFor
+\end{algorithmic}
+As we will show in the next subsection, the above algorithm is even more useful when the coupling equations like
+\autoref{eqn:eqnOfMotionNNA} get more complicated in the cases of
+ longer range interaction and high-dimensional systems.
+
+ It is clear from 
 \autoref{eqn:VkNotEqual} and \autoref{eqn:VkEqual} that $\mathbf{V}_{K}$ relates only with  $\mathbf{V}_{K-1}$ and 
  $\mathbf{V}_{K+1}$. This gives the opportunity to solve for individual $\mathbf{V}_{K}$ recursively provided that 
 a starting point is given. For example, given the values for two particular $\mathbf{V}_{K}$ and 
 $\mathbf{V_{K-1}}$, we can obtain $\mathbf{V}_{K+1}$, and then calculate $\mathbf{V}_{K+2}$ from $\mathbf{V}_{K}$ 
 and $\mathbf{V}_{K+1}$, and etc.  
-
 But where do we start? The hint comes from the following physical arguments: $G(n+\delta n, m+\delta m, n, m; z)$ is 
 expected to approach zero as $|\delta n| \rightarrow \infty$ and $|\delta m| \rightarrow \infty$ because its Fourier
 transform $G(n+\delta n, m+\delta m, n, m; t)$ represents the amplitude for the two particles to move a distance
@@ -210,6 +256,11 @@ $\mathbf{V}_{n-1} = \mathbf{\Tilde{A}}_{n-1} \mathbf{V}_{n} $ into \autoref{eqn:
 which upon comparsion with \autoref{eqn:definitionForTildeA} gives rise to
 \multiline{
 \mathbf{\Tilde{A}}_{n} = \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right]^{-1}\boldsymbol\beta_{n}(z)  \ . \label{eqn:recursionForTildeA}
+}
+Since \autoref{eqn:recursionForTildeA} involves matrix inversion which is difficult to compute numerically, we may calculate
+$\mathbf{\Tilde{A}}_{n}$ by solving the linear equation
+\oneline{
+ \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right] \mathbf{\Tilde{A}}_{n} = \boldsymbol\beta_{n}(z) \ .
 }
 Similarly at the right boundary of the crystal for which $n=2N-1$, we obtain the starting value of $\mathbf{A}_{K}$
 \oneline{
@@ -263,9 +314,114 @@ $\mathbf{V}_{1}$ from \autoref{eqn:definitionForTildeA} }
 %%
 \end{enumerate}
 
+\subsection{Extension to long-range interaction}
+\label{sec:long-range}
 
-\section{The tunneling of biexciton state through a disorder}
+As mentioned in \autoref{sec:long-rangeInteraction}, dipole-dipole interaction is long-ranged and the nearest 
+neighbor approximation may not represent the physical picture accurately. So it is desirable to extend the 
+calculation method of Green's function in \autoref{sec:nna} to the case of long-range interaction. 
+
+First, we consider a 1D lattice with the same Hamiltonian (see \autoref{eqn:initialHam}) that has
+both first nearest-neighbor and second nearest-neighbor interactions. 
+%In this case, the distance $r$ between two 
+%sites can be $-2$, $-1$, $1$, and $2$. In \autoref{sec:nna}, we consider the case of both positive and negative value
+%of $r$. In fact, since excitations at different sites are indistinguishable, $\ket{n}\ket{m}$ is equivalent to 
+%$\ket{m}\ket{n}$. Therefore, we can limit the two-particle basis to $\ket{n}\ket{m}$ where $n<m$ and then consider
+%only the positive $r$ values.  
+Then the equation of motion for the Green's
+function becomes
+\multiline{
+&&\left(z - e_{n} - e_{m} -   d_{n, m} \delta_{m-n, \pm 1} - d_{n, m} \delta_{m-n, \pm 2}\right) \Tilde{G}(n, m; z) \nonumber \\
+&& - (1- \delta_{n-1, m}) t_{n-1, n} \Tilde{G}(n-1, m; z) - (1- \delta_{n+1, m}) t_{n+1, n} \Tilde{G}(n+1, m; z) \nonumber \\
+&& - (1- \delta_{n, m-1}) t_{m-1, m}\Tilde{G}(n, m-1; z) - (1- \delta_{n, m+1}) t_{m+1, m} \Tilde{G}(n, m+1; z) \nonumber \\
+&& - (1- \delta_{n-2, m}) t_{n-2, n} \Tilde{G}(n-1, m; z) - (1- \delta_{n+2, m}) t_{n+2, n} \Tilde{G}(n+2, m; z) \nonumber \\
+&& - (1- \delta_{n, m-2}) t_{m-2, m}\Tilde{G}(n, m-2; z) - (1- \delta_{n, m+2}) t_{m+2, m} \Tilde{G}(n, m+2; z) \nonumber \\
+&& =  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .  \label{eqn:eqnOfMotionNNN}
+}
+The above equation shows that the
+Green's functions $\Tilde{G}(n^{\prime}, m^{\prime}; z)$ are only coupled with the Green's function 
+$\Tilde{G}(i, j; z)$ whose parameters $i$ and $ j$ sum up to $n+m-1$ or $n+m+1$ or $n+m-2$ or $n+m+2$. As in the
+case of nearest neighbor approximation, we can group the Green's functions according to the summation of their 
+parameters and obtain:
+\multiline{
+\mathbf{Z}_{K} \mathbf{V}_{K} = \mathbf{M}_{K, K+1}\mathbf{V}_{K+1} +  \mathbf{M}_{K,K -1}\mathbf{V}_{K-1} +  \mathbf{M}_{K, K+2}\mathbf{V}_{K+2} +  \mathbf{M}_{K, K-2}\mathbf{V}_{K-2} \ , \label{eqn:VkNNN}
+}
+where $\mathbf{V}_{K}$ has the same definition as in \autoref{eqn:defVk}. Different from the NNA case where 
+the recurrence relation links three consecutive terms $\mathbf{V}_{K}$, $\mathbf{V}_{K-1}$ and 
+ $\mathbf{V}_{K+1}$, \autoref{eqn:VkNNN} has two extra terms $\mathbf{V}_{K-2}$ and 
+ $\mathbf{V}_{K+2}$.  At first glance, adding the second nearest-neighbor interactions invalidates the method presented in \autoref{sec:nna} as the calculation of Green's 
+function relies on a recurrence relation linking three consecutive terms. But if we work with combinations of 
+$\mathbf{V}_K$ instead of individual $\mathbf{V}_K$, we can obtain the proper recurrence relation. Replacing $K$
+with $K+1$ in \autoref{eqn:VkNNN}, we obtain
+\multiline{
+\mathbf{Z}_{K+1} \mathbf{V}_{K+1} = \mathbf{M}_{K+1, K+2}\mathbf{V}_{K+2} +  \mathbf{M}_{K+1,K}\mathbf{V}_{K} +  \mathbf{M}_{K+1, K+3}\mathbf{V}_{K+3} +  \mathbf{M}_{K+1, K-1}\mathbf{V}_{K-1} \ .  \nonumber  \\
+\label{eqn:VkPlusNNN}
+}
+\Autoref{eqn:VkNNN} and \autoref{eqn:VkPlusNNN} can be written in the following form:
+\oneline{
+\mathbf{W}_{2K+1}\colvec{2}{\mathbf{V}_{K}}{\mathbf{V}_{K+1}} = \boldsymbol\alpha_{2K-3} \colvec{2}{\mathbf{V}_{K-2}}{\mathbf{V}_{K-1}} + \boldsymbol\beta_{2K+5} \colvec{2}{\mathbf{V}_{K+2}}{\mathbf{V}_{K+3}}
+ \label{eqn:blockEqnNNN}
+}
+where
+\oneline{
+\mathbf{W}_{2K+1} = \mat{\mathbf{Z}_{K} & -\mathbf{M}_{K,K+1} \\ -\mathbf{M}_{K+1,K} & \mathbf{Z}_{K+1} } \ ,
+}
+\oneline{
+\boldsymbol\alpha_{2K-3} = \mat{\mathbf{M}_{K, K-2} & -\mathbf{M}_{K, K-1} \\ \mathbf{0} & \mathbf{Z}_{K+1, K-1} } \ ,
+}
+\oneline{
+\boldsymbol\beta_{2K+5} = \mat{\mathbf{M}_{K, K+2} &  \mathbf{0} \\  \mathbf{M}_{K+1, K-+2} & \mathbf{Z}_{K+1, K+3} } \ .
+}
+Comparing \autoref{eqn:blockEqnNNN} with \autoref{eqn:VkNotEqual}, we can see that the method introduced
+in \autoref{sec:nna} will also work for the current case if we define
+\oneline{
+\mathbf{\Tilde{V}}_{2K+1} \equiv \colvec{2}{\mathbf{V}_{K}}{\mathbf{V}_{K+1}} 
+}
+and use the series of vectors $\mathbf{\Tilde{V}}_{1}$, $\mathbf{\Tilde{V}}_{5}$, $\mathbf{\Tilde{V}}_{9}$,
+ $\cdots$ rather than $\mathbf{V}_{1}$, $\mathbf{V}_{2}$, $\mathbf{V}_{3}$, $\cdots$.
+
+To further illustrate the point, we consider an even longer range interaction with the first nearest-neighbor, second 
+nearest-neighbor, and the third nearest-neighbor couplings. Similarly, we work with a set of equations that relate 
+different $\mathbf{V}_K$:
+\multiline{
+\mathbf{Z}_{K} \mathbf{V}_{K} &=&\mathbf{M}_{K, K+1}\mathbf{V}_{K+1} +  \mathbf{M}_{K,K -1}\mathbf{V}_{K-1} +  \mathbf{M}_{K, K+2}\mathbf{V}_{K+2} +  \mathbf{M}_{K, K-2}\mathbf{V}_{K-2}  \nonumber \\
+&& +  \mathbf{M}_{K, K+3}\mathbf{V}_{K+3} +  \mathbf{M}_{K, K-3}\mathbf{V}_{K-3} \ ,
+}
+\multiline{
+\mathbf{Z}_{K+1} \mathbf{V}_{K+1} &=&\mathbf{M}_{K+1, K+2}\mathbf{V}_{K+2} +  \mathbf{M}_{K+1, K}\mathbf{V}_{K} +  \mathbf{M}_{K+1, K+3}\mathbf{V}_{K+3} +  \mathbf{M}_{K+1, K-1}\mathbf{V}_{K-1}  \nonumber \\
+&& +  \mathbf{M}_{K+1, K+4}\mathbf{V}_{K+4} +  \mathbf{M}_{K+1, K-2}\mathbf{V}_{K-2} \ ,
+}
+\multiline{
+\mathbf{Z}_{K+2} \mathbf{V}_{K+2} &=&\mathbf{M}_{K+2, K+3}\mathbf{V}_{K+3} +  \mathbf{M}_{K+2, K+1}\mathbf{V}_{K+1} +  \mathbf{M}_{K+2, K+4}\mathbf{V}_{K+4} +  \mathbf{M}_{K+2, K}\mathbf{V}_{K}  \nonumber \\
+&& +  \mathbf{M}_{K+2, K+5}\mathbf{V}_{K+5} +  \mathbf{M}_{K+2, K-1}\mathbf{V}_{K-1} \ .
+}
+These equations give rise to a recurence relation that link three vectors:
+\multiline{
+&&\mat{\mathbf{Z}_{K} & -\mathbf{M}_{K,K+1} &  -\mathbf{M}_{K,K+2}\\ -\mathbf{M}_{K+1,K} & \mathbf{Z}_{K+1}& 
+ -\mathbf{M}_{K+1,K+2} \\ -\mathbf{M}_{K+2,K} & 
+ -\mathbf{M}_{K+2,K+1}&  \mathbf{Z}_{K+2} }\colvec{3}{\mathbf{V}_{K}}{\mathbf{V}_{K+1}}{\mathbf{V}_{K+2}} \nonumber \\
+\nonumber \\
+%
+&&=\mat{\mathbf{M}_{K,K-3} & \mathbf{M}_{K,K-2} &  \mathbf{M}_{K,K-1}\\ \mathbf{0} & \mathbf{M}_{K+1,K-2}& 
+ \mathbf{M}_{K+1,K-1} \\ \mathbf{0} & 
+ \mathbf{0}&  \mathbf{M}_{K+2,K-1} }\colvec{3}{\mathbf{V}_{K-3}}{\mathbf{V}_{K-2}}{\mathbf{V}_{K-1}} 
+\nonumber \\
+\nonumber \\
+%
+&&+ \mat{ 
+ \mathbf{M}_{K, K+3}& \mathbf{0} & \mathbf{0}&  \\ 
+\mathbf{M}_{K+1,K+3}&  \mathbf{M}_{K+1,K+4}& \mathbf{0}   \\ 
+\mathbf{M}_{K+2, K+3} & \mathbf{M}_{K+2, K+4} &  \mathbf{M}_{K+2, K+5}
+}
+\colvec{3}{\mathbf{V}_{K+3}}{\mathbf{V}_{K+4}}{\mathbf{V}_{K+5}} 
+}
+
+
+\section{The tunneling of biexciton state through disorders}
 \label{sec:biexcitonTunneling}
+
+In this section, we use the Green's function to study the tunneling of a biexciton state through disorders. 
+
 
 \section{Conclusion}
 \label{sec:conclusionGreenFunc}
