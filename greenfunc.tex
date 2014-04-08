@@ -146,7 +146,7 @@ Green's functions $\Tilde{G}(i^{\prime}, j^{\prime}; z)$ on the right, the summa
  $i^{\prime} + j^{\prime}$ can only be either $n+m-1$ or $n+m+1$. 
 This inspire us to group some Green's functions into a vector $\mathbf{V}_{K}$ according to their parameters $n$ and $m$, that is,
 \oneline{
-\mathbf{V}_{K} = \colvec{5}{\cdots}{\Tilde{G}(i-1, j+1; z)}{\Tilde{G}(i, j; z)}{\Tilde{G}(i+1, j-1; z)}{\vdots} \ , \label{eqn:defVk}
+\mathbf{V}_{K} = \colvec{5}{\vdots}{\Tilde{G}(i-1, j+1; z)}{\Tilde{G}(i, j; z)}{\Tilde{G}(i+1, j-1; z)}{\vdots} \ , \label{eqn:defVk}
 } 
 then \autoref{eqn:eqnOfMotionNNA} can be written as
 \multiline{
@@ -171,8 +171,6 @@ pseudocode is given below:
 \State Generate the index $\mathbf{I}(n,m)$ of every $\Tilde{G}(n, m; z)$ such that the $\mathbf{I}(n,m)$th element 
 of $\mathbf{V}_{n+m}$ is $\Tilde{G}(n, m; z)$, that is $\mathbf{V}_{n+m}[\mathbf{I}(n,m)] = \Tilde{G}(n, m; z)$
 \For{every $\Tilde{G}(i, j; z)$ in $\mathbf{V}_{K}$ }
-%     \State leftNeighborFirst $\gets$ null
- %    \State leftNeighborSecond $\gets$ null
      \State $n^{\rm th}$ $\gets$ $\mathbf{I}(i,j)$
     % obtain alpha
      \State Set every element of $\boldsymbol\alpha_{K}$ to 0
@@ -187,7 +185,7 @@ of $\mathbf{V}_{n+m}$ is $\Tilde{G}(n, m; z)$, that is $\mathbf{V}_{n+m}[\mathbf
        \EndIf
     %obtain beta
         \State Set every element of $\boldsymbol\beta_{K}$ to 0
-      \If {$i+1\leq j$}
+      \If {$i+1< j$}
                    \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i+1, j)$  
                    \State $\boldsymbol\beta_{K}(n^{\rm th}, m^{\rm th})$ $\gets$ $\frac{t_{i, i+1}}{z - e_{i} - e_{j} -   d_{i, j} \delta_{j-i, 1}}$
        \EndIf
@@ -370,7 +368,7 @@ where
 \boldsymbol\alpha_{2K-3} = \mat{\mathbf{M}_{K, K-2} & -\mathbf{M}_{K, K-1} \\ \mathbf{0} & \mathbf{Z}_{K+1, K-1} } \ ,
 }
 \oneline{
-\boldsymbol\beta_{2K+5} = \mat{\mathbf{M}_{K, K+2} &  \mathbf{0} \\  \mathbf{M}_{K+1, K-+2} & \mathbf{Z}_{K+1, K+3} } \ .
+\boldsymbol\beta_{2K+5} = \mat{\mathbf{M}_{K, K+2} &  \mathbf{0} \\  \mathbf{M}_{K+1, K+2} & \mathbf{Z}_{K+1, K+3} } \ .
 }
 Comparing \autoref{eqn:blockEqnNNN} with \autoref{eqn:VkNotEqual}, we can see that the method introduced
 in \autoref{sec:nna} will also work for the current case if we define
@@ -395,7 +393,7 @@ different $\mathbf{V}_K$:
 \mathbf{Z}_{K+2} \mathbf{V}_{K+2} &=&\mathbf{M}_{K+2, K+3}\mathbf{V}_{K+3} +  \mathbf{M}_{K+2, K+1}\mathbf{V}_{K+1} +  \mathbf{M}_{K+2, K+4}\mathbf{V}_{K+4} +  \mathbf{M}_{K+2, K}\mathbf{V}_{K}  \nonumber \\
 && +  \mathbf{M}_{K+2, K+5}\mathbf{V}_{K+5} +  \mathbf{M}_{K+2, K-1}\mathbf{V}_{K-1} \ .
 }
-These equations give rise to a recurence relation that link three vectors:
+These equations give rise to a recurrence relation that links three vectors:
 \multiline{
 &&\mat{\mathbf{Z}_{K} & -\mathbf{M}_{K,K+1} &  -\mathbf{M}_{K,K+2}\\ -\mathbf{M}_{K+1,K} & \mathbf{Z}_{K+1}& 
  -\mathbf{M}_{K+1,K+2} \\ -\mathbf{M}_{K+2,K} & 
@@ -415,6 +413,73 @@ These equations give rise to a recurence relation that link three vectors:
 }
 \colvec{3}{\mathbf{V}_{K+3}}{\mathbf{V}_{K+4}}{\mathbf{V}_{K+5}} 
 }
+The above recurrence relation is in the form of \autoref{eqn:blockEqnNNN}, and a new vector can be defined as
+\oneline{
+\mathbf{\bar{V}}_{3K+3} \equiv \colvec{3}{\mathbf{V}_{K}}{\mathbf{V}_{K+1}}{\mathbf{V}_{K+2}} \ .
+}
+Then we can use the series of vectors $\mathbf{\bar{V}}_{3}$, $\mathbf{\bar{V}}_{12}$, $\mathbf{\bar{V}}_{21}$,
+$\cdots$ in the recursive calculations. 
+
+It is clear from the above discussion that the recursive method to calculate the Green's function can be applied to 
+any finite range interactions and the dimensions of the matrices increase linearly with respect to the number of 
+neighbors included. As the coupling equations get more and more complicated, it becomes more difficult to derive 
+the expressions for $\mathbf{Z}$'s and $\mathbf{M}$'s by hand. Fortunately the algorithm presented in 
+\autoref{sec:nna} can be easily adapted to do this kind of computations. For example, the following algorithm can
+be used to calculate $\mathbf{M}_{K,K-2}$ and $\mathbf{M}_{K,K+2}$:
+\begin{algorithmic}[1]
+\For{every $\Tilde{G}(i, j; z)$ in $\mathbf{V}_{K}$ }
+     \State $n^{\rm th}$ $\gets$ $\mathbf{I}(i,j)$
+    % obtain M_{K, K-2}
+     \State Set every element of $\mathbf{M}_{K,K-2}$ to 0
+      \If {$i-2\geq 0$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i-2, j)$  
+                   \State $\mathbf{M}_{K,K-2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{i-2, i}$
+       \EndIf
+%
+      \If {$j-2 > i$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i, j-2)$  
+                   \State $\mathbf{M}_{K,K-2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{j-2, j}$
+       \EndIf
+    %obtain M_{K, K+2}
+        \State Set every element of $\mathbf{M}_{K,K+2}$ to 0
+      \If {$i+2 < j$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i+2, j)$  
+                   \State $\mathbf{M}_{K,K+2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{i+2, i}$ 
+       \EndIf
+%
+      \If {$j+2\leq N$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i, j+2)$  
+                   \State $\mathbf{M}_{K,K+2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{j, j+2}$
+       \EndIf
+\EndFor
+\end{algorithmic}
+
+
+\subsection{Extension to high-dimensional system}
+\label{sec:high-dimension}
+
+In the last two subsections, we only discuss the 1D lattice. It turns out that extending the method to a high-dimensional system is 
+straightforward. For instance, in the case of a 2D lattice, we 
+want to calculate the Green's function 
+\oneline{
+\Tilde{G}(n_x, n_y, m_x, m_y; z)\equiv \bra{n_x, n_y} \bra{m_x, m_y} \hat{G}(z) \ket{n_x^{\prime}, n_y^{\prime} } \ket{m_x^{\prime}, m_y^{\prime} } \ ,
+}
+where $\ket{n_x, n_y}$ represents the state of the particle at site $(n_x, n_y)$ and $n_x^{\prime}$, $n_y^{\prime}$,
+$m_x^{\prime}$, and $m_y^{\prime}$ are fixed. Due to the structure of the equation of the 
+motion of the Green's function, one Green's function is only coupled with a certain set of other Green's functions. In the
+nearest neighbor approximation, we can group the Green's functions into different vectors by defining
+\oneline{
+\mathbf{V}_{i_x + i_y + j_x + j_y} = \colvec{7}
+{\cdots}
+{\Tilde{G}(i_x-1, i_y+1, j_x, j_y; z)}
+{\Tilde{G}(i_x, i_y, j_x-1, j_y+1; z)}
+{\Tilde{G}(i_x, i_y, j_x, j_y; z)}
+{\Tilde{G}(i_x, i_y, j_x+1, j_y-1; z)}
+{\Tilde{G}(i_x+1, i_y-1, j_x, j_y; z)}
+{\vdots} \ . \label{eqn:defVk}
+} 
+and then the same procedure in \autoref{sec:nna} will follows. Note that the algorithm in \autoref{sec:nna} can also
+be applied here with only a small change.  
 
 
 \section{The tunneling of biexciton state through disorders}
