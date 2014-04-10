@@ -68,7 +68,7 @@ To simplify the above equation, we make use of \autoref{eqn:excitonCommutation} 
 Hamiltonian operating on the basis set:
 \multiline{
 \hat{H} \ket{n} \ket{m} &=& (e_{n} + e_{m} ) \ket{n} \ket{m} + \sum_{r \neq 0}(1-\delta_{n-r, m}) t_{n-r, n} \ket{n-r} \ket{m}  \nonumber \\
-&& + \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \ket{n} \ket{m - r} +  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \ket{n} \ket{m}  \ ,  \nonumber \\
+&& + \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \ket{n} \ket{m - r} +  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \ket{n} \ket{m}  \ ,  \nonumber \\  \label{eqn:hamOn2particleState}
 }
 where the factors like $(1-\delta_{n-r, m})$ appear because only the two-particle states $\ket{n}\ket{m}$ with 
 $n \neq m$ are included in the basis set, 
@@ -481,12 +481,104 @@ nearest neighbor approximation, we can group the Green's functions into differen
 and then the same procedure in \autoref{sec:nna} will follows. Note that the algorithm in \autoref{sec:nna} can also
 be applied here with only a small change.  
 
+\subsection{Advantages of the recursive method}
+\label{sec:advantage}
+
+Conventionally, Green's function can be calculated by a brute-force approach. The first step is to diagonalize the 
+Hamiltonian $H$ and calculate the spectrum
+\oneline{
+H \ket{\phi_{n}(\mathbf{R})} = \lambda_{n} \ket{\phi_{n}(\mathbf{R})} \ , \label{eqn:eignProblemDirect}
+}
+where $n$ indicates the $n^{\rm th}$ eigenvector of the system and $\mathbf{R}$ represents the position of the
+particles. Then from the definition of the Green's operator $\hat{G} = (z-H)^{-1}$, we obtain the Green's function
+\oneline{
+G(\mathbf{R}, \mathbf{R}^{\prime}; z) = {\sum_{n}}^{\prime} \frac{\phi_{n}(\mathbf{R}) \phi_{n}^{*}(\mathbf{R^{\prime}})}{z-\lambda_n} \ , \label{eqn:greenDirect}
+}
+where ${\sum_{n}}^{\prime}$ represents  the summation over the discrete spectrum and the integration over the
+ continuous spectrum. 
+
+This brute-force method is simple but the computational cost is large. Consider a 
+two-particle states $\ket{i}\ket{j}$ in a 1D lattice with $N \times N$ sites, the number of two-particle basis set used
+to represent the system is $O(N^2)$ and the dimension of the matrix is $O(N^2 \times N^2)$. As most of the 
+algorithms for eigen value computations scale like $O(n^3)$ for a $n\times n$ matrix, the computational cost of
+\autoref{eqn:eignProblemDirect} scales like $O(N^6)$. To calculate one Green's function from 
+\autoref{eqn:greenDirect}, we need to compute the inner product of  two vectors $N^2$ times, which 
+costs $O(N^6)$ operations in total. So the total cost of the the brute-force approach is $O(N^6)$. 
+In contrast, the recursive method is much more efficient. Out of all the vectors $\mathbf{V}_{K}$,  $\mathbf{V}_{K_c}$
+has the largest size which is about $N$. Thus the most time-consuming step would be solving \autoref{eqn:solForKc},
+which requires a run time that scales like $O(N^3)$. Since there are about $N$ similar equation to solve, the total
+computational cost would be $O(N^4)$ which is much less than the cost of brute-force approach. In addition, the
+recursive method yields $N$ Green's functions at the same time.
+
+The brute-force approach is not often used in computations. Instead, the recursion method developed by Haydock 
+\cite{haydock1972, haydock1975} is most widely used. For comparison purpose, we give a very brief description of the
+method and compare it with our method.  The main idea of Haydock's method is to generate a series of orthonormal
+vectors $\ket{u_0}$, $\ket{u_1}$, $\ket{u_2}$, $\cdots$ from the iterations
+\oneline{
+H \ket{u_n} = b_{n}^{*} \ket{ u_{n-1}} + a_{n} \ket{ u_{n}} + b_{n+1} \ket{ u_{n+1}} \label{eqn:haydockRecursion}
+}
+calculate the value of $a_n$ and $b_n$ until convergence. 
+Because the Hamiltonian matrix is tridiagonal in this basis, the Green's functions can be expressed in 
+term of $a_n$ and $b_n$:
+\oneline{
+\bra{u_0} \hat{G}(z) \ket{u_0} = \frac{1}{z - a_0 - \frac{| b_1 |^2}{z - a_1 - \cdots } } \ .
+}
+For a tight-binding model with only the nearest-neighbor 
+interaction, those vectors $\ket{u_n}$ is a linear combination of local states $\ket{\mathbf{R}}$ with particles reside at 
+$\mathbf{R}$. The Hamiltonian has the following useful feature:
+\oneline{
+H \ket{\mathbf{R}} = \mathbf{t}_{\mathbf{R}, \mathbf{R-1}} \ket{ \mathbf{R-1}} + h_{\mathbf{R}, \mathbf{R}}  \ket{ \mathbf{R}} + \mathbf{t}_{\mathbf{R}, \mathbf{R+1}}  \ket{ \mathbf{R+1}} \ , \label{eqn:propertyLocalState}
+}
+where $h_{\mathbf{R}, \mathbf{R}}$ is the on-site energy and $\mathbf{t}$ are hopping terms, and 
+$\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ denote the states whose particles 
+positions are 1 site  different from that of $\ket{ \mathbf{R}}$. As a specific example, 
+\autoref{eqn:hamOn2particleState} clearly demonstrates this property of the local state $\ket{ \mathbf{R}} = 
+\ket{n}\ket{m}$. As a result of \autoref{eqn:propertyLocalState}, to calculate $G(\mathbf{R}, \mathbf{R}; z)$, 
+we can initiate the recursion by setting $\ket{u_0} = \ket{\mathbf{R}}$ and $b_0 = 0$. Assuming orthonormality of 
+local states, $a_0$ can be obtained by taking the product of $\bra{u_0}$ with \autoref{eqn:haydockRecursion},
+\oneline{
+a_0 =\bra{u_0} H \ket{u_0} = h_{\mathbf{R}, \mathbf{R}}  \ .
+}
+Compare \autoref{eqn:haydockRecursion} with \autoref{eqn:propertyLocalState}, we can easily see that 
+and $\ket{u_1}$ is a superposition of $\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ and $b_1$ can be 
+computed by requiring $\ket{u_1}$ to be normalized. To continue the recursion, we take
+$n=1$ in \autoref{eqn:haydockRecursion} to obtain
+\oneline{
+H \ket{u_1} = b_{1}^{*} \ket{ u_{0}} + a_{1} \ket{ u_{1}} + b_{2} \ket{ u_{2}} \label{eqn:u1}
+}
+and let $H$ operates on $\ket{u_1}$, a superposition of  
+$\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$, according to
+ \autoref{eqn:propertyLocalState}, which gives rise to a linear combination of $\ket{ \mathbf{R-2}}$, 
+$\ket{ \mathbf{R-1}}$, $\ket{ \mathbf{R}}$, $\ket{ \mathbf{R+1}}$ and $\ket{ \mathbf{R-2}}$ on the left hand side
+ of \autoref{eqn:u1}. Now it is clear that $\ket{u_2}$ will also be a superposition of $\ket{ \mathbf{R-2}}$, 
+$\ket{ \mathbf{R-1}}$, $\ket{ \mathbf{R}}$, $\ket{ \mathbf{R+1}}$ and $\ket{ \mathbf{R-2}}$, and $b_2$ can be
+calculated from the normalization condition of $\ket{u_2}$. Follow the above analysis, we conclude that 
+$\ket{u_n}$ is a superposition of these local states: $\ket{ \mathbf{R-n}}$, 
+$\ket{ \mathbf{R-n+1}}$, $\cdots$, $\ket{ \mathbf{R+n-1}}$ and $\ket{ \mathbf{R+n}}$, which are within $n$-sites
+distance from $\mathbf{R}$. 
+
+Haydock's method and our method both rely on recursive calculations, but they differ a lot in numerical efficiency. 
+Take the calculation of two-particle Green's function as an example,  if Haydock's 
+method terminates the recursion at step $N$, it has to deal with vectors of size up to $\sim N^2$. 
+Equivently, to employ 
+the same number of local states as in Haydock's method, our method set $\mathbf{A}_{2N+1}=0$ and
+ $\mathbf{\Tilde{A} }_{1}=0$, and the largest size of vectors is about $N$, which is much smaller. Therefore
+our method involves much smaller matrices and can handle much larger crystal size. 
+
+
+
 
 \section{The tunneling of biexciton state through disorders}
 \label{sec:biexcitonTunneling}
 
-In this section, we use the Green's function to study the tunneling of a biexciton state through disorders. 
+The recursive method to calculate Green's function in \autoref{sec:recursiveGreen} is more computational
+Green's function has many applications in condensed matter physics.  has the potential to In this section, we use the Green's function to study the tunneling of a biexciton state through disorders. 
+
+\Autoref{ch:biexciton} shows that a biexciton is a correlated state of two excitations and its wavefunction is given 
+by
 
 
 \section{Conclusion}
 \label{sec:conclusionGreenFunc}
+
+In summary
