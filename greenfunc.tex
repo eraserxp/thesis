@@ -481,8 +481,8 @@ nearest neighbor approximation, we can group the Green's functions into differen
 and then the same procedure in \autoref{sec:nna} will follows. Note that the algorithm in \autoref{sec:nna} can also
 be applied here with only a small change.  
 
-\subsection{Advantages of the recursive method}
-\label{sec:advantage}
+\subsection{Comparison with other methods}
+\label{sec:comparison}
 
 Conventionally, Green's function can be calculated by a brute-force approach. The first step is to diagonalize the 
 Hamiltonian $H$ and calculate the spectrum
@@ -568,14 +568,97 @@ our method involves much smaller matrices and can handle much larger crystal siz
 
 
 
-\section{The tunneling of biexciton state through disorders}
-\label{sec:biexcitonTunneling}
+\section{Application to the problem of biexciton scattering}
+\label{sec:biexcitonScattering}
 
-The recursive method to calculate Green's function in \autoref{sec:recursiveGreen} is more computational
-Green's function has many applications in condensed matter physics.  has the potential to In this section, we use the Green's function to study the tunneling of a biexciton state through disorders. 
+In this section, we develop a numerical method to calculate the tunneling of a biexciton state through disorders. The 
+method relies on the recursive calculation of Green's function in \autoref{sec:recursiveGreen} and can handle multiple
+disorders. 
 
-\Autoref{ch:biexciton} shows that a biexciton is a correlated state of two excitations and its wavefunction is given 
-by
+We consider a periodic lattice with hopping interactions and dynamic interactions. Although 
+the lattice is regular, disorders can still appear due to different on-site energies and different coupling strengths for 
+different sites. 
+We write the Hamiltonian in two parts, 
+\multiline{
+\hat{H} = \hat{H}_0 + \hat{H}_1 \ , \label{eqn:totalH}
+}
+where $\hat{H}_0$ represents an ordered array and is given by
+\oneline{
+\hat{H}_0 = E_0 \sum_{n} \hat{P}_n^\dag
+\hat{P}_n +  \sum_{n,m \neq n}
+J_{n, m}\hat{P}_n^\dag \hat{P}_m +  \frac{1}{2} \sum_{n,m \neq n} D_{n, m}
+\hat{P}_{n}^\dag \hat{P}_{m}^\dag \hat{P}_{n} \hat{P}_{m} \ , \label{eqn:biexcitonHam}
+} 
+and $\hat{H}_1$ describes the disorders and is given by
+\multiline{
+\hat{H}_1 &=& \sum_{i \in S_0 } (E_i - E_0 ) \hat{P}_i^\dag
+\hat{P}_i +  \sum_{\substack{i, j \neq i \\ (i, j) \in S_J } }
+\left( J^{\prime}_{i, j} - J_{i, j}\right)\hat{P}_i^\dag \hat{P}_j   \nonumber \\
+&+&  \frac{1}{2} \sum_{\substack{i, j \neq i \\( i, j) \in S_D }} \left( D^{\prime}_{i,j} - D_{i, j}\right)
+\hat{P}_{i}^\dag \hat{P}_{j}^\dag \hat{P}_{i} \hat{P}_{j} \ , \label{eqn:disorderTerms}
+} 
+where $S_0$ is the set of sites whose energies are different from $E_0$, $S_J$ is the set of pairs of sites whose 
+hopping terms 
+$J^{\prime}$ are different from $J$, and $S_D$ is the set of pairs of sites whose dynamic interactions 
+$D^{\prime}$ are different from $D$. 
+As shown in \Autoref{ch:biexciton}, if the dynamical interaction is 2 times larger than the hopping interaction,  $H_0$
+will have a set of states with energies that are located outside the spectrum of two free exciton pairs. These states
+are correlated  states of two excitations and are called biexcitons. The presence of $H_1$ in the Hamiltonian causes 
+the eigenstates to be different from the free-biexciton state.
+
+We are interested in the scattering of a biexciton state through disorders. For convenience, the disorders are assumed
+to appear at the center region of the lattice.  The starting state is a biexciton state $\ket{\phi(K)}$ which is an 
+eigenstate of $\hat{H}_0$,
+\oneline{
+\hat{H}_0 \ket{\phi(K)} = E(K) \ket{\phi(K)} \ .
+}
+ If the scattering process is elastic, we want to obtain a solution to the
+full-Hamiltonian Schr\"odinger equation with the same energy as the initial biexciton state
+\oneline{
+(\hat{H}_0 + \hat{H}_1)\ket{\psi} = E(K) \ket{\psi} \ .
+}
+It can be shown that the desired solution might be
+\oneline{
+\ket{\psi} = \frac{1}{E(K) - \hat{H}_0} \hat{H}_1 \ket{\psi} + \ket{\phi(K)} \ .
+}
+But there is a problem with the above solution: the operator $\frac{1}{E(K) - \hat{H}_0}$ will generate singular results
+because $E(K)$ is an eigen energy of $\hat{H}_0$. To resolve this complications, we can make the energy slightly 
+complex and then the solution is given by
+\oneline{
+\ket{\psi^{\pm}} = \frac{1}{E(K)\pm i\eta  - \hat{H}_0} \hat{H}_1 \ket{\psi^{\pm} } + \ket{\phi(K)}  \ . \label{eqn:lippmann-schwinger} \ ,
+}
+where $\eta$ is an infinitesimal positive number. 
+The above equation is called Lippmann-Schwinger equation. $\ket{\psi^{+}}$ and $\ket{\psi^{-}}$ are outgoing and
+incoming solutions respectively. In most cases, only $\ket{\psi^{+}}$ is interested because it corresponds to the 
+measurement at a position far away from the scatters. Based on the definition of Green's function, we can also
+rewrite \autoref{eqn:lippmann-schwinger} as 
+\oneline{
+\ket{\psi^{+}} = \ket{\phi(K)}  + \hat{G}_{0}(E(K)+ i\eta) \hat{H}_1 \ket{\psi^{\pm} } \ . \label{eqn:lippmann-schwinger-Green}
+}
+Substituting \autoref{eqn:lippmann-schwinger-Green} into itself and iterating, we obtain
+\oneline{
+\ket{\psi^{+}} = \ket{\phi}  + \hat{G}_0^{+}  \hat{H}_1 \ket{\phi} + \hat{G}_0^{+}  \hat{H}_1 \hat{G}_0^{+}  \hat{H}_1 \ket{\phi} + \cdots \ ,
+}
+where $\hat{G}_0^{+}$ is defined by
+\oneline{
+\hat{G}_0^{+}(E) = \hat{G}_0 (E + i\eta) \ .
+}
+Based on \autoref{eqn:totalH}, we can express the Green's operator $\hat{G}$ for the total Hamiltonian in terms of
+$\hat{G}_0$ and $H_1$. The derivation is presented as follows:
+\multiline{
+\hat{G}(z) &=& (z - \hat{H}_0 - \hat{H}_1)^{-1} \nonumber \\
+&=& \bigg\{ (z- \hat{H}_0 ) \left[ 1 - (z - \hat{H}_0)^{-1} \hat{H}_1 \right] \bigg\}^{-1} \nonumber \\
+&=& \left[ 1 - (z - \hat{H}_0)^{-1} \hat{H}_1 \right]^{-1} (z- \hat{H}_0 )^{-1} \nonumber \\
+&=& \left[ 1 - \hat{G}_0(z) \hat{H}_1 \right]^{-1}  \hat{G}_0(z) \nonumber \\
+&=&  \left[ 1 + \hat{G}_0(z) \hat{H}_1  + \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) \hat{H}_1  + \cdots \right]  \hat{G}_0(z) \nonumber \\
+&=& \hat{G}_0(z) + \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) + \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) + \cdots \ . \label{eqn:Gexpansion}
+}
+Substituting \autoref{eqn:Gexpansion} into \autoref{eqn:lippmann-schwinger-Green}, we obtain
+\oneline{
+\ket{\psi^{+}} = \ket{\phi}  + \hat{G}(E(K)+ i\eta) \hat{H}_1 \ket{\phi } \ . \label{eqn:scatteringState}
+}
+This is the equation that can be used in numerical calculation given the initial state $\ket{\phi}$ and the Green's 
+function $G(z)$. 
 
 
 \section{Conclusion}
