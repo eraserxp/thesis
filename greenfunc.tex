@@ -5,12 +5,21 @@
 \section{Introduction}
 \label{sec:introGreenFunc}
 
-Green's function is an important theoretical tool in the study of condensed matter systems. Its applications range from
+Lattice Green's function is an important theoretical tool in the study of condensed matter systems. Many physical
+quantities can be obtained or expressed in terms of the lattice Green's function, thus it is used in a wide range of
+context, for example, transport and diffusion properties of solids \cite{economou2006}, band structure 
+\cite{koster1954}, statistical model 
+of ferromagnetism \cite{mccoy1978, dalton1967, lax1952}, random walk theory \cite{montroll1965},  analysis of 
+infinite electric networks \cite{cserti2000, cserti2002, asad2004, asad2005}, and etc. 
+However, the numerical evaluation of the Green's function is usually a cumbersome task\cite{Berciu2010}. Thus
+Berciu developed a recursive method \cite{Berciu2010, Berciu2011, Berciu2012} to calculate Green's function. This
+method is numerically more efficient than other existing methods and could potentially widen the application of 
+Green's function in a more challenging problems. 
 
-The numerical evaluation of the Green's function is a cumbersome task.
-
-In this chapter, we extend the numerical method \cite{Berciu2010, Berciu2011, Berciu2012} developed by Berciu to a system with arbitary disorders. Then we employ the Green's function to study the tunneling of biexciton states through
-a disorder. 
+In this chapter, we first extend Berciu's method to a system with arbitary disorders. Then we employ the Green's 
+function to study the tunneling of biexciton states through disorders. The scattering of biexciton states is particularly
+interesting because they are compound particles and their transport behaviors in a non-translation-invariant lattices 
+are not well-understood\cite{bulatov2005}.
 
 \section{Equation of motion for Green's function}
 \label{sec:equationOfMotion}
@@ -601,6 +610,8 @@ where $S_0$ is the set of sites whose energies are different from $E_0$, $S_J$ i
 hopping terms 
 $J^{\prime}$ are different from $J$, and $S_D$ is the set of pairs of sites whose dynamic interactions 
 $D^{\prime}$ are different from $D$. 
+%For later discussion, we define $S_{\rm disorder}$ as the set of lattice sites that
+%are involved in \autoref{eqn:disorderTerms}. 
 As shown in \Autoref{ch:biexciton}, if the dynamical interaction is 2 times larger than the hopping interaction,  $H_0$
 will have a set of states with energies that are located outside the spectrum of two free exciton pairs. These states
 are correlated  states of two excitations and are called biexcitons. The presence of $H_1$ in the Hamiltonian causes 
@@ -637,7 +648,7 @@ rewrite \autoref{eqn:lippmann-schwinger} as
 }
 Substituting \autoref{eqn:lippmann-schwinger-Green} into itself and iterating, we obtain
 \oneline{
-\ket{\psi^{+}} = \ket{\phi}  + \hat{G}_0^{+}  \hat{H}_1 \ket{\phi} + \hat{G}_0^{+}  \hat{H}_1 \hat{G}_0^{+}  \hat{H}_1 \ket{\phi} + \cdots \ ,
+\ket{\psi^{+}} = \ket{\phi}  + \hat{G}_0^{+}  \hat{H}_1 \ket{\phi} + \hat{G}_0^{+}  \hat{H}_1 \hat{G}_0^{+}  \hat{H}_1 \ket{\phi} + \cdots \ , \label{eqn:scatteringStateInSeries}
 }
 where $\hat{G}_0^{+}$ is defined by
 \oneline{
@@ -653,15 +664,103 @@ $\hat{G}_0$ and $H_1$. The derivation is presented as follows:
 &=&  \left[ 1 + \hat{G}_0(z) \hat{H}_1  + \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) \hat{H}_1  + \cdots \right]  \hat{G}_0(z) \nonumber \\
 &=& \hat{G}_0(z) + \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) + \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) \hat{H}_1 \hat{G}_0(z) + \cdots \ . \label{eqn:Gexpansion}
 }
-Substituting \autoref{eqn:Gexpansion} into \autoref{eqn:lippmann-schwinger-Green}, we obtain
+Substituting \autoref{eqn:Gexpansion} into \autoref{eqn:scatteringStateInSeries}, we obtain
 \oneline{
 \ket{\psi^{+}} = \ket{\phi}  + \hat{G}(E(K)+ i\eta) \hat{H}_1 \ket{\phi } \ . \label{eqn:scatteringState}
 }
 This is the equation that can be used in numerical calculation given the initial state $\ket{\phi}$ and the Green's 
 function $G(z)$. 
 
+Based on the wavefunction of a biexciton state, \autoref{eqn:biexcitonWavefunction}, derived in 
+\autoref{sec:biexcitonWavefunction}, we may write the biexciton state in the two-particle basis set:
+\multiline{
+| \phi(K) \rangle &=& \sum\limits_{n,m \neq n} e^{iK(n+m)/2}
+f_{K}(|n-m|)  \hat P_n^\dag \hat P_m^\dag \ket{0} \nonumber \\
+&=& \sum\limits_{n,m \neq n} e^{iK(n+m)/2}
+f_{K}(|n-m|) \ket{n, m}
+}
+where $f_{K}(|n-m|)$ is a function that decrease fast with increasing $|n-m|$. 
+%To avoid double counting, we assume $n<m$. 
+In principle, all possible two-particle states $\ket{n, m}$ with $n \neq m$ should be 
+used to represent the biexciton state, but for practical purposes, we set
+a cutoff distance $L$ for $|n-m|$ to greatly reduce the number of basis set. This will hardly affect the final result
+as long as  $f_{K}(|n-m|)$ decays fast enough such that $f_{K}(L) \approx 0$. Then the biexciton state can be
+rewritten as
+\oneline{
+| \phi(K) \rangle \approx \sum_{n}\sum_{m=n \pm 1}^{n \pm L} e^{iK(n+m)/2}
+f_{K}(|n-m|) \ket{n, m} \ . \label{eqn:biexcitonSmallBasis}
+}
+Because the two-particle states in \autoref{eqn:biexcitonSmallBasis} can effectively represent a biexciton state, they 
+are called the biexciton basis and denoted by $S_{\rm biexciton}$. 
 
-\section{Conclusion}
-\label{sec:conclusionGreenFunc}
+To calculate the scattering state from \autoref{eqn:scatteringState}, let's analyze $\hat{H}_1 \ket{\phi }$ first. 
+We expand the disorders term in a two-particle basis set:
+\multiline{
+\hat{H}_1 &=& \sum_{i \in S_0 } \sum_{j \neq i} (E_i - E_0 ) \ket{i, j}  \bra{i, j} +  \sum_{\substack{i, j \neq i \\ (i, j) \in S_J } }
+\sum_{l\neq i, j} \left( J^{\prime}_{i, j} - J_{i, j}\right) \ket{j, l}  \bra{i, l}  \nonumber \\
+&+&  \frac{1}{2} \sum_{\substack{i, j \neq i \\( i, j) \in S_D }} \left( D^{\prime}_{i,j} - D_{i, j}\right)
+\ket{i, j}  \bra{i, j}  \ . \label{eqn:disorderTermsExpansion}
+} 
+The above equation can be derived by inserting the identity relation $\sum_{i} \ket{i}\bra{i} = I$ into the first and 
+second terms in \autoref{eqn:disorderTerms}. Suppose the hopping disorders and the dynamic disorders only appear
+between two sites that are within the cutoff distance $L$, we can easily see that in 
+\autoref{eqn:disorderTermsExpansion} only  the two-particle states $\ket{n, m}$ with $|n-m|\leq L$ will play a role, by letting $\hat{H}_1$ operate on 
+\autoref{eqn:biexcitonSmallBasis}. Since only these two-particle states are needed to represent the effective
+ disorders that the biexciton experiences, we call them the disorder basis $S_{\rm disorder}$. In the case of a small 
+number of disorder sites, $S_{\rm disorder}$ is a mall subset of $S_{\rm biexciton}$ by construction. Thus 
+$\hat{H}_1 \ket{\phi }$ gives rise to a new wavefunction 
+\multiline{
+\ket{\phi_{\hat{H}_1}} = \hat{H}_1 \ket{\phi } = \sum\limits_{(i, j) \in S_{\rm biexciton} } c(i, j) \ket{i, j} 
+\label{eqn:phiH1}
+}
+where $ c(i, j)$ can be nonzero only if  $(i, j) \in S_{\rm disorder} $. Given
+ $\ket{\phi_{\hat{H}_1}}$, we can continue to calculate the scattering state according to 
+\autoref{eqn:scatteringState}. Since only a small number of coefficient $c(i, j)$ is nonzero in \autoref{eqn:phiH1}, 
+we only need to calculate a small portion of the matrix that represents the Green's operator 
+$\hat{G}(E(K) + i\eta)$, that is, the matrix elements $\bra{i^{\prime}, j^{\prime}}\hat{G}(E(K) + i\eta) \ket{i, j}$ 
+with $\ket{i, j}$ being states in the disorder basis. This task can be efficiently handled by the recursive method in
+\autoref{sec:recursiveGreen} by setting the initial particle positions $(n^{\prime}, m^{\prime})$ to be every site 
+pairs $(i, j)$ in $S_{\rm disorder}$. 
 
-In summary
+To prevent the processes of a biexciton breaking into two free excitons, we assume the dynamic interaction is more
+than 2 times larger than the hopping interaction such that the energy of a biexciton is well separated from the 
+energy spectrum of two free excitons. 
+During the scattering process, the energy must be conserved, and thus the
+scattering wavefunction has the following asymptotic behaviors:
+\multiline{
+ \ket{\psi} \rightarrow \left\{ 
+  \begin{array}{l l}
+    \ket{\phi(K)} + \mathbf{R}\ket{\phi(-K)} & \quad \text{for $n, m \rightarrow -\infty $}\\
+    \mathbf{T}\ket{\phi(K)} & \quad \text{for $n, m \rightarrow \infty $}
+  \end{array} \right. \ , \label{eqn:scatteringAsymptotic}
+}
+if the initial biexciton state $\ket{\phi(K)}$ incidents from the left with its eigenenergy $E(K)$. 
+This asymptotic behaviors can be used to calculate the transmission coefficient of a biexciton through disorders. 
+In principle, scattering calculations usually assume a infinite large space. But in practice, we use a finite crystal  
+with sufficiently large size. We start the calculation from a initial biexciton state $\phi(K)$ with
+its eigenenergy $E(K)$, and then calculate the scattering state $\ket{\psi}$ from \autoref{eqn:scatteringState}. 
+Then the transmission coefficient can be deduced from \autoref{eqn:scatteringAsymptotic} by choosing two sites
+$n$ and $m$ to the far right of the disorders region, that is, 
+\oneline{
+t = \frac{ \langle{n, m} \ket{\psi} } { \langle{n, m} \ket{\phi(K)} } \ .
+}
+Note the scattering wavefunction $\ket{\psi}$ must be properly normalized with respect to the finite crystal. 
+
+\section{Summary}
+\label{sec:summaryGreenFunc}
+
+In this chapter, a recursive method to calculate lattice Green's functions is given. This essential idea 
+is to group Green's functions into different set of vectors and rewrite the equation of motion of Green's function to a 
+recursion relation that links three consecutive vectors. Then based on physical reasoning, certain vectors are 
+assumed to be zero and then substituted into the corresponding recursion relations to express one set
+of Green's function in terms of another set of Green's function. By iterating on the recursion relation, a 
+chain of relationship between each two consecutive vectors can be obtained. Finally, the vector at the end of this 
+relationship chain can be calculated by solving a linear equation, and all the vectors can be calculated one by one
+through the relationship chain.   
+The method can handle a system with arbitrary 
+disorders, and can be easily extended to systems with interactions with longer (but finite) range, and to systems with
+high dimensionality. To show the numerical efficiency of the method, we compare it with the brute-force method and
+the Haydock's methods, and find that our method involves vectors of much smaller sizes. As an example of
+application, we describe how the recursive method to calculate the Green's functions can be used to study the 
+scattering of a biexciton state by disorders. 
+ 
