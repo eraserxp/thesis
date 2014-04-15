@@ -1,5 +1,5 @@
 
-\chapter{Non-adiabatic control of quantum energy transfer in ordered and disordered arrays}
+\chapter{Quantum energy transfer in ordered and disordered arrays}
 \label{ch:wave packet}
 
 An elementary excitation in an aggregate of coupled particles
@@ -40,7 +40,7 @@ many-body systems by changing the energy of particles in individual lattice site
 
 
 
-In the present work, we consider the generic problem of energy transfer -- i.e. the time evolution of an elementary  
+In the present chapter, we consider the generic problem of energy transfer -- i.e. the time evolution of an elementary  
 quantum excitation -- in such a system. In particular, we explore the possibility of controlling energy transfer through
  an array of coupled quantum monomers by applying monomer-specific external perturbations. This is necessary for 
 several applications. First, collective excitations in molecular arrays in optical lattices have been proposed as 
@@ -82,7 +82,7 @@ lifetime of these excited states is limited by fast spontaneous emission \cite{e
 suppressing spontaneous decay by tailoring the properties of the excitation wave packets. 
 
 
-The paper has the following structure. \Autoref{sec:phaseKicking} and \autoref{sec:focusing} present the results in terms of the general 
+The chapter has the following structure. \Autoref{sec:phaseKicking} and \autoref{sec:focusing} present the results in terms of the general 
 Hamiltonian parameters.  \Autoref{sec:excitationAtomMolecule} addresses the particular case of ultracold atoms and molecules.
 \Autoref{sec:controlEnergyTransfer} discusses controlled energy transfer in systems with, specifically, 
 dipole - dipole interactions. \Autoref{sec:energyTransferVacancy} considers the effects of lattice vacancies on the possibility of controlling 
@@ -168,21 +168,23 @@ Here we consider the transformations leading to acceleration or deceleration of 
 \subsection{Group velocity of wave packet}
 \label{sec:groupVelocity} 
 
-Before we discuss how to accelerate or decelerate the motion of collective excitations, we first need to figure out 
-what determine their propagation behaviors.  It turn out that the propagation behavior of an exciton wave packet can be implied from the exciton dispesion curve. More specifically, the first derivative of the dispersion curve
+Before we discuss how to accelerate or decelerate the motion of collective excitations, we first clarify
+what determines their propagation behavior.  The propagation dynamics of an exciton wave packet is determined by 
+the exciton dispesion curve. More specifically, the first derivative of the dispersion curve
 gives approximately the propagation speed of a wave packet in real space. This can be easily shown by  simple derivations. 
 
-In a perfect crystal, the eigenstates of the system is characterized by a wavevector $k$ and its time evolution is 
+In a perfect crystal, the eigenstates of the system are characterized by a wavevector $k$ and their time evolution is 
 determined by $E(k)$ through
 \multiline{
 \ket{k(t)} &=& e^{-i \frac{E(k)}{\hbar}t}\ket{k(t=0)} \nonumber \\
 &=&\frac{1}{\sqrt{N}} \sum_{n} e^{i \left[k a n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \label{eqn:kState}
 }
 where $N$ is the number of sites in the crystal and $\ket{n(t=0)}$ represents the state of system in which only site
-$n$ is in the excited state. It can see from \autoref{eqn:kState} that the probability at each site is always $1/N$ for 
-state $\ket{k}$. So the plane wave $\ket{k}$ doesn't move in real space, which is expected. Different from a plane
+$n$ is in the excited state. It can be seen from \autoref{eqn:kState} that the probability of excitation at each site is always $1/N$ for 
+state $\ket{k}$. So the plane wave $\ket{k}$ doesn't move in real space, which is as expected. Different from a plane
  wave state, a wave packet composed of different $\ket{k(t)}$ states is not stationary in real space. This is because
- different $\ket{k(t)}$ components correspond to different energy $E(k)$ thus different evolutions, leading to a 
+ different $\ket{k(t)}$ components correspond to different energy $E(k)$, so they will have different time evolutions, 
+ leading to a 
 time-dependent interference pattern in real space. To illustrate this point, we consider a Gaussian wave packet in $k$
 space 
 \multiline{
@@ -190,26 +192,26 @@ space
 &=& \frac{A}{\sqrt{N}} \sum_{k} e^{-\frac{(k-k_0)^2}{2\sigma^2_{k}}} \sum_{n} e^{i \left[k a n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \ ,
 }
 where $A$ is the normalization constant. 
-Expanding $E(k)$ around the point $k=k_0$ and ignoring second and higher-order terms of $(k-k_0)$, and replacing the
+Expanding $E(k)$ around the point $k=k_0$ and ignoring terms with second and higher-order powers of $(k-k_0)$, and replacing the
  summation over $k$ by integration, we obtain an equation that describes the time-evolution of the wave packet in 
 real space:
 \multiline{
 \ket{\psi(t)} = A^{'}\sum_{n} e^{-\frac{(n-v_{\rm g}t)^2}{2(1/\sigma_{k})^2}}\ket{n(t=0)} \ ,
 }
-where $A^{'}$ is some constant that normalizes the wavefunction and the group velocity
+where $A^{'}$ is some constant that normalizes the wavefunction. The group velocity
 \oneline{
 v_{\rm g} = \frac{1}{\hbar}\left.\frac{d E(k)}{d k}\right|_{k=k_0} \label{eqn:groupVelocity}
 }
-determines how fast the center of the wave packet moves in real space. Therefore, once the exciton dispersion curve is known, the propagation speed of a wave packet that centered around $k_0$ in momentum space can be calculated from the slope of dispersion curve at $k_0$.
+determines how fast the center of the wave packet moves in real space. Therefore, once the exciton dispersion curve is known, the propagation speed of a wave packet centered around $k_0$ in momentum space can be calculated from the slope of dispersion curve at $k_0$.
 
 \subsection{Phase kicking in quasimomentum space}
 
 As an example, \autoref{fig:movewave packet} presents an exciton dispersion curve. It can seen  that different
  regions of the dispersion curve have different slopes that correspond to different group velocities. 
 Direct optical excitation can create an exciton wave packet which centers around $k\approx 0$ in the $k$ space. 
-However, such a wave packet hardly travel in real space as a whole since its group velocity is zero. Based on 
-\autoref{fig:movewave packet} , if we want accelerate a $k = 0$ wave packet, a sensible way is to move the 
-wave packet to the region near $k=\pi/2$ where the slop of the dispersion curve is deep. Similarly, to decelerate a
+However, such a wave packet hardly travels in real space as a whole since its group velocity is zero. Based on 
+\autoref{fig:movewave packet} , if we want to accelerate a  wave packet centered around $k = 0$, a sensible way is to move the 
+wave packet to the region of the Brillouine zone near $k=\pi/2$ where the slop of the dispersion curve is steep. Similarly, to decelerate a
  wave packet we should move it to a place where the slop is more shallow. Now the problem of
 accelerating/decelerating an exciton wave packet becomes the problem of moving the wave packet  as
 a whole in $k$ space. 
@@ -224,7 +226,7 @@ The dispersion curve of an exciton. The interaction between site $m$ and site $n
 }
 
 
-But how do we move an exciton wave packet in $k$ space without changing its shape? We can get some hint from the
+But how do we move an exciton wave packet in $k$ space without changing its shape? We can get a hint from the
 expression of the plane wave state
 \oneline{
 \ket{k(t)} = \frac{1}{\sqrt{N}}\sum_n e^{i k a n} \ket{n(t)} \ . \label{eqn:kStateExpansion}
@@ -247,7 +249,7 @@ Knowing that adding the proper phases is a key step, we now study how to add tho
  different time scales involved: one is related to the evolution of the free monomer states, 
 $T_m = \hbar/\Delta E_{e-g}$, and the other is related to the excitation population transfer between monomers,
  $T_e = \hbar/\alpha$. Usually, $T_m$ is smaller than $T_e$ by several orders of magnitude. This huge
- difference in magnitude enable us to work with the adiabatic and sudden time scales at the same time as described below. 
+ difference in magnitude enables us to work with the adiabatic and sudden time scales at the same time as described below. 
 %Adding a site-dependent phase to the excitonic wavefunction
 %exploits an interplay of the adiabatic and sudden time scales.
 Consider  the $n$-th monomer subjected to an external field
@@ -333,11 +335,10 @@ representation.
 
 %% add the block oscillation part %%%%%%%%%%%%%%%%%%%
 As a side note, we find that if the laser intensity remains the
-same after reaching the maximum, the oscillation
-of the wave packet in momentum and coordinate space can be observed  (see 
-\autoref{bloch-osci}). This phenomenon is a special Bloch oscillation
-since the force is acting on a quasi-particle rather than real
-particles in conventional cases  \cite{b-oscillation}, which allows for the possibility to study condensed-matter excitations and energy transport without statistical averaging.
+same after reaching the maximum, the wave packet oscillates in momentum and coordinate spaces (see 
+\autoref{bloch-osci}). This phenomenon is a analogous to conventional Bloch oscillations although here
+ the force is acting on a quasi-particle rather than real
+particles\cite{b-oscillation}. This suggests a possibility to study condensed-matter excitations and energy transport without statistical averaging.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -445,8 +446,8 @@ C_m (-\tau) &=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [k a
 &=& \sum_{n'} e^{i\pi n'}  J_{n'}(2\alpha \tau/\hbar) \delta_{n', m-n_0} \nonumber \\
 &=& e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha \tau/\hbar\right) \ , \label{eqn:cosineFocusing}
 }
-where $J$ is the Bessel function of first kind. 
-This  calculation shows that an wavepacket with  the site representation, i.e., 
+where $J_n$ are the Bessel functions of first kind. 
+This  calculation shows that a wavepacket in  the site representation,
 $C_m(0)= e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha t/\hbar\right)$,  will focus onto the lattice 
 site $n_0$ after evolving for time $t$. We can be easily verify the result by running a forward-in-time evolution
 starting with the initial wave packet and making use of 
@@ -477,12 +478,12 @@ focusing around site $n_0$. Below we illustrate the effect of the quadratic phas
 
 
 
-Consider a Gaussian wave packet with a narrow width $\sigma_{k, 0}$ which centers around $k=0$ in $k$ space
+Consider a Gaussian wave packet with a narrow width $\sigma_{k, 0}$  centered around $k=0$ in $k$ space with
 \multiline{
 C_k =  A e^{-\frac{ a^2 k^2}{2\sigma ^2_{k, 0} } } \ , \label{eqn:initialWavepacketInk}
 }
-where $A$ is some normalization factor. Since these normalization factors doesn't matter for the discussion
- here, we will just ignore them in the following derivations. The wave packet represented by
+where $A$ is some normalization factor. Since the normalization factor doesn't matter for the discussion
+ here, we will ignore it in the following derivations. The wave packet represented by
  \autoref{eqn:initialWavepacketInk} is also a Gaussian wave packet in coordinate space. This can be verified
 by the following transformation from $k$ space to coordinate space :
 \multiline{
@@ -492,9 +493,9 @@ C_n &=&\frac{1}{\sqrt{N}} \sum_{k} C_k(t=0) e^{  i k a n} \nonumber \\
 &=& \frac{A}{\sqrt{N}} \frac{\sigma_{k, 0} \sqrt{2\pi} }{a} \; e^{-\frac{n^2 \sigma ^2_{k, 0} }{2 } } \nonumber \\
 &\propto&  e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \ , \label{eqn:initialWavepacketInRealSpace}
 } 
-where in the second step we use the integration to approximate the summation of $k$ in the first Brillouin zone and 
+where in the second step we use the integration to approximate the summation over $k$ in the first Brillouin zone and 
 extend the integration range from $(-\pi/a, \pi/a]$ to $(-\infty, \infty)$ since the width $\sigma_k$ is very small. 
-\Autoref{eqn:initialWavepacketInRealSpace} also shows the width of the wave packet in coordinate space is the 
+\Autoref{eqn:initialWavepacketInRealSpace} also shows that the width of the wave packet in coordinate space is the 
 inverse of its width in $k$ space, that is, $\sigma_{x, 0} = 1/\sigma_{k, 0}$. 
 
 To focus the wave packet, we apply an inhomogeneous phase $\Phi(n) = \Phi_0 (n-n_0)^2$ at $t=0$.  Then the wave 
@@ -508,7 +509,7 @@ C_k(t=0) &=& \frac{1}{\sqrt{N}}  \sum_{n} C_n(t=0) e^{-i k a n} \nonumber \\
 &\approx& \frac{1}{\sqrt{N}} \int_{\infty}^{\infty} dn\; C_n(t=0) e^{-i k a n} \nonumber \\
 &\propto& e^{\frac{-a^2 k^2+4 a k n_0 \Phi_0 +2 i n_0^2 \sigma_{k, 0}^2 \Phi_0 }{2 \left(\sigma_{k, 0}^2-2 i \Phi_0 \right)}} \ . \label{eqn:wavepacketInKAfterPhase}
 }
-The power of $e$ in \autoref{eqn:wavepacketInKAfterPhase} can be separated into a real part and an imaginary part.
+The exponent in \autoref{eqn:wavepacketInKAfterPhase} can be separated into a real part and an imaginary part.
 Since the imaginary part contributes only a trivial phase to the wavefunction and doesn't change the shape of the 
 wave packet, we can ignore it and obtain
 \multiline{
@@ -519,15 +520,15 @@ So the width of the wave packet after adding the phase is
 \sigma_k(t=0) = \sqrt{ \sigma_{k, 0}^2 + \frac{4 \Phi_0^2 } { \sigma_{k, 0}^2} } \ ,
 }
 which is obviously larger than the initial width  $\sigma_{k, 0}$. This indicates that the phase applied for focusing
-cannot be too large otherwise the wave packet will be broadened beyond the quadratic region of the dispersion
+cannot be too large. Otherwise the wave packet will be broadened beyond the quadratic region of the dispersion
  curve where the focusing scheme doesn't work. Note that the phase does not affect the width of the wave packet 
  in coordinate space since it only adds some phase to the coefficients $C_n(t=0)$ in
  \autoref{eqn:initialWavepacketInRealSpace}. 
 
-To see how the wave packet evolves after the phase adding, we can apply the propagator $e^{-i E(k) t/\hbar}$ to 
+To see how the wave packet evolves after the phases are added, we can apply the propagator $e^{-i E(k) t/\hbar}$ to 
 \autoref{eqn:wavepacketInKAfterPhase2} and convert the wavefunction into coordinate space. Assuming the width
  $\sigma_k(t=0)$ is very small so that a large proportion of the wave packet is within the quadratic region of the
- dispersion curve, then the eigen energy of of the $\ket{k}$ state can be approximated as
+ dispersion curve, then the eigen energy of the $\ket{k}$ state can be approximated as
 \oneline{
 E(k) \approx E_0 + \beta a^2 k^2 \ .  \label{eqn:quadraticApprox}
 }
@@ -555,10 +556,10 @@ and the center of the wave packet is
 \oneline{
 n_{\rm c} = 4 T_{\rm F} \beta \Phi_0 n_0 =  \frac{4 \Phi_0 ^2}{\sigma_{k, 0} ^4+4 \Phi_0 ^2} n_0\approx n_0 \ .
 }
-\Autoref{eqn:widthAtFocus} shows that the wave packet will become more focused at site $n_0$ at $T_{\rm F}$ since $\sigma_{x, {\rm F}} < \sigma _{x, 0} $ and a larger phase $\Phi_0$ will leads to a better focusing effect. However, as we have
+\Autoref{eqn:widthAtFocus} shows that the wave packet will become more focused at site $n_0$ at $T_{\rm F}$ since $\sigma_{x, {\rm F}} < \sigma _{x, 0} $ and that a larger phase $\Phi_0$ will leads to a better focusing effect. However, as we 
 discussed before, large values of $\Phi_0$ may take the wave packet outside the quadratic part of the dispersion
  making \autoref{eqn:quadraticApprox} invalid. Therefore, the best focusing effect can only be achieved by balancing
-the two influences. 
+the two factors. 
 %First, consider a broad Gaussian wave packet (\ref{basis}) with
 %\oneline{
 %C_n(\tilde\sigma_x;t=0) =\sqrt{{a}/{\tilde\sigma_x \sqrt{\pi}} }
@@ -598,7 +599,7 @@ the two influences.
 %However, large values of $\Phi_0$ may take the wave packet outside the quadratic
 %part of the dispersion, impeding the focusing.
 
-In the case of exciton with the cosine dispersion curve represented by \autoref{dispersion}, $\beta = -\alpha a^2$. 
+In the case of excitons with the cosine dispersion curve represented by \autoref{dispersion}, $\beta = -\alpha a^2$. 
 To find the optimal phase $\Phi_0^*$ that keeps the wave packet
 within the quadratic dispersion while focusing it, we use the
 condition $\sigma_{k, 0} \lesssim 1$, which yields
@@ -629,16 +630,16 @@ Consider a completely delocalized excitation (\ref{basis})
 with $C_n(k;t=0) = {e^{iakn}}/{\sqrt{N}}$ describing an eigenstate
 of an ideal system of $N$ coupled monomers.
 Suppose $E(k)$ in \autoref{Cn(t)}  can be approximated as $E(k) = \D E_{e-g}
--\alpha a^2 k^2$. As we have seen in the derivation of last section, the effect of $E(k)$ on the wave packet is to
+-\alpha a^2 k^2$. As we saw in the derivation of last section, the effect of $E(k)$ on the wave packet is to
 add a phase due to time evolution, i.e. $e^{-i E(k) t}$. Since $\D E_{e-g}$ in $E(k)$ contributes the same phase to all
 $k$ component and thus adds a trivial phase to the whole wavefunction, we can saftely ignore it if only the shape of
 the wavefunction is concerned. Therefore, we use   $E(k) = -\alpha a^2 k^2$ instead in the following derivation. To
 focus the plane wave, the quadratic phase $\vp(n) = \vp_0
-n^2$ are applied at $t=0$. This changes the initial wavefunction to 
+n^2$ is applied at $t=0$. This changes the initial wavefunction to 
 \multiline{
 C_n(k; t=0) &=&  \frac{1}{\sqrt{N}}  e^{i k a n } e^{i \Phi_0 n^2 } \ ,
 }
-which renders the wavefunction a wave packet in $k$ space with the coefficient:
+which renders the wavefunction a wave packet in $k$ space with the coefficients:
 \multiline{
 C_q(t=0) =\frac{1}{\sqrt{N}} \sum_{n} e^{- i q a n} C_n(k; t=0) \ . \label{eqn:qComponent}
 }
@@ -646,7 +647,7 @@ Each $q$ component in \autoref{eqn:qComponent} evolves according to
 \multiline{
 C_q(t) = e^{-i E(q) t} C_q(0) = e^{i \alpha a^2 q^2} C_q(0) \ ,
 }
-then the wavefunction in coordinate space after time $t$ is given by
+and the wavefunction in coordinate space after time $t$ is given by
 \multiline{
 C_m(t) &=& \frac{1}{\sqrt{N}}  \sum_{q} e^{i q a m} C_q(t) \nonumber \\
 &=& \frac{1}{N \sqrt{N}}\sum_{q} e^{i q a m} e^{i \alpha a^2 q^2}  \sum_{n} e^{- i q a n} e^{i k a n } e^{i \Phi_0 n^2 } \nonumber \\
@@ -829,7 +830,7 @@ in the range of 10 - 30 ns.
 However, the collective excited states can be protected from spontaneous emission if the wave vector range populated by excitons in the wave packet (\ref{k-rep}) is
 %sufficiently far from zero \cite{cone-matter-papers}. Due to momentum conservation,
 outside of the so-called light cone, so that $k >\Delta E_{e-g}/\hbar c$.  To understand why this is the case, we 
-investigate the interaction of the collective excitation state of atoms with light. An photon can excite an exciton
+investigate the interaction of the collective excitation state of atoms with light. A photon can excite an exciton
  state of ultracold atoms and the exciton can also decay as a photon. 
 During these optical processes,  the energy is conserved, which leads to 
 \oneline{
@@ -899,7 +900,7 @@ for multiple interesting applications \cite{Zoubi1, Zoubi-review}.
 %in less than 10 ns.
 
 %\subsection{Collective excitation of ultracold molecules}
-\subsection{Phase kicking in system of ultracold molecules}
+\subsection{Phase kicking of collective excitation in arrays of ultracold molecules}
 \label{sec:phaseKickingMolecules}
 
 The spontaneous decay problem can be completely avoided by using rotational excitations in an ensemble of
@@ -968,7 +969,7 @@ $\mathcal{E}(n) = (n-n_0) A$ and $\mathcal{E}(n) \ll
 &\approx& -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 + 2 \mathcal{E}_{\ast} A\sin^{2}(\pi t/T) (n - n_0)\right] dt \nonumber \\
 &=&  -\frac{4 \mu^2 }{15\hbar B} \int_{0}^{T}  \left[ \mathcal{E}_{\ast}^2 T +  T \mathcal{E}_{\ast} A (n - n_0) \right] \ . \label{eqn:estimatePhaseDCField}
 }
-In the above equation, the term that is linear with lattice index $n$ will gives the phase kick
+In the above equation, the term that is linear with lattice index $n$ will give the phase kick
 \oneline{
 \delta = - 4 A \mathcal{E}_{{\ast}} \mu^2 T / 15 \hbar B a \ .
 }
@@ -992,7 +993,7 @@ $\lambda = 1064$ nm Gaussian laser beam that is linearly polarized in the direct
 }
 
 An alternative strategy is to use a pulse of an
-off-resonance laser field, as for atoms. The phase transformations can be induced
+off-resonant laser field, as for atoms. The phase transformations can be induced
 by a Gaussian laser beam with the intensity profile
 \begin{equation}
 I(r, z) = \frac{I_0}{1+
@@ -1024,27 +1025,27 @@ laser gaussian beam to give the wave packet a momentum kick. For
 convenience,  the molecule at the center of the wave packet is
 indexed as 0, the molecules to the left are indexed by negative
 integers and  the molecules to the right by positive integers.  In
-practices, we can assume that the wave packet is confined within
+practice, we can assume that the wave packet is confined within
 the range $[-S_x a, S_x a]$ for a time period much shorter than
 $1/\alpha$.  
-To make the intensity $I(n)$ varies linearly with $n$, the natural way is to put the molecular array far away from the beam center such that $na << z_0$.
+To make the intensity $I(n)$ vary linearly with $n$, the natural way is to put the molecular array far away from the beam center such that $na << z_0$.
 In this case, we can Taylor expand the intensity fuction as follows:
 \begin{equation}
 I(n) =I_0\left\{ \frac{z_R^2}{z_0^2+z_R^2}-\frac{2 a n z_0 z_R^2}{\left(z_0^2+ z_R^2\right)^2}+\frac{a^2 n^2 z_R^2 \left(3 z_0^2-z_R^2\right)}{\left(z_0^2+z_R^2\right)^3}  + O(n^3)\right\} \ , \label{taylor-expansion}
 \end{equation}
 and ignore the terms that are higher than linear order in $n$. However, when $z_0$ is large enough such that
  omission of higher terms is justified, the slope of the approximately linear intensity function $I(n)$ is small which
- means that more powerful laser is needed to give the momentum kick. This is undesirable for experimentalists.
+ means that more powerful laser field is needed to give the momentum kick. This is undesirable for experiments.
 Instead, we find that one doesn’t need to put the molecular array very far away from the beam center
-to obtain a linear intensity profile. The trick is let $z_0 = z_R /\sqrt{3}$ so that some higher terms (like the 
-second-oder term) in \autoref{taylor-expansion} will vanish. Rather than working with the
-Taylor series, we find it is more convenient to work with the original intensity function directly. Substituting
+to obtain a linear intensity profile. The trick is to let $z_0 = z_R /\sqrt{3}$ so that some higher terms (like the 
+second-oder term) in \autoref{taylor-expansion} vanish. Rather than working with the
+Taylor series, we find that it is more convenient to work with the original intensity function directly. Substituting
 $z_0 = z_R /\sqrt{3}$ and assuming $1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R}$, we have
 \multiline{
 I(n) &=& \frac{I_0}{1+ \frac{(z_0 + na)^2}{z_R^2}} = \frac{I_0 \left( 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} \right)}{\left[ 1 + \left(\frac{1}{\sqrt{3} } + \frac{n a}{z_R}\right)^2 \right] \left( 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} \right) } \nonumber \\
 &=& \frac{ 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} } {\frac{4}{3}\left[ 1 - \frac{3\sqrt{3}}{8} \left( \frac{a n}{z_R } \right)^3 \right] } \ . \label{eqn:IntensitySpecial}
 }
-For $I(n)$ to be linear within the range $[ - S_x , S_x ]$, the second term in the square bracket in
+For $I(n)$ to be linear within the range $[ - S_x , S_x ]$, the second term in the square brackets in
  \autoref{eqn:IntensitySpecial} should be much less than 1.
 This leads to a restriction on the width of the wave packet:
 \begin{equation}
@@ -1053,16 +1054,16 @@ S_x a\lesssim 0.5 z_R
 Therefore if the two conditions $z_0 = z_R/\sqrt{3}$ and $S_x
 a\lesssim 0.5 z_R$ are satisfied, we can implement the momentum
 kick for the wave packet. Using \autoref{phase} ,
-\autoref{DressedEnery-Sum} and \autoref{eqn:IntensitySpecial}, we carry on a similar calculation similar to that in
+\autoref{DressedEnery-Sum} and \autoref{eqn:IntensitySpecial}, we carry out a calculation similar to that in
  \autoref{eqn:estimatePhaseDCField} and estimate the momentum kick by such a pulse as 
 \begin{equation}
 \delta = -\sqrt{3}T I_{0} (\alpha_{\|}-\alpha_\perp) / 80 z_R \ . \label{Kick-AC}
 \end{equation}
 To demonstrate the feasibility of momentum kick by laser
 pulse, we have run a simulation with $z_0 = 45\; \mu$m and
-$z_R=73.8\; \mu$m and find the results (shown in Figure
-\ref{momentum-kick}. ) only deviate about $7\%$ from the
-analytical estimation.
+$z_R=73.8\; \mu$m, and find that the results shown in Figure
+\ref{momentum-kick} deviate only by about $7\%$ from the
+analytical estimates.
 
 
 %The quadratic phases needed for focusing can also be implemented by a gaussian
@@ -1088,7 +1089,7 @@ rotational states and to avoid mixing of different exciton bands.  In addition, 
 
 \addfigure{
 \includegraphics[width=\linewidth]{quadratic-phase-experiment.png}
-\caption{An illustration to show the orientations of 1D  and 2D molecular arrays inside the gaussian beam. (a): the
+\caption{An illustration to show the orientations of 1D  and 2D molecular arrays inside the Gaussian beam. (a): the
 1D lattice lies along the $x$-axis of the $z=0$ plane and the DC field is at some angle with the $x$-axis
 such that the coupling $\alpha$ between molecules is negative. (b): the 2D square lattice is at the the center of
 the $z=0$ plane and the DC field is at $45^\circ$ degree with the $x$-axis. In both cases, the laser is linearly
@@ -1101,9 +1102,9 @@ First, we consider the case of 1D molecular array. The wave packet that we want 
 with the width $\sigma_x$. 
 We put  the beam center at the center of the wave packet and define the $x$-axis of the $z=0$ plane to be along the intermolecular 
 axis (see \autoref{fig:quadraticExperimentalSetup} (a)). Then the molecules in the lattice
-can be indexed by theirs $x$ coordinates $n_x a$. 
+can be indexed by theirs $x$ coordinates as $n_x a$. 
 If the dimension of the wave packet is smaller than one third of the
-beam waist, we can approximate the gaussian intensity profile in
+beam waist, we can approximate the Gaussian intensity profile in
 \autoref{gaussian-intensity-profile} by
 \begin{equation}
 I(x, y=0, z=0) \approx I_{0}\left(1- \frac{2 n_x^2 a^2}{w_0^2}\right) \ ,  \label{quadratic-profile-1D}
@@ -1121,8 +1122,8 @@ to ensure the attractive coupling.
 From previous
 discussions in \autoref{sec:wavepacketFocusing}, we know that good focusing effect occurs when the quadratic 
 phase profile applied is $\Phi(n) = \Phi_0 n^2$ with $\Phi_0 = -a/2\sigma_x$ if $\alpha<0$. So we will use this
- particular value of $\Phi_0$ to estimate the power of the laser that are needed for the focusing.  
-Specifically, we are using a laser pulse with a short ramp-up and
+ particular value of $\Phi_0$ to estimate the strength of the laser field that are needed for the focusing.  
+Specifically, we are proposing to use a laser pulse with a short ramp-up and
 ramp-down time $T_s$ and a long steady time $T_l$:
 \begin{equation}
 I_0 (t)=\left\{
@@ -1142,7 +1143,7 @@ at site $n_x$ with respect to the molecule at the beam center is given by
 }
 where $T_{l} \ll T_{s}$ is assumed in the last step. Equating $\phi(n_x)$ with the optimal phase profile 
 $\Phi(n_x) = \Phi_0 n_x^2 = -a/2\sigma_x n_x^2$,
-and assuming the laser power is $P$ and the initial width of the wave
+and assuming that the laser power is $P$ and the initial width of the wave
 packet is $\sigma_x = S a$, we can estimate the
 duration of the laser pulse to be
 \begin{equation}
@@ -1168,21 +1169,21 @@ T_f \approx  \frac{1}{4 \alpha \Phi_0} = \frac{1}{4 (-20 \mbox{ kHz}) (-\frac{1}
 }
 is much longer than the duration of the laser pulse, leaving enough time for the accumulation of the phases. 
 
-Second, we consider the case of 2D molecular array. The situation is similar to the 1D case except that anisotropy
+Second, we consider the case of a 2D molecular array. The situation is similar to the 1D case except that the anisotropy
 of the dipole-dipole interaction comes into play. Instead of only considering the coupling between molecules in 
-the $x$-axis, we also have to consider the dipole-dipole interactions along $y$-axis and along other directions
-between $x$-axis and $y$-axis. This is because the DC field will be at different angles with the different chains of 
-molecules, giving rises to different dipole-dipole interactions in different directions. For simplicity, we use the
+the $x$-axis, we also have to consider the dipole-dipole interactions along the $y$-axis and along other directions
+between the $x$-axis and $y$-axis. This is because the DC field will be at different angles with the different chains of 
+molecules, giving rise to different dipole-dipole interactions in different directions. For simplicity, we use the
  nearest neighbor approximation here and only consider
 the dipole-dipole interactions along the $x$-axis and $y$-axis. Assuming the dimension of the wave packet is
- smaller than one third of the beam waist, we can approximate the gaussian intensity profile in
+ smaller than one third of the beam waist, we can approximate the Gaussian intensity profile in
 \autoref{gaussian-intensity-profile} by
 \begin{equation}
 I(x, y=0, z=0) \approx I_{0}\left[1- \frac{2 \left(n_x^2 + n_y^2 \right) a^2}{w_0^2}\right] \ .  \label{quadratic-profile-2D} 
 \end{equation}
 Similar to \autoref{quadratic-profile-1D} in the 1D case, \autoref{quadratic-profile-2D} is also a concave quadratic
  intensity profile which can be used to focus a wave packet with attractive coupling. But the difference here is
- that we need to make sure both the couplings along $x$-axis and $y$-axis are negative. Since the interaction
+ that we need to make sure the couplings along both the $x$-axis and $y$-axis are negative. Since the interactions
  along $x$-axis and $y$-axis are independent of each other, the dependence of $\alpha$ on $\theta$ in the 1D
 case can be applied for the 2D case. Therefore, in order for the focusing scheme to work, the angle $\theta_x$ 
 between the DC field and the $x$-axis and the angle $\theta_y$ between the DC field and the $y$-axis should be
@@ -1249,7 +1250,7 @@ To see why the dispersion curve is non-analytic, we start from the expression fo
 E (k) &=& \Delta E_{eg} + \sum_{n} \alpha(n) e^{- i k a n} \nonumber \\
 &=&  \Delta E_{eg} + \sum_{n} \frac{\alpha}{|n|^3} e^{- i k a n} \ , \label{eqn:dispersionCurveExpression}
 }
-where $n$ is the difference of two molecular indexes and the summation goes from $-\infty$ to $-1$ and from
+where $n$ is the difference of the two molecular indexes and the summation goes from $-\infty$ to $-1$ and from
 $1$ to $\infty$ for a crystal of inifinite size. Restricting $n$ to be a positive integer,
 \autoref{eqn:dispersionCurveExpression} can be written as
 \multiline{
@@ -1267,16 +1268,16 @@ The series in \autoref{eqn:EkPositiveN} and \autoref{eqn:firstDerivative} conver
 series in \autoref{eqn:secondDerivative} doesn't. 
 For example, when $k a = 0$ or $\pi$, the series in \autoref{eqn:secondDerivative} becomes the harmonic series and
  it diverges with respect to $n$. 
-Therefore, the dispersion curve cannot be taylor expanded as follows:
+Therefore, the dispersion curve cannot be Taylor expanded as follows:
 \multiline{
 E(k) = E(k_0) + \left.\frac{d E(k)}{d k}\right|_{k_0} (k - k_0) +  \left.\frac{d^2 E(k)}{d k^2}\right|_{k_0} (k - k_0)^2 + \cdots  \ . \label{eqn:taylorExpansionInvalid}
 } 
 
 
 Conventionally, we only consider the interactions between nearest neighbors and take $n=1$ in
- \autoref{eqn:EkPositiveN}, this might be justified if only a rough estimate of the dispersion curve is wanted
+ \autoref{eqn:EkPositiveN}. This might be justified if only a rough estimate of the dispersion curve is wanted
 because the series in \autoref{eqn:EkPositiveN} converges very fast with respect to the distance $n$. Given the 
-consideration on the convergence, more neighbors should be included in the summation to calculate the properties 
+consideration on the convergence, higher-order neighbors should be included in the summation to calculate the properties 
 dependent on the first derivative of the dispersion curve, and all neighbors are probably needed to calculate 
 properties determined by the second derivative. 
 
@@ -1364,12 +1365,13 @@ many-body systems with anisotropic interparticle interactions.
 \subsection{Computation details}
 \label{sec:numerical}
 
-In this subsection, we show how to carry on the calculations presented in \autoref{sec:anisotropy}. We first 
+In this subsection, we describes the details of the calculations presented in \autoref{sec:anisotropy}. We first 
 evaluate dipole-dipole interaction in the 1D and 2D molecular arrays , then discuss how to form the Hamiltonian
 matrix in an efficient way, and finally present some approximations that can reduce the computation cost 
 significantly. 
 
-As discussed in \autoref{sec::ddInteraction}, the dipole-dipole operator for molecule $A$ and molecule $B$ separated by 
+As discussed in \autoref{sec::ddInteraction}, the dipole-dipole operator for molecule $A$ and molecule $B$ 
+connected by a vector
 $\vec{R}$ in optical lattices is given by
 \oneline{
 \hat{V}_{\rm dd}(R) = -2 \sqrt{\frac{6 \pi }{5}} \left( \frac{1}{R} \right)^3 \sum_{q} (-1)^q Y_{2, -q}(\theta_{R}, \phi_{R}) \left[ d_{A}^{(1)} \otimes d_{B}^{(1)}\right]_{q}^{(2)}
@@ -1393,7 +1395,7 @@ of bare rotational states:
 }
 where $F$ and $D_{S}^{X}$ are given in \autoref{sec::ddInteraction}. In $D_{S}^X$ of \autoref{eqn:ddMatrixElement},  
 the superscript $X$  (= $A$ or $B$) denotes molecule $A$ or $B$, and the subscript 
-$S$ (= $+$ or $-$ or $0$) indicates $D_{S}^X$ is nonzero only if 
+$S$ (= $+$ or $-$ or $0$) indicates that $D_{S}^X$ is nonzero only if 
 the projection of the rotational quantum number of molecule $X$ changes in a certain way: 
 ``$+$'' means  
 $M_X = M_X^{'} + 1$;  ``$-$'' means
@@ -1427,9 +1429,9 @@ is related to $\theta$ and $\phi$ by $\cos \theta_{R} = \cos\theta \cos(\phi - \
 %certain conditions. 
 
 Keeping track of both angles $\theta_{R}$ and $\phi_{R}$ is complicated. Fortunately, we can get rid of the 
-dependence of $\phi_{R}$ in \autoref{eqn:ddMatrixElement} by choosing to deal with only certain rotational states.  
+dependence on $\phi_{R}$ in \autoref{eqn:ddMatrixElement} by choosing to deal with only certain rotational states.  
 In a DC field or a linearly polarized laser field, the dressed rotational states $\ket{\Tilde{N}, |M|}$ of the
-system is a linear combination of the bare rotational states with the same projection along the direction of DC field 
+system are a linear combinations of the bare rotational states with the same projection along the direction of the DC field 
 or along the direction of laser polarization, that is,
 \oneline{
 \ket{\Tilde{N}, |M|} = \sum_{N} C_{N, M} \ket{N, M} \ .
@@ -1438,9 +1440,9 @@ Note that the coefficients $C_{N, M}$ only depend on the magnitude of the extern
 with the angles $\theta_{R}$ and $\phi_{R}$. 
 Because those dressed states with different 
 projections $|M|$ have different energies, we can choose to work with the states with a particular value of $|M|$ 
-by tunning the excitation energy to just match the corrsponding energy levels. 
+by tunning the excitation energy to match the corrsponding energy levels. 
 In the current study, 
-$|M|$ is chosen to be zero, therefore only the bare rotational states with $M_X = 0$ are involved, then only the
+$|M|$ is chosen to be zero, therefore only the bare rotational states with $M_X = 0$ are involved, so only the
 term associated with $D_0^A D_0^B$ in  \autoref{eqn:ddMatrixElement} is nonzero, and we have
 \oneline{
 \bra{N_A , 0} \bra{N_B , 0} \hat{V}_{\rm dd}(R) \ket{N_A^{'}, 0} \ket{N_B^{'} , 0} =  - \frac{\sqrt{6} F}{2 R^3}  (3\cos^2\theta_{R}-1) D_0^A D_0^B \ . \label{eqn:ddM=0}
@@ -1455,9 +1457,9 @@ between the intermolecular axis and the external field if only the dressed rotat
  involved. This is valid for both 1D and 2D cases.  
 
 Since a 1D molecular array can be treated as a limiting case of a 2D molecular array with only a single intermolecular
- axis, we focus on the discussion of the 2D case. As described by \autoref{fig:1Dand2D}, we suppose the 2D molecular 
-array is on the $XY$ plane, and the orientation of the external field is presented by $(\theta, \phi)$. For any two 
-molecules in the intermolecular axis that are at angle $\gamma$ with the $X$-axis, $\cos^2\theta_{R}$ in
+ axis, we focus on the discussion of the 2D case. As illustrated by \autoref{fig:1Dand2D}, we suppose the 2D molecular 
+array is in the $XY$ plane, and the orientation of the external field is given by $(\theta, \phi)$. For any two 
+molecules in the intermolecular axis that are at angle $\gamma$ with the $X$-axis, $\cos^2\theta_{R}$ 
  can be calculated as
 \multiline{
 \cos^2\theta_{R} &=& \left[\cos\left(\frac{\pi}{2}-\theta\right) \cos(\phi - \gamma)\right]^2 \nonumber \\
@@ -1469,10 +1471,10 @@ Therefore the dipole-dipole interaction between two molecules can be calculated 
 
 Once the dipole-dipole interaction is known, we can form the Hamiltonian matrix by expanding the Hamiltonian in 
 the basis of individual sites. Suppose the 2D molecular array is a square lattice with $\mathbb{N}\times\mathbb{N}$
-sites and the coordinate system is orientated such that its $X$-axis and $Y$-axis coincide with the
-bottom and left edge of the 2D lattice respectively, then the position of the
-molecule in the array can be represented by its coordinates $(x, y)$. Without the loss of generality, we consider only 
-the case where the external field is orientated such that $0\le \theta\le 90^\circ$ and $0 \le \phi \le 90^\circ$, and
+sites and the coordinate system is oriented such that its $X$-axis and $Y$-axis coincide with the
+bottom and left edge of the 2D lattice respectively. Then the position of the
+molecule in the array can be represented by its coordinates $(x, y)$. Without loss of generality, we consider only 
+the case where the external field is oriented such that $0\le \theta\le 90^\circ$ and $0 \le \phi \le 90^\circ$, and
 give the indexes $0, 1, 2, \cdots, \mathbb{N}^2-1$ to every molecule in the 2D array, starting from the bottom to 
 the top of the array and from left to right in each row. Based on \autoref{eqn:ddM=0} and
  \autoref{eqn:ddM=0Dressed},  the matrix element $H_{i,j}$ corresponding to two sites $i$ and $j$ is given by
@@ -1480,9 +1482,9 @@ the top of the array and from left to right in each row. Based on \autoref{eqn:d
  H_{i,j} &=& \bra{\Tilde{0},0}_i \bra{\Tilde{1},0}_j H_0 + \hat{V}_{\rm dd} \ket{\Tilde{1}, 0}_i \ket{\Tilde{0}, 0}_j \nonumber \\
 &=&  \sum_{N_A} \sum_{N_B} \sum_{N_A^{'}} \sum_{N_B^{'}} - \frac{\sqrt{6} F}{2 R_{i,j}^3}  (3\cos^2\theta_{R}(i,j)-1) D_0^A D_0^B C_{N_A, 0}^{*} C_{N_B, 0}^{*} C_{N_A^{'}, 0}  C_{N_B^{'}, 0} \ , \nonumber \\ \label{eqn:hij2D}
 }
-where $R_{i,j}$ is the distance between molecule $i$ and $j$, and $\theta_{R}(i,j)$ is angle between the external field
+where $R_{i,j}$ is the distance between molecules in sites $i$ and $j$, and $\theta_{R}(i,j)$ is the angle between the external field
 and the intermolecular axis. Assuming the unit length of the coordinate system is the lattice constant of the 2D array,
-then the distance between the two site $i$ and $j$ can be calculated from their coordinates
+ the distance between the two site $i$ and $j$ can be calculated from their coordinates
 \oneline{
 R_{i,j} = a \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} \ ,
 }
@@ -1492,7 +1494,7 @@ x_i &=&  i \% \mathbb{N} \nonumber \\
 y_i &=& i/\mathbb{N} \ .
 }
 Since the angle $\gamma$ between the external field and the 
-intermolecular axis connecting from molecule $i$ to molecule $j$ is given by
+intermolecular axis connecting molecules in sites $i$ and $j$ is given by
 \oneline{
 \gamma(i, j) = \arccos\left[ \frac{x_j - y_i }{\sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} } \right] \ ,
 }
@@ -1504,48 +1506,48 @@ essential problem is to solve the time-dependent Schr{\"o}dinger equation
 \dot{\Psi}(t) = \frac{1}{i\hbar} H(t) \Psi(t) \ . \label{eqn:tdse2d}
 } 
 Solving the above differential equations  involves the computation of the Hamiltonian matrix at many different 
-time points. To make the simulation as fast as possible,we now explore how to evaluate $H(t)$ efficiently.
-In the calculations, we change the direction of the DC field adiabatically with respect to the time scale of excitation
+time points. To make the simulation as fast as possible, I now explore how to evaluate $H(t)$ efficiently.
+In the calculations, we change the direction of the DC field adiabatically with respect to the time scale of the excitation
  hopping while keeping the magnitude of the field, therefore the coefficients $C_{N_A, 0}$, $C_{N_B, 0}$, $C_{N_A^{'}, 0}$, and $C_{N_B^{'}, 0}$ in \autoref{eqn:hij2D} will remains the same and the time dependence of
 the Hamiltonian matrix is solely due to the time dependence of $\theta_{R}(t)$. Based on this observation, we can
 separate the Hamiltonian matrix into two parts: 
 \oneline{
-H(t) = H_{1}(\theta(t), \phi(t) ) * H_{2} \ ,
+H(t) = H_{1}\left[\theta(t), \phi(t) \right] * H_{2} \ ,
 }
 where  ``*'' means element-wise multiplication, $H_{1}$ is the time-dependent part that needs to be 
 updated whenever $\theta(t)$ and $\phi(t)$ change, and $H_{2}$ is the time-independent part that can be 
-computed once and be saved into memory for later retrieve. It is easy to derive from 
- \autoref{eqn:hij2D} the expression of $H_2$:
+computed once and be saved into memory for later retrieval. It is easy to derive from 
+ \autoref{eqn:hij2D} the expression for $H_2$:
 \oneline{
 H_{2} = \sum_{N_A} \sum_{N_B} \sum_{N_A^{'}} \sum_{N_B^{'}} - \frac{\sqrt{6} F}{2 R_{i,j}^3} D_0^A D_0^B C_{N_A, 0}^{*} C_{N_B, 0}^{*} C_{N_A^{'}, 0}  C_{N_B^{'}, 0} \ .
 }
-Because of the angle $\gamma$ in \autoref{eqn:threeAnglesRelation} is only dependent on positions of the lattice sites, we can further separate the evalulation of $H_1$ into different parts for the purpose of computing efficiency. The expression of $H_1$ is given by
+Because the angle $\gamma$ in \autoref{eqn:threeAnglesRelation} is only dependent on the positions of the lattice sites, we can further separate the evalulation of $H_1$ into different parts for the purpose of computing efficiency. The expression for $H_1$ is given by
 \oneline{
 H_{1}(\theta(t), \phi(t) ) = 3\cos^2[\theta(t) ]*\bigg\{\cos[\phi(t)]*K^{\cos} + \sin[\phi(t)]*K^{\sin} \bigg\}**2 - 1
 }
-where ``**2'' means element-wise square, and $K^{\cos}$ is a matrix whose elements is given by 
+where ``**2'' means element-wise square, and $K^{\cos}$ is a matrix whose elements are given by 
 \oneline{
 K^{\cos}_{i, j}= \cos\left(\gamma(i, j)\right) \ ,
 }
-and $K^{\sin}$ is a matrix whose elements is given by 
+and $K^{\sin}$ is a matrix whose elements are given by 
 \oneline{
 K^{\sin}_{i, j}= \sin\left(\gamma(i, j)\right) \ . 
 }
 Since $K^{\cos}$ and  $K^{\sin}$ are independent of time, we compute them once and save them into memory 
-for later usage. In summary, the efficient computation of $H(t)$ is carried on in three steps: 1. calculate $H_2$, 
+for later usage. In summary, the efficient computation of $H(t)$ is carried out in three steps: 1. calculate $H_2$, 
 $K^{\cos}$, and $K^{\sin}$ and save them into memory; 2. compute $\theta(t)$ and $\phi(t)$ and then use
 the values of $K^{\cos}$, and $K^{\sin}$ in memory to calculate $H_1$; 3. use the value of $H_2$ in memory to 
 compute $H$.  
 
-In the simulation, I have used a complex ordinary differential equation solver called ``ZVODE'' to solve 
+For the simulations, I used a complex ordinary differential equation solver called ``ZVODE''\cite{vode, odepack} to solve 
 \autoref{eqn:tdse2d}. Given an initial state $\Psi(t=0)$, the
 derivative $\dot{\Psi}$ of the wavefunction with respect to time, and the desired accurary for the calculation,
-the solver can give the wavefuntion $\Psi(t)$ at a later time $t$. In my experience, the ZVODE solver is not 
-good at solving a stiff system of differential equations where the potential change is very steep. 
+the solver gives the wavefuntion $\Psi(t)$ at a later time $t$. In my experience, the ZVODE solver is not 
+efficient for solving a rapidly changing system of differential equations where the potential energy change is very steep. 
 If this is the case, it is better to convert
 the time-dependent Schr\"odinger equation into a real  ordinary differential equation and use the corresponding
-ODE solver called ``DVODE'' that can handle stiff systems much better. As a reference
- for future students, we show below the conversion from the time-dependent Schr\"odinger equation to a real 
+ODE solver called ``DVODE''\cite{vode, odepack} that can handle rapidly changing systems much better. As a reference
+ for future students, I show below the conversion from the time-dependent Schr\"odinger equation to a real 
 ordinary differential equation. The starting point is the Schr\"odinger equation 
 \oneline{
 i\hbar \mathbf{\dot{C}} = \mathbf{H}\mathbf{C} \ , \label{eqn:complexOde}
@@ -1586,41 +1588,41 @@ which leads to  a real differential equation
 }
 that is equivalent to the original Schr\"odinger equation. 
  
-Finally, we discuss some tricks and approximations that enable us to do the 2D simulation efficiently. For a 2D 
+Finally, we discuss a few tricks and approximations that enable us to do the 2D simulations efficiently. For a 2D 
 molecular array
 with $\mathbb{N}\times\mathbb{N}$ sites, since the couplings between every two sites are included, the dimension 
 of the Hamiltonian matrix is $O(\mathbb{N}^2 \times \mathbb{N}^2)$. For a medium-sized 2D array 
 with $\mathbb{N}=100$, the number of coupled differential equations is about $10^4$, which is close to the limit 
 that our code can handle. As $\mathbb{N}$ becomes larger, the number of differential equations will increase 
-dramatically. This pose a dilemma for us. On one side, we want to limit the size of the crystal so that the computation 
-is fast. On the other side,  as we are studying the motion of an exciton wave packet in DC field whose orientation 
-changing adiabatically with respect to excitation hopping, the simulation time period can be long. This requires a 
+dramatically. This poses a dilemma for us. On one side, we want to limit the size of the crystal so that the computation 
+is fast. On the other side,  as we are studying the motion of an exciton wave packet in a DC field whose orientation 
+is changing adiabatically with respect to the excitation hopping, the simulation time period can be long. This requires a 
 large crystal with enough space in which the wave packet can propagate for a relatively long time without hitting the 
 boundaries.
-In addition, we also want the initial size of the wave packet to be large so that it is narrow in $k$-space
-and doesn't spread very fast in coordinate space. After experimenting with different initial sizes, we found a wave 
-packet with a width of $\sim 60$ lattice sites in coordinate space is good for our purposes. If such a wave packet 
-is used in simulation, the crystal size must be much larger than $100 \times 100$, which is beyond the limit size
+In addition, we also want the initial size of the wave packet to be large enough so that it is narrow in $k$-space
+and doesn't spread very fast in coordinate space. After experimenting with different arrays, we found a wave 
+packet with a width of $\sim 60$ lattice sites in coordinate space is good for illustrative purposes. If such a wave packet 
+is used for simulations, the crystal size must be much larger than $100 \times 100$, which is beyond the limit size
  that our code can handle.  There are two ways to resolve the small-or-large-crystal dilemma.
  The most obvious choice is to use the nearest neighbor approximation so that each molecule will only interact with
 four molecules that are closest to it. Then the dimension of the Hamiltonian matrix scales like 
 $O(\mathbb{N}\times \mathbb{N})$, and the number  of differential equations drops significantly. However, this 
-approach fails to account for the long-range interaction and miss some characteristics of anisotropy in dipole-dipole
-interaction as it only consider the interactions only along the $X$-axis and the $Y$-axis. In our simulation, we take 
+approach fails to account for the long-range interaction and misses some characteristics of anisotropy of the dipole-dipole
+interaction as it only considers the interactions only along the $X$-axis and the $Y$-axis. In our simulation, we take 
 another approach by treating different regions of the crystal separately. 
 As the dipole-dipole interaction decays fast with distance, the lattice sites that are close to the position of the wave 
-packet are most important and should be always taken account of. So we define a computation zone as the 
+packet are most important and should be always taken into account. So we define a computation zone as the 
 square box that encloses the wavepacket, and define the rest of the crystal as
 the supplement zone. At the beginning of  the simulation, we choose a large enough computation zone such that
 the probability to find excitation at the edges of the zone is almost zero, and
 compute all the interactions between any two molecules inside the zone to form the Hamiltonian matrix. All the 
-other lattice site beyond the computation zone are ignored. 
+other lattice sites beyond the computation zone are ignored. 
 In this way, the size of the Hamiltonian matrix will be determined by the smaller computation 
 zone rather than the whole lattice and the most important part of the long-range interaction is also kept. After each
-time step, we find out the new position of the wave packet center and shift the computation zone such that its 
-center coincides with the wave packet center. In the processing of the shifting, we have lost a small portion of the
+time step, we find the new position of the wave packet center and shift the computation zone such that its 
+center coincides with the wave packet center. In the process of the shifting, we lose a small portion of the
 wave packet because the sites near the boundaries of the computation zone will be removed out of the computation
-zone at next time point and the excitation population at those sites will also be lost. However, if the compuation 
+zone at the next time point and the excitation population at those sites will also be lost. However, if the compuation 
 zone is large enough, this should not be a problem. 
 Therefore maintaining a small computation zone and dynamically moving it  based on 
 the movement of the wave packet allows for the calculation of the motion of  a wave packet in a much bigger crystal.  
