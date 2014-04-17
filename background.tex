@@ -7,12 +7,171 @@ This chapter  briefly outlines the background knowledge that is directly related
 \section{Review of angular momentum theory}
 \label{sec:angularMomentum}
 
-In this section, we will give a very brief review of the angular momentum theory. Instead of giving a comprehensive 
+In this section, we briefly review of the theory of angular momentum. Instead of giving a comprehensive 
 picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, RotSpect} have already done, we take a pragmatic approach that is more concerned about intuitive 
-understanding, discussing only the concepts and ideas that  
-  
+understanding, discussing only the concepts and ideas that are relevant to research in this thesis. 
+
+\subsection{Group and class in group theory}  
+\label{sec:groupTheory}
+
+Symmetry is very important in that the laws of physics are easier to understand if the underlying symmetry are 
+appreciated. The theory of angular momentum is essentially the study of certain symmetry in quantum mechanics. 
+As group theory is an important tool that is used to determine symmetry, we introduce the concepts of group
+and class in this subsection.
+
+A set of operations $\{ A, B, C, \cdots \}$ is called a group if it satisfies the following properties:
+\begin{itemize}
+\item there is an identity operation $I$ in the set such that $A I = A$
+\item  each operation $A$ has an inverse operation $A^{-1}$ in the same set such that $A A^{-1} = I$
+\item  the multiplication of two operations is also a operation in the same set
+\item  operations are associative such that $(AB)C = A(BC)$
+\end{itemize}
+To simplify the expression of all the symmetry operations in a group, the concept of class is introduced. A class of a 
+group is defined as all the elements in the group that are conjugated to each other. By ``conjugated'', we means that 
+ any two elements $A$ and $B$ in a class satisfy
+\oneline{
+X^{-1} A X = B
+}
+for any element $X$ in the group. A group can be divided into classes and then we can work with classes rather than 
+all the symmetry operations in a group. 
 
 \subsection{Rotation operators and spherical harmonics}
+
+As the theory of angular
+ momentum concerns about the symmetry under rotations, we start by defining the rotation operator in quantum 
+ mechanics. Given a rotation $R$, we associate a rotation operator 
+ $D(R)$ that transform a state from the original system to the rotated system:
+ \oneline{
+ \ket{\psi}_{R} = D(R) \ket{\psi} \ .
+ }
+To construct the rotation operator, we denote the rotation operator $D(\mathbf{\hat{n}}, d\phi)$ for infinitesimal 
+rotation through angle $d\phi$ about an axis $\mathbf{\hat{n}}$. Because $D(\mathbf{\hat{n}}, d\phi)$ must be linear
+in $d\phi$ for small rotations and becomes identity operator when $d\phi = 0$, it is useful to define the angular
+ momentum operator $J_{\mathbf{\hat{n}}}$ about the axis $\mathbf{\hat{n}}$ as 
+ \oneline{
+ J_{\mathbf{\hat{n}}} \equiv i \hbar\lim_{\phi \rightarrow 0} \frac{D(\mathbf{\hat{n}}, \phi) - 1}{\phi} \ . \label{eqn:Jdef} \ ,
+ }
+such that
+\oneline{
+D(\mathbf{\hat{n}}, d\phi) = 1 - i\left(\frac{ J_{\mathbf{\hat{n}}}  }{\hbar} \right) d\phi \ . \label{eqn:rotationOperator}
+}
+From the above equation, we can regard $J_{\mathbf{\hat{n}}}$ as the generator of rotation in the sense that $ d\phi  \cdot J_{\mathbf{\hat{n}}} f$ gives the increment of a general function $f$ after the infinitesimal 
+rotation $R$ through $d\phi$ about the axis $\mathbf{\hat{n}}$.
+By compounding successively infinitesimal rotations about the same axis, we can obtain the finite rotation operator
+\multiline{
+D( \mathbf{\hat{n}}, \alpha) &=& \lim_{m\rightarrow \infty} \left[ 1- i\left(\frac{ \alpha}{m}\right) \left( \frac{ J_{\mathbf{\hat{n}}} }{\hbar}\right) \right]^m \nonumber \\
+&=& \exp\left( \frac{ - i \alpha  J_{\mathbf{\hat{n}} } }{\hbar} \right) \nonumber \\
+&=& 1 - \frac{i\alpha J_{\mathbf{\hat{n}} } }{\hbar} - \frac{1}{2!} \frac{ \alpha^2 J_{\mathbf{\hat{n}} }^2}{\hbar^2} + \cdots 
+} 
+It is obvious that the set of all rotations satisfy the four conditions of a group (see 
+\autoref{sec:groupTheory}). Correspondingly, 
+ the infinite set of rotation operators also satisfy the same conditions and thus form a group which is called the full 
+rotation group. 
+
+
+Rotations have the following important property:  rotations about the same axis commute whereas rotations about 
+different axes do not.  This property leads to the commutation relationship of the angular momentum operator $J$. 
+To illustrate this point, let's consider rotations $R_x$, $R_y$, and $R_z$ about the $x$, $y$ and $z$ axis respectively. In 
+coordinate space, these rotations can be represented by $3\times 3$ matrices. For instance, the rotation of angle $\phi$ about the $z$ axis can be expressed as
+\oneline{
+R_{z} (\phi) = \mat{\cos\phi & -\sin\phi &  0 \\ \sin\phi& \cos\phi& 0 \\ 0& 0& 1}
+} 
+In the case of an infinitesimal angle $\varepsilon$, the above equation can be written as
+\oneline{
+R_{z} (\varepsilon) = \mat{1-\frac{\varepsilon^2}{2} & -\varepsilon &  0 \\ \varepsilon& 1-\frac{\varepsilon^2}{2}& 0 \\ 0& 0& 1}
+} 
+By Comparing the effect of a $y$-axis rotation followed by an $x$-axis rotation with that of an $x$-axis rotation 
+followed by a $y$-axis rotation, we can show that 
+\oneline{
+R_x (\varepsilon) R_y (\varepsilon) - R_y (\varepsilon) R_x (\varepsilon) = R_z (\varepsilon^2) - I \ . \label{eqn:rotationCommutation}
+}
+Assuming the corresponding rotation operators satisfy a similar equation as \autoref{eqn:rotationCommutation} and
+making use of \autoref{eqn:rotationOperator}, we obtain
+\oneline{
+\left[ J_x, J_y\right] = i\hbar J_{z} \ .
+}
+Repeating the above analysis for other axes, we obtain the commutation relations of angular momentum:
+\oneline{
+\left[ J_i, J_j\right] = i\hbar \varepsilon_{ijk} J_{k} \ , \label{eqn:angularMomentumCommutation}
+}
+where $i$, $j$, $k$ can be any one of $x$, $y$ and $z$. 
+
+Many important properties follow from the angular-momentum commutation relation represented by \autoref{eqn:angularMomentumCommutation}. For example, by making use of \autoref{eqn:angularMomentumCommutation}, we can show that the operator $\mathbf{J}^2$ defined by
+\oneline{
+\mathbf{J}^2 \equiv J_x^2 + J_y^2 + J_z^2
+}
+commutes with any one of $J_x$, $J_y$ and $J_z$, namely,
+\oneline{
+\left[ \mathbf{J}^2, J_k \right] = 0 , \;\;\; (k = x, y, z) \ .
+}
+Since $\mathbf{J}^2$ and $J_z$ commutes, the eigenstates of $\mathbf{J}^2$ can be chosen to be the eigenstates of
+$J_z$ simultaneously. We denote these state by $\ket{j, m}$ such that
+\multiline{
+\mathbf{J}^2\ket{j, m} &=& j (j+1)\ket{j, m} \nonumber \\
+J_z \ket{j, m} &=& m \ket{j, m} \ .
+}
+To determine the allowed values for $j$ and $m$, it is convenient to work with the non-Hermitian operators
+\oneline{
+J_{\pm} = J_x \pm i J_y \ ,
+}
+where $J_{+}$ is called the raising operator and $J_{-}$ is called the lowering operator. $J_{\pm}$ satisfy the following
+commutation relations:
+\multiline{
+\left[ J_{+}, J_{-}\right] &=& 2 \hbar J_z \nonumber \\
+\left[ J_{z}, J_{\pm}\right] &=& \pm \hbar J_{\pm} \nonumber \\
+\left[ \mathbf{J}^2, J_{\pm}\right] &=& 0 \ ,
+}
+all of which can easily be obtained from \autoref{eqn:angularMomentumCommutation}. 
+
+As a special case of the angular momentum operator, the orbital angular momentum operator 
+$\mathbf{L} = \mathbf{r} \times \mathbf{p}$ satisfies the same commutation relations
+\oneline{
+\left[ L_i, L_j\right] = i\hbar \varepsilon_{ijk} L_{k} \ .
+}
+Using the fact that momentum is the generator of translation, we have
+\multiline{
+&&\left[ 1 - i \left(\frac{d\phi}{\hbar}\right) L_z\right] \ket{x, y, z} = \left[ 1 - i \left(\frac{d\phi}{\hbar}\right) \left( x p_y - y p_x \right)\right] \ket{x, y, z} \nonumber \\
+&& = \left[ 1 - i \left(\frac{p_y}{\hbar}\right) x d\phi + i \left(\frac{p_x}{\hbar}\right) y d\phi \right] \ket{x, y, z} \nonumber \\
+&& = \ket{x - y d\phi, y + x d\phi, z} \ . \label{eqn:rotationZ}
+}
+The above equation shows exactly the effect of an infinitesimal rotation about $z$ axis as one would expect. For an 
+arbitrary state $\ket{\psi}$, an infinitesimal rotation about $z$ axis change the wavefunction $\left\langle x, y, z \right.\ket{\psi}$ to 
+\oneline{
+\bra{x, y, z} \left[ 1 - i \left(\frac{d\phi}{\hbar}\right) L_z\right] \ket{\psi} = \left\langle x + y d\phi, y - x d\phi, z\right. \ket{\psi} \ .
+}
+By changing to the spherical coordinates $(r, \theta, \phi)$, the above equation becomes
+\multiline{
+&&\bra{r, \theta, \phi} \left[ 1 - i \left(\frac{d\phi}{\hbar}\right) L_z\right] \ket{\psi} = \bra{r, \theta, \phi-d\phi} \psi \rangle \nonumber \\
+&& =\bra{r, \theta, \phi} \psi \rangle -d\phi \frac{\partial}{\partial \phi} \bra{r, \theta, \phi} \psi \rangle \ .
+}
+Therefore, we obtain
+\oneline{
+L_{z} = -i\hbar \frac{\partial}{\partial \phi} \ .
+}
+The expressions for other orbital angular momentum operators 
+\multiline{
+L_x &=&  i\hbar \left( \sin\phi \frac{\partial}{\partial \theta} + \cot\theta \cos\phi \frac{\partial}{\partial \phi}\right) \nonumber \\
+L_y &=& - i\hbar \left( \cos\phi \frac{\partial}{\partial \theta} - \cot\theta \sin\phi \frac{\partial}{\partial \phi}\right) \ ,
+}
+can also  be derived in the same way. 
+
+The eigenfunctions of $\mathbf{L}^2$ and $L_z$ are known as the spherical harmonics, which are given by
+\oneline{
+Y_{l m}(\theta, \phi) = \Theta_{lm}(\theta) \Phi_{m}(\phi)
+}
+where
+\oneline{
+\Phi_{m}(\phi) = \sqrt{\frac{1}{2\pi}}\exp(i m \phi) \ ,
+}
+and 
+\oneline{
+\Theta_{lm}(\theta) = (-1)^{m} \left[ \frac{2 l + 1}{2} \frac{(l-m)!}{(l+m)!} \right]^{1/2} P_l^{m}(\cos\theta)
+}
+for $m\ge 0$ and $\Theta_{lm}(\theta) =(-1)^{m} \Theta_{l-m}(\theta) $ for $m<0$. Sometimes, it is more convenient
+to work with modified spherical harmonics $C_{lm}$ defined by
+\oneline{
+C_{lm} = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
+}
 
 \subsection{Rotation matirces}
 
