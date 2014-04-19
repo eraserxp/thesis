@@ -8,7 +8,7 @@ This chapter  briefly outlines the background knowledge that is directly related
 \label{sec:angularMomentum}
 
 In this section, we briefly review of the theory of angular momentum. Instead of giving a comprehensive 
-picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, RotSpect} have already done, we take a pragmatic approach that is more concerned about intuitive 
+picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, sakurai-book, RotSpect} have already done, we take a pragmatic approach that is more concerned about intuitive 
 understanding, discussing only the concepts and ideas that are relevant to research in this thesis. 
 
 \subsection{Group and class in group theory}  
@@ -61,7 +61,7 @@ By compounding successively infinitesimal rotations about the same axis, we can 
 \multiline{
 D( \mathbf{\hat{n}}, \alpha) &=& \lim_{m\rightarrow \infty} \left[ 1- i\left(\frac{ \alpha}{m}\right) \left( \frac{ J_{\mathbf{\hat{n}}} }{\hbar}\right) \right]^m \nonumber \\
 &=& \exp\left( \frac{ - i \alpha  J_{\mathbf{\hat{n}} } }{\hbar} \right) \nonumber \\
-&=& 1 - \frac{i\alpha J_{\mathbf{\hat{n}} } }{\hbar} - \frac{1}{2!} \frac{ \alpha^2 J_{\mathbf{\hat{n}} }^2}{\hbar^2} + \cdots 
+&=& 1 - \frac{i\alpha J_{\mathbf{\hat{n}} } }{\hbar} - \frac{1}{2!} \frac{ \alpha^2 J_{\mathbf{\hat{n}} }^2}{\hbar^2} + \cdots  \label{eqn:rotationInTermsOfJ}
 } 
 It is obvious that the set of all rotations satisfy the four conditions of a group (see 
 \autoref{sec:groupTheory}). Correspondingly, 
@@ -107,8 +107,8 @@ commutes with any one of $J_x$, $J_y$ and $J_z$, namely,
 Since $\mathbf{J}^2$ and $J_z$ commutes, the eigenstates of $\mathbf{J}^2$ can be chosen to be the eigenstates of
 $J_z$ simultaneously. We denote these state by $\ket{j, m}$ such that
 \multiline{
-\mathbf{J}^2\ket{j, m} &=& j (j+1)\ket{j, m} \nonumber \\
-J_z \ket{j, m} &=& m \ket{j, m} \ .
+\mathbf{J}^2\ket{j, m} &=& j (j+1)\hbar^2 \ket{j, m} \nonumber \\
+J_z \ket{j, m} &=& m\hbar \ket{j, m} \ .
 }
 To determine the allowed values for $j$ and $m$, it is convenient to work with the non-Hermitian operators
 \oneline{
@@ -174,6 +174,70 @@ C_{lm} = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
 }
 
 \subsection{Rotation matirces}
+
+Since an arbitrary rotation can be decomposed into rotations about different coordinate axes ($x$, $y$, and $z$ axis), 
+it is usually convenient to express the orientations of a body in terms of rotations about some fixed axes. For this to 
+work, we have to choose an initial orientation as a reference on which the rotations are operating. 
+For a vector described by the two spherical polar angles $\theta$ and $\phi$, we use a reference orientation parallel 
+to the $Z$ axis. It is obvious to see that a rotation of this reference orientation through an angle $\theta$ about 
+the space-fixed $Y$ axis and a rotation through an angle $\phi$ about the space-fixed $Z$ axis can reproduce the 
+orientation of the vector. For a general body, three Euler angles $\phi$, $\theta$ and $\chi$ are needed to
+ describe an arbitrary rotation.
+We attach a second coordinate system 
+$(x, y, z)$ to the body and refer it as the body-fixed axis system. This axis system is called 
+body-fixed as by construction it moves and rotates along with the body as a whole. 
+Correspondingly, the original coordinate system $(X, Y, Z)$ is called the space-fixed coordinate system as it is fixed in 
+space. 
+To describe the orientation of a body, we imagine that the body is initially at a position with its body-fixed axis system
+ coincident with the space-fixed axis system, and then we carry out the following three rotations:
+\begin{enumerate}
+  \item rotate through $\chi$ about the space-fixed $Z$ axis, 
+  \item  rotate through $\theta$ about the space-fixed $Y$ axis,
+  \item  rotate through $\phi$ about the space-fixed $Z$ axis. 
+\end{enumerate}
+These three rotations can produce arbitrary orientation of the body. For an intuitive understanding of the Euler 
+angles, we link the orientation of the body directly with $\phi$, $\theta$ and $\chi$. It can be shown that $\theta$ and
+$\phi$ are used to define the orientation of the body-fixed $z$ axis in the space-fixed axis system,  in the same way as
+$\theta$ and $\phi$ are used to define the orientation of a vector. The angle $\chi$ measures a rotation about the 
+body-fixed $z$ axis, it is an azimuthal angle about the $z$ axis just as $\phi$ is an azimuthal angle about the $Z$ axis. 
+
+Based on \autoref{eqn:rotationInTermsOfJ}, the rotation operator that corresponds to the three Euler angles can be 
+written as
+\oneline{
+D(\phi, \theta, \chi) = \exp\left(\frac{-i \phi J_{Z}}{\hbar}\right) \exp\left(\frac{-i \theta J_{Y}}{\hbar}\right) \exp\left(\frac{-i \chi J_{Z}}{\hbar}\right) \label{eqn:rotationEulerAngles}
+}
+Because of the closure property of the full rotation group, the multiplication of three rotation operators in 
+\autoref{eqn:rotationEulerAngles} is equivalent to another rotation operator
+\oneline{
+D(R) =  \exp\left(\frac{-i \alpha \mathbf{J}\cdot{\mathbf{\hat{n}}}}{\hbar}\right) = D(\phi, \theta, \chi) \ ,
+}
+which corresponds to a rotation $R$  through an angle $\alpha$ about an axis $\mathbf{\hat{n}}$. 
+
+Now we study the 
+matrix elements of the rotation operator $D(R)$. As a consequence of that fact that $\mathbf{J}^2$ commutes with 
+any component of $\mathbf{J}$,  the rotation operator $D(R)$, a function of $J_{\mathbf{\hat{n}}}$, also commute
+with $\mathbf{J}^2$. Thus the eigenfunctions $\ket{j, m}$ of $\mathbf{J}^2$ are also eigenfunctions of the rotation
+operator and rotations don't change the total angular momentum. 
+As a result, to see the effect of a rotation on a state with a definite angular momentum, we only need to calculate the
+ matrix elements of the rotation operator, 
+\oneline{
+ D^{j}_{m^{\prime} m} = \bra{j, m^{\prime}}  \exp\left(\frac{-i \alpha \mathbf{J}\cdot{\mathbf{\hat{n}}}}{\hbar}\right) \ket{j, m} \ ,
+}
+between two states with the same $j$ value. 
+The $(2 j + 2) \times (2 j + 1)$ matrix formed by $D^{j}_{m^{\prime} m}$ in the above equation is called the rotation
+matrix.  
+
+To understand the physical meaning of the rotation matrix, we start from a state $\ket{j, m}$ and rotate it. Even though
+the rotation $R$ doesn't change the $j$ value, we will generally expect the $m$ value to be different after the rotation. 
+Consequently, one would be interested in knowing the probability of the system being found in a state $\ket{j, m^{\prime}}$. By inserting an identity relation, the final state can be written as
+\multiline{
+D(R) \ket{j, m} &=& \sum_{j^{\prime}} \sum_{m^{\prime}} \ket{j^{\prime},m^{\prime}} \bra{j^{\prime},m^{\prime}} D(R) \ket{j, m} \nonumber \\
+&=& \sum_{m^{\prime}} \ket{j, m^{\prime}} \bra{j, m^{\prime}} D(R) \ket{j, m} \nonumber \\
+&=&  \sum_{m^{\prime}}  \ket{j, m} D^{j}_{m^{\prime}, m}(R) \ .
+}
+From the above equation, it is now obvious that the matrix element $D^{j}_{m^{\prime}, m}(R)$ is simply the amplitude for the rotated state to
+be found in $\ket{j, m^{\prime}}$ when the original state is $\ket{j, m}$. 
+
 
 \subsection{Coupling of angular momenta}
 

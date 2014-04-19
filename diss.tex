@@ -149,7 +149,11 @@
 %% \citet{} to produce an author-and-reference citation,
 %% \citep{} to produce a parenthetical citation.
 %% We use \citeeg{} to provide examples
+
+% original options
 \usepackage[numbers,sort&compress]{natbib}
+% my options
+%\usepackage[numbers,sort]{natbib}
 \newcommand{\citeeg}[1]{\citep[e.g.,][]{#1}}
 
 %drawing circle around the number
@@ -242,6 +246,13 @@
     pagebackref,linktocpage%
     ]{hyperref}
 
+
+%This packages makes the hyperref package and the natbib package with options
+%"numbers" and "sort&compress" work together. This means, that the citations
+%(e.g [3,2,1]) will be compressed to [1-3], where the "1" and the "3" are
+%(color-)linked to the bibliography. If you don't use it, the pages numbers that
+%are supposed to appear at the end will not appear
+\usepackage{hypernat}
 
 % draw arrows with text over it
 %\usepackage{mathtools}
