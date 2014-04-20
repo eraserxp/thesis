@@ -241,6 +241,164 @@ be found in $\ket{j, m^{\prime}}$ when the original state is $\ket{j, m}$.
 
 \subsection{Coupling of angular momenta}
 
+Suppose a system can be divided into two parts with different anglular momentum $\mathbf{J}_1$ and $\mathbf{J}_2$ 
+respectively. When the two parts of the system interact through some physical mechanism, $\mathbf{J}_1$ and 
+$\mathbf{J}_2$ become coupled and we define the addition of the two angular momenta as
+\oneline{
+\mathbf{J} = \mathbf{J}_1 +  \mathbf{J}_2 \ . 
+ }  
+It is easy to verify that $\mathbf{J}$ also satisfies the commutation rule of angular momentum
+ (\autoref{eqn:angularMomentumCommutation}) and thus the sum of two angular momenta  is also an angular momentum.
+
+In quantum mechanics, the state of a system is described by the simultaneous eigenfunctions of a complete set of 
+commuting operators. For the current system of angular momenta, there are two complete sets of angular momentum
+operators.  One set is $\mathbf{J}_1^2$, $\mathbf{J}_2^2$, $J_{1Z}$, and $J_{2Z}$, and therefore we can use their
+simultaneous eigenkets $\ket{j_1, m_1; j_2, m_2}\equiv \ket{j_1, m_1}$ and $\ket{j_2, m_2}$ to describe the system.
+This representation is called the uncouple representation. The other complete set of commuting angular 
+ momentum operators is $\mathbf{J}_1^2$, $\mathbf{J}_2^2$, $\mathbf{J}^2$, and $J_Z$. Their simultaneous 
+ eigenkets $\ket{(j_1 j_2)j, m}$ which we sometimes write as $\ket{j, m}$ are used to describe the system. This
+  representation is called the coupled representation as the quantum numbers $j$ and $m$ of the coupled angular 
+  momentum are used. Note that the bracket ``()'' in $\ket{(j_1 j_2)j, m}$ indicates the coupling of the two 
+  angular momenta and the result of the coupling is represented by the number $j$ immediately after the bracket.
+
+The two representations are describing the same set of states of the system, so they can be related by the following unitary
+transformation in the sense that connects two bases:
+\oneline{
+\ket{(j_1 j_2)j, m} = \sum_{m_1, m_2} \ket{j_1, m_1; j_2, m_2} \braket{j_1, m_1; j_2, m_2} {(j_1 j_2)j, m} \ ,
+}
+where $\braket{j_1, m_1; j_2, m_2} {(j_1 j_2)j, m}$ are called the Clebsch-Gordan coefficients. Due to symmetry 
+consideration, it is often convenient to expressed the coefficients by the 3-$j$ symbols. The relation between Clebsch-Gordan 
+coefficient and 3-$j$ symbol is given by the following two equations:
+\begin{equation}
+\left( 
+\begin{array}{ ccc }
+j_{1} & j_{2} & j_{3} \\
+m_{1} & m_{2} & m_{3}
+\end{array}
+\right) \equiv (-1)^{j_{1} - j_{2} - m_{3}} (2j_{3} +1)^{-\frac{1}{2}} \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \ ,
+\end{equation}
+\begin{equation}
+ \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \equiv (-1)^{j_{1} - j_{2} + m_{3}} (2j_{3} +1)^{\frac{1}{2}}
+\left( 
+\begin{array}{ ccc }
+j_{1} & j_{2} & j_{3} \\
+m_{1} & m_{2} & -m_{3}
+\end{array}
+\right)  \ . \label{CG-3j}
+\end{equation}
+The 3-$j$ symbols are more symmetric than Clebsch-Gordan coefficients. But we will not discuss the symmetry properties here as they are not important for understanding the thesis. The interested readers should refer to Zare's book\cite{zare-book}.  The 3-$j$ symbols contain some selection rules of angular momentum, that is, 
+%%\begin{itemize}
+%%\item 
+\begin{equation}
+\left(
+\begin{array}{ccc}
+j_{1}&j_{2}&j_{3} \\
+m_{1}&m_{2}&m_{3}
+\end{array}
+\right)
+=0 \;\;\; \mbox{unless $m_{1} + m_{2} + m_{3} = 0$ and $|j_1 - j_2| \leq j_3 \leq j_1 + j_2$, } \nonumber 
+\end{equation}
+which physically means that only certain angular momenta are coupled. Many calculations in molecular spectroscopy boil
+down to the evaluation of 3-$j$ symbols. For details on the evaluation, readers should refer to Zare's book\cite{zare-book}, which mentions some efficient algorithms for calculating 3-$j$ 
+symbols and gives algebraic expressions for the commonly encountered 3-$j$ symbols in Table 2.5. 
+ 
+
+%%
+%%\item An even permutation of the columns of 3-$j$ symbol does not change its value and an odd permutation multiplier the initial value by $(-1)^{j_{1} + j_{2} + j_{3}}$. 
+%%
+%%\item Moreover,
+%\begin{equation}
+%\left\{
+%\begin{array}{ccc}
+%j_{1}&j_{2}&j_{3} \\
+%m_{1}&m_{2}&m_{3}
+%\end{array}
+%\right\}
+%=
+%(-1)^{j_{1} + j_{2} + j_{3}}
+%\left\{
+%\begin{array}{ccc}
+%j_{1}&j_{2}&j_{3} \\
+%-m_{1}&-m_{2}&-m_{3}
+%\end{array}
+%\right\}
+%\end{equation}
+%This implies
+%\begin{equation}
+%\left\{
+%\begin{array}{ccc}
+%j_{1}&j_{2}&j_{3} \\
+%0&0&0
+%\end{array}
+%\right\}
+%=0 \;\; \;\;\mbox{unless } j_{1} + j_{2} + j_{3} = \mbox{even.}
+%\end{equation}
+%%
+%\end{itemize}
+
+Different from the coupling of two angular momenta, the coupling of three angular momenta has more than one possible
+ coupling schemes, and all these coupling schemes are related by unitary transformations. We might couple $\mathbf{j}_{1}$, $\mathbf{j}_{2}$ and $\mathbf{j}_{3}$ in such a way that
+  $\mathbf{j}_{1} + \mathbf{j}_{2}=\mathbf{j}_{12}$, $\mathbf{j}_{12} + \mathbf{j}_{3}= \mathbf{j}$. The eigenfunctions in this coupling scheme is give by $\ket{\left[(j_1 j_2) j_{12} j_3\right] j, m}$, where
+  the square bracket ``[]'', just like the bracket ``()'',  indicates the coupling of two angular momenta $j_{12}$ and $j_3$ 
+  to produce  $j$. We can also couple $\mathbf{j}_{2}$ and $\mathbf{j}_{3}$ to produce a new angular momentum 
+  $\mathbf{j}_{23}$, and then couple $\mathbf{j}_{23}$ with  $\mathbf{j}_{1}$ to produce the total angular
+   momentum  $\mathbf{j}$. The corresponding eigenfunction is given by $\ket{\left[j_1(j_2 j_3) j_{23}\right] j, m}$. 
+The transformation between the two different coupling schemes is
+\oneline{
+ \ket{ (j_1 j_{23}) j, m } = \sum_{ j_{12} } \braket{ (j_{12} j_3) j, m }{ (j_1 j_{23}) j^{\prime}, m^{\prime} } \ket{(j_{12} j_3) j^{\prime}, m^{\prime}} \delta_{j, j^{\prime}} \delta_{m, m^{\prime}} \ ,
+}
+where $\ket{ (j_1 j_{23}) j, m }$ is a short-hand way to write  $\ket{\left[j_1(j_2 j_3) j_{23}\right] j, m}$.  In the above 
+equation, since $\braket{ (j_{12} j_3) j, m \allowbreak}{ (j_1 j_{23}) j^{\prime}, m^{\prime} }$ is a scalar product, it 
+doesn't depend on the orientation of the coordinate system. Thus we can drop $m$ and $m^{\prime}$ and write it as 
+$\braket{ (j_{12} j_3) j }{ (j_1 j_{23}) j^{\prime} }$. These recoupling coefficients can be replaced with the so-called
+6-$j$ symbols defined as
+\multiline{
+\left\{
+\begin{array}{ccc}
+j_{1}&j_{2}&j_{12} \\
+j_{3}&j&j_{23}
+\end{array}
+\right\}
+= (-1)^{j_1 + j_2 + j_3 + j} \left[ (2 j_{12} + 1 ) ( 2 j_{23} + 1 )\right]^{-\frac{1}{2} } \braket{ (j_{12} j_3) j }{ (j_1 j_{23}) j^{\prime} } \nonumber \\
+}
+
+
+  
+  
+Similarly, the coupling of four angular momenta also has more than one possible coupling schemes. For example, 
+  $|\left[(j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}\right] j, m \rangle$ is associated with this coupling scheme:
+ \oneline{
+ \mathbf{j}_{1} + \mathbf{j}_{2}=\mathbf{j}_{12}\ , \;\;
+ \mathbf{j}_{3} + \mathbf{j}_{4}=\mathbf{j}_{34} \ , \;\;
+ \mathbf{j}_{12} + \mathbf{j}_{34}=\mathbf{j} \ , \nonumber
+  } 
+and  $|\left[(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}\right] j, m \rangle$ is associated with another coupling scheme:
+ \oneline{
+ \mathbf{j}_{1} + \mathbf{j}_{4}=\mathbf{j}_{14}\ , \;\;
+ \mathbf{j}_{2} + \mathbf{j}_{3}=\mathbf{j}_{23} \ , \;\;
+ \mathbf{j}_{14} + \mathbf{j}_{23}=\mathbf{j} \ . \nonumber
+  } 
+The relation between the states corresponding to different
+coupling schemes is
+\begin{eqnarray}
+|\left[(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}\right] j, m \rangle &=& \sum_{j_{12}}\sum_{j_{34}} \langle (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j  | (j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j \rangle \nonumber \\
+& & \times |\left[ (j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}\right] j, m \rangle \ , \label{9-j1}
+\end{eqnarray}
+and correspondingly the 9-$j$ symbol is defined by
+\begin{eqnarray}
+&&\braket{ (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j } {(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j } \nonumber \\
+& & = \sqrt{(2j_{12} + 1) (2j_{34} +1)(2j_{14}+1)(2j_{23} + 1)}
+\left\{
+\begin{array}{ccc}
+j_{1}& j_{2}&j_{12} \\
+j_{3}&j_{4}&j_{34} \\
+j_{14}&j_{23}&j 
+\end{array}
+\right\} \ . \label{9-j2}
+\end{eqnarray}
+The last column of the 9-$j$ symbol is related to the first coupling scheme and the last row is 
+associated with the second coupling scheme.
+
 \subsection{Irreducible spherical tensor operators}
 
 
@@ -308,62 +466,7 @@ T(1,-1) =  \frac{1}{\sqrt{2}} (x - i y) \ .  \label{t1-1}
 
 The intuitive understanding of Eq. (\ref{tensor-product}) is that two angular momentums $j_{1} =1$ and $j_{2}=1$ couple to give rise to another angular momentum $j_{3}=k$ with the projection along some direction to be $q$. 
 
-In order to know the relation between $\mathbf{d}_{A}\cdot\mathbf{d}_{B}$ and $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$, we need to calculate $\langle 1m, 1\;q-m | kq \rangle$ in Eq. (\ref{tensor-product}). They are the Clebsch-Gordan coefficients, which appear when you express the couple representation $|j_{1} j_{2} j m\rangle$ in terms of the uncouple representation $|j_{1}m_{1}\rangle |j_{2}m_{2}\rangle$. Due to symmetry consideration, it is often convenient to expressed the coefficients by the 3-j symbols. The relation between Clebsch-Gordan coefficient and 3-j symbol is given by the following two equations:
-\begin{equation}
-\left( 
-\begin{array}{ ccc }
-j_{1} & j_{2} & j_{3} \\
-m_{1} & m_{2} & m_{3}
-\end{array}
-\right) \equiv (-1)^{j_{1} - j_{2} - m_{3}} (2j_{3} +1)^{-\frac{1}{2}} \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \ ,
-\end{equation}
-\begin{equation}
- \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \equiv (-1)^{j_{1} - j_{2} + m_{3}} (2j_{3} +1)^{\frac{1}{2}}
-\left( 
-\begin{array}{ ccc }
-j_{1} & j_{2} & j_{3} \\
-m_{1} & m_{2} & -m_{3}
-\end{array}
-\right)  \ . \label{CG-3j}
-\end{equation}
-The 3-j symbols are more symmetric than Clebsch-Gordan coefficients. They have the following important property: 
-\begin{equation}
-\left\{
-\begin{array}{ccc}
-j_{1}&j_{2}&j_{3} \\
-m_{1}&m_{2}&m_{3}
-\end{array}
-\right\}
-=0 \;\;\;\; \mbox{unless } m_{1} + m_{2} + m_{3} = 0
-\end{equation}
-which physically means that only certain angular momentum eigenstates $\ket{j,m}$ are coupled.
-An even permutation of the columns of 3-j symbol does not change its value and an odd permutation multiplier the initial value by $(-1)^{j_{1} + j_{2} + j_{3}}$. Moreover,
-\begin{equation}
-\left\{
-\begin{array}{ccc}
-j_{1}&j_{2}&j_{3} \\
-m_{1}&m_{2}&m_{3}
-\end{array}
-\right\}
-=
-(-1)^{j_{1} + j_{2} + j_{3}}
-\left\{
-\begin{array}{ccc}
-j_{1}&j_{2}&j_{3} \\
--m_{1}&-m_{2}&-m_{3}
-\end{array}
-\right\}
-\end{equation}
-This implies
-\begin{equation}
-\left\{
-\begin{array}{ccc}
-j_{1}&j_{2}&j_{3} \\
-0&0&0
-\end{array}
-\right\}
-=0 \;\; \;\;\mbox{unless } j_{1} + j_{2} + j_{3} = \mbox{even.}
-\end{equation}
+In order to know the relation between $\mathbf{d}_{A}\cdot\mathbf{d}_{B}$ and $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$, we need to calculate $\langle 1m, 1\;q-m | kq \rangle$ in Eq. (\ref{tensor-product}).
 
 First, we consider the case where $k=1$ in Eq. (\ref{tensor-product}), that is $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$. Based on Eq. (\ref{tensor-product}), we obtain
 \begin{eqnarray}
@@ -399,24 +502,7 @@ There is a simple understanding of the above equation: an angular momentum $\mat
 
 -----------------------------------------------------------------------------------------------
 
-The coupling of four angular momenta has more than one possible coupling scheme, and all these coupling schemes are related by unitary transformations. We might couple $j_{1}$, $j_{2}$, $j_{3}$ and $j_{4}$ in such a way that $j_{1} + j_{4}=j_{14}$, $j_{2} + j_{3}= j_{23}$, and $j_{14} + j_{23} = j$. The eigenfunctions in this coupling scheme is give by $|(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle$. The relation between the states corresponding to different coupling schemes is
-\begin{eqnarray}
-|(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle &=& \sum_{j_{12}}\sum_{j_{34}} \langle (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j  | (j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j \rangle \nonumber \\
-& & \times |(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle \ , \label{9-j1}
-\end{eqnarray}
-and the $9-j$ symbol is defined by
-\begin{eqnarray}
-&&\langle (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j | |(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j \rangle \nonumber \\
-& & = \sqrt{(2j_{12} + 1) (2j_{34} +1)(2j_{14}+1)(2j_{23} + 1)}
-\left\{
-\begin{array}{ccc}
-j_{1}& j_{2}&j_{12} \\
-j_{3}&j_{4}&j_{34} \\
-j_{14}&j_{23}&j 
-\end{array}
-\right\} \ . \label{9-j2}
-\end{eqnarray}
-The first two rows of the $9-j$ symbol is related to the coupling scheme served as the basis set and the last row is associated with the coupling scheme of $|(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}jm \rangle$, the eigenfunction that we want to expand. 
+
 
 -----------------------------------------------------------------------------------------------
 
