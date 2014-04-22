@@ -7,7 +7,7 @@ This chapter  briefly outlines the background knowledge that is directly related
 \section{Review of angular momentum theory}
 \label{sec:angularMomentum}
 
-In this section, we briefly review of the theory of angular momentum. Instead of giving a comprehensive 
+In this section, we briefly review the theory of angular momentum. Instead of giving a comprehensive 
 picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, sakurai-book, RotSpect} have already done, we take a pragmatic approach that is more concerned about intuitive 
 understanding, discussing only the concepts and ideas that are relevant to research in this thesis. 
 
@@ -15,9 +15,9 @@ understanding, discussing only the concepts and ideas that are relevant to resea
 \label{sec:groupTheory}
 
 Symmetry is very important in that the laws of physics are easier to understand if the underlying symmetry are 
-appreciated. The theory of angular momentum is essentially the study of certain symmetry in quantum mechanics. 
+appreciated. The theory of angular momentum is essentially the study of symmetry under rotations in quantum mechanics. 
 As group theory is an important tool that is used to determine symmetry, we introduce the concepts of group
-and class in this subsection.
+ in this subsection.
 
 A set of operations $\{ A, B, C, \cdots \}$ is called a group if it satisfies the following properties:
 \begin{itemize}
@@ -26,14 +26,14 @@ A set of operations $\{ A, B, C, \cdots \}$ is called a group if it satisfies th
 \item  the multiplication of two operations is also a operation in the same set
 \item  operations are associative such that $(AB)C = A(BC)$
 \end{itemize}
-To simplify the expression of all the symmetry operations in a group, the concept of class is introduced. A class of a 
-group is defined as all the elements in the group that are conjugated to each other. By ``conjugated'', we means that 
- any two elements $A$ and $B$ in a class satisfy
-\oneline{
-X^{-1} A X = B
-}
-for any element $X$ in the group. A group can be divided into classes and then we can work with classes rather than 
-all the symmetry operations in a group. 
+%To simplify the expression of all the symmetry operations in a group, the concept of class is introduced. A class of a 
+%group is defined as all the elements in the group that are conjugated to each other. By ``conjugated'', we means that 
+% any two elements $A$ and $B$ in a class satisfy
+%\oneline{
+%X^{-1} A X = B
+%}
+%for any element $X$ in the group. A group can be divided into classes and then we can work with classes rather than 
+%all the symmetry operations in a group. 
 
 \subsection{Rotation operators and spherical harmonics}
 
@@ -55,8 +55,11 @@ such that
 \oneline{
 D(\mathbf{\hat{n}}, d\phi) = 1 - i\left(\frac{ J_{\mathbf{\hat{n}}}  }{\hbar} \right) d\phi \ . \label{eqn:rotationOperator}
 }
-From the above equation, we can regard $J_{\mathbf{\hat{n}}}$ as the generator of rotation in the sense that $ d\phi  \cdot J_{\mathbf{\hat{n}}} f$ gives the increment of a general function $f$ after the infinitesimal 
-rotation $R$ through $d\phi$ about the axis $\mathbf{\hat{n}}$.
+From the above equation, we can regard $J_{\mathbf{\hat{n}}}$ as the generator of rotation in the sense that $ J_{\mathbf{\hat{n}}}$ produces the increment of a general function $f$ due to a rotation $R$ 
+through $d\phi$ about the axis $\mathbf{\hat{n}}$, that is,
+\oneline{
+-i d\phi \left(\frac{ J_{\mathbf{\hat{n}}}  }{\hbar} \right) f = D(\mathbf{\hat{n}}, d\phi) f - f \ .
+}
 By compounding successively infinitesimal rotations about the same axis, we can obtain the finite rotation operator
 \multiline{
 D( \mathbf{\hat{n}}, \alpha) &=& \lim_{m\rightarrow \infty} \left[ 1- i\left(\frac{ \alpha}{m}\right) \left( \frac{ J_{\mathbf{\hat{n}}} }{\hbar}\right) \right]^m \nonumber \\
@@ -80,7 +83,7 @@ In the case of an infinitesimal angle $\varepsilon$, the above equation can be w
 \oneline{
 R_{z} (\varepsilon) = \mat{1-\frac{\varepsilon^2}{2} & -\varepsilon &  0 \\ \varepsilon& 1-\frac{\varepsilon^2}{2}& 0 \\ 0& 0& 1}
 } 
-By Comparing the effect of a $y$-axis rotation followed by an $x$-axis rotation with that of an $x$-axis rotation 
+By comparing the effect of a $y$-axis rotation followed by an $x$-axis rotation with that of an $x$-axis rotation 
 followed by a $y$-axis rotation, we can show that 
 \oneline{
 R_x (\varepsilon) R_y (\varepsilon) - R_y (\varepsilon) R_x (\varepsilon) = R_z (\varepsilon^2) - I \ . \label{eqn:rotationCommutation}
@@ -121,14 +124,18 @@ commutation relations:
 \left[ J_{z}, J_{\pm}\right] &=& \pm \hbar J_{\pm} \nonumber \\
 \left[ \mathbf{J}^2, J_{\pm}\right] &=& 0 \ ,
 }
-all of which can easily be obtained from \autoref{eqn:angularMomentumCommutation}. 
+all of which can easily be derived from \autoref{eqn:angularMomentumCommutation}. 
 
 As a special case of the angular momentum operator, the orbital angular momentum operator 
 $\mathbf{L} = \mathbf{r} \times \mathbf{p}$ satisfies the same commutation relations
 \oneline{
 \left[ L_i, L_j\right] = i\hbar \varepsilon_{ijk} L_{k} \ .
 }
-Using the fact that momentum is the generator of translation, we have
+Using the fact that momentum is the generator of translation:
+\multiline{
+T(d\mathbf{x}) \ket{\mathbf{r}} = \left[ 1 - i \left(\frac{\mathbf{p}}{\hbar}\right) \cdot d\mathbf{x}\right]\ket{\mathbf{r}} = \ket{\mathbf{r} + dx \,\mathbf{\hat{x}}} \ ,
+}
+ we have
 \multiline{
 &&\left[ 1 - i \left(\frac{d\phi}{\hbar}\right) L_z\right] \ket{x, y, z} = \left[ 1 - i \left(\frac{d\phi}{\hbar}\right) \left( x p_y - y p_x \right)\right] \ket{x, y, z} \nonumber \\
 && = \left[ 1 - i \left(\frac{p_y}{\hbar}\right) x d\phi + i \left(\frac{p_x}{\hbar}\right) y d\phi \right] \ket{x, y, z} \nonumber \\
@@ -148,16 +155,21 @@ Therefore, we obtain
 \oneline{
 L_{z} = -i\hbar \frac{\partial}{\partial \phi} \ .
 }
-The expressions for other orbital angular momentum operators 
+In the way, we can also derive the expressions for other orbital angular momentum operators:
 \multiline{
-L_x &=&  i\hbar \left( \sin\phi \frac{\partial}{\partial \theta} + \cot\theta \cos\phi \frac{\partial}{\partial \phi}\right) \nonumber \\
-L_y &=& - i\hbar \left( \cos\phi \frac{\partial}{\partial \theta} - \cot\theta \sin\phi \frac{\partial}{\partial \phi}\right) \ ,
+L_x &=& - i\hbar \left( -\sin\phi \frac{\partial}{\partial \theta} - \cot\theta \cos\phi \frac{\partial}{\partial \phi}\right) \ , \nonumber \\
+L_y &=& - i\hbar \left( \cos\phi \frac{\partial}{\partial \theta} - \cot\theta \sin\phi \frac{\partial}{\partial \phi}\right) \ .
 }
-can also  be derived in the same way. 
+
 
 The eigenfunctions of $\mathbf{L}^2$ and $L_z$ are known as the spherical harmonics, which are given by
 \oneline{
-Y_{l m}(\theta, \phi) = \Theta_{lm}(\theta) \Phi_{m}(\phi)
+\braket{\mathbf{\hat{n}}}{l, m} = Y_{l m}(\theta, \phi)
+}
+where $\theta$ and $\phi$ specify the orientation of $\mathbf{\hat{n}}$. The dependence of spherical harmonics on 
+angles can be separated:
+\oneline{
+Y_{l m}(\theta, \phi) = \Theta_{lm}(\theta) \Phi_{m}(\phi) \ ,
 }
 where
 \oneline{
@@ -167,7 +179,7 @@ and
 \oneline{
 \Theta_{lm}(\theta) = (-1)^{m} \left[ \frac{2 l + 1}{2} \frac{(l-m)!}{(l+m)!} \right]^{1/2} P_l^{m}(\cos\theta)
 }
-for $m\ge 0$ and $\Theta_{lm}(\theta) =(-1)^{m} \Theta_{l-m}(\theta) $ for $m<0$. Sometimes, it is more convenient
+for $m\ge 0$ and $\Theta_{lm}(\theta) =(-1)^{m} \Theta_{l-m}(\theta) $ for $m<0$, and $P_l^{m}(\cos\theta)$ are Legendre functions. Sometimes, it is more convenient
 to work with modified spherical harmonics $C_{lm}$ defined by
 \oneline{
 C_{lm} = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
@@ -175,7 +187,7 @@ C_{lm} = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
 
 \subsection{Rotation matirces}
 
-Since an arbitrary rotation can be decomposed into rotations about different coordinate axes ($x$, $y$, and $z$ axis), 
+Since an arbitrary rotation can be decomposed into rotations about three coordinate axes ($x$, $y$, and $z$ axis), 
 it is usually convenient to express the orientations of a body in terms of rotations about some fixed axes. For this to 
 work, we have to choose an initial orientation as a reference on which the rotations are operating. 
 For a vector described by the two spherical polar angles $\theta$ and $\phi$, we use a reference orientation parallel 
@@ -186,8 +198,7 @@ orientation of the vector. For a general body, three Euler angles $\phi$, $\thet
 We attach a second coordinate system 
 $(x, y, z)$ to the body and refer it as the body-fixed axis system. This axis system is called 
 body-fixed as by construction it moves and rotates along with the body as a whole. 
-Correspondingly, the original coordinate system $(X, Y, Z)$ is called the space-fixed coordinate system as it is fixed in 
-space. 
+In contrast, the original coordinate system $(X, Y, Z)$ is fixed in space, so it is called the space-fixed axis system. 
 To describe the orientation of a body, we imagine that the body is initially at a position with its body-fixed axis system
  coincident with the space-fixed axis system, and then we carry out the following three rotations:
 \begin{enumerate}
@@ -197,9 +208,9 @@ To describe the orientation of a body, we imagine that the body is initially at 
 \end{enumerate}
 These three rotations can produce arbitrary orientation of the body. For an intuitive understanding of the Euler 
 angles, we link the orientation of the body directly with $\phi$, $\theta$ and $\chi$. It can be shown that $\theta$ and
-$\phi$ are used to define the orientation of the body-fixed $z$ axis in the space-fixed axis system,  in the same way as
+$\phi$ can be used to define the orientation of the body-fixed $z$ axis in the space-fixed axis system,  in the same way as
 $\theta$ and $\phi$ are used to define the orientation of a vector. The angle $\chi$ measures a rotation about the 
-body-fixed $z$ axis, it is an azimuthal angle about the $z$ axis just as $\phi$ is an azimuthal angle about the $Z$ axis. 
+body-fixed $z$ axis. It is an azimuthal angle about the $z$ axis just as $\phi$ is an azimuthal angle about the $Z$ axis. 
 
 Based on \autoref{eqn:rotationInTermsOfJ}, the rotation operator that corresponds to the three Euler angles can be 
 written as
@@ -224,7 +235,7 @@ As a result, to see the effect of a rotation on a state with a definite angular 
  D^{j}_{m^{\prime} m} = \bra{j, m^{\prime}}  \exp\left(\frac{-i \alpha \mathbf{J}\cdot{\mathbf{\hat{n}}}}{\hbar}\right) \ket{j, m} \ ,
 }
 between two states with the same $j$ value. 
-The $(2 j + 2) \times (2 j + 1)$ matrix formed by $D^{j}_{m^{\prime} m}$ in the above equation is called the rotation
+The $(2 j + 1) \times (2 j + 1)$ matrix formed by $D^{j}_{m^{\prime} m}$ in the above equation is called the rotation
 matrix.  
 
 To understand the physical meaning of the rotation matrix, we start from a state $\ket{j, m}$ and rotate it. Even though
@@ -253,16 +264,16 @@ It is easy to verify that $\mathbf{J}$ also satisfies the commutation rule of an
 In quantum mechanics, the state of a system is described by the simultaneous eigenfunctions of a complete set of 
 commuting operators. For the current system of angular momenta, there are two complete sets of angular momentum
 operators.  One set is $\mathbf{J}_1^2$, $\mathbf{J}_2^2$, $J_{1Z}$, and $J_{2Z}$, and therefore we can use their
-simultaneous eigenkets $\ket{j_1, m_1; j_2, m_2}\equiv \ket{j_1, m_1}$ and $\ket{j_2, m_2}$ to describe the system.
+simultaneous eigenkets $\ket{j_1, m_1; j_2, m_2}\equiv \ket{j_1, m_1}\ket{j_2, m_2}$ to describe the system.
 This representation is called the uncouple representation. The other complete set of commuting angular 
  momentum operators is $\mathbf{J}_1^2$, $\mathbf{J}_2^2$, $\mathbf{J}^2$, and $J_Z$. Their simultaneous 
  eigenkets $\ket{(j_1 j_2)j, m}$ which we sometimes write as $\ket{j, m}$ are used to describe the system. This
   representation is called the coupled representation as the quantum numbers $j$ and $m$ of the coupled angular 
   momentum are used. Note that the bracket ``()'' in $\ket{(j_1 j_2)j, m}$ indicates the coupling of the two 
-  angular momenta and the result of the coupling is represented by the number $j$ immediately after the bracket.
+  angular momenta $\mathbf{J}_1$ and $\mathbf{J}_2$ and the result of the coupling is represented by the number $j$ immediately after the bracket.
 
 The two representations are describing the same set of states of the system, so they can be related by the following unitary
-transformation in the sense that connects two bases:
+transformation in the sense of connecting two bases:
 \oneline{
 \ket{(j_1 j_2)j, m} = \sum_{m_1, m_2} \ket{j_1, m_1; j_2, m_2} \braket{j_1, m_1; j_2, m_2} {(j_1 j_2)j, m} \ ,
 }
@@ -286,7 +297,7 @@ m_{1} & m_{2} & -m_{3}
 \end{array}
 \right)  \ . \label{CG-3j}
 \end{equation}
-The 3-$j$ symbols are more symmetric than Clebsch-Gordan coefficients. But we will not discuss the symmetry properties here as they are not important for understanding the thesis. The interested readers should refer to Zare's book\cite{zare-book}.  The 3-$j$ symbols contain some selection rules of angular momentum, that is, 
+The 3-$j$ symbols are more symmetric than Clebsch-Gordan coefficients. But we do not discuss the symmetry properties here as they are not important for understanding the thesis. The interested readers should refer to Zare's book\cite{zare-book}.  The 3-$j$ symbols contain some selection rules of angular momentum, that is, 
 %%\begin{itemize}
 %%\item 
 \begin{equation}
@@ -349,7 +360,7 @@ The transformation between the two different coupling schemes is
 }
 where $\ket{ (j_1 j_{23}) j, m }$ is a short-hand way to write  $\ket{\left[j_1(j_2 j_3) j_{23}\right] j, m}$.  In the above 
 equation, since $\braket{ (j_{12} j_3) j, m \allowbreak}{ (j_1 j_{23}) j^{\prime}, m^{\prime} }$ is a scalar product, it 
-doesn't depend on the orientation of the coordinate system. Thus we can drop $m$ and $m^{\prime}$ and write it as 
+doesn't depend on the orientation of the coordinate system and is independent of the projection quantum numbers. Thus we can drop $m$ and $m^{\prime}$ and write it as 
 $\braket{ (j_{12} j_3) j }{ (j_1 j_{23}) j^{\prime} }$. These recoupling coefficients can be replaced with the so-called
 6-$j$ symbols defined as
 \multiline{
