@@ -11,7 +11,7 @@ In this section, we briefly review the theory of angular momentum. Instead of gi
 picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, sakurai-book, RotSpect} have already done, we take a pragmatic approach that is more concerned about intuitive 
 understanding, discussing only the concepts and ideas that are relevant to research in this thesis. 
 
-\subsection{Group and class in group theory}  
+\subsection{Symmetry group}  
 \label{sec:groupTheory}
 
 Symmetry is very important in that the laws of physics are easier to understand if the underlying symmetry are 
@@ -237,7 +237,19 @@ As a result, to see the effect of a rotation on a state with a definite angular 
 }
 between two states with the same $j$ value. 
 The $(2 j + 1) \times (2 j + 1)$ matrix formed by $D^{j}_{m^{\prime} m}$ in the above equation is called the rotation
-matrix.  
+matrix.  Making use of \autoref{eqn:rotationEulerAngles}, we can easily show that
+\multiline{
+D^j_{m^{\prime}, m} (\phi, \theta, \chi) &=& \exp(-i\phi m^{\prime} - i\chi m) \matelement{j, m^{\prime} }{\exp(-i\theta J_Y /\hbar)}{j, m} \nonumber \\
+&\equiv& \exp(-i\phi m^{\prime} - i\chi m) d^j_{m^{\prime}, m}(\theta) \ , \label{eqn:rotationMatrixEulerAngle}
+}
+where $d^j_{m^{\prime}, m}(\theta)$ is the element of a reduced rotation matrix. As the above equation shows, the
+reduced rotation matrix can be calculated from the matrix representation of $J_Y$. We give its 
+expression here:
+\multiline{
+d^j_{m, n}(\theta) =&& \sum_{t} (-1)^t \frac{\left[ (j+m)! (j-m)! (j+n)! (j-n)! \right]^{1/2} }{(j + m -t)! (j-n-t)! t! (t+n-m)!} \nonumber \\
+&& \times \left( \cos\frac{\theta}{2} \right)^{2 j + m - n - 2 t} \left( \sin\frac{\theta}{2} \right)^{2 t - m + n } \ , \label{eqn:reducedRotationMatrix}
+}
+where the sum over $t$ is for all integers for which the factorial arguments are nonnegative. 
 
 To understand the physical meaning of the rotation matrix, we start from a state $\ket{j, m}$ and rotate it. Even though
 the rotation $R$ doesn't change the $j$ value, we will generally expect the $m$ value to be different after the rotation. 
@@ -245,18 +257,22 @@ Consequently, one would be interested in knowing the probability of the system b
 \multiline{
 D(R) \ket{j, m} &=& \sum_{j^{\prime}} \sum_{m^{\prime}} \ket{j^{\prime},m^{\prime}} \bra{j^{\prime},m^{\prime}} D(R) \ket{j, m} \nonumber \\
 &=& \sum_{m^{\prime}} \ket{j, m^{\prime}} \bra{j, m^{\prime}} D(R) \ket{j, m} \nonumber \\
-&=&  \sum_{m^{\prime}}  \ket{j, m} D^{j}_{m^{\prime}, m}(R) \ . \label{eqn:JMTransformRotation}
+&=&  \sum_{m^{\prime}}  \ket{j, m^{\prime}} D^{j}_{m^{\prime}, m}(R) \ . \label{eqn:JMTransformRotation}
 }
 From the above equation, it is now obvious that the matrix element $D^{j}_{m^{\prime}, m}(R)$ is simply the amplitude for the rotated state to
 be found in $\ket{j, m^{\prime}}$ when the original state is $\ket{j, m}$. 
 
-Finally, let's consider two important properties of the rotation matrices. From the last paragraph, we know  the basis ket 
+\subsection{Properties of rotation matrices}
+
+Let's consider some important properties of the rotation matrices. From the last subsection, we know  the basis ket 
 $\ket{j, m}$ are orthonormal and remain so on rotation, this means that the matrices that represents rotations are
 unitary, that is, $D^{-1} = D^{\dagger}$. More specifically, we have 
 \oneline{
 D^{j}_{m, n}(R^{-1}) = \left( D^{\dagger} \right)^{j}_{m, n}(R) = \left[ D_{n, m}^{j} (R)\right]^{*} \ ,
 }
-where $R^{-1}$ denotes the reverse of the rotation $R$. The other important property that we cover here is that the 
+where $R^{-1}$ denotes the reverse of the rotation $R$. 
+
+Another important property that we cover here is that the 
 rotation matrix elements  $D^{j}_{m, n}$ reduces to spherical harmonics: 
 \oneline{
 D^{j}_{m, 0}(\phi, \theta, \chi) = C_{jm}(\theta, \phi)^{*} = \sqrt{\frac{2 j + 1}{4 \pi } } Y_{jm}(\theta, \phi)^{*} \ , \label{eqn:relationDandY}
@@ -283,7 +299,17 @@ $Y_{lm}^{*}(\theta, \phi)$ with $\theta = 0$ and $\phi$ undetermined. At $\theta
 } 
 and a substitution of this equation into \autoref{eqn:DtransformSphericalHarmonics} gives rise to \autoref{eqn:relationDandY}. 
 
-
+Finally, we consider the integral of rotation matrices. From \autoref{eqn:rotationMatrixEulerAngle} and 
+\autoref{eqn:reducedRotationMatrix}, it can shown that the integral of a rotation matrix over $d\omega = \sin\theta d\phi d\theta d\chi$ is a
+product of delta functions:
+\oneline{
+\int D^j_{m^{\prime}, m}(\phi, \theta, \chi) d\omega = \delta_{j, 0}  \delta_{m^{\prime}, 0}  \delta_{m, 0} \ .
+}
+Similarly, the integral of two rotation matrices is given by
+\oneline{
+\int D^{j_1}_{m_1^{\prime}, m_1}(\phi, \theta, \chi)^* \; D^{j_2}_{m_2^{\prime}, m_2}(\phi, \theta, \chi)d\omega = \frac{8\pi^2}{2 j_1 + 1}\delta_{j_1, j_2}  \delta_{m_1^{\prime}, m_2^{\prime}}  \delta_{m_1, m_2} \ . \label{eqn:normalizationRotationMatrix} \ ,
+}
+which describes the normalization condition for rotation matrices. 
 
 \subsection{Coupling of angular momenta}
 
@@ -445,6 +471,45 @@ j_{14}&j_{23}&j
 The last column of the 9-$j$ symbol is related to the first coupling scheme and the last row is 
 associated with the second coupling scheme.
 
+\subsection{Clebsch-Gordan series}
+
+After discussing the coupling of angular momenta, we now return to rotation matrix and further develop its 
+properties in the context of angular momentum coupling. We consider the connection between the uncoupled 
+ $\ket{j_1, m_1}\ket{j_2, m_2}$ and the coupled $\ket{j, m}$ representations under a rotational transformation. 
+Applying the rotation transformation on $\ket{j_1, m_1}$, $\ket{j_1, m_1}$ and $\ket{j, m}$ individually and using
+\autoref{eqn:JMTransformRotation}, we obtain
+\multiline{
+&&\sum_{m_1^{\prime}} \sum_{m_2^{\prime} } D^{j_1}_{m_1^{\prime}, m_1}(R) D^{j_2}_{m_2^{\prime}, m_2}(R) \ket{j_1, m_1^{\prime}}\ket{j_2, m_2^{\prime} } \nonumber \\
+&& = \sum_{j}\sum_{m^{\prime}} \braket{j_1, m_1; j_2, m_2} {j, m} D^{j}_{m^{\prime}, m}(R) \ket{j, m^{\prime}} \ .
+}
+Multiplying both sides by $\bra{j_1, m_1^{\prime}}\bra{j_2, m_2^{\prime} }$, we obtain the so-called Clebsch-Gordan 
+series:
+\multiline{
+D^{j_1}_{m_1^{\prime}, m_1}(R)\; D^{j_2}_{m_2^{\prime}, m_2}(R) &=& \sum_{j} \braket{j_1, m_1; j_2, m_2} {j, m}  \braket{j_1, m_1^{\prime}; j_2, m_2^{\prime} } {j, m^{\prime} }  D^{j}_{m^{\prime}, m}(R)  \nonumber \\
+&=&  \sum_{j} (2 j + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j}{m}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j}{m^{\prime}} D^{j}_{m^{\prime}, m}(R)^* \nonumber \\ \label{eqn:CGSeries}
+}
+Similarly, the inverse Clebsch-Gordan series are given by
+\multiline{
+D^{j}_{m^{\prime}, m}(R)^* 
+&= & \sum_{m_1}\sum_{ m_1^{\prime}} \sum_{m_2} \sum_{m_2^{\prime} } (2 j + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j}{m}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j}{m^{\prime}}  \nonumber \\
+&& \times D^{j_1}_{m_1^{\prime}, m_1}(R) \; D^{j_2}_{m_2^{\prime}, m_2}(R) \ .
+}
+
+The Clebsch-Gordan series can help us to evaluate the integral over a product of three rotation matrix elements. 
+Multiplying both sides of \autoref{eqn:CGSeries} by $D^{j_3}_{m_3^{\prime}, m_3}(R)$, we have
+\multiline{
+D^{j_1}_{m_1^{\prime}, m_1}(R)\; D^{j_2}_{m_2^{\prime}, m_2}(R)  \; D^{j_3}_{m_3^{\prime}, m_3}(R) &=& \sum_{j_3} (2 j_3 + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}}  \nonumber \\
+&\times& D^{j_3}_{m_3^{\prime}, m_3}(R)^*  \; D^{j_3}_{m_3^{\prime}, m_3}(R) \ .
+}
+Then integrating over $d\omega = \sin\theta d\phi d\theta d\chi$, we obtain
+\multiline{
+&&\int D^{j_1}_{m_1^{\prime}, m_1}(\phi, \theta, \chi) \; D^{j_2}_{m_2^{\prime}, m_2}(\phi, \theta, \chi) \; D^{j_3}_{m_3^{\prime}, m_3}(\phi, \theta, \chi) d\omega \nonumber \\
+&& = 8\pi^2  \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}} 
+}
+by utilizing the normalization condition of rotation matrix (see \autoref{eqn:normalizationRotationMatrix}). The 
+above equation is very important because alternative ways to evaluate the integral is very laborious. We will use this
+equation in the derivation of the Wigner-Eckart theorem. 
+
 \subsection{Spherical tensor operators}
 
 We have seen how the angular momentum wavefunction $\ket{j, m}$ transforms under a rotation.  Specifically, based 
@@ -550,6 +615,8 @@ For later reference, we write the two important cases of \autoref{eqn:tensorCoup
 }
 
 \subsection{Matrix elements of tensor operators} 
+
+
 
 \section{Diatomic molecule in external field}
 \label{sec:moleculeInField}
