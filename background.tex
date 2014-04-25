@@ -183,7 +183,7 @@ for $m\ge 0$ and $\Theta_{lm}(\theta) =(-1)^{m} \Theta_{l-m}(\theta) $ for $m<0$
 associated Legendre polynomials. Sometimes, it is more convenient
 to work with modified spherical harmonics $C_{lm}$ defined by
 \oneline{
-C_{lm} = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
+C_{lm}(\theta, \phi) = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
 }
 
 \subsection{Rotation matirces}
@@ -271,6 +271,17 @@ unitary, that is, $D^{-1} = D^{\dagger}$. More specifically, we have
 D^{j}_{m, n}(R^{-1}) = \left( D^{\dagger} \right)^{j}_{m, n}(R) = \left[ D_{n, m}^{j} (R)\right]^{*} \ ,
 }
 where $R^{-1}$ denotes the reverse of the rotation $R$. 
+
+From \autoref{eqn:reducedRotationMatrix}, we can see the matrix elements of reduced rotation matrices are always
+ real. Taking this fact into account, the expression of rotation matrices, \autoref{eqn:rotationMatrixEulerAngle}, leads to the following property of
+rotation matrices:
+\multiline{
+D^{j}_{m, n}(R)^* &=&  \exp\left[-i\phi (-m) - i\chi (-n)\right]  d^{j}_{m, n}(\theta) \nonumber \\
+&=&  \exp\left[-i\phi (-m) - i\chi (-n)\right] (-1)^{n-m} d^{j}_{-m, -n}(\theta) \nonumber \\
+&=& (-1)^{n-m} D^{j}_{-m, -n}(R) \ . \label{eqn:complexToNormal}
+}
+As will be seen later, this equation is very useful because it helps us to deal with the complex conjugates of matrix 
+elements of rotation matrices. 
 
 Another important property that we cover here is that the 
 rotation matrix elements  $D^{j}_{m, n}$ reduces to spherical harmonics: 
@@ -504,11 +515,26 @@ D^{j_1}_{m_1^{\prime}, m_1}(R)\; D^{j_2}_{m_2^{\prime}, m_2}(R)  \; D^{j_3}_{m_3
 Then integrating over $d\omega = \sin\theta d\phi d\theta d\chi$, we obtain
 \multiline{
 &&\int D^{j_1}_{m_1^{\prime}, m_1}(\phi, \theta, \chi) \; D^{j_2}_{m_2^{\prime}, m_2}(\phi, \theta, \chi) \; D^{j_3}_{m_3^{\prime}, m_3}(\phi, \theta, \chi) d\omega \nonumber \\
-&& = 8\pi^2  \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}} 
+&& = 8\pi^2  \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}} \label{eqn:integral3RotationMatrices}
 }
 by utilizing the normalization condition of rotation matrix (see \autoref{eqn:normalizationRotationMatrix}). The 
 above equation is very important because alternative ways to evaluate the integral is very laborious. We will use this
 equation in the derivation of the Wigner-Eckart theorem. 
+Since the rotation matrix is proportional to the spherical
+harmonics under some special conditions (see \autoref{eqn:relationDandY}), we have
+\multiline{
+&&\int D^{l_1}_{0, m_1}(\phi, \theta, \chi) \; D^{l_2}_{0, m_2}(\phi, \theta, \chi) \; D^{l_3}_{0, m_3}(\phi, \theta, \chi) d\omega \nonumber \\
+&& = 8\pi^2  \threejm{l_1}{m_1}{l_2}{m_2}{l_3}{m_3}  \threejm{l_1}{0 }{l_2}{0}{l_3}{0} \nonumber \\
+&& =\sqrt{ \frac{4\pi\cdot 4\pi \cdot 4\pi}{( 2 l_1 + 1) (2 l_2 + 1)(2 l_3 + 1)} } \nonumber \\
+&& \hspace{0.5cm}\times 2\pi \int Y_{l_1  m_1}(\phi, \theta)^* \; Y_{l_2  m_2}(\phi, \theta)^* \; Y_{l_3  m_3}(\phi, \theta)^*  \sin\theta d\phi d\theta \ .
+}
+This gives rise to
+\multiline{
+&&\int Y_{l_1  m_1}(\phi, \theta) \; Y_{l_2  m_2}(\phi, \theta) \; Y_{l_3  m_3}(\phi, \theta)  \sin\theta d\phi d\theta \nonumber \\
+&& = \sqrt{ \frac{( 2 l_1 + 1) (2 l_2 + 1)(2 l_3 + 1)}{4\pi} } \threejm{l_1}{m_1}{l_2}{m_2}{l_3}{m_3}  \threejm{l_1}{0 }{l_2}{0}{l_3}{0} \ . \nonumber \\ \label{eqn:threeYintegral}
+}
+
+
 
 \subsection{Spherical tensor operators}
 
@@ -581,12 +607,16 @@ D^{\dagger}(R) Y_{lm}(\mathbf{\hat{n} }) D(R) = \sum_{m^{\prime} } Y_{lm^{\prime
 }
 Similar to the above equation, we define a spherical tensor operator of rank $k$ with $(2 k + 1)$ components as
 \oneline{
-D^{\dagger}(R) T_{q}^{(k)}(\mathbf{T}) D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)}(\mathbf{T}) \ .
+D^{\dagger}(R) T_{q}^{(k)}(\mathbf{T}) D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)}(\mathbf{T}) \ . \label{eqn:sphericalTensorDef1}
 }
 Replacing the rotation $R$ by its inverse $R^{-1}$, the above definition can be recasted into the following form:
 \oneline{
-D(R)  T_{q}^{(k)}(\mathbf{T}) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{T})  D^{k}_{q^{\prime} q }(R) \ .
+D(R)  T_{q}^{(k)}(\mathbf{T}) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{T})  D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef2}
 }
+Note that $T_{q}^{(k)}(\mathbf{T}) $ and $T_{q^{\prime}}^{(k)}(\mathbf{T}) $ here are defined with respect to the same 
+axis system.  
+
+
 
 \subsection{Coupling of spherical tensors}
 
@@ -599,7 +629,7 @@ T_{P}^{(K)}(\mathbf{R}^{k_1}, \mathbf{S}^{k_2} ) = \sum_{p_1,  p_2} \braket{k_1,
 In practice, we can regard the above equation as the coupling of two angular momenta $\mathbf{j}_1$ and 
 $\mathbf{j}_2$ to form $\mathbf{j}$. Comparing \autoref{eqn:defCGCoeffs} with \autoref{eqn:tensorCouple}, we can easily see that $j_1$ corresponds to $k_1$, $p_1$ to $m_1$, $j_2$ to $k_2$, $p_2$ to $m_2$,
 $j$ to $K$, and $m$ to $P$. Similarly, $K$ can only takes the values from $|k_1 - k_2|$ to $k_1 + k_2$. We call 
-$T_{P}^{(K)}$ as the tensor produce of $\mathbf{R}^{k_1}$ and  $\mathbf{S}^{k_2}$ and sometimes denote it as
+$T_{P}^{(K)}$ as the tensor product of $\mathbf{R}^{k_1}$ and  $\mathbf{S}^{k_2}$ and sometimes denote it as
 \oneline{
 T_{P}^{(K)}(\mathbf{R}^{k_1}, \mathbf{S}^{k_2} ) = \left[  T^{(k_1)}(\mathbf{R}) \otimes T^{(k_2)}(\mathbf{S}) \right]^{(K)}_{P} \ . \nonumber
 }
@@ -614,9 +644,102 @@ For later reference, we write the two important cases of \autoref{eqn:tensorCoup
 \  . \label{eqn:tensorContraction112} 
 }
 
+It is worthwhile to mention that all the results about spherical tensor operators by now assume that those spherical
+tensor operator to be defined with respect to one fixed axis system. However,
+ in practice, this assumption is usually not valid. Some tensor operators are naturally described in body-fixed coordinates, for example the molecular
+dipole moment operator, and other operators are more conveniently expressed in space-fixed coordinates, for instance
+the external field operator.  This leads to a question:  how the spherical harmonics defined in space-fixed axis system 
+is related to those in body-fixed axis system?  
+Suppose the molecule-fixed axes can be obtained by a rotation $R$ of the 
+space-fixed axes, \autoref{eqn:sphericalTensorDef2} will still be valid and we write it here:
+\oneline{
+D(R)  T_{q}^{(k)}(\mathbf{T}) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{T})  D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef3}
+}
+Now the tensor operators are all defined in space-fixed axis system and the body-fixed axes can be obtained by rotation 
+$R$ of the space-fixed axes. We recall that a transformation $S$ turns a wavefunction $\psi$ into  $S\psi$ and  turns 
+an operator $T$ into $S T S^{-1}$ in the transformed basis set. In the case of the rotation transformation $D$, 
+the new operator in the rotated basis set is given by $D T D^{-1} = D T D^{\dagger}$. Therefore, the left hand side of
+\autoref{eqn:sphericalTensorDef3} is just the new tensor operator in the rotated axis system (or body-fixed axis
+ system), and \autoref{eqn:sphericalTensorDef3} can be written as
+\oneline{
+T_{b}^{(k)}(\mathbf{T}) = \sum_{s =-k}^{k} D^{k}_{sb }(R) T_{s}^{(k)}(\mathbf{T})  \ , \label{eqn:sTob}
+}
+where $T_{b}^{(k)}$ is the tensor operator defined in body-fixed axis system and $T_{s}^{(k)}$ is the tensor operator
+defined in space-fixed axis system. Note that $s$ labels space-fixed components and $q$ labels body-fixed 
+components. Replacing $R$ with its inverse $R^{-1}$ and exchanging $b$ and $s$, we obtain the inverse of
+ \autoref{eqn:sTob}:
+\oneline{
+T_{s}^{(k)}(\mathbf{T}) = \sum_{s =-k}^{k} D^{k}_{sb }(R)^* \; T_{b}^{(k)}(\mathbf{T})  \ . \label{eqn:bTos}
+}
+
+
 \subsection{Matrix elements of tensor operators} 
 
+ We now consider how to evaluate  matrix elements of tensor operators with respect to angular-momentum eigenstates. 
+Given a matrix element $\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}}$ where
+$\eta$ and $\eta^{\prime}$ denotes quantum numbers other than rotational quantum numbers, we can rotate the bra, 
+operator and ket using \autoref{eqn:JMTransformRotation} and \autoref{eqn:sTob}, the result must be the same. 
+Therefore we obtain
+\multiline{
+&&\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}} \nonumber \\
+&&= \sum_{n, n^{\prime}, p} D^j_{n m}(R)^* \; D^k_{p q}(R) \; D^{j^{\prime}}_{n^{\prime} m^{\prime} }(R) \matelement{\eta, j, n}{T_p^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, n^{\prime}}  
+\ . \label{eqn:matrixElement}
+}
+Integrating over $d\omega = \sin\theta d\phi d\theta d\chi$, we obtain on the left hand side $8\pi^2 \times$ ``original 
+term'' as the matrix element is a scalar and independent of any angles, and we have on the right hand side the integral of three rotation matrices:
+\oneline{
+\int d\omega D^j_{n m}(R)^* \; D^k_{p q}(R) \; D^{j^{\prime}}_{n^{\prime} m^{\prime} }(R) \ .
+}
+Rewriting $D^j_{n m}(R)^*$ in terms of $D^j_{-n -m}(R)$ using \autoref{eqn:complexToNormal} and evaluating the integral 
+using \autoref{eqn:integral3RotationMatrices}, we obtain
+\oneline{
+(-1)^{n-m} 8\pi^2  \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} }  \threejm{j}{-n }{k}{p}{j^{\prime} }{n^{\prime}} \ .
+}
+Then we can tidy up both sides of \autoref{eqn:matrixElement} and arrive at
+\multiline{
+&&\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}} \nonumber \\
+&& = (-1)^{j-m} \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} } \Bigg\{ \sum_{n, n^{\prime}, p} (-1)^{j-n} \threejm{j}{-n }{k}{p}{j^{\prime} }{n^{\prime}}  \nonumber \\
+&&\hspace{0.5cm}  \times \matelement{\eta, j, n}{T_p^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, n^{\prime}}  \Bigg \} \ .
+}
+The term in the bracket is indepedent of projection quantum numbers and we write it as $\matelement{\eta, j}{|T_p^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}}$. Thus, we have
+\oneline{
+\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}} =  (-1)^{j-m} \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} }  \matelement{\eta, j}{|T^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}} \ .
+}
+This is the Wigner-Eckart theorem which states that the matrix element of a tensor operator in angular-momentum
+eigenstates can be separated into the part which describes all the angular dependence  and the other part which is 
+independent of projection quantum numbers and hence of orientation. 
 
+To make the Wigner-Eckart theorem useful, we need to know how to evaluate the reduced matrix element 
+$\matelement{\eta, j}{|T_p^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}}$. The usual approach is to calculate the 
+matrix element for some special cases and then derive the reduced matrix element from the result. From example,
+if we want to calculate the matrix elements associated with the tensor operator of the modified spherical harmonics 
+$C_{kq}(\theta, \phi)$, $\matelement{ l_1, m_1}{C_{kq}(\theta, \phi) } { l_2, m_2}$, 
+%\oneline{
+%\matelement{ l_1, m_1}{C_{kq}(\theta, \phi) } { l_2, m_2} =  (-1)^{l_{1} -m_{1} } \threejm{l_1}{-m_1}{k}{q}{l_2 }{m_2 }  \matelement{ l_1}{|C^{(k)}| } {l_2} \ , \label{eqn:matrixElementSpecial}
+%}
+we can consider the special case when $q=0$, $m_1 =0$ and $m_2 =0$. The corresponding matrix element can be converted to a integral of three spherical harmonics:
+\oneline{
+\matelement{ l_1, 0}{C_{k0}(\theta, \phi) } { l_2, 0} = \sqrt{\frac{4\pi}{2 k + 1}} \matelement{ Y_{ l_1 0} }{Y_{k0} } { Y_{ l_2 0}} \ , \nonumber \\
+}
+which gives rise to 
+\oneline{
+\left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2}  {\threejm{l_1}{0 }{k}{0}{l_2}{0}}^2   \label{eqn:resultSpecialCase}
+}
+based on \autoref{eqn:threeYintegral}. 
+Alternatively, from the Wigner-Eckart theorem, we have
+\oneline{
+\matelement{ l_1, 0}{C_{k0}(\theta, \phi) } { l_2, 0} =  (-1)^{l_1}  \threejm{l_1}{0}{k}{0}{l_2 }{0 }  \matelement{ l_1}{|C^{(k)}| } {l_2} \ . \label{eqn:resultW-Etheorem}
+}
+Comparing \autoref{eqn:resultSpecialCase} with \autoref{eqn:resultW-Etheorem}, we obtain
+\oneline{
+ \matelement{ l_1}{|C^{(k)}| } {l_2} = (-1)^{l_1} \left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2} \threejm{l_1}{0}{k}{0}{l_2 }{0 } \ .
+}
+From this reduced matrix element, any matrix elements can be calculated from
+\multiline{
+\matelement{ l_1, m_1}{C_{kq}(\theta, \phi) } { l_2, m_2} &=&  (-1)^{m_{1} } \left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2}  \threejm{l_1}{0}{k}{0}{l_2 }{0 } \nonumber \\
+&\times& \threejm{l_1}{-m_1}{k}{q}{l_2 }{m_2 }  \label{eqn:matrixElementModifiedY}
+}
+based on the Wigner-Eckart theorem.
 
 \section{Diatomic molecule in external field}
 \label{sec:moleculeInField}
