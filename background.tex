@@ -5,7 +5,7 @@ This chapter  briefly outlines the background knowledge that is directly related
 
 
 \section{Review of angular momentum theory}
-\label{sec:angularMomentum}
+\label{sec:reviewAngularMomentum}
 
 In this section, we briefly review the theory of angular momentum. Instead of giving a comprehensive 
 picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, sakurai-book, RotSpect} have already done, we take a pragmatic approach that is more concerned about intuitive 
@@ -741,18 +741,89 @@ From this reduced matrix element, any matrix elements can be calculated from
 }
 based on the Wigner-Eckart theorem.
 
-\section{Diatomic molecule in external field}
+\section{Application of angular momentum theory}
+\label{sec:applicationAMT}
+
+We have reviewed the theory of angular momentum in \autoref{sec:reviewAngularMomentum}. To deep our 
+understanding and also to lay foundation for later chapters, we apply the theory of angular momentum to solve some
+problems closely related to the research in this thesis. 
+
+\subsection{Diatomic molecule in external field}
 \label{sec:moleculeInField}
+The first problem is about calculating the dressed rotation states of molecules in an external field. For simplicity, we 
+only consider $^1\Sigma$ molecules with a permanent dipole momentum and no spins. Since only rotational states are
+relevant here, the total Hamiltonian can be written as
+\oneline{
+H = H_{\rm rot} + H_{I} \ ,
+}
+where $H_{\rm rot} $ describes the rotational states of the system without any external field 
+and $H_{I}$ describes the interaction of the molecule with external field. In the case of a $^1\Sigma$ molecules, and $H_{\rm rot}$ is given by
+\oneline{
+H_{\rm rot} = B \hat{N}^2 \ ,
+}
+where $\hat{N}$ the rotational angular momentum operator and $B$ is the rotational constant obtained by averaging 
+over all quantum states other than rotational states. To obtain the eigenstate of the total Hamiltonian, we can use the
+bare rotation states $\ket{N, M}$ as basis set.  We want to know the matrix representation of $H$ and calculate its 
+eigenvalues and eigenvectors. The rotational part of the Hamiltonian only contributes to the diagonal part of the matrix 
+and is given by
+\oneline{
+\matelement{N, M}{H_{\rm rot}}{N^{\prime}, M^{\prime}} = \delta_{N, N^{\prime}} \delta_{M, M^{\prime}} B N (N+1) \ . 
+}
+The evaluation of the contribution from the interaction part is more involved and we discuss it in the following two 
+cases.
 
-\subsection{DC field}
-\label{sec:dcField}
+First, we consider a fixed DC field. The interaction part of the Hamiltonian can be written as
+\oneline{
+H_{I} =  -\mathbf{d} \cdot \mathbf{E} = d \mathcal{E}_{ \tiny \rm DC}  \;\cos\theta \ ,
+}
+where $\mathbf{d}$ is the permanent dipole, $\mathbf{E}$ represents the external DC field, and $\theta$ is the 
+angle between $\mathbf{d}$ and $\mathbf{E}$. To evaluate the corresponding matrix elements, we need to 
+calculate $\matelement{N, M}{\cos\theta}{N^{\prime}, M^{\prime}}$. Because $\cos\theta$ can be expressed
+in terms of a spherical harmonic:
+\oneline{
+\cos\theta = \sqrt{\frac{4\pi}{3} }Y_{10}(\theta, \phi) = C_{10} \ ,
+}
+from \autoref{eqn:matrixElementModifiedY}, we obtain
+\multiline{
+&&\matelement{N, M}{H_{I}}{N^{\prime}, M^{\prime}} =  E d \matelement{N, M}{C_{10}}{N^{\prime}, M^{\prime}} \nonumber \\
+ &&=(-1)^{M }  d \mathcal{E}_{ \tiny \rm DC}\sqrt{ (2N + 1) (2N^{\prime} + 1)}  \threejm{N}{0}{1}{0}{N^{\prime} }{0 }
+\threejm{N}{-M}{1}{0}{N^{\prime} }{M^{\prime} } \ . \nonumber \\
+}
 
-\subsection{AC field}
-\label{sec:acField}
+Second, we consider a  laser field which is off-resonant with any vibrational, electronic states 
+of the molecule. The strength of the AC field at any moment is given by 
+\oneline{
+\mathcal{E}_{ AC} (t)= \mathcal{E}_{ AC, 0}\; \cos(\omega t) \ ,
+}
+where $\omega$ is the frequency of the laser. In this case, the interaction Hamiltonian is given by \cite{friedrich-95}
+\oneline{
+H_{I}(t) = - d \mathcal{E}_{ AC} (t) \cos\theta_{AC} - \frac{1}{2} \mathcal{E}_{ AC}^2 (t) \left( \alpha_{\parallel} \cos^2\theta_{AC} + \alpha_{\perp}\sin^2 \theta_{AC} \right) \ , \label{eqn:Hit}
+}
+where $\theta_{AC}$ is the angle between the dipole moment of the molecule and the AC field, $\alpha_\|$ and
+$\alpha_{\perp}$ are the parallel and perpendicular polarizabilities of the molecule. 
+The interaction Hamiltonian is a function of time, and changes very fast as $\mathcal{E}_{ AC} (t)$ oscillates at optical 
+frequency.
+During one period of rotational motion of the molecule, the interaction Hamiltonian has oscillated many times. 
+Therefore, we can average $H_{I}(t)$ over one oscillation period of the light and obtain the effective interaction
+interaction Hamiltonian:
+\oneline{
+H_{I} =  - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \left( \Delta \alpha \cos^2\theta_{AC} + \alpha_{\perp} \right) \ , \label{eqn:Hit}
+}
+where $\Delta \alpha = \alpha_{\parallel} - \alpha_{\perp}$
+As we did in the case of DC field, to calculate the matrix elements of the interaction Hamiltonian, we rewrite 
+$\cos^2\theta_{AC}$ in terms of the spherical harmonics  and express the matrix elements in terms of the matrix 
+elements of the modified spherical harmonics. As a consequence, we obtain
+\multiline{
+&&\matelement{N, M}{H_{I}}{N^{\prime}, M^{\prime}} = - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \matelement{N, M}{\left( \Delta\alpha \cos^2\theta_{AC} + \alpha_{\perp} \right)}{N^{\prime}, M^{\prime}}\nonumber \\ 
+&&= - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \matelement{N, M}{\left[ \Delta\alpha \left(\frac{2}{3} C_{20} + \frac{1}{3} \right) + \alpha_{\perp} \right]}{N^{\prime}, M^{\prime}} \nonumber \\
+&&= - \frac{\mathcal{E}_{ AC, 0}^2}{12}  \bigg[ (-1)^M 2\Delta\alpha\sqrt{(2 N + 1)(2 N^{\prime} + 1)} \threejm{N}{0}{2}{0}{N^{\prime} }{0 }
+\threejm{N}{-M}{2}{0}{N^{\prime} }{M^{\prime} } \nonumber \\
+&& \nonumber \\
+&&  \hspace{2.5cm} +  \left(\Delta\alpha + 3\alpha_{\perp} \right) \delta_{N, N^{\prime}}  \delta_{M, M^{\prime}} \bigg ]
+}
+based on  \autoref{eqn:matrixElementModifiedY}. 
 
-
-
-\section{Dipole-dipole interaction between two molecules in optical lattices}
+\subsection{Dipole-dipole interaction}
 \label{sec::ddInteraction}
 
 The energy difference between the excited sate and the ground state, $\Delta_{eg}$ can be easily calculated by diagonalizing  the total Hamiltonian including the external potential. We know how to calculate the potential due to dipole-dipole interaction 
