@@ -589,11 +589,11 @@ From  the above example of decomposition of the tensor $\mathbf{T}$, it seems li
 used as the irreducible tensor to represent any reducible tensor. This motivates us to define the irreducible spherical
 tensors based on the spherical harmonics. Before presenting the definition of a spherical tensor, let's first investigate
 how the spherical harmonics tranform under rotations. For a direction eigenket $\ket{  \mathbf{\hat{n}}  }$, a rotation 
-transform it another direction eigenket $\ket{  \mathbf{\hat{n }^{\prime} }  }$:
+transform it to another direction eigenket $\ket{  \mathbf{\hat{n }^{\prime} }  }$:
 \oneline{
 \ket{  \mathbf{\hat{n}^{\prime}  }  } = D(R) \ket{  \mathbf{\hat{n}}  } \ .
 }
-By taking the conjugate of the above equation and then multiplying $\ket{l m}$ on the right, we obtain
+By taking the hermitian adjoint of the above equation and then multiplying $\ket{l m}$ on the right, we obtain
 \oneline{
 Y_{lm}(\mathbf{\hat{n}^{\prime} }) = \sum_{m^{\prime} } Y_{lm^{\prime} }(\mathbf{\hat{n} })\left(D^{\dagger}\right)^{l}_{m^{\prime} m}(R) \ . \label{eqn:howYTransform}
 }
@@ -605,17 +605,64 @@ Then \autoref{eqn:howYTransform} becomes
 \oneline{
 D^{\dagger}(R) Y_{lm}(\mathbf{\hat{n} }) D(R) = \sum_{m^{\prime} } Y_{lm^{\prime} }(\mathbf{\hat{n} })D^{l\, *}_{m m^{\prime} }(R)
 }
-Similar to the above equation, we define a spherical tensor operator of rank $k$ with $(2 k + 1)$ components as
+Similar to the above equation, we define a irreducible spherical tensor operator of rank $k$ with $(2 k + 1)$ components as
 \oneline{
-D^{\dagger}(R) T_{q}^{(k)}(\mathbf{T}) D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)}(\mathbf{T}) \ . \label{eqn:sphericalTensorDef1}
+D^{\dagger}(R) T_{q}^{(k)} D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)} \ . \label{eqn:sphericalTensorDef1}
 }
 Replacing the rotation $R$ by its inverse $R^{-1}$, the above definition can be recasted into the following form:
 \oneline{
-D(R)  T_{q}^{(k)}(\mathbf{T}) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{T})  D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef2}
+D(R)  T_{q}^{(k)} D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)} D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef2}
 }
-Note that $T_{q}^{(k)}(\mathbf{T}) $ and $T_{q^{\prime}}^{(k)}(\mathbf{T}) $ here are defined with respect to the same 
-axis system.  
+Note that $T_{q}^{(k)} $ and $T_{q^{\prime}}^{(k)}$ here are defined with respect to the same 
+axis system. Because the spherical harmonics and the irreducible spherical tensors transform in the same way under 
+rotations, they are proportional to each other. We give their relationship as follows:
+\oneline{
+T^{(k)}_{q} = \left( \frac{4\pi k!}{(2 k + 1)!!} \right)^{1/2} Y_{k q} \ , \label{eqn:relationTwithY}
+}
+where 
+\multiline{
+n!! = \left\{ 
+  \begin{array}{l l}
+    n\cdot (n-2)\cdots 5\cdot 3 \cdot 1 & \quad \text{if $n$ is odd and positive}\\
+   n\cdot (n-2)\cdots 6\cdot 4 \cdot 2 & \quad \text{if $n$ is even and positive} \\
+    1 & \quad \text{if $n$ is $-1$ or 0}
+  \end{array} \right.
+}
+From \autoref{eqn:relationTwithY}, it is obvious that the firsr-rank irreducible spherical tensor is just the modified 
+spherical harmonics:
+\oneline{
+T^{(1)}_{q} = C_{1 q} \ .
+}
 
+
+In quantum mechanics, operators are usually written in term of cartesian vectors, like the position vector 
+$\mathbf{r}$ and the electric dipole moment operator $\mathbf{d}$, and we want to know their corresponding spherical 
+tensor operators. In such cases, the definition of spherical tensors is 
+not very useful and we need to find alternative ways. It turns out that the irreducible spherical tensor can be written in 
+terms of Cartesian 
+ coordinates. For example the first-rank irreducible spherical tensor is given by:
+\begin{equation}
+T^{(1)}_{1} = - \frac{1}{\sqrt{2}} (\hat{X} + i \hat{Y}) \ , 
+\end{equation}
+\begin{equation}
+T^{(1)}_{0}(\mathbf{V})  = \hat{Z} \ ,
+\end{equation}
+\begin{equation}
+T^{(1)}_{-1}(\mathbf{V}) =  \frac{1}{\sqrt{2}} (\hat{X} - i \hat{Y}) \ ,  
+\end{equation}
+where $\hat{X}$, $\hat{Y}$, and $\hat{Z}$ represents the units lengths for the Cartesian coordinate system.
+For every cartesian vector $\mathbf{V}$, there is one corresponding first-rank spherical tensor $T^{(1)}(\mathbf{V})$.  
+Similar to the irreducible spherical tensor,  $T^{(1)}(\mathbf{V})$ can also be written in terms of cartesian vectors 
+$\mathbf{V}$:
+\begin{equation}
+T^{(1)}_{1}(\mathbf{V}) = - \frac{1}{\sqrt{2}} (V_{X}\,\hat{X} + i V_{Y}\,\hat{Y}) \ , \label{t11}
+\end{equation}
+\begin{equation}
+T^{(1)}_{0}(\mathbf{V})  = V_{Z}\hat{Z} \ , \label{t10}
+\end{equation}
+\begin{equation}
+T^{(1)}_{-1}(\mathbf{V}) =  \frac{1}{\sqrt{2}} (V_{X}\hat{X} - i V_{Y}\hat{Y}) \ .  \label{t1-1}
+\end{equation}
 
 
 \subsection{Coupling of spherical tensors}
@@ -631,18 +678,42 @@ $\mathbf{j}_2$ to form $\mathbf{j}$. Comparing \autoref{eqn:defCGCoeffs} with \a
 $j$ to $K$, and $m$ to $P$. Similarly, $K$ can only takes the values from $|k_1 - k_2|$ to $k_1 + k_2$. We call 
 $T_{P}^{(K)}$ as the tensor product of $\mathbf{R}^{k_1}$ and  $\mathbf{S}^{k_2}$ and sometimes denote it as
 \oneline{
-T_{P}^{(K)}(\mathbf{R}^{k_1}, \mathbf{S}^{k_2} ) = \left[  T^{(k_1)}(\mathbf{R}) \otimes T^{(k_2)}(\mathbf{S}) \right]^{(K)}_{P} \ . \nonumber
+T_{P}^{(K)}(\mathbf{R}^{k_1}, \mathbf{S}^{k_2} ) = \left[  \mathbf{R}^{(k_1)} \otimes \mathbf{S}^{(k_2)} \right]^{(K)}_{P} \ . \nonumber
 }
 
-For later reference, we write the two important cases of \autoref{eqn:tensorCouple} here:
+For later reference, we write the two most important cases of \autoref{eqn:tensorCouple} here:
 \oneline{
- \left[  A^{(k)} \otimes B^{(k)} \right]^{(0)}_{0}  = (2 k + 1)^{-\frac{1}{2}} \sum_{q} (-1)^{k-q} A^{(k)}_q  B^{(k)}_{-q} \  , \label{eqn:tensorContraction00} 
+ \left[   \mathbf{A}^{(k)} \otimes \mathbf{B}^{(k)} \right]^{(0)}_{0}  = (2 k + 1)^{-\frac{1}{2}} \sum_{q} (-1)^{k-q} T^{(k)}_q  (\mathbf{A})  T^{(k)}_{-q} (\mathbf{B})\  , \label{eqn:tensorContraction00} 
 }
 \multiline{
- \left[  A^{(1)} \otimes B^{(1)} \right]^{(0)}_{0}  &=& \sum_{q_{A} } \braket{1, q_{A} ; 1, q_{B} } {2, q} A^{(1)}_{q_{A} }  B^{(1)}_{q_B } \nonumber \\
-&=& \sum_{q_{A} } (-1)^q \sqrt{5} \threejm{1}{q_A }{1}{q_B }{2}{-q} A^{(1)}_{q_{A} }  B^{(1)}_{q_B }
-\  . \label{eqn:tensorContraction112} 
+ \left[  \mathbf{A}^{(1)} \otimes \mathbf{B}^{(1)} \right]^{(2)}_{q}  &=& \sum_{q_{A} } \braket{1, q_{A} ; 1, q_{B} } {2, q} T^{(1)}_{q_{A} } (\mathbf{A})  T^{(1)}_{q_B } (\mathbf{B}) \nonumber \\
+&=& \sum_{q_{A} } (-1)^q \sqrt{5} \threejm{1}{q_A }{1}{q_B }{2}{-q} T^{(1)}_{q_{A} } (\mathbf{A})  T^{(1)}_{q_B } (\mathbf{B})
+\  . \nonumber \\ \label{eqn:tensorContraction112} 
 }
+
+
+It is helpful to examine further the meaning of $\left[  A^{(1)} \otimes B^{(1)} \right]^{(0)}_{0}$. 
+Based on \autoref{eqn:tensorContraction00}), we obtain
+\begin{eqnarray}
+\left[ \mathbf{A}^{(1)}\otimes \mathbf{B}^{(1)} \right]_{0}^{(0)} =\frac{1}{\sqrt{3}}\left[T^{(1)}_{1}(\mathbf{A}) T^{(1)}_{-1}(\mathbf{B}) -T^{(1)}_{0}(\mathbf{A}) T^{(1)}_{0}(\mathbf{B}) +  T^{(1)}_{-1} (\mathbf{A}) T^{(1)}_{1}(\mathbf{B})\right] \nonumber \\
+\end{eqnarray}
+Substituting Eq. (\ref{t11}), (\ref{t10}) and (\ref{t1-1}) into the above equation, we obtain
+\begin{equation}
+\left[ \mathbf{A}^{(1)}\otimes \mathbf{B}^{(1)} \right]_{0}^{(0)}  = -\frac{1}{\sqrt{3}} (A_{X}B_{X}+ A_{Y}B_{Y} + A_{Z}B_{Z}) = -\frac{1}{\sqrt{3}} \mathbf{A}\cdot\mathbf{B} \ .
+\end{equation}
+Therefore, the rank-zero tensor product of two rank-one tensors is equivalent to the scalar product of the corresponding
+ vectors except for a factor.  
+Similarly, it can be shown that the tensor product of rank $k=1$ is related to the cross product. 
+\begin{equation}
+\left[ A^{(1)} \otimes B^{(1)} \right]_{q}^{(k)} = (\mathbf{A}\times \mathbf{B})\cdot \mathbf{\hat{e}}_{q} \ ,
+\label{eqn:crossProduct}
+\end{equation}
+where
+\begin{eqnarray}
+\mathbf{\hat{e}}_{+1} &=& -\frac{1}{\sqrt{2}}(\mathbf{\hat{X}} + i \mathbf{\hat{Y}}) \nonumber \\
+\mathbf{\hat{e}}_{0} &=& \mathbf{\hat{Z}} \nonumber \\
+\mathbf{\hat{e}}_{-1} &=& \frac{1}{\sqrt{2}}(\mathbf{\hat{X}} - i \mathbf{\hat{Y}}) \ .
+\end{eqnarray}
 
 It is worthwhile to mention that all the results about spherical tensor operators by now assume that those spherical
 tensor operator to be defined with respect to one fixed axis system. However,
@@ -826,96 +897,35 @@ based on  \autoref{eqn:matrixElementModifiedY}.
 \subsection{Dipole-dipole interaction}
 \label{sec::ddInteraction}
 
-The energy difference between the excited sate and the ground state, $\Delta_{eg}$ can be easily calculated by diagonalizing  the total Hamiltonian including the external potential. We know how to calculate the potential due to dipole-dipole interaction 
-\begin{equation}
-\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\hat{R})\cdot(\mathbf{d}_{B}\cdot\hat{R})\right] \ , \nonumber
-\end{equation}
-($\vec{R}$ is the vector connecting the centers of mass of two molecules, and $\hat{R}$ is an unit vector in the direction of $\vec{R}$), 
-
-
-In this appendix, we will calculate the dipole-dipole interaction between two molecules by using the theory of angular momentum. The treatment of the theory of angular momentum is simplified so that only the necessary part that are directly used in the derivation of dipole-dipole interaction is covered. The structure of this appendix is  unconventional. We starts with a problem and then develop the techniques to solve it. In a sense, the appendix is a series of problem-solving blocks. However, in order not to interrupt the logic of problem solving, we will not separate them into different subsections. 
-
-We have two molecules A and B, which are in states $|N_{A}M_{A}\rangle$ and $|N_{B}M_{B}\rangle$ respectively. In free space, the molecules can rotate along the axis connecting their center of mass, then their state are expressed by
+The second problem that we consider is about calculating the dipole-dipole interaction between two molecules by using the theory of angular momentum. 
+We have two molecules A and B, which are in rotational states $|N_{A}M_{A}\rangle$ and $|N_{B}M_{B}\rangle$ 
+respectively. In free space, the molecules can rotate along the axis connecting their center of mass, then their state 
+are expressed by
 \begin{equation}
 |N_{A}M_{A}\rangle |N_{B}M_{B}\rangle |lm\rangle  \ , \nonumber
 \end{equation}
 where $l$ is the total angular momentum of A and B together. 
-
-However, in solid state or optical lattices, the position of molecules are fixed to a good approximation, they cannot rotate along that axis. In this case, their states are given by $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ if there is no interaction between them. If we consider the interaction between the two molecules, we can always use $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ as basis set. By expanding the Hamiltonian in this basis set and diagonalizing it, we can get the new eigenstates.
+However, in solid state or optical lattices, the position of molecules are fixed to a good approximation, they cannot rotate about the intermolecular axis. In this case, their states are given by $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ if there is no interaction between them. If we consider the interaction between the two molecules, we can always use $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ as basis set. By expanding the Hamiltonian in this basis set and diagonalizing it, we can get the new eigenstates.
 
 As the first step, we have to know what the interaction between the two molecules is. If A has a permanent dipole of $\mathbf{d}_{A}$ and B has a permanent dipole of $\mathbf{d}_{B}$ and the vector connecting their centers of mass is $\mathbf{R}$, then the dipole-dipole interaction between A and B is given by
 \begin{equation}
-\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})\right]  \ . \label{dd-operator}
+\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})\right]  \ , \label{dd-operator}
 \end{equation}
-Here we only consider the dipole moment, there also exists quadrupole, octopole, ..., etc., but their magnitudes are so small that we can ignore them at large distances, say, 400 nm. Our final goal is to evaluate the matrix element $\langle N_{A}M_{A}|\langle N_{B}M_{B} | \hat{V}_{\mbox{\tiny dd}}|N_{A}^{'}M_{A}^{'}\rangle |N_{B}^{'}M_{B}^{'}      \rangle$. The general scheme to calculate the matrix elements is based on the fact that the dipole-dipole operator (Eq. (\ref{dd-operator}) ) can be expressed in terms of harmonics operators. Then its matrix elements can be written in terms of 3-j symbols, which can be calculated numerically. 
+where $\mathbf{d}_{A}$ and $\mathbf{d}_{B}$ are the dipole moment operators for molecule $A$ and molecule 
+$B$. 
+Here we only consider the dipole moment, there also exists quadrupole, octopole, ..., etc., but their magnitudes are so small that we can ignore them at large distances, say, 400 nm. Our final goal is to evaluate the matrix element $\langle N_{A}M_{A}|\langle N_{B}M_{B} | \hat{V}_{\mbox{\tiny dd}}|N_{A}^{'}M_{A}^{'}\rangle |N_{B}^{'}M_{B}^{'}      \rangle$. The general scheme to calculate the matrix elements is to rewrite the dipole-dipole operator (\autoref{dd-operator}) in terms of spherical harmonics, and then the matrix elements can be written in terms of 3-$j$ symbols, which can be calculated numerically. 
 
-We first consider the simpler term in Eq. (\ref{dd-operator}), $\mathbf{d}_{A}\cdot\mathbf{d}_{B}$, which can be expressed in terms of a tensor product:
+The first term in the square bracket of \autoref{dd-operator}, can be expressed in terms of a tensor product:
 \begin{equation}
 \mathbf{d}_{A}\cdot\mathbf{d}_{B} = - \sqrt{3} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)} \ . \label{dot-product}
 \end{equation}
-But why should we do that? The answer will become clear later when you see the tensor product is related to spherical harmonics. Now, the task is to prove Eq. (\ref{dot-product}). The proof is enclosed between two straight lines. 
-
------------------------------------------------------------------------------------------------
-
-Based on the property of tensor product, we have
-\begin{equation}
-\left[ A^{(1)} \otimes B^{(1)} \right]_{q}^{(k)} =\sum_{m} \langle 1m, 1\;q-m | kq \rangle A(1,m)B(1, q-m) \ , \label{tensor-product}
-\end{equation}
-where the superscript $(k)$ is the rank of the tensor. A tensor $T$ of rank one is a vector operator. It consists of three operators 
-\begin{equation}
-T(1,1) = - \frac{1}{\sqrt{2}} (x + i y) \ , \label{t11}
-\end{equation}
-\begin{equation}
-T(1,0) = z \ , \label{t10}
-\end{equation}
-and 
-\begin{equation}
-T(1,-1) =  \frac{1}{\sqrt{2}} (x - i y) \ .  \label{t1-1}
-\end{equation}
-
-The intuitive understanding of Eq. (\ref{tensor-product}) is that two angular momentums $j_{1} =1$ and $j_{2}=1$ couple to give rise to another angular momentum $j_{3}=k$ with the projection along some direction to be $q$. 
-
-In order to know the relation between $\mathbf{d}_{A}\cdot\mathbf{d}_{B}$ and $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$, we need to calculate $\langle 1m, 1\;q-m | kq \rangle$ in Eq. (\ref{tensor-product}).
-
-First, we consider the case where $k=1$ in Eq. (\ref{tensor-product}), that is $\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}$. Based on Eq. (\ref{tensor-product}), we obtain
-\begin{eqnarray}
-\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)} & = & \sum_{m=-1,0,1} \langle 1 m, 1 -m | 00\rangle \mathbf{d}_{A}(1, m) \mathbf{d}_{B}(1, -m) \nonumber \\
-&=& \langle 1 1, 1 -1 | 00\rangle \mathbf{d}_{A}(1, 1) \mathbf{d}_{B}(1, -1) + \langle 1 0, 1 0 | 00\rangle \mathbf{d}_{A}(1, 0) \mathbf{d}_{B}(1, 0) \nonumber \\
-&  & + \langle 1 -1, 1 1 | 00\rangle \mathbf{d}_{A}(1, -1) \mathbf{d}_{B}(1, 1) \nonumber \\
-&=&\frac{1}{\sqrt{3}} \mathbf{d}_{A}(1, 1) \mathbf{d}_{B}(1, -1) - \frac{1}{\sqrt{3}}\mathbf{d}_{A}(1, 0) \mathbf{d}_{B}(1, 0) +  \frac{1}{\sqrt{3}} \mathbf{d}_{A}(1, -1) \mathbf{d}_{B}(1, 1) \nonumber \\
-\end{eqnarray}
-(Mathematica can be used to evaluate the Clebsch-Gordan coefficients.)
-Substituting Eq. (\ref{t11}), (\ref{t10}) and (\ref{t1-1}) into the above equation, we obtain
-\begin{equation}
-\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)}  = -\frac{1}{\sqrt{3}} (\mathbf{d}_{A,x}\mathbf{d}_{B,x} + \mathbf{d}_{A,y}\mathbf{d}_{B,y} + \mathbf{d}_{A,z}\mathbf{d}_{B,z}) = -\frac{1}{\sqrt{3}} \mathbf{d}_{A}\cdot\mathbf{d}_{B} \ .
-\end{equation}
-Therefore, the tensor product of rank $k=0$ is related to the scalar product. Similarly, it can be shown that the tensor product of rank $k=1$ is related to the cross product. 
-\begin{equation}
-\left[ A^{(1)} \otimes B^{(1)} \right]_{q}^{(k)} = (\mathbf{A}\times \mathbf{B})\cdot \mathbf{\hat{e}}_{q} \ ,
-\end{equation}
-where
-\begin{eqnarray}
-\mathbf{\hat{e}}_{+1} &=& -\frac{1}{\sqrt{2}}(\mathbf{\hat{X}} + i \mathbf{\hat{Y}}) \nonumber \\
-\mathbf{\hat{e}}_{0} &=& \mathbf{\hat{Z}} \nonumber \\
-\mathbf{\hat{e}}_{-1} &=& \frac{1}{\sqrt{2}}(\mathbf{\hat{X}} - i \mathbf{\hat{Y}})
-\end{eqnarray}
-
-
------------------------------------------------------------------------------------------------
-
-As for the second term in the square bracket in Eq. (\ref{dd-operator}), we can do the same thing. Instead of considering the product of two scalars $(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})$, we consider it as a special case of the scalar product of two vectors (thinking of a vector with two components being zero ). Then according to Eq. (\ref{dot-product}), we have
+The second term in the square bracket of \autoref{dd-operator} is the product of two scalars $(\mathbf{d}_{A}$ and $\hat{R})(\mathbf{d}_{B}\cdot\hat{R})$, we consider it as a special case of the dot product of two vectors in one-dimensional space. Then according to \autoref{dot-product}, we obtain
 \begin{equation}
 (\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})= 3\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}  \ .
 \end{equation}
-There is a simple understanding of the above equation: an angular momentum $\mathbf{d}_{A}$ with $j_{1}=1$ couples  another angular momentum $\hat{R}$ with $j_{2}=1$ to give rise to a new angular momentum, and an angular momentum $\mathbf{d}_{B}$ with $j_{3}=1$ couples  another angular momentum $\hat{R}$ with $j_{4}=1$ to give rise to another new angular momentum, and then these two new angular momentum couples with each other. It is necessary to regroup these operators such that dipole operators are separated from the position operators. The regrouping of operators corresponds to different coupling schemes (orders) of the four angular momentums. In the following, we will talk about the coupling of four angular momentums.
-
------------------------------------------------------------------------------------------------
-
-
-
------------------------------------------------------------------------------------------------
-
-Let's expand $\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}$ in terms of another coupling scheme, namely $\mathbf{d}_{A}$ couples $\mathbf{d}_{B}$ and $\mathbf{\hat{R}}$ couples $\mathbf{\hat{R}}$. Based on Eq. (\ref{9-j1}) and (\ref{9-j2}), we have
+There is a simple understanding of the above equation: an angular momentum $\mathbf{d}_{A}$ with $j_{1}=1$ couples  another angular momentum $\hat{R}$ with $j_{2}=1$ to give rise to a new angular momentum, and an angular momentum $\mathbf{d}_{B}$ with $j_{3}=1$ couples  another angular momentum $\hat{R}$ with $j_{4}=1$ to give rise to another new angular momentum, and then these two new angular momentum couples with each other. It is necessary to regroup these operators such that dipole operators are separated from the position operators. 
+Let us expand $\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}$ in terms of another coupling scheme, namely $\mathbf{d}_{A}$ couples $\mathbf{d}_{B}$ and $\mathbf{\hat{R}}$ couples $\mathbf{\hat{R}}$. 
+This involves the definition of 9-$j$ symbols. Based on \autoref{9-j1}) \autoref{9-j2}), we have
 \begin{equation}
 (\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})= 3\sum_{k}(2k + 1) 
 \left\{
@@ -927,7 +937,7 @@ Let's expand $\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} 
 \right\} 
 \left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}\otimes \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}  \right]_{0}^{(0)} \ . \label{regrouping}
 \end{equation}
-Obviously, in the above $9-j$ symbol $1+1=k$ and $1+1=k$ is the new coupling scheme, and $0+0=0$ is the original coupling scheme. The $9-j$ symbols can be expressed in terms of $6-j$ symbols (related to the coupling of 3 angular momenta). In the special case where the final angular momentum $j_{9}=0$, we have
+The 9-$j$ symbols in the above equation can be expressed in terms of 6-$j$ symbols (related to the coupling of 3 angular momenta). In the special case where the final angular momentum $j_{9}=0$, we have
 \begin{eqnarray}
 \left\{
 \begin{array}{ccc}
@@ -980,12 +990,12 @@ Because $k$ results from the coupling of $j_{1}=1$ and $j_{2}=1$, it is in the r
 \end{array}
 \right\} = \frac{(2k + 1)^{-\frac{1}{2}}}{3} \ . \label{9-j-value}
 \end{equation}  
-Substituting Eq. (\ref{9-j-value}) into Eq. (\ref{regrouping}) and using Eq. (\ref{tensor-product}), we obtain
+Substituting Eq. (\ref{9-j-value}) into Eq. (\ref{regrouping}) and using Eq. (\ref{eqn:tensorContraction00}), we obtain
 \begin{eqnarray}
-(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})&=&\sum_{k=0,1,2}\sum_{q}(2k+1)^{\frac{1}{2}}\langle k q, k -q | 00 \rangle\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q}    \nonumber \\
-&=& \sum_{k=0,1,2}\sum_{q} (-1)^{k-q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q} \ . \label{scalarXscalar}
+(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})
+= \sum_{k=0,1,2}\sum_{q} (-1)^{k-q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q} \ . \label{scalarXscalar}
 \end{eqnarray}
-Since the tensor product of rank 1 is related to the cross product, $\left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k=1)}_{-q}$ is associated with $\mathbf{\hat{R}}\times\mathbf{\hat{R}}$ and it is zero. Then Eq. (\ref{scalarXscalar}) can be simplified further as
+Since the tensor product of rank 1 is related to the cross product (see \autoref{eqn:crossProduct}), $\left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k=1)}_{-q}$ is associated with $\mathbf{\hat{R}}\times\mathbf{\hat{R}}=0$ and it is zero. Then \autoref{scalarXscalar} can be simplified further as
 \begin{eqnarray}
 (\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})&=&\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(0)}_{0} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}_{0} \nonumber \\
 & & + \sum_{|q|=0,1,2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
@@ -994,17 +1004,12 @@ Since the tensor product of rank 1 is related to the cross product, $\left[ \mat
 &=& \frac{\mathbf{d}_{A}\cdot \mathbf{d}_{B}}{3}+  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\ 
 \label{term2}
 \end{eqnarray}
-Substitution of Eq. (\ref{term2}) into the expression for the dipole-dipole interaction (Eq. (\ref{dd-operator})) yields
+Substitution of \autoref{term2} into the expression for the dipole-dipole interaction (\autoref{dd-operator})) yields
 \begin{equation}
-\hat{V}_{\mbox{\tiny dd}}(\mathbf{R}) = \frac{-3}{R^{3}} \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \ .
+\hat{V}_{\mbox{\tiny dd}}(\mathbf{R}) = \frac{-3}{R^{3}} \sum_{q=-2}^{2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \ .
 \end{equation}
 
------------------------------------------------------------------------------------------------
 
-Before we go on, it is helpful to get familiar with rotational matrices and spherical harmonics.
-
-
------------------------------------------------------------------------------------------------
 
 
 
