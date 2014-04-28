@@ -607,17 +607,17 @@ D^{\dagger}(R) Y_{lm}(\mathbf{\hat{n} }) D(R) = \sum_{m^{\prime} } Y_{lm^{\prime
 }
 Similar to the above equation, we define a irreducible spherical tensor operator of rank $k$ with $(2 k + 1)$ components as
 \oneline{
-D^{\dagger}(R) T_{q}^{(k)} D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)} \ . \label{eqn:sphericalTensorDef1}
+D^{\dagger}(R) T_{q}^{(k)}(\mathbf{\hat{n} }) D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)} (\mathbf{\hat{n} })\ . \label{eqn:sphericalTensorDef1}
 }
 Replacing the rotation $R$ by its inverse $R^{-1}$, the above definition can be recasted into the following form:
 \oneline{
-D(R)  T_{q}^{(k)} D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)} D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef2}
+D(R)  T_{q}^{(k)} (\mathbf{\hat{n} }) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{\hat{n} }) D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef2}
 }
 Note that $T_{q}^{(k)} $ and $T_{q^{\prime}}^{(k)}$ here are defined with respect to the same 
 axis system. Because the spherical harmonics and the irreducible spherical tensors transform in the same way under 
 rotations, they are proportional to each other. We give their relationship as follows:
 \oneline{
-T^{(k)}_{q} = \left( \frac{4\pi k!}{(2 k + 1)!!} \right)^{1/2} Y_{k q} \ , \label{eqn:relationTwithY}
+T^{(k)}_{q} (\mathbf{\hat{n} }) = \left( \frac{4\pi k!}{(2 k + 1)!!} \right)^{1/2} Y_{k q} (\mathbf{\hat{n} })\ , \label{eqn:relationTwithY}
 }
 where 
 \multiline{
@@ -631,7 +631,7 @@ n!! = \left\{
 From \autoref{eqn:relationTwithY}, it is obvious that the firsr-rank irreducible spherical tensor is just the modified 
 spherical harmonics:
 \oneline{
-T^{(1)}_{q} = C_{1 q} \ .
+T^{(1)}_{q} = C_{1 q} \ . \label{eqn:TtoC}
 }
 
 
@@ -909,7 +909,7 @@ However, in solid state or optical lattices, the position of molecules are fixed
 
 As the first step, we have to know what the interaction between the two molecules is. If A has a permanent dipole of $\mathbf{d}_{A}$ and B has a permanent dipole of $\mathbf{d}_{B}$ and the vector connecting their centers of mass is $\mathbf{R}$, then the dipole-dipole interaction between A and B is given by
 \begin{equation}
-\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})\right]  \ , \label{dd-operator}
+\hat{V}_{\mbox{\tiny dd}} = \left(\frac{1}{R^3}\right)\left[ \mathbf{d}_{A}\cdot\mathbf{d}_{B}-3(\mathbf{d}_{A}\cdot\mathbf{\hat{R}})(\mathbf{d}_{B}\cdot\mathbf{\hat{R}})\right]  \ , \label{dd-operator}
 \end{equation}
 where $\mathbf{d}_{A}$ and $\mathbf{d}_{B}$ are the dipole moment operators for molecule $A$ and molecule 
 $B$. 
@@ -919,15 +919,21 @@ The first term in the square bracket of \autoref{dd-operator}, can be expressed 
 \begin{equation}
 \mathbf{d}_{A}\cdot\mathbf{d}_{B} = - \sqrt{3} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)} \ . \label{dot-product}
 \end{equation}
-The second term in the square bracket of \autoref{dd-operator} is the product of two scalars $(\mathbf{d}_{A}$ and $\hat{R})(\mathbf{d}_{B}\cdot\hat{R})$, we consider it as a special case of the dot product of two vectors in one-dimensional space. Then according to \autoref{dot-product}, we obtain
+The second term in the square bracket of \autoref{dd-operator} is the product of two scalars $(\mathbf{d}_{A}\cdot\mathbf{\hat{R} })(\mathbf{d}_{B}\cdot\mathbf{\hat{R}})$, we consider it as a special case of the dot product of two vectors in one-dimensional space. Then according to \autoref{dot-product}, we obtain
 \begin{equation}
-(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})= 3\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}  \ .
+(\mathbf{d}_{A}\cdot\mathbf{\hat{R}})(\mathbf{d}_{B}\cdot \mathbf{\hat{R} })= 3\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}  \ . \label{eqn:dRdR}
 \end{equation}
-There is a simple understanding of the above equation: an angular momentum $\mathbf{d}_{A}$ with $j_{1}=1$ couples  another angular momentum $\hat{R}$ with $j_{2}=1$ to give rise to a new angular momentum, and an angular momentum $\mathbf{d}_{B}$ with $j_{3}=1$ couples  another angular momentum $\hat{R}$ with $j_{4}=1$ to give rise to another new angular momentum, and then these two new angular momentum couples with each other. It is necessary to regroup these operators such that dipole operators are separated from the position operators. 
+There is a simple understanding of the above equation: an angular momentum $\mathbf{d}_{A}$ with $j_{1}=1$ 
+couples  another angular momentum $\hat{R}$ with $j_{2}=1$ to give rise to a new angular momentum, and an 
+angular momentum $\mathbf{d}_{B}$ with $j_{3}=1$ couples  another angular momentum $\hat{R}$ with $j_{4}=1$ 
+to give rise to another new angular momentum, and then these two new angular momentum couples with each other. 
+
+The form of \autoref{eqn:dRdR} is not convenient for calculation. We know only $\mathbf{d}_A$ and $\mathbf{d}_B$ 
+operate on the rotational states $\ket{N_A, M_A} \ket{N_B, M_B}$, but they are coupled with $\mathbf{\hat{R}}$, which makes the calculation of the matrix element associated with \autoref{eqn:dRdR} cumbersome. Therefore, it is necessary to regroup these operators such that dipole operators are separated from the position operators. 
 Let us expand $\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}$ in terms of another coupling scheme, namely $\mathbf{d}_{A}$ couples $\mathbf{d}_{B}$ and $\mathbf{\hat{R}}$ couples $\mathbf{\hat{R}}$. 
 This involves the definition of 9-$j$ symbols. Based on \autoref{9-j1}) \autoref{9-j2}), we have
 \begin{equation}
-(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})= 3\sum_{k}(2k + 1) 
+(\mathbf{d}_{A}\cdot\mathbf{\hat{R}})(\mathbf{d}_{B}\cdot\mathbf{\hat{R} })= 3\sum_{k}(2k + 1) 
 \left\{
 \begin{array}{ccc}
 1& 1&k \\
@@ -992,12 +998,12 @@ Because $k$ results from the coupling of $j_{1}=1$ and $j_{2}=1$, it is in the r
 \end{equation}  
 Substituting Eq. (\ref{9-j-value}) into Eq. (\ref{regrouping}) and using Eq. (\ref{eqn:tensorContraction00}), we obtain
 \begin{eqnarray}
-(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})
+(\mathbf{d}_{A}\cdot\mathbf{\hat{R} })(\mathbf{d}_{B}\cdot  \mathbf{\hat{R} })
 = \sum_{k=0,1,2}\sum_{q} (-1)^{k-q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q} \ . \label{scalarXscalar}
 \end{eqnarray}
 Since the tensor product of rank 1 is related to the cross product (see \autoref{eqn:crossProduct}), $\left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k=1)}_{-q}$ is associated with $\mathbf{\hat{R}}\times\mathbf{\hat{R}}=0$ and it is zero. Then \autoref{scalarXscalar} can be simplified further as
 \begin{eqnarray}
-(\mathbf{d}_{A}\cdot\hat{R})(\mathbf{d}_{B}\cdot\hat{R})&=&\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(0)}_{0} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}_{0} \nonumber \\
+(\mathbf{d}_{A}\cdot \mathbf{\hat{R} })(\mathbf{d}_{B}\cdot\mathbf{\hat{R} })&=&\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(0)}_{0} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}_{0} \nonumber \\
 & & + \sum_{|q|=0,1,2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
 &=& (-\frac{1}{\sqrt{3}} \mathbf{d}_{A}\cdot \mathbf{d}_{B})(-\frac{1}{\sqrt{3}}\mathbf{\hat{R}}\cdot\mathbf{\hat{R}} ) \nonumber \\
 & & +  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
@@ -1008,10 +1014,95 @@ Substitution of \autoref{term2} into the expression for the dipole-dipole intera
 \begin{equation}
 \hat{V}_{\mbox{\tiny dd}}(\mathbf{R}) = \frac{-3}{R^{3}} \sum_{q=-2}^{2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \ .
 \end{equation}
+In the above equation, $\mathbf{\hat{R}}$ can be viewed as the first-order irreducible spherical tensor, therefore the
+contraction of two $\mathbf{\hat{R}}$ gives rise to the second-order  irreducible spherical tensor:
+\oneline{
+ \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} = T^{(2)}_{-q}(\mathbf{\hat{R}}) \ .
+}
+Then based on \autoref{eqn:relationTwithY}, we obtain:
+\oneline{
+ \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} = \sqrt{ \frac{8 \pi}{15} } Y_{2 -q}(\theta_{R}, \phi_{R})
+}
+where $\theta_{R}$ and $\phi_{R}$ describe the orientation of $\mathbf{\hat{R}}$ in the space-fixed axis system, and
+then the dipole-dipole operator becomes:
+\oneline{
+\hat{V}_{\mbox{\tiny dd}}(\mathbf{R}) = -2\sqrt{\frac{6\pi}{5}} \frac{1}{R^{3}} \sum_{q=-2}^{2} (-1)^{q}  Y_{2 -q}(\theta_{R}, \phi_{R})\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q}  \ . \label{eqn:dipoleOperatorInDD}
+}
+
+To calculate the matrix elements of the dipolar operator, we now only need to consider the tensor product 
+$\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q}$. Based on \autoref{eqn:tensorContraction112}, we can express the tensor product in terms of tensor components in some axis system:
+\multiline{
+\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q}  
+= \sum_{q_{A} } (-1)^q \sqrt{5} \threejm{1}{q_A }{1}{q_B }{2}{-q} T^{(1)}_{q_{A} } (\mathbf{d}_A )  T^{(1)}_{q_B } (\mathbf{d}_B )
+\  .  \label{eqn:tensorComponents}
+}
+The rotational states $\ket{N_A, M_A}\ket{N_B, M_B}$ are defined in the space-fixed axis system, only tensor operators 
+defined in the same axis system can operate on them directly. Therefore, for the convenience of calculation, the tensor 
+components in \autoref{eqn:tensorComponents} should also be in the space-fixed axis system. 
+However, The dipole moment of a molecule is
+ most conveniently expressed in the body-fixed axis system. In the case of a diatomic polar molecule, we can choose
+ the body-fixed $z$-axis to be in the same direction as the dipole moment, then the only nonzero body-fixed $b$ 
+ component is given by
+ \oneline{
+ T^{(1)}_{b=0} (\mathbf{d} ) = d \hat{z} \ ,
+ }
+ where $d$ is the magnitude of the dipole moment. Now the problem is how to obtain the space-fixed dipole moment
+  component from the body-fixed component. From \autoref{eqn:bTos}, we have
+\multiline{
+T^{(1)}_{s } (\mathbf{d} ) &=& \sum_{b=-1}^{1} D^{1 *}_{sb} T^{(1)}_{b} (\mathbf{d} ) \nonumber \\
+&=& D^{1 *}_{s 0} d \nonumber \\
+&=& d_0 C_{1 s} \ , \label{eqn:dipoleSpaceFixed}
+}
+where $T^{(1)}_{s }$ is the tensor component defined in space-fixed axis system and the last equality comes from \autoref{eqn:relationDandY}. Substituting \autoref{eqn:dipoleSpaceFixed} into \autoref{eqn:tensorComponents}, we
+obtain:
+\multiline{
+\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{s}  
+= \sum_{s_{A} } (-1)^s \sqrt{5}d_A d_B \threejm{1}{s_A }{1}{s_B }{2}{-s} C_{1 s_A} C_{1 s_B}
+\  .  \label{eqn:dipoleOperatortoC}
+}
+Based on \autoref{eqn:matrixElementModifiedY}, the corresponding matrix elements are given by
+\multiline{
+&&\bra{N_A, M_A} \matelement{N_B, M_B}{ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{s} }{N_A^{\prime}, M_A^{\prime}}\ket{N_B^{\prime}, M_B^{\prime}} \nonumber \\
+&&= (-1)^{M_A + M_B} d_A d_B \sqrt{5} \sqrt{(2 N_A + 1)(2 N_B + 1) (2 N_A^{\prime} + 1)  (2 N_B^{\prime} + 1)} \nonumber \\
+&&\hspace{0.5cm} \times \threejm{N_A}{0}{1}{0}{N_A^{\prime}}{0} \threejm{N_B}{0}{1}{0}{N_B^{\prime}}{0} \nonumber \\
+&&\hspace{0.5cm} \times \sum_{s_A} \threejm{N_A}{-M_A}{1}{s_A}{N_A^{\prime}}{M_A^{\prime}} \threejm{N_B}{-M_B}{1}{s_B}{N_B^{\prime}}{M_B^{\prime}} \threejm{1}{s_A}{1}{s_B}{2}{s} \ . \nonumber \\
+\label{eqn:matrixElementDD}
+}
 
 
-
-
+Finally, after considering every possible $q$ value in \autoref{eqn:dipoleOperatorInDD} and making use of \autoref{eqn:dipoleOperatorInDD}, we arrive at the matrix elements of the dipole operator:
+\multiline{
+&&\bra{N_A , M_A} \bra{N_B , M_B} \hat{V}_{\rm dd}(\mathbf{R}) \ket{N_A^{'}, M_A^{'}} \ket{N_B^{'} , M_B^{'} } \nonumber \\
+&&= - \frac{F}{2 R^3} \bigg\{ 3\sin^2\theta_{R} e^{-2 i \phi_{R} } D^{A}_{-} D^{B}_{-} - 6\sin\theta_{R}\cos\theta_{R} e^{- i\phi_{R}} \left[ D_0^A D_{-}^B + D_{-}^A D_0^B\right] \nonumber \\
+&& \hspace{1.5cm} + 3\sin^2\theta_{R} e^{2 i \phi_{R} } D^{A}_{+} D^{B}_{+} + 6\sin\theta_{R}\cos\theta_{R} e^{ i\phi_{R}} \left[ D_0^A D_{+}^B + D_{+}^A D_0^B\right] \nonumber \\
+&& \hspace{1.5cm} + \sqrt{6} (3\cos^2\theta_{R}-1) \left[ D_{+}^A D_{-}^B + D_{-}^A D_{+}^B + D_0^A D_0^B \right] \bigg\} \ ,
+}
+where
+\multiline{
+&& F =  (-1)^{M_A + M_B} d_A d_B \sqrt{5} \sqrt{(2 N_A + 1)(2 N_B + 1) (2 N_A^{\prime} + 1)  (2 N_B^{\prime} + 1)} \nonumber \\
+&&\hspace{1cm} \times \threejm{N_A}{0}{1}{0}{N_A^{\prime}}{0} \threejm{N_B}{0}{1}{0}{N_B^{\prime}}{0} \ ,
+}
+and $D^{A}_{\pm, 0}D^{B}_{\pm, 0}$ are defined based on 
+\multiline{
+f_{AB}(s_A, s_B) = \threejm{N_A}{-M_A}{1}{s_A}{N_A^{\prime}}{M_A^{\prime}} \threejm{N_B}{-M_B}{1}{s_B}{N_B^{\prime}}{M_B^{\prime}} \threejm{1}{s_A}{1}{s_B}{2}{s} \label{eqn:fAB}
+} in the following way:
+\multiline{
+D^{A}_{+}D^{B}_{+} &=& f_{AB}(1, 1) \ , \nonumber \\
+D^{A}_{+}D^{B}_{0} &=& f_{AB}(1, 0) \ , \nonumber \\
+D^{A}_{+}D^{B}_{-} &=& f_{AB}(1, -1) \ , \nonumber \\
+D^{A}_{0}D^{B}_{-} &=& f_{AB}(1, -1) \ , \nonumber \\
+D^{A}_{0}D^{B}_{+} &=& f_{AB}(0, 1) \ , \nonumber \\
+D^{A}_{0}D^{B}_{0} &=& f_{AB}(0, 0) \ , \nonumber \\
+D^{A}_{0}D^{B}_{-} &=& f_{AB}(0, -1) \ , \nonumber \\
+D^{A}_{-}D^{B}_{+} &=& f_{AB}(-1, 1) \ , \nonumber \\
+D^{A}_{-}D^{B}_{0} &=& f_{AB}(-1, 0) \ , \nonumber \\
+D^{A}_{-}D^{B}_{-} &=& f_{AB}(-1, -1) \ . \nonumber \\
+}
+The factor $F$ describes the selection rule of rotational quantum number $N$ for the dipole-dipole interaction, which 
+says only two consecutive rotational levels are coupled. $D^{A}_{\pm, 0}D^{B}_{\pm, 0}$ describes the change of
+the projection quantum number $M$ during the dipole-dipole interaction. It can be easily seen from \autoref{eqn:fAB}
+that $D^{A}_{X}D^{B}_{Y}$ is nonzero only if the projection quantum numbers change in a certain way. For example, 
+only $D^{A}_{+}D^{B}_{+}$ is nonzero if $M_A - M_A^{\prime} = 1$ and $M_B - M_B^{\prime} = 1$.  
 
 \section{Introduction to exciton}
 \label{sec: exciton}
