@@ -1106,16 +1106,20 @@ only $D^{A}_{+}D^{B}_{+}$ is nonzero if $M_A - M_A^{\prime} = 1$ and $M_B - M_B^
 
 \section{Introduction to exciton in molecular crystal}
 \label{sec: exciton}
-
-\subsection{Commutation relation}
-\label{sec:commutationRelation}
-In this section, we aim to derive the commutation relation for excitations. We consider a molecular crystal with the Hamiltonian,
+In this section, we aim to give a very brief introduction to exciton. For simplicity, we consider a 1D molecular 
+crystal with every lattice site occupied by one molecule. The Hamiltonian is given by
 \oneline{
 H = \sum_{n} H_n + \frac{1}{2} \sum_{n}\sum_{m\neq n} V_{n m} \ , \label{eqn:hamMolecularCrystal}
 }
 where $n$ is the molecule index, $H_{n}$ is the Hamiltonian for an isolated molecule $n$, and $V_{nm}$ describes 
-the interaction between two molecules $n$ and $m$.
-In the crystal, there are a large number of identical interacting molecules. To study the excited states of the system, 
+the interaction between two molecules $n$ and $m$. The extension to 2D and 3D molecular arrays is straightforward:
+one only needs to replace the number index $n$ by a vector index $\mathbf{n}$ in the 2D or 3D dimensional space.   
+
+\subsection{Commutation relation}
+\label{sec:commutationRelation}
+ 
+In the molecular crystal, there are a large number of identical interacting molecules. To study the excited states of the 
+system, 
 it is suitable to use the second-quantization formalism which is good at describing many-particle systems. 
 
 
@@ -1188,7 +1192,7 @@ Because $P_{nf}$ and $P_{nf}^{\dagger}$ don't operate on a different
 molecule $n'$, any exciton operators corresponding to different molecules or different states
 commute with each other. Then \autoref{exact-relation} can be extended as 
 \begin{equation}
-P_{ne}P_{n'e'}^{\dagger}-P_{ne}^{\dagger}P_{n'e'}  =  \delta_{nn'}\delta_{ee'}\left(1-\sum_{f\neq g}\hat{N}_{nf} -\hat{N}_{ne} \right)  \ . \label{exact-relation2}
+P_{ne}P_{n'e'}^{\dagger}-P_{n' e'}^{\dagger}P_{n e}  =  \delta_{nn'}\delta_{ee'}\left(1-\sum_{f\neq g}\hat{N}_{nf} -\hat{N}_{ne} \right)  \ . \label{exact-relation2}
 \end{equation}
 \Autoref{eqn:addition} and \autoref{exact-relation2} describe the exact
 statistics of excitons.  Unfortunately, it is cumbersome to take into account of the exact
@@ -1216,18 +1220,27 @@ in the case Heitler-London approximation where only the ground state and the fir
 approximation is usually a good approximation, it also makes sense to choose \autoref{eqn:additionApproximate}. 
 Therefore, we usually rewrite the commutation relations of exciton as follows:
 \oneline{
-P_{n'e'}P_{ne}^{\dagger} - P_{ne}^{\dagger}P_{n'e'}=0 \quad\mbox{for $n \neq n'$ or $e \neq e'$} \ ,  \label{eqn:bosonCommutation}
+P_{n'e'}P_{ne}^{\dagger} - P^{\dagger}_{n'e'}  P_{ne} =0 \quad\mbox{for $n \neq n'$ or $e \neq e'$} \ ,  \label{eqn:bosonCommutation}
 }
 \oneline{
 P_{ne} P_{ne}^{\dagger} + P_{ne}^{\dagger} P_{ne} = 1 \ . \label{eqn:fermionCommutation}
 }
 This is called Pauli commutation relation as \autoref{eqn:bosonCommutation} looks like the commutation relation for 
-bosons and \autoref{eqn:fermionCommutation} looks like the commutation relation for fermions. 
+bosons and \autoref{eqn:fermionCommutation} looks like the commutation relation for fermions. For the convience
+of calculations, the commutation relation is rewritten as:
+\multiline{
+&&\{ P_{ne} , P^{\dagger}_{me} \}= \delta_{m,n} + (1-\delta_{m,n})2 P^{\dagger}_{me} P_{ne} \ , \nonumber \\
+&&[P_{ne}, P_{me}] = [P^{\dagger}_{ne}, P^{\dagger}_{me}] = 0 \ , \nonumber \\
+&&[P_{ne}, P_{ne'}] = [P^{\dagger}_{ne}, P^{\dagger}_{ne'}] = 0 \ , \nonumber \\
+&&P_{ne} P_{ne} = P^{\dagger}_{ne} P^{\dagger}_{ne} = 0 \ , \label{eqn:excitonCommutationRelation}
+}
+where $n$ and $m$, $e$ and $e'$ are assumed to be different. 
 
-\subsection{Hamiltonian in second quantization}
+\subsection{Exciton Hamiltonian in second quantization}
+\label{sec:excitonHam}
 
 The Hamiltonian in \autoref{eqn:hamMolecularCrystal} can be rewritten in terms of the exciton creation and 
-annihilation operators. Here, we first derive the Hamiltonian in the Heitler-London approximation and then give
+annihilation operators. Here, we first derive the Hamiltonian in the two-level approximation and then give
 the Hamiltonian for the most general case.
 
 In the first step, we express the Hamiltonian in terms of those $b$ operators. The result is
@@ -1236,7 +1249,7 @@ H = \sum_{i}\varepsilon_{i} b_{i f}^{\dagger} b_{i f} + \frac{1}{2} \sum_{i, j\n
 }
 where $i$ and $j$ are site indexes, $f$, $f'$, $l$ and $l'$ represent any molecular state, and $\matelement{f' l'}{V_{ij}}{f l}$ is a shorthand for $\langle f' |_{i} \langle l' |_{i}  V_{ij} | f\rangle_{i}  | l\rangle_{j}$. 
 
-Now we consider the Heitler-London approximation where each molecule has only two energy levels: the ground 
+Now we consider the two-level approximation where each molecule has only two energy levels: the ground 
 state $g$ and the excited state $e$. Then $f$, $f'$, $l$ and $l'$ in \autoref{eqn:hamInb} can only take $g$ or $e$. 
 Making use of the definitions of exciton creation and annihilation operators, we can easily show that 
 \autoref{eqn:hamInb} can be written as
@@ -1258,29 +1271,29 @@ b^{\dagger}_{ig} b_{ig} = \hat{N}_{ig} = 1 - \hat{N}_{ie} = 1 -  P^{\dagger}_{ie
 }
 we can rewrite the Hamiltonian as
 \multiline{
-H = H_0 + H_1 + H_2 + H_3 + H_4 + H_5 + H_6 \ ,
+H = H_0 + H_1 + H_2 + H_3 + H_4 + H_5 + H_6 \ , \label{eqn:hamSplited}
 }
 where 
 \multiline{
 H_0 = \varepsilon_{g} N_{\rm mol} + \frac{1}{2} \sum_{i, j\neq i} \matelement{gg}{V_{ij} }{gg} \ ,
 }
 \multiline{
-H_1 = \sum_{i} \left\{ (\varepsilon_{e} - \varepsilon_{g}) + \sum_{j\neq i}\bigg[ \matelement{eg}{V_{ij} }{eg} - \matelement{gg}{V_{ij} }{gg} \bigg] \right\} P^{\dagger}_{ie} P_{ie} \ ,
+H_1 = \sum_{i} \left\{ (\varepsilon_{e} - \varepsilon_{g}) + \sum_{j\neq i}\bigg[ \matelement{eg}{V_{ij} }{eg} - \matelement{gg}{V_{ij} }{gg} \bigg] \right\} P^{\dagger}_{ie} P_{ie} \ , \label{eqn:hamH1}
 }
 \multiline{
-H_2 = \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{ge} P^{\dagger}_{ie} P_{je} \ ,
+H_2 = \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{ge} P^{\dagger}_{ie} P_{je} \ , \label{eqn:hamH2}
 }
 \multiline{
-H_3 = \frac{1}{2} \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{ge} \left( P^{\dagger}_{ie} P^{\dagger}_{je} +  P_{ie} P_{je} \right) \ ,
+H_3 = \frac{1}{2} \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{ge} \left( P^{\dagger}_{ie} P^{\dagger}_{je} +  P_{ie} P_{je} \right) \ , \label{eqn:hamH3}
 }
 \multiline{
-H_4 = \frac{1}{2} \sum_{i, j\neq i} \bigg[ \matelement{ee}{V_{ij} }{ee} + \matelement{gg}{V_{ij} }{gg} - 2 \matelement{eg}{V_{ij} }{eg}\bigg]  P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je}  \ ,
+H_4 = \frac{1}{2} \sum_{i, j\neq i} \bigg[ \matelement{ee}{V_{ij} }{ee} + \matelement{gg}{V_{ij} }{gg} - 2 \matelement{eg}{V_{ij} }{eg}\bigg]  P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je}  \ , \label{eqn:hamH4}
 }
 \multiline{
-H_5 =  \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{gg} \left( P^{\dagger}_{ie} +  P_{ie} \right) \ ,
+H_5 =  \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{gg} \left( P^{\dagger}_{ie} +  P_{ie} \right) \ , \label{eqn:hamH5}
 }
 \multiline{
-H_6 = \sum_{i, j\neq i} \bigg[ \matelement{eg}{V_{ij} }{ee} - \matelement{eg}{V_{ij} }{gg}\bigg]  \left(P^{\dagger}_{ie} + P_{ie} \right) P^{\dagger}_{je}  P_{je}  \ .
+H_6 = \sum_{i, j\neq i} \bigg[ \matelement{eg}{V_{ij} }{ee} - \matelement{eg}{V_{ij} }{gg}\bigg]  \left(P^{\dagger}_{ie} + P_{ie} \right) P^{\dagger}_{je}  P_{je}  \ . \label{eqn:hamH6}
 }
 
 For the general case with multiple energy levels, the derivation of the Hamiltonian in terms of exciton operators is
@@ -1325,24 +1338,146 @@ $H^{(4)}$ conserves particle numbers and it is given by
 }
 
 
-\subsection{Eigenstates of the exciton Hamiltonian}
- 
-the exciton creation and annihilation operators satisfy the commutation rules for Bose operators
-\begin{equation}
-P_{n'f'}P_{nf}^{\dagger} - P_{nf}^{\dagger}P_{n'f'}=\delta_{nn'}\delta_{ff'} \ . \label{approx-relation}
-\end{equation}
-In the following derivation, we are assuming the exciton operators are Bose operators and satisfy Eq. (\ref{approx-relation}). 
+\subsection{Eigenstates of the exciton Hamiltonian in Heitler-London approximation}
+\label{sec:eigenstateExcitonHam}
 
-The way to use operator $P_{nf}$ and $P_{nf}^{\dagger}$ to describe excitons is called site representation. Due to the periodicity of crystal, there is another way to represent excitons by making use of the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$: 
+Heitler-London approximation was first used by Frenkel  in his study \cite{Frenkel1, Frenkel2} on 
+ electronic excitations in molecular crystals. Considering only two levels of a molecule, the ground state $g$ and 
+excited state $e$, the approximation assumes the following statements:
+\begin{itemize}
+\item the ground-state wavefunction of the crystal is the product of the ground-state wavefunction of individual molecule that constitutes the crystal
+% 
+\item an excited state of the crystal is a superposition of product $ \cdots \ket{g}_i \ket{e}_j\ket{g}_k\cdots$ in which
+only one molecule $j$ is excited and all other molecules are in ground state
+\end{itemize}
+From the above two statements, we see that the  Heitler-London approximation is expected to be good when the 
+intermolecular interaction is weak and the molecules in the crystal preserve large part of their individuality. 
+
+We now consider the lowest crystal excited state, which corresponds to the basis set $\{ \; \cdots \ket{g}_i \ket{e}_j\ket{g}_k\cdots \; \}$  with only one molecule excited. In this case, the number of excitations is conserved, so
+that only the parts of Hamiltonian in \autoref{eqn:hamSplited} that conserve particle numbers need to be included, and we can rewrite   the 
+Hamiltonian as
+\multiline{
+H = H_0 + H_1 + H_2 + H_4 \ . \label{eqn:hamConserving}
+}
+
+
+To deep our understanding, we analyze the Hamiltonian in \autoref{eqn:hamConserving} term by term. 
+$H_0$ is a constant and thus we can set it as zero energy and ignore it. $H_1$ can be written as 
+\multiline{
+H_1 = \sum_{i} \left( \Delta \varepsilon_e  +  \mathscr{D}_e \right) P^{\dagger}_{ie} P_{ie} \ ,
+}
+where  
+\oneline{
+\Delta \varepsilon_e = \varepsilon_e - \varepsilon_g
+}
+ is the excitation energy of an isolated molecules, and
+\multiline{
+\mathscr{D}_e = \sum_{j\neq i}\bigg[ \matelement{eg}{V_{ij} }{eg} - \matelement{gg}{V_{ij} }{gg} \bigg] 
+}
+is the difference of the two interactions: one for the excited molecule with all remaining ground-state  
+molecules  in the crystal, and the other  for  the same nonexcited molecule with all remaining ground-state 
+molecules. $\mathscr{D}_e$ is also called gas-condensed matter shift and it exists when the molecules in the crystal
+are interacting with each other.  $H_2$,  as given by
+\oneline{
+H_2 = \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{ge} P^{\dagger}_{ie} P_{je} \ ,
+}
+destroys an excitation in molecule $j$ and then creates an excitation in molecule $i$. Therefore, it describes the 
+propagation of an excitation in the crystal and we call it the hopping term. The strength of the hopping interaction 
+is given by the matrix elements $\matelement{eg}{V_{ij} }{ge}$. Usually, the interaction between two nearest 
+molecules is strongest and it decays fast with respect to the separation of two molecules, so sometimes it is justified
+to consider only the interaction between two nearest neighbors. We call this the nearest-neighbor approximation.  
+$H_4$ is the so-called the dynamic interaction, which describes the interaction between two excitations. It can be written as
+\multiline{
+H_4 = \frac{1}{2} \sum_{i, j\neq i} \Phi_{ij} P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je} \ ,
+}
+and its strengh
+is determined by the matrix elements
+\[
+\Phi_{ij}  = \matelement{ee}{V_{ij} }{ee} + \matelement{gg}{V_{ij} }{gg} - 2 \matelement{eg}{V_{ij} }{eg} \ .
+\]
+In molecular crystal, the interaction $V_{ij}$ between molecules is usually the dipole-dipole interaction. For 
+molecules with a center of inversion, their eigenstates(for example $\ket{e}$ and $\ket{g}$) has well-defined
+parity, the above matrix elements are zero. Under this circumstance, the dynamic interaction is zero and $H_4$ can 
+be ignored. In the current case, as we are concerned about the one-excitation subspace, we can safely ignore the 
+dynamic interaction because it requires two excitations in the crystal. From another perspective, we can ignore the 
+dynamic interaction because its corresponding matrix elements in the one-excitation subspace vanish. For illustration purpose, we give the derivation here. Based on \autoref{eqn:excitonCommutationRelation}, it can be shown that the
+matrix element of $H_4$ is given by
+\multiline{
+&&\matelement{e_n, g_m } { \frac{1}{2} \sum_{i, j\neq i} \Phi_{ij} P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je} } {g_n, e_m} \nonumber \\
+&&= \frac{1}{2} \sum_{i, j\neq i} \Phi_{ij} \matelement{0 } { P_{ne} P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je} P^{\dagger}_{me} } {0} \nonumber \\
+&&= \frac{1}{2} \sum_{i, j\neq i} \Phi_{ij} \matelement{0 } {\left[ \delta_{i, n} + (1-2\delta_{i, n}) P^{\dagger}_{ie} P_{ne} \right] P^{\dagger}_{je} P_{ie}\left[ \delta_{j, m} + (1-2\delta_{j, m}) P^{\dagger}_{je} P_{me} \right]} {0 } \ . \nonumber \\
+}
+Without proceeding further, we can easily see 
+the above equation gives  0 as it is composed of terms in which either $P^{\dagger}$ operates on $\bra{0}$ or $P$
+operates on $\ket{0}$. 
+
+
+The above analysis shows that the Hamiltonian can be simplifed as 
+\oneline{
+H =  \sum_{n} \left( \Delta \varepsilon_e  +  \mathscr{D}_e \right) P^{\dagger}_{ne} P_{ne} + \sum_{n, m\neq n} \matelement{eg}{V_{n m} }{ge} P^{\dagger}_{ne} P_{me} \ , \label{eqn:hamHeitler-London}
+}
+if one is only interested in the lowest-energy excited state of the crystal. 
+\Autoref{eqn:hamHeitler-London} gives the exciton Hamiltonian in Heitler-London approximation. The corresponding 
+eigenstates are called Frenkel exciton, which is a many-body excited state of the whole crystal.
+ 
+The Hamiltonian in Heitler-London approximation can be diagonalized analytically. Before showing the analytical way 
+for diagonalization, we first introduce the concepts of site representation and quasimomentum representation. 
+Previously,  the exciton creation and annihilation operators $P_{nf}$ and $P_{nf}^{\dagger}$ are defined with respect 
+to the lattice site $n$. 
+Using these operator to describe excitations is called site representation. Due to the periodicity of crystal, there is another way, called  the quasimomentum representation, to represent excitations by making use of the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$: 
 \begin{eqnarray}
-P_{nf} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}(k) e^{ikn} \nonumber \\
-P_{nf}^{\dagger} &=& \frac{1}{\sqrt{N}} \sum_{k} P_{f}^{\dagger}(k) e^{-ikn} \ , \label{unitary-transform}
+P_{f}(k)  &=& \frac{1}{\sqrt{N}} \sum_{n}  e^{-ikn}  P_{nf} \ , \nonumber \\
+P_{f}^{\dagger}(k)  &=& \frac{1}{\sqrt{N}} \sum_{n}  e^{ikn} P_{nf}^{\dagger} \ , \label{eqn:KInTermsOfN}
 \end{eqnarray}
-and this is called wavevector representation. Since the unitary transformation does not change the commutation rule of operators, we expect that the following equation
-\begin{equation}
-P_{f',k'}P_{f,k}^{\dagger} - P_{f,k}^{\dagger}P_{f',k'}=\delta_{kk'}\delta_{ff'} \ . \label{approx-relation-in-wavevector}
-\end{equation}
-also hold. This can be verified by substituting Eq. (\ref{unitary-transform}) into Eq. (\ref{approx-relation}). 
+where $N$ is the number of molecules in the crystal. Accordingly, the inverse Fourier transform is given by:
+\begin{eqnarray}
+P_{nf}   &=& \frac{1}{\sqrt{N}} \sum_{k}  e^{ikn} P_{f}(k)  \ , \nonumber \\
+P_{nf}^{\dagger}   &=& \frac{1}{\sqrt{N}} \sum_{k}  e^{-ikn} P_{f}^{\dagger}(k) \ . \label{eqn:NInTermsOfK}
+\end{eqnarray}
+The conversion between the site representation and the quasimomentum representation usually involves the 
+following equalities:
+\multiline{
+\frac{1}{N} \sum_{k} e ^{ i k (n - m)} &=& \delta_{n, m} \ , \nonumber \\
+\frac{1}{N} \sum_{n} e ^{ i n (k - k' )} &=& \delta_{k, k'} \ . \label{eqn:orthonormalityCondition}
+}
+These two equalities are very important and we will use them frequently in later derivations. 
+
+
+%It is useful to explain the wavevector $k$ in the quasimomentum representation. 
+
+Substituting \autoref{eqn:NInTermsOfK} into the Hamiltonian, we obtain:
+\multiline{
+&& H  = \sum_{n} \left( \Delta \varepsilon_e  +  \mathscr{D}_e \right) \frac{1}{N} \sum_{k} e^{-ikn} P_{f}^{\dagger}(k)  \sum_{k'} e^{ik'n} P_{f}(k') \nonumber \\
+&&\hspace{1cm} + \sum_{n}\sum_{ m\neq n} \matelement{eg}{V_{n m} }{ge} \frac{1}{N} \sum_{k} e^{-ik m} P_{f}^{\dagger}(k)  \sum_{k'} e^{ik'n} P_{f}(k') \nonumber \\
+&&\hspace{0.5cm}= \sum_{k, k'} \left( \frac{1}{N} \sum_{n} e^{i n (k' - k )}\right) P_{f}^{\dagger}(k) P_{f}(k') \nonumber \\
+&&\hspace{1cm} + \sum_{n} \sum_{ l = n - m } \matelement{eg}{V_{n, n-l} }{ge} e^{i k l} \left( \frac{1}{N}  e^{i n (k' - k )}\right) P_{f}^{\dagger}(k) P_{f}(k') \ . \nonumber \\
+}
+Because of the periodicity of the crystal, the interaction $V_{n, m}$ only depends on the separation of the two molecules
+at site $n$ and $m$. Then  $\matelement{eg}{V_{n, n-l} }{ge} $ in the above equation is independent of the index $n$, so 
+we rewrite it as $\matelement{eg}{V(l) }{ge}$. After that, making use of \autoref{eqn:orthonormalityCondition}, we can easily show
+that the diagonal form of the Hamiltonian is
+\oneline{
+H = \sum_{k} E_f(k) P_{f}^{\dagger}(k) P_{f}(k) \ ,
+}
+where $E_f(k) $ is the eigenenergy of the system and is given by
+\oneline{
+E_f(k) = \Delta \varepsilon_e  +  \mathscr{D}_e + \sum_{l} \matelement{eg}{V(l) }{ge} e^{i k l} \ , \label{eqn:EkDispersion}
+}
+and thus the eigenstates of the Hamiltonian are:
+\oneline{
+\ket{k} = P^{\dagger} (k) \ket{0} = \frac{1}{\sqrt{N} } \sum_{n} e^{i k n} \ket{n}  \ , 
+}
+where $\ket{0}$ is the vacuum state and $\ket{n}$ represents the single-excitation state in which molecule $n$ is in the 
+excited state and all other molecules are in the ground state. The state $\ket{k}$ is a Frenkel exciton with 
+quasimomentum (or wavevector) $k$. 
+
+
+%Since the unitary transformation does not change the commutation rule of operators, we expect that the following equation
+%\begin{equation}
+%P_{f',k'}P_{f,k}^{\dagger} - P_{f,k}^{\dagger}P_{f',k'}=\delta_{kk'}\delta_{ff'} \ . \label{approx-relation-in-wavevector}
+%\end{equation}
+%also hold. This can be verified by substituting Eq. (\ref{unitary-transform}) into Eq. (\ref{approx-relation}). 
+
 
 
 
