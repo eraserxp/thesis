@@ -1,25 +1,26 @@
 %chapter on Green's function
-\chapter{Lattice Green's function of two-particle state}
+\chapter{Green's function of two particles on a lattice}
 \label{ch:greenfunc}
 
 \section{Introduction}
 \label{sec:introGreenFunc}
 
-Lattice Green's function is an important theoretical tool in the study of condensed matter systems. Many physical
-quantities can be obtained or expressed in terms of the lattice Green's function, thus it is used in a wide range of
-context, for example, transport and diffusion properties of solids \cite{economou2006}, band structure 
-\cite{koster1954}, statistical model 
+Calculating Green's function for particles in lattices is  important in the study of condensed matter systems. Many physical
+quantities can be obtained or expressed in terms of the lattice Green's functions, so they are used in a wide range of
+context such as, for example, the transport and diffusion properties of solids \cite{economou2006}, band structure 
+\cite{koster1954}, statistical models 
 of ferromagnetism \cite{mccoy1978, dalton1967, lax1952}, random walk theory \cite{montroll1965},  analysis of 
 infinite electric networks \cite{cserti2000, cserti2002, asad2004, asad2005}, and etc. 
-However, the numerical evaluation of the Green's function is usually a cumbersome task\cite{Berciu2010}. Thus
-Berciu developed a recursive method \cite{Berciu2010, Berciu2011, Berciu2012} to calculate Green's function. This
+However, the numerical evaluation of the Green's function is usually a cumbersome task\cite{Berciu2010}. 
+Berciu has recently developed a recursive method \cite{Berciu2010, Berciu2011, Berciu2012} to calculate Green's function for particles on a lattice. 
+This
 method is numerically more efficient than other existing methods and could potentially widen the application of 
-Green's function in a more challenging problems. 
+Green's function in more challenging problems. 
 
-In this chapter, we first extend Berciu's method to a system with arbitary disorders. Then we employ the Green's 
-function to study the tunneling of biexciton states through disorders. The scattering of biexciton states is particularly
-interesting because they are compound particles and their transport behaviors in a non-translation-invariant lattices 
-are not well-understood\cite{bulatov2005}.
+In this chapter, we first extend Berciu's method to a disordered system. Then we employ the Green's 
+function to study the tunneling of biexciton states through impurities. The scattering of biexciton states is particularly
+interesting because they are compound particles and their transport behavior in a disordered lattice
+is not well-understood\cite{bulatov2005}.
 
 \section{Equation of motion for Green's function}
 \label{sec:equationOfMotion}
@@ -29,10 +30,11 @@ considering a 1D periodic lattice with the Hamiltonian:
 \multiline{
 \hat{H} = \sum_{l} e_{l} \pd{l}\p{l} + \sum_{l}\sum_{r\neq 0} t_{l, l+r} \pd{l}\p{l+r} + \sum_{l}\sum_{r\neq 0} d_{l, l+r} \pd{l}\pd{l+r}\p{l}\p{l+r} \ , \label{eqn:initialHam}
 }
-where $e_l$ is the energy of the particle at site $l$, $\pd{l}$ create a particle at site $l$, $t_{l, l+r}$ represents the hopping interaction between
-site $l$ and site $l+r$, and $d_{l, l+r}$ represents the dynamic interaction between
+where $e_l$ is the energy of the particle at site $l$, $\pd{l}$ creates a particle at site $l$, $t_{l, l+r}$ is the amplitude 
+for hopping  between
+site $l$ and site $l+r$, and $d_{l, l+r}$ represents the dynamic interaction between particles in 
 site $l$ and site $l+r$. Note that the Hamiltonian $\hat{H}$ is very general as there is no restriction on the values 
-of $e_l$, $t_{l, l+r}$, and $d_{l, l+r}$, and thus it can describe both an ordered system and an 
+of $e_l$, $t_{l, l+r}$, and $d_{l, l+r}$, and thus it can describe both an ordered system and a 
 disordered system. The Green's operator is defined in terms of the Hamiltonian,
 \oneline{
 \hat{G}(z) \equiv (z - \hat{H})^{-1} \ ,
@@ -41,26 +43,26 @@ where $z = E + i\eta$ is the complex energy. From the definition of the Green's 
 \oneline{
 (z - \hat{H}) \hat{G}(z) = 1 \ . \label{eqn:equationForG}
 }
-The above equation contains all information about the system. 
+The above equation  describes the system compactly. 
 
-Depending on the system in consideration, the creation and anhilation opreators will satisfy different commutation
+Depending on the system under consideration, the creation and anhilation opreators will satisfy different commutation
 rules. For instance, if the particles are femions, $\pd{n}$ and $\p{m}$ satisfy the anticommutation relations:
 \multiline{
 &&\{\pd{n}, \p{m}\} = \pd{n}\p{m} + \p{m}\pd{n} = \delta_{n, m} \ , \nonumber \\
 &&\{\pd{n}, \pd{m}\} = \{\p{n}, \p{m}\} = 0 \ ,
 }
-and if particles are bosons, $\pd{n}$ and $\p{m}$ satisfy the commutation relations:
+and if the particles are bosons, $\pd{n}$ and $\p{m}$ satisfy the commutation relations:
 \multiline{
 &&[\pd{n}, \p{m}] = \pd{n}\p{m} - \p{m}\pd{n} = \delta_{n, m} \ , \nonumber \\
 &&[\pd{n}, \pd{m}] = [\p{n}, \p{m}] = 0 \ .
 }
-In the current study, we are considering collective excitations of atom or molecules in the lattice. They have the 
-characteristics of both fermions and bosons. When two excitations reside at different sites, they behave like
+In the current study, we are considering collective excitations of atom or molecules in a lattice. They have the 
+characteristics of both fermions and bosons. When two excitations reside in different sites, they behave like
 bosons, that is,
 \oneline{
 \pd{n}\p{m} - \p{m}\pd{n} = 0 \label{eqn:boson-like}
 }
-if $n \neq m$; when excitations are at the same site, they behave like fermions, that is,
+if $n \neq m$; when excitations are at the same site, they behave as fermions, that is,
 \oneline{
 \pd{n}\p{m} + \p{m}\pd{n} = 0 \label{eqn:fermion-like}
 }
@@ -71,17 +73,17 @@ if $n = m$. For convenience, we can combine \autoref{eqn:boson-like} and \autore
 
 Using the two-particle basis set $\ket{n}\ket{m}$ (and $n \neq m$), \autoref{eqn:equationForG} can be rewritten as
 \oneline{
-\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } = \bra{n} \bra{m} \ket{n^{\prime} } \ket{m^{\prime} } \ . \label{eqn:startEqnForG}
+\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } = \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} } \ . \label{eqn:startEqnForG}
 }
 To simplify the above equation, we make use of \autoref{eqn:excitonCommutation} and evaluate the effect of the 
-Hamiltonian operating on the basis set:
+Hamiltonian operating on the basis states:
 \multiline{
 \hat{H} \ket{n} \ket{m} &=& (e_{n} + e_{m} ) \ket{n} \ket{m} + \sum_{r \neq 0}(1-\delta_{n-r, m}) t_{n-r, n} \ket{n-r} \ket{m}  \nonumber \\
 && + \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \ket{n} \ket{m - r} +  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \ket{n} \ket{m}  \ ,  \nonumber \\  \label{eqn:hamOn2particleState}
 }
 where the factors like $(1-\delta_{n-r, m})$ appear because only the two-particle states $\ket{n}\ket{m}$ with 
-$n \neq m$ are included in the basis set, 
-then the left hand side of \autoref{eqn:startEqnForG} becomes
+$n \neq m$ are included in the basis set. 
+The left-hand side of \autoref{eqn:startEqnForG} becomes
 \multiline{
 &&\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } \nonumber \\
 &&= (z - e_{n} - e_{m} ) G(n, m, n^{\prime}, m^{\prime}; z) 
@@ -90,14 +92,14 @@ then the left hand side of \autoref{eqn:startEqnForG} becomes
  -  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r}  G(n, m, n^{\prime}, m^{\prime}; z) \ , \nonumber \\
 }
 where $G(n, m, n^{\prime}, m^{\prime}; z)$ represents the matrix element of the Green's operator in the two-particle 
-basis set and it is given by
+basis set 
 \oneline{
 G(n, m, n^{\prime}, m^{\prime}; z) =  \bra{n} \bra{m} \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } \ .
 }
 Similarly, substituting \autoref{eqn:excitonCommutation} into the right hand side of \autoref{eqn:startEqnForG}  gives
 rise to 
 \oneline{
- \bra{n} \bra{m} \ket{n^{\prime} } \ket{m^{\prime} }= \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
+ \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} }= \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
 }
 Therefore, the equation of the motion for the Green's function is given by
 \multiline{
@@ -109,9 +111,9 @@ Therefore, the equation of the motion for the Green's function is given by
 Because two excitations cannot reside at the same lattice site, we know the Green's function 
 $G(n, m, n^{\prime}, m^{\prime}; z)$ is meaningless whenever $n=m$ or $n^{\prime} = m^{\prime}$. It is clear that
 \autoref{eqn:eqnOfMotion} can't guarantee all the Green's functions that it contains are physical even if we restrict
-the basis set to be just $\ket{i}\ket{j}$ where $i \neq j$. That's why the factors like  $(1-\delta_{n, m-r})$ appear. 
+the basis set to be $\ket{i}\ket{j}$ where $i \neq j$. That's why the factors like  $(1-\delta_{n, m-r})$ appear. 
 
-Since all the Green's function in \autoref{eqn:eqnOfMotion} have the same parameters $n^{\prime}$ and
+Since all the Green's functions in \autoref{eqn:eqnOfMotion} have the same parameters $n^{\prime}$ and
  $m^{\prime}$, we define 
 \oneline{
 \Tilde{G} (n, m; z) = G(n, m, n^{\prime}, m^{\prime}; z) \ 
@@ -126,12 +128,12 @@ to simplify the notation. Then \autoref{eqn:eqnOfMotion} can be written as
 \section{Recursive calculation of Green's function}
 \label{sec:recursiveGreen}
 
-\subsection{In the nearest neighbor approximation}
+\subsection{With nearest neighbor approximation}
 \label{sec:nna}
 
-The equation of motion of Green's function, \autoref{eqn:eqnOfMotionSimplified}, is our starting point to calculate
+The equation of motion for Green's function, \autoref{eqn:eqnOfMotionSimplified}, is our starting point to calculate
 the Green's function. In the nearest neighbor approximation, the distance between two interacting sites $r$ can only 
-be 1 or $-1$, then the quation of motion of Green's function becomes
+be 1 or $-1$, then the quation of motion becomes
 \multiline{
 &&\left(z - e_{n} - e_{m} -   d_{n, m} \delta_{n-m, \pm 1} \right) \Tilde{G}(n, m; z) \nonumber \\
 && - (1- \delta_{n-1, m}) t_{n-1, n} \Tilde{G}(n-1, m; z) - (1- \delta_{n+1, m}) t_{n+1, n} \Tilde{G}(n+1, m; z) \nonumber \\
@@ -153,7 +155,7 @@ functions in the nearest neighbor approximation. This relationship can be shown 
 For the Green's function $\Tilde{G}(i, j; z)$ on the left, the summation of parameters $i + j = n + m$ is fixed. For the 
 Green's functions $\Tilde{G}(i^{\prime}, j^{\prime}; z)$ on the right, the summation of parameters
  $i^{\prime} + j^{\prime}$ can only be either $n+m-1$ or $n+m+1$. 
-This inspire us to group some Green's functions into a vector $\mathbf{V}_{K}$ according to their parameters $n$ and $m$, that is,
+This inspires us to group some Green's functions into a vector $\mathbf{V}_{K}$ according to their parameters $n$ and $m$, that is,
 \oneline{
 \mathbf{V}_{K} = \colvec{5}{\vdots}{\Tilde{G}(i-1, j+1; z)}{\Tilde{G}(i, j; z)}{\Tilde{G}(i+1, j-1; z)}{\vdots} \ , \label{eqn:defVk}
 } 
@@ -206,26 +208,26 @@ of $\mathbf{V}_{n+m}$ is $\Tilde{G}(n, m; z)$, that is $\mathbf{V}_{n+m}[\mathbf
 \EndFor
 \end{algorithmic}
 As we will show in the next subsection, the above algorithm is even more useful when the coupling equations like
-\autoref{eqn:eqnOfMotionNNA} get more complicated in the cases of
+\autoref{eqn:eqnOfMotionNNA} become more complicated in the cases of
  longer range interaction and high-dimensional systems.
 
  It is clear from 
 \autoref{eqn:VkNotEqual} and \autoref{eqn:VkEqual} that $\mathbf{V}_{K}$ relates only with  $\mathbf{V}_{K-1}$ and 
  $\mathbf{V}_{K+1}$. This gives the opportunity to solve for individual $\mathbf{V}_{K}$ recursively provided that 
 a starting point is given. For example, given the values for two particular $\mathbf{V}_{K}$ and 
-$\mathbf{V_{K-1}}$, we can obtain $\mathbf{V}_{K+1}$, and then calculate $\mathbf{V}_{K+2}$ from $\mathbf{V}_{K}$ 
+$\mathbf{V}_{K-1}$, we can obtain $\mathbf{V}_{K+1}$, and then calculate $\mathbf{V}_{K+2}$ from $\mathbf{V}_{K}$ 
 and $\mathbf{V}_{K+1}$, and etc.  
 But where do we start? The hint comes from the following physical arguments: $G(n+\delta n, m+\delta m, n, m; z)$ is 
 expected to approach zero as $|\delta n| \rightarrow \infty$ and $|\delta m| \rightarrow \infty$ because its Fourier
 transform $G(n+\delta n, m+\delta m, n, m; t)$ represents the amplitude for the two particles to move a distance
- $\delta n$ and  $\delta m$ respectively in time $t$ \cite{economou2006, Berciu2010}. To figures out which Green's 
+ $\delta n$ and  $\delta m$ respectively in time $t$ \cite{economou2006, Berciu2010}. To figure out which of the Green's 
 functions can be approximated by zero, we fix  the values of $n^{\prime}$ and $m^{\prime}$. Suppose
- $K_c = n^{\prime} + m^{\prime}$, then we can assume $\mathbf{V}_{K}$ approaches zero when 
-$|K - K_c | \rightarrow \infty$. For the purpose of numerical computation, a cutoff distance $M$ is chosen such that
+ $K_c = n^{\prime} + m^{\prime}$, then we can assume that $\mathbf{V}_{K}$ approaches zero when 
+$|K - K_c | \rightarrow \infty$. For the purpose of numerical computations, a cutoff distance $M$ is chosen such that
 $\mathbf{V}_{K_c - M}$ and $\mathbf{V}_{K_c + M}$ are very small. In this case, the infinite crystal is 
-replaced by a finite crystal whose centeral region contains site $n^{\prime}$ and site $m^{\prime}$. To ensure the
+replaced by a finite crystal whose central region contains site $n^{\prime}$ and site $m^{\prime}$. To ensure the
 convergence of the results, the finite crystal must be large enough such that its boundaries are  far away
-from both site $n$ and site $m$. Assuming the 1D finite crystal has $N+1$ lattice sites indexed by $0, 1, \cdots, 
+from both site $n^{\prime}$ and site $m^{\prime}$. Assuming the 1D finite crystal has $N+1$ lattice sites indexed by $0, 1, \cdots, 
 N-1, N$, the starting point for the recursive calculation of the Green's function are the following two 
 approximations:
 \multiline{
@@ -235,7 +237,7 @@ approximations:
 
 Given the two approximations in \autoref{eqn:startPoint}, we are ready to calculate the Green's functions
  recursively. Instead of working with the vectors $\mathbf{V}_{K}$ directly, we define two quantities 
-$\mathbf{A}_{K}$ and $\mathbf{\Tilde{A}}_{K} $ that relates
+$\mathbf{A}_{K}$ and $\mathbf{\Tilde{A}}_{K} $ that relate
 two consecutive vectors $\mathbf{V}_{K}$ and $\mathbf{V}_{K-1}$. For $n \ge K_c + 1$, we have
 \multiline{
 \mathbf{V}_{n+1} = \mathbf{A}_{n+1} \mathbf{V}_{n} \ , \label{eqn:definitionForA}
@@ -251,7 +253,7 @@ The validity of the above two equations can be verified by substituting \autoref
 \multiline{
 \mathbf{V}_{1} = \boldsymbol\beta_{1}(z)\mathbf{V}_{2} \label{eqn:V1}
 }
-because of \autoref{eqn:VkNotEqual}, and compare it with \autoref{eqn:definitionForTildeA}, we conclude 
+because of \autoref{eqn:VkNotEqual}, and comparing it with \autoref{eqn:definitionForTildeA}, we conclude 
 \oneline{
 \mathbf{\Tilde{A}}_{1} =  \boldsymbol\beta_{1}(z) \ . \label{eqn:TildeA1}
 }
@@ -264,7 +266,8 @@ which upon comparsion with \autoref{eqn:definitionForTildeA} gives rise to
 \multiline{
 \mathbf{\Tilde{A}}_{n} = \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right]^{-1}\boldsymbol\beta_{n}(z)  \ . \label{eqn:recursionForTildeA}
 }
-Since \autoref{eqn:recursionForTildeA} involves matrix inversion which is difficult to compute numerically, we may calculate
+Since \autoref{eqn:recursionForTildeA} involves matrix inversion which is difficult to compute numerically, we can 
+instead calculate
 $\mathbf{\Tilde{A}}_{n}$ by solving the linear equation
 \oneline{
  \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right] \mathbf{\Tilde{A}}_{n} = \boldsymbol\beta_{n}(z) \ .
@@ -283,7 +286,7 @@ $\mathbf{\Tilde{A}}_{2}$, $\cdots$, from left to
 center until $\mathbf{\Tilde{A}}_{K_c - 1}$ is reached. We have to stop there because  
 \autoref{eqn:definitionForTildeA} is not valid for  $\mathbf{V}_{K_c}$. 
 Then we proceed from the right boundary to the center and calculate $\mathbf{A}_{2N-1}$, 
-$\mathbf{A}_{2N-2}$, $\cdots$ and stop until we reach $\mathbf{A}_{K_c + 1}$ beyond which
+$\mathbf{A}_{2N-2}$, $\cdots$ and stop when we reach $\mathbf{A}_{K_c + 1}$ beyond which
 \autoref{eqn:definitionForA} is not valid. Knowning the value of $\mathbf{A}_{K_c + 1}$ and 
 $\mathbf{\Tilde{A}}_{K_c - 1}$, we rewrite $\mathbf{V}_{K_c +1}$ and $\mathbf{V}_{K_c - 1}$ in terms of
  $\mathbf{V}_{K_c}$:
@@ -298,7 +301,7 @@ and substitute them into \autoref{eqn:VkEqual} to obtain the solution for $\math
 Once $\mathbf{V}_{K_c}$ is known, all $\mathbf{V}_{n}$ can be calculated from \autoref{eqn:definitionForA} and
 \autoref{eqn:definitionForTildeA} given the values for $\mathbf{A}_{n+1}$ and $\mathbf{\Tilde{A}}_{n}$.
 
-In summary, the aforementioned calculation of Green's function is carried on in the following steps: 
+In summary, the described calculation of Green's function is carried out in the following steps: 
 \begin{enumerate}
 %%
 \item{fix the value of $n^{\prime}$ and $m^{\prime}$ in the Green's function $G(n, m, n^{\prime}, m^{\prime}; z)$, 
@@ -308,8 +311,8 @@ assume the two approximations in \autoref{eqn:startPoint}, and calculate $\mathb
 \item{start from $\mathbf{\Tilde{A}}_{1}$ and calculate $\mathbf{\Tilde{A}}_{2}$, $\mathbf{\Tilde{A}}_{3}$, $\cdots$, 
 $\mathbf{\Tilde{A}}_{K_c - 1}$ from \autoref{eqn:recursionForTildeA} }
 %%
-\item{start from $\mathbf{A}_{2N-1}$ and calculate $\mathbf{A}_{2N-1}$, 
-$\mathbf{A}_{2N-2}$, $\cdots$, $\mathbf{A}_{K_c + 1}$ from \autoref{eqn:recursionForA} }
+\item{start from $\mathbf{A}_{2N-1}$ and calculate $\mathbf{A}_{2N-2}$, 
+$\mathbf{A}_{2N-3}$, $\cdots$, $\mathbf{A}_{K_c + 1}$ from \autoref{eqn:recursionForA} }
 %%
 \item{use the values of $\mathbf{\Tilde{A}}_{K_c - 1}$ and $\mathbf{A}_{K_c + 1}$ to calculate $\mathbf{V}_{K_c}$ 
 from \autoref{eqn:solForKc} }
@@ -324,9 +327,9 @@ $\mathbf{V}_{1}$ from \autoref{eqn:definitionForTildeA} }
 \subsection{Extension to long-range interaction}
 \label{sec:long-range}
 
-As mentioned in \autoref{sec:long-rangeInteraction}, dipole-dipole interaction is long-ranged and the nearest 
+As mentioned in \autoref{sec:long-rangeInteraction}, the dipole-dipole interaction is long-range and the nearest 
 neighbor approximation may not represent the physical picture accurately. So it is desirable to extend the 
-calculation method of Green's function in \autoref{sec:nna} to the case of long-range interaction. 
+calculation method  in \autoref{sec:nna} to the case of long-range interactions. 
 
 First, we consider a 1D lattice with the same Hamiltonian (see \autoref{eqn:initialHam}) that has
 both first nearest-neighbor and second nearest-neighbor interactions. 
@@ -474,8 +477,8 @@ want to calculate the Green's function
 \Tilde{G}(n_x, n_y, m_x, m_y; z)\equiv \bra{n_x, n_y} \bra{m_x, m_y} \hat{G}(z) \ket{n_x^{\prime}, n_y^{\prime} } \ket{m_x^{\prime}, m_y^{\prime} } \ ,
 }
 where $\ket{n_x, n_y}$ represents the state of the particle at site $(n_x, n_y)$ and $n_x^{\prime}$, $n_y^{\prime}$,
-$m_x^{\prime}$, and $m_y^{\prime}$ are fixed. Due to the structure of the equation of the 
-motion of the Green's function, one Green's function is only coupled with a certain set of other Green's functions. In the
+$m_x^{\prime}$, and $m_y^{\prime}$ are fixed. Due to the structure of the equation of  
+motion for the Green's function, one Green's function is only coupled with a certain set of other Green's functions. In the
 nearest neighbor approximation, we can group the Green's functions into different vectors by defining
 \oneline{
 \mathbf{V}_{i_x + i_y + j_x + j_y} = \colvec{7}
@@ -519,6 +522,37 @@ which requires a run time that scales like $O(N^3)$. Since there are about $N$ s
 computational cost would be $O(N^4)$ which is much less than the cost of brute-force approach. In addition, the
 recursive method yields $N$ Green's functions at the same time.
 
+To verify our recursive method, we did some brute-force calculations and compared the results with those obtained
+from our recursive method. We consider the case of an ordered array and the case of a disordered array, and calculate
+a particular Green's function for a variety of complex energies $z$. As shown in
+ \autoref{fig:comparisonOrdered} and \autoref{fig:comparisonDisordered}, both methods give identical results, which
+provides strong evidences to the correctness of the recursive method. 
+
+\addfigure{
+\includegraphics[width=\linewidth] {compare_GF_ordered.pdf}
+\caption{ Green's function $G(10, 71, 50, 51, E + i\eta)$ with $\eta = 0.1$ as a function of energy $E$. The calculation 
+was done for a finite ordered 1D crystal of 101 lattice sites with the nearest-neighbor approximation. We set the 
+energies of the particles $e_n $ to be zero,  and the dynamic interaction and the hopping interaction to be $5$. The upper panel
+shows the real part of the Green's function and the lower panel shows the imaginary part. The results calculated by the brute-force method
+are marked with empty circles while the results obtained by our recursive method are marked by ``X''. This figure
+clearly demonstrate that the recursive method produces the same results as the brute-force method. 
+}
+\label{fig:comparisonOrdered}
+}
+
+\addfigure{
+\includegraphics[width=\linewidth] {compare_GF_disordered.pdf}
+\caption{ Green's function $G(33, 90, 50, 51, E + i\eta)$ with $\eta = 0.1$ as a function of energy $E$. The calculation 
+was done for a finite disordered 1D crystal of 101 lattice sites with the nearest-neighbor approximation. We set the 
+dynamic interaction and the hopping interaction to be $5$, and allow the energies of the particles $e_n$ to fluctuate
+in range $[-5, 5]$ randomly. The upper panel
+shows the real part of the Green's function and the lower panel shows the imaginary part. The results calculated by the brute-force method
+are marked with empty circles while the results obtained by our recursive method are marked by ``X''. This figure
+clearly demonstrate that the recursive method produces the same results as the brute-force method. 
+}
+\label{fig:comparisonDisordered}
+}
+
 The brute-force approach is not often used in computations. Instead, the recursion method developed by Haydock 
 \cite{haydock1972, haydock1975} is most widely used. For comparison purpose, we give a very brief description of the
 method and compare it with our method.  The main idea of Haydock's method is to generate a series of orthonormal
@@ -533,13 +567,13 @@ term of $a_n$ and $b_n$:
 \bra{u_0} \hat{G}(z) \ket{u_0} = \frac{1}{z - a_0 - \frac{| b_1 |^2}{z - a_1 - \cdots } } \ .
 }
 For a tight-binding model with only the nearest-neighbor 
-interaction, those vectors $\ket{u_n}$ is a linear combination of local states $\ket{\mathbf{R}}$ with particles reside at 
+interactions, those vectors $\ket{u_n}$ are a linear combinations of local states $\ket{\mathbf{R}}$ with particles residing at 
 $\mathbf{R}$. The Hamiltonian has the following useful feature:
 \oneline{
 H \ket{\mathbf{R}} = \mathbf{t}_{\mathbf{R}, \mathbf{R-1}} \ket{ \mathbf{R-1}} + h_{\mathbf{R}, \mathbf{R}}  \ket{ \mathbf{R}} + \mathbf{t}_{\mathbf{R}, \mathbf{R+1}}  \ket{ \mathbf{R+1}} \ , \label{eqn:propertyLocalState}
 }
-where $h_{\mathbf{R}, \mathbf{R}}$ is the on-site energy and $\mathbf{t}$ are hopping terms, and 
-$\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ denote the states whose particles 
+where $h_{\mathbf{R}, \mathbf{R}}$ is the on-site energy and $\mathbf{t}$ are the matices related to hopping terms, and 
+$\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ denote the states whose particle 
 positions are 1 site  different from that of $\ket{ \mathbf{R}}$. As a specific example, 
 \autoref{eqn:hamOn2particleState} clearly demonstrates this property of the local state $\ket{ \mathbf{R}} = 
 \ket{n}\ket{m}$. As a result of \autoref{eqn:propertyLocalState}, to calculate $G(\mathbf{R}, \mathbf{R}; z)$, 
@@ -548,8 +582,8 @@ local states, $a_0$ can be obtained by taking the product of $\bra{u_0}$ with \a
 \oneline{
 a_0 =\bra{u_0} H \ket{u_0} = h_{\mathbf{R}, \mathbf{R}}  \ .
 }
-Compare \autoref{eqn:haydockRecursion} with \autoref{eqn:propertyLocalState}, we can easily see that 
-and $\ket{u_1}$ is a superposition of $\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ and $b_1$ can be 
+Comparing \autoref{eqn:haydockRecursion} with \autoref{eqn:propertyLocalState}, we can easily see that 
+ $\ket{u_1}$ is a superposition of $\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ and $b_1$ can be 
 computed by requiring $\ket{u_1}$ to be normalized. To continue the recursion, we take
 $n=1$ in \autoref{eqn:haydockRecursion} to obtain
 \oneline{
@@ -567,9 +601,9 @@ $\ket{ \mathbf{R-n+1}}$, $\cdots$, $\ket{ \mathbf{R+n-1}}$ and $\ket{ \mathbf{R+
 distance from $\mathbf{R}$. 
 
 Haydock's method and our method both rely on recursive calculations, but they differ a lot in numerical efficiency. 
-Take the calculation of two-particle Green's function as an example,  if Haydock's 
+Take the calculation of two-particle Green's function as an example.  If Haydock's 
 method terminates the recursion at step $N$, it has to deal with vectors of size up to $\sim N^2$. 
-Equivently, to employ 
+To employ 
 the same number of local states as in Haydock's method, our method set $\mathbf{A}_{2N+1}=0$ and
  $\mathbf{\Tilde{A} }_{1}=0$, and the largest size of vectors is about $N$, which is much smaller. Therefore
 our method involves much smaller matrices and can handle much larger crystal size. 
@@ -580,9 +614,18 @@ our method involves much smaller matrices and can handle much larger crystal siz
 \section{Application to the problem of biexciton scattering}
 \label{sec:biexcitonScattering}
 
-In this section, we develop a numerical method to calculate the tunneling of a biexciton state through disorders. The 
-method relies on the recursive calculation of Green's function in \autoref{sec:recursiveGreen} and can handle multiple
-disorders. 
+As a powerful analytical tool, Green's functions are often used to develop analytical formulations for  all sorts of physical 
+problems. 
+However, due to difficulties in numerical computation of the corresponding Green's functions, 
+these formulations based on Green's function often become something of  theoretical merit only, and they are rarely used in pratical computational 
+study. For example, as will be shown below, the Green's function formulation of the scattering theory is quite general and 
+elegant. It 
+can handle all types of scattering potentials and treat  single-particle scattering and multiple-particle scattering in the
+ same way. But still the Green's functions are not used very often in scattering problems because of the numerical difficulties
+ involved\cite{Berciu2010}.  With the new recursive
+ method in \autoref{sec:recursiveGreen}, which makes the calculation of Green's function easier, we now use the Green's
+ function formulation of scattering to develop a numerical method to calculate the tunneling of a biexciton state through 
+ disorder potentials. This method is numerically efficient and can handle multiple impurities. 
 
 We consider a periodic lattice with hopping interactions and dynamic interactions. Although 
 the lattice is regular, disorders can still appear due to different on-site energies and different coupling strengths for 
@@ -744,12 +787,12 @@ $n$ and $m$ to the far right of the disorders region, that is,
 \oneline{
 t = \frac{ \langle{n, m} \ket{\psi} } { \langle{n, m} \ket{\phi(K)} } \ .
 }
-Note the scattering wavefunction $\ket{\psi}$ must be properly normalized with respect to the finite crystal. 
+Note that the scattering wavefunction $\ket{\psi}$ must be properly normalized with respect to the finite crystal. 
 
 \section{Summary}
 \label{sec:summaryGreenFunc}
 
-In this chapter, a recursive method to calculate lattice Green's functions is given. This essential idea 
+In this chapter, a recursive method to calculate lattice Green's functions is described. This essential idea 
 is to group Green's functions into different set of vectors and rewrite the equation of motion of Green's function to a 
 recursion relation that links three consecutive vectors. Then based on physical reasoning, certain vectors are 
 assumed to be zero and then substituted into the corresponding recursion relations to express one set
@@ -762,5 +805,5 @@ disorders, and can be easily extended to systems with interactions with longer (
 high dimensionality. To show the numerical efficiency of the method, we compare it with the brute-force method and
 the Haydock's methods, and find that our method involves vectors of much smaller sizes. As an example of
 application, we describe how the recursive method to calculate the Green's functions can be used to study the 
-scattering of a biexciton state by disorders. 
+scattering of a biexciton state by impurities. 
  
