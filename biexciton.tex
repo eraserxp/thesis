@@ -385,8 +385,8 @@ C^{K}(l) = \frac{1}{\sqrt{N_{\rm mol}}}\sum_{k}C^{K}_{k} e^{ i k l} \ , \label{e
 }
 we arrive at
 \multiline{
-C_{n,m} &=& \frac{1}{N_{\rm mol}}\sum_{k_1, k_2} C_{k_1, k_2} e^{i(K/2 + k)n} e^{i(K/2 - k)n}  \nonumber \\
-&=&  \frac{1}{N_{\rm mol}}\sum_{K, k} C_{k}^{K} e^{i(K/2 + k)n} e^{i(K/2 - k)n} \nonumber \\
+C_{n,m} &=& \frac{1}{N_{\rm mol}}\sum_{k_1, k_2} C_{k_1, k_2} e^{i(K/2 + k)n} e^{i(K/2 - k) m}  \nonumber \\
+&=&  \frac{1}{N_{\rm mol}}\sum_{K, k} C_{k}^{K} e^{i(K/2 + k)n} e^{i(K/2 - k) m} \nonumber \\
 &=&  \frac{1}{\sqrt{N_{\rm mol}}}\sum_{K} C^{K}(n-m) e^{i K (n+m)/2} \ . 
 }
 Then the two-exciton wavefunction (\autoref{eqn:twoExcitonWavefunc}) can be written as
@@ -414,7 +414,7 @@ satisfy \autoref{eqn:normalization}. As usual, wavefunctions can be obtained by 
  we work with \autoref{eqn:forAllkPairs} which is equivalent to the Schr{\" o}dinger equation for the biexciton states. 
 The main idea is to substitute \autoref{eqn:CKk} into \autoref{eqn:forAllkPairs} and get rid of the individual 
 wavevector $k_1$, $k_2$, $k_2^{'}$ and $k_2^{'}$. In this way, we will finally obtain an equation for $C^{K}(l)$ that
- depends on the summation of the wavevectors $K = (k_1 + k_2)/2$ rather than the individual wavevectors. However 
+ depends on the summation of the wavevectors $K = k_1 + k_2$ rather than the individual wavevectors. However 
 before doing that, we need to introduce the Green's function
 \oneline{
 G^{K}_{k_1, k_2} = \frac{1}{E - \epsilon(k_1) - \epsilon(k_2)} 
@@ -422,7 +422,7 @@ G^{K}_{k_1, k_2} = \frac{1}{E - \epsilon(k_1) - \epsilon(k_2)}
 and its fourier transform
 \multiline{
 G^{K}(n) &=& \frac{1}{N_{\rm mol}} \sum_{q} \frac{e^{i q n}}{E - \epsilon(K/2 + q) - \epsilon(K/2 - q) } \nonumber \\
-&=& \frac{1}{N_{\rm mol}} \sum_{k_1 + k_2 = 2 K} \frac{e^{i ( k_1 - k_2 ) n/2}}{E - \epsilon(k_1) - \epsilon(k_2) } \ . 
+&=& \frac{1}{N_{\rm mol}} \sum_{k_1 + k_2 =  K} \frac{e^{i ( k_1 - k_2 ) n/2}}{E - \epsilon(k_1) - \epsilon(k_2) } \ . 
 \label{eqn:GKn}
 }
 In the nearest neighbor approximation where only the interaction between the nearest sites is considered,  the energy $\epsilon(k_1)$ of an exciton with wavevector $k_1$ is given by
@@ -446,7 +446,7 @@ G^{K}(n) = \frac{1}{2\pi} \int^{\pi}_{-\pi} dq \frac{e^{i q n}}{( E-2E_0 ) - 2J_
 }
 which can be transformed into another integral over the complex variable $w=e^{iq}$ along the unit circle
 \oneline{
-G^{K}(n) = \frac{1}{2\pi i |J_{K}|} \oint dw \frac{w^|n|}{w^2 + 2 x w + 1} \ ,
+G^{K}(n) = \frac{1}{2\pi i |J_{K}|} \oint dw \frac{w^{|n|}}{w^2 + 2 x w + 1} \ ,
 }
 where $x = E/2J_K $. Then \autoref{eqn:GKnIntegral} can be calculated from the Residue theorem. In the case of a
  biexciton state, its energy $E^{K}_{b}$ is outside the energy continuum of two free excitons 
@@ -470,7 +470,7 @@ G^{K}_{k_1, k_2} = \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \ .  \label{eqn:G
 To utilize the known analytical expression of $G^{K}(n)$, we divide both sides of \autoref{eqn:forAllkPairs} by
 $G^{K}_{k_1, k_2}$ to get
 \multiline{
-\underbrace{C_{k_1, k_2 }}_\text{\circled{10}} &=& \underbrace{\frac{1}{N_{\rm mol}}G^{K}_{k_1, k_2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } D(n) e^{i (k_1 - k_1^{'} )n} C_{k_1^{'}, k_2^{'}}}_\text{\circled{11}}\nonumber \\
+\underbrace{C_{k_1, k_2 }}_\text{\circled{10}} &=& \underbrace{\frac{1}{N_{\rm mol}}G^{K}_{k_1, k_2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \sum_{n} D(n) e^{i (k_1 - k_1^{'} )n} C_{k_1^{'}, k_2^{'}}}_\text{\circled{11}}\nonumber \\
 &&\underbrace{ - \frac{1}{N_{\rm mol}}G^{K}_{k_1, k_2}\sum_{k_1^{'} + k_2^{'} = k_1 + k_2 }\epsilon(k_1^{'}) C_{k_1^{'}, k_2^{'}} }_\text{\circled{12}} \nonumber \\
 &&\underbrace{ - \frac{1}{N_{\rm mol}}G^{K}_{k_1, k_2}\sum_{k_1^{'} + k_2^{'} = k_1 + k_2 }\epsilon(k_2^{'}) C_{k_1^{'}, k_2^{'}} }_\text{\circled{13}} \ . \label{eqn:eqToStart}
 }
@@ -482,7 +482,7 @@ Substitution of \autoref{eqn:GKConvertedToGn} and \autoref{eqn:CKk} into \autore
 \text{\circled{10}} = \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1 - k_2 ) l /2} \ ,
 }
 \multiline{
-\text{\circled{11}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } D(n) e^{i (k_1 - k_1^{'} )n} \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
+\text{\circled{11}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \sum_{n} D(n) e^{i (k_1 - k_1^{'} )n} \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
 &=& \frac{1}{N_{\rm mol} \sqrt{N_{\rm mol}} }\sum_{m,n,l}  \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } G^{K}(m) e^{- i (k_1 - k_2 ) m /2} D(-n) e^{-i(k_1 - k_1^{'})n}  \nonumber \\
 && \hspace{4cm} \times C^{K}(l)   e^{- i \left[k_1^{'} - (k_1 + k_2 - k_1^{'} )\right] l /2}  \nonumber \\
 &=&  \frac{1}{N_{\rm mol} \sqrt{N_{\rm mol}} }\sum_{m,n,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} D(n) e^{-i k_1 n }   C^{K}(l)   e^{i (k_1 + k_2 ) l /2}   \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } e^{i k_1^{'} (n-l)}\nonumber \\
@@ -491,10 +491,10 @@ Substitution of \autoref{eqn:GKConvertedToGn} and \autoref{eqn:CKk} into \autore
 }
 \multiline{
 \text{\circled{11}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \left[ E_0 + \sum_{n} J(n) e^{i k_1^{'} )n} \right] \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
-&=&  \frac{1}{\sqrt{N_{\rm mol}} }\sum_{m,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} e^{ i (k_1 + k_2 ) l /2}\left[
+&=&  \frac{1}{\sqrt{N_{\rm mol}} }\sum_{m,n,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} e^{ i (k_1 + k_2 ) l /2}\left[
 E_0   C^{K}(l) \frac{1}{N_{\rm mol}} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } e^{-i k_1^{'} l} \right. \nonumber \\
 && \hspace{4cm}+ \left. J(l) C^{K}(l)  \frac{1}{N_{\rm mol}} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } e^{i k_1^{'} (n-l)} \right] \nonumber \\
-&=& \frac{1}{\sqrt{N_{\rm mol}} }\sum_{m,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} e^{ i (k_1 + k_2 ) l /2}\left[ E_0   C^{K}(l) \delta_{l,0} + J(l) C^{K}(l)\delta_{l,n}\right] \nonumber \\
+&=& \frac{1}{\sqrt{N_{\rm mol}} }\sum_{m,n, l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} e^{ i (k_1 + k_2 ) l /2}\left[ E_0   C^{K}(l) \delta_{l,0} + J(l) C^{K}(l)\delta_{l,n}\right] \nonumber \\
 &=& \frac{1}{ \sqrt{N_{\rm mol}} }\sum_{m,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} J(l) C^{K}(l) e^{ i K l} 
 }
 and 
