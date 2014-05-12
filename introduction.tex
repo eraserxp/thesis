@@ -9,13 +9,13 @@ Although some work presented in the thesis is quite general and can be applied t
 the main subjects of the research are systems of ultracold atoms and molecules as their experimental manipulation is 
 relatively easy. The control schemes proposed in the thesis also relate closely with the recent developments of laser 
 cooling and trapping of atoms and molecules. Therefore, to give readers a broad context in which to understand the 
-thesis, this chapter presents an introductory overview of the field of ultracold atoms and molecules. In \autoref{sec:ultracold}, we briefly introduce ultracold atoms and molecules and explain why they are interesting. After
+thesis, this chapter presents an introductory overview of the field of ultracold molecules. In \autoref{sec:ultracold}, we briefly introduce ultracold  molecules and explain why they are interesting. After
 that, in \autoref{sec:control}, we focus on the controllability property of ultracold systems and review recent works 
 based on controlling the internal and external degrees of freedoms of  molecules. 
 Finally, we give an outline of the thesis in \autoref{sec:outline} and discuss the connection and contribution of  
 this thesis to the field of ultracold atoms and molecules. 
 
-\section{Ultracold atoms and molecules}
+\section{Opportunities offered by ultracold temperatures}
 \label{sec:ultracold}
 
 %what is ultracold atoms and molecules?
@@ -23,22 +23,73 @@ this thesis to the field of ultracold atoms and molecules.
 %years, our control over materials focused on macroscopic scale. With the advance of technology, nowadays we are 
 %able to put microscopic objects into scientific investigations. Especially, the control of atoms and molecules, the basic 
 %building blocks of materials, is attracting the attention of scientists worldwide. 
-In the past three decades, there has been great success in creating ultracold atomic gases, which  revolutionized the 
-field of atomic and optical physics \cite{southwell2002, chu2002} and allowed for many exciting applications,  
+Cooling gasesous ensembles of atoms and molecules to extremely low temperatures is  revolutionizing the 
+field of atomic, molecular and optical physics. 
+%In the past three decades, there has been great success in creating ultracold atomic gases, which  revolutionized the 
+%field of atomic and optical physics\cite{southwell2002, chu2002, anglin2002, rolston2002, burnett2002, udem2002,
+%monroe2002}.
+In the past three decades, there has been great success in creating ultracold atomic gases\cite{southwell2002, chu2002}, 
+leading to many exciting applications,  
 including Bose$-$Einstein condensation of atomic gases\cite{anglin2002}, nonlinear and quantum atom 
 optics\cite{rolston2002}, collisions at ultracold temperatures\cite{burnett2002}, all-optical atomic
 clock\cite{udem2002},
-and quantum information processing with atoms and photons\cite{monroe2002}. Prompted by this success with 
+and quantum information processing with atoms and photons\cite{monroe2002}. 
+Prompted by this success with 
 ultracold atoms, researchers are now putting great effort to extend the method of ultracold physics to molecules,
 creating the emerging field of ultracold molecules. 
-As basic building blocks of materials, molecules,  just like atoms,  in ultracold temperatures are expeted to have  an great
+As basic building blocks of materials, molecules,  just like atoms,  at ultracold temperatures are expeted to have  an great
 impact on different areas of science and technology such as precision measurements of fundamental constants,  quantum simulations of condensed matter systems, quantum information processing, precise control of molecular
 dynamics and ultracold chemistry\cite{our-njp-review, friedrich2009, schnell2009, Bell2009, krems2010cold, Ni2009,
 Jin2011, Jin2012, quemener2012, Baranov2012}. 
 
 
-An important feature of ultracold atoms and molecules is their small kinetic energies. The word  ``ultracold'' doesn't
-relate to temperatures directly, its real meaning is ``ultra-slow'', refering to the translational motion of particles. 
+The word ``ultracold'' merits some explanation. By convention, a distinction is made between two ranges of 
+temperature $T$: cold means that 1 mK $<$ $T$ $<$ 1 K; ultracold means that $T < $ 1 mK.   Different from its literal 
+meaning, the word  ``ultracold'' doesn't directly 
+refer to temperatures  as most ultracold systems under experimental investigations are not in thermodynamic 
+equilibrium and no temperature $T$ can be ascribed to them.  Nevertheless, the temperature $T$ is used as a way to 
+quantify the kinetic energy of particles according to the relation $E_{\rm kin} = k_{\rm B} T$ where $k_{\rm B}$ is the 
+Boltzmann constant.   So the actual meaning of ``ultracold'' is ``ultra-slow'', refering to the translational motion of 
+particles.  
+The small kinetic energies of  ultracold atoms or molecules have some important consequences, which is summaried below.
+
+First, ultracold temperatures allow for novel macroscopic quantum states of matter. A particle in the gaseous phase behaves as a quantum-mechanical 
+wavepacket with the extension on the order of its de Broglie wavelength, given by
+\oneline{
+\Lambda = \frac{h}{m v} \mbox{ or } \frac{h}{\sqrt{2\pi m k_{\rm B} T} } \ . 
+}
+At ultracold temperatures, the de Broglie wavelength is larger than its counterparts at room temperatures by several orders of magnitude, 
+and is comparable to or larger than the mean distance between particles in gaseous phases. Under these conditions,
+the particles in a condensate becomes indistinguishable and their wavefunctions overlap, leading to the formation of
+a macroscopic coherent matter wave, that is, Bose-Einstein condenstate\cite{ketterle2002, anglin2002} for bosonic 
+particles in which all particles occupy the lowest quantum state, and quantum degenerate Fermi gases\cite{lev2002, stefano2008} for fermionic 
+particles in which every accessible energy level is occupied by exactly one particle due to the Pauli exclusion principle. 
+
+Second, ultracold temperatures lead to new collision phenomena.
+Because of the large de Broglie wavelengths of ultracold particles, their low-energy collison is 
+qualitatively different from the collision at thermal temperature. At ultracold temperatures, particles
+do not have well-defined trajectories in phase space, the spherical harmonics $Y_{lm}(\theta, \phi)$, also called 
+partial waves with $l = 0, 1, 2, \cdots$, are used to describe their collisions. In the absence of external field, as $T 
+\rightarrow 0$, the quantum threshold regime is reached and only the lowest allowed partial wave contributes to the 
+collision\cite{wigner1948, krems2005}. For collisions between reactive particles at ultracold temperatures, the quantum phenomena is
+even more dramatic. As the kinetic energy is so small, the tunneling under reaction barriers becomes the 
+dominant mechanism of chemical reactions, giving temperature-independent reaction rate constants that 
+can be very large at zero Kelvin\cite{balakrishnan2001, bodo2002, bodo2004, weck2004}. Moreover, quantum statistics 
+governs the chemistry at ultracold temperatures. For example, depending on 
+whether the colliding molecules are in the same internal quantum state or not, the collisions can be dominated by $s$-
+wave collisions or $s$-wave and $p$-wave collisions, giving very different reaction rates\cite{ospelkaus2010}. 
+
+Third, ultracold temperatures enable numerious control possibilities. It has been a long-sought goal to control atomic and 
+molecular dynamics by utilizing their interactions with external fields. However, at normal temperatures, the thermal 
+motion of atoms and molecules randomize their encounters and diminishes the effect of external fields. As the temperature
+approaches a few $\mu$K, the kinetic energy of ultracold molecules becomes so small  that it is even less than 
+the energy splittings of hyperfine structures. In this case, an external field of modest strength can produce an perturbation
+in energy that is larger than the translation energy of molecules, creating dramatic changes in the collisions properties of
+molecules. which allows for numerious studys on controlling ultracold collision by external field\cite{krems2005}. The 
+slow motion of particles at ultracold temperature makes the trapping and confinement of them relatively easy. 
+
+Fourth, 
+ have a profound influence. 
 
 why are they unqiue?
 
@@ -49,8 +100,12 @@ why are they unqiue?
 
 
 
-\section{Quantum control of ultracold systems}
+\section{Controllability of ultracold systems}
 \label{sec:control}
+
+
+\section{Physics of ultracold molecules on optical lattices}
+\label{sec:opticalLattice}
 
 \section{Thesis outline}
 \label{sec:outline}

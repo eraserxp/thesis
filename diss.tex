@@ -382,22 +382,6 @@
 %%%%%%%%%%%%% customize autoref package %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%\let\orgautoref\autoref
-%\providecommand{\Autoref}[1]
-%        {%\def\equationautorefname{Equation}%
-%         \def\figureautorefname{Figure}%
-%         \def\subfigureautorefname{Figure}%
-%         \def\Itemautorefname{Item}%
-%         \def\tableautorefname{Table}%
-%         \def\sectionautorefname{Section}%
-%         \def\subsectionautorefname{Section}%
-%         \def\subsubsectionautorefname{Section}%
-%         \def\chapterautorefname{Section}%
-%         \def\partautorefname{Part}%
-%	\def\equationautorefname~#1{Equation~(#1)}%
-%  	\autoref{#1}%
-%         \orgautoref}
-
   \def\chapterautorefname~#1\null{chapter~(#1)\null}%
   \def\sectionautorefname~#1\null{section~(#1)\null}%
   \def\subsectionautorefname~#1\null{section~(#1)\null}%
@@ -417,31 +401,7 @@
   \endgroup%
 }
 
-%\renewcommand{\autoref}
-%        {%\def\equationautorefname{equation}%
-%         \def\figureautorefname{figure}%
-%         \def\subfigureautorefname{figure}%
-%         \def\Itemautorefname{item}%
-%         \def\tableautorefname{table}%
-%         \def\sectionautorefname{section}%
-%         \def\subsectionautorefname{section}%
-%         \def\subsubsectionautorefname{section}%
-%         \def\chapterautorefname{section}%
-%         \def\partautorefname{part}%
-%         \orgautoref}
 
-%\renewcommand{\autoref}[1]{ %
-%  \def\chapterautorefname~#1\null{chapter~(#1)\null}%
-%  \def\sectionautorefname~#1\null{section~(#1)\null}%
-%  \def\subsectionautorefname~#1\null{section~(#1)\null}%
-%  \def\figureautorefname~#1\null{figure~(#1)\null}%
-%  \def\tableautorefname~#1\null{table~(#1)\null}%
-%  \def\equationautorefname~#1\null{equation~(#1)\null}%
-%}
-
-%\def\equationautorefname~#1\null{%
-%  equation~(#1)\null
-%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
