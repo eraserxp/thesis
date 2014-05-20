@@ -188,12 +188,12 @@ In the above derivation, \autoref{eqn:commutation-relation2} and $\p{n}\ket{0} =
  second term and the third term give rise to 
 \oneline{
 \text{\circled{2}}\ket{\psi} = \sum_{n,m}\left[ \sum_{n'}J(n'-n)C_{n', m}\pd{n}\pd{m} 
-+  \sum_{n'}J(n'-m)C_{n, n'}(1-2\delta_{m,n})\pd{m}\pd{n}\right] \label{eqn:term2}
++  \sum_{n'}J(n'-m)C_{n, n'}(1-2\delta_{n', n})\pd{m}\pd{n}\right] \ket{0} \label{eqn:term2}
 }
 and
 \oneline{
 \text{\circled{3}}\ket{\psi} =\frac{1}{2} \sum_{n,m}\left[ D(n-m)C_{n, m}\pd{m}\pd{n} 
-+  D(n-m)C_{n, m}(1-2\delta_{m,n})\pd{n}\pd{m}\right] \label{eqn:term3}
++  D(n-m)C_{n, m}(1-2\delta_{m,n})\pd{n}\pd{m}\right]\ket{0} \label{eqn:term3}
 }
 respectively. The right hand side of \autoref{eqn:schrodinger} is given by
 \oneline{
@@ -296,7 +296,7 @@ Because of \autoref{eqn:cnnConstraint}, we can eliminate $E$ terms in first summ
  \autoref{eqn:forAllk} and obtain
 \oneline{
 \left[ E - \epsilon(k_1) -  \epsilon(k_2)\right] C_{k_1, k_2} =
- \frac{1}{N_{\rm mol}}\sum_{k_3} \left[\Tilde{D}(k_3) - \epsilon(k_1 - k_3) - \epsilon(k_2 - k_3) \right]C_{k_1 - k_3, k_2 + k_3} \ . \label{eqn:forAllkSimplified}
+ \frac{1}{N_{\rm mol}}\sum_{k_3} \left[\Tilde{D}(k_3) - \epsilon(k_1 - k_3) - \epsilon(k_2 + k_3) \right]C_{k_1 - k_3, k_2 + k_3} \ . \label{eqn:forAllkSimplified}
 }
 Note in the above equation, the range of the wavectors $k_1$, $k_2$ and $k_3$ is $[-\pi, \pi)$. Then the range of 
 $k_1 - k_3$ and $k_2 + k_3$ is $(-2\pi, 2\pi)$ which is outside the first Brillouin zone. However, due to the symmetry
@@ -307,7 +307,7 @@ k_1^{'} = k_1 - k_3 \pm 2\pi \ ,
 }
 and 
 \oneline {
-k_2^{'} = k_2 - k_3  \pm 2\pi \ , 
+k_2^{'} = k_2 + k_3  \pm 2\pi \ , 
 }
 in which $+$ or $-$ is used to make sure the values of $k_1^{'}$ and $k_2^{'}$ are within the first Brillouin zone. Then 
 \autoref{eqn:forAllkSimplified} becomes

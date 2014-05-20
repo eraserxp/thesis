@@ -263,6 +263,9 @@
 %math fonts
 \usepackage[mathscr]{euscript}
 
+
+
+
 %command to produce a column vector
 % usage \colvec{5}{a}{b}{c}{d}{e}.
 \newcount\colveccount
@@ -464,7 +467,7 @@
 %% Document meta-data: be sure to also change the \hypersetup information
 %%
 
-\title{Quantum control of dynamics of quasiparticles in a periodic lattice potential}
+\title{Quantum control of dynamics of quasiparticles in periodic and aperiodic lattice potentials}
 %\subtitle{If you want a subtitle}
 
 \author{Ping Xiang}
@@ -485,7 +488,7 @@
 %% hyperref package provides support for embedding meta-data in .PDF
 %% files
 \hypersetup{
-  pdftitle={Change this title!  (DRAFT: \today)},
+  pdftitle={PhD thesis of Ping Xiang (DRAFT: \today)},
   pdfauthor={Ping Xiang},
   pdfkeywords={thesis}
 }
@@ -531,8 +534,8 @@
 \cleardoublepage	% required by tocloft package
 
 %    5. List of tables (mandatory if thesis has tables)
-\listoftables
-\cleardoublepage	% required by tocloft package
+%\listoftables
+%\cleardoublepage	% required by tocloft package
 
 %    6. List of figures (mandatory if thesis has figures)
 \listoffigures
@@ -542,7 +545,7 @@
 %    8. Lists of symbols, abbreviations or other (optional)
 
 %    9. Glossary (optional)
-\input{glossary}	% always input, since other macros may rely on it
+%\input{glossary}	% always input, since other macros may rely on it
 
 \textspacing		% begin one-half or double spacing
 
@@ -552,6 +555,7 @@
 \include{ack}
 
 %   11. Dedication (optional)
+\include{dedication}
 
 % Body of Thesis (not all sections may apply)
 \mainmatter
@@ -568,6 +572,8 @@
 \include{wavepacket}
 
 \include{greenfunc}
+
+\include{conclusion}
 
 %    2. Main body
 % Generally recommended to put each chapter into a separate file
@@ -588,11 +594,11 @@
 \bibliography{citations}
 \end{singlespace}
 
-\appendix
+%\appendix
 %    6. Appendices (including copies of all required UBC Research
 %       Ethics Board's Certificates of Approval)
 %\include{reb-coa}	% pdfpages is useful here
-\include{appendix}
+%\include{appendix}
 
 \backmatter
 %    7. Index

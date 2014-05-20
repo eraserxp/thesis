@@ -4,18 +4,17 @@
 \chapter{Introduction}
 \label{ch:Introduction}
 
-This thesis is a theoretical study on how to control quantum dynamics of quasiparticles in a periodic lattice potential. 
-Although some work presented in the thesis is quite general and can be applied to any system with a periodic potential, 
+This thesis is a theoretical study on how to control quantum dynamics of quasiparticles in periodic and aperiodic lattice potentials. 
+Although some work presented in the thesis is quite general and can be applied to any system with a periodic or aperiodic lattice potential, 
 the main subjects of the research are systems of ultracold atoms and molecules as their experimental manipulation is 
-relatively easy. The control schemes proposed in the thesis also relate closely with the recent developments of laser 
+relatively easy. The control schemes proposed in the thesis is also related closely with the recent developments of laser 
 cooling and trapping of atoms and molecules. Therefore, to give readers a broad context in which to understand the 
-thesis, this chapter presents an introductory overview of the field of ultracold molecules. In \autoref{sec:ultracold}, we briefly introduce ultracold  molecules and explain why they are interesting. After
-that, in \autoref{sec:control}, we focus on the controllability property of ultracold systems and review recent works 
-based on controlling the internal and external degrees of freedoms of  molecules. 
-Finally, we give an outline of the thesis in \autoref{sec:outline} and discuss the connection and contribution of  
-this thesis to the field of ultracold atoms and molecules. 
+thesis, this chapter presents an introductory overview of the field of ultracold atoms and molecules. In \autoref{sec:ultracold}, we briefly introduce ultracold  atoms and molecules and explain consequences of ultracold temperatures. After
+that, in \autoref{sec:control}, we discuss the controllability of ultracold atoms and molecules. In
+ \autoref{sec:opticalLattice}, we introduce a particular ultracold system with polar molecules trapped on optical lattices.  
+Finally, we give an outline of the thesis in \autoref{sec:outline}. 
 
-\section{Opportunities offered by ultracold temperatures}
+\section{Implications of ultracold temperatures}
 \label{sec:ultracold}
 
 %what is ultracold atoms and molecules?
@@ -29,7 +28,7 @@ field of atomic, molecular and optical physics.
 %field of atomic and optical physics\cite{southwell2002, chu2002, anglin2002, rolston2002, burnett2002, udem2002,
 %monroe2002}.
 In the past three decades, there has been great success in creating ultracold atomic gases\cite{southwell2002, chu2002}, 
-leading to many exciting applications,  
+leading to many interesting phenomena and applications,  
 including Bose$-$Einstein condensation of atomic gases\cite{anglin2002}, nonlinear and quantum atom 
 optics\cite{rolston2002}, collisions at ultracold temperatures\cite{burnett2002}, all-optical atomic
 clock\cite{udem2002},
@@ -37,7 +36,7 @@ and quantum information processing with atoms and photons\cite{monroe2002}.
 Prompted by this success with 
 ultracold atoms, researchers are now putting great effort to extend the method of ultracold physics to molecules,
 creating the emerging field of ultracold molecules. 
-As basic building blocks of materials, molecules,  just like atoms,  at ultracold temperatures are expeted to have  an great
+As basic building blocks of materials, molecules,  just like atoms,  at ultracold temperatures are expeted to have  a great
 impact on different areas of science and technology such as precision measurements of fundamental constants,  quantum simulations of condensed matter systems, quantum information processing, precise control of molecular
 dynamics and ultracold chemistry\cite{our-njp-review, friedrich2009, schnell2009, Bell2009, krems2010cold, Ni2009,
 Jin2011, Jin2012, quemener2012, Baranov2012}. 
@@ -60,7 +59,7 @@ wavepacket with the extension on the order of its de Broglie wavelength, given b
 }
 At ultracold temperatures, the de Broglie wavelength is larger than its counterparts at room temperatures by several orders of magnitude, 
 and is comparable to or larger than the mean distance between particles in gaseous phases. Under these conditions,
-the particles in a condensate becomes indistinguishable and their wavefunctions overlap, leading to the formation of
+the particles in a gaseous ensemble becomes indistinguishable and their wavefunctions overlap, leading to the formation of
 a macroscopic coherent matter wave, that is, Bose-Einstein condenstate\cite{ketterle2002, anglin2002} for bosonic 
 particles in which all particles occupy the lowest quantum state, and quantum degenerate Fermi gases\cite{lev2002, stefano2008} for fermionic 
 particles in which every accessible energy level is occupied by exactly one particle due to the Pauli exclusion principle. 
@@ -69,44 +68,156 @@ Second, ultracold temperatures lead to new collision phenomena.
 Because of the large de Broglie wavelengths of ultracold particles, their low-energy collison is 
 qualitatively different from the collision at thermal temperature. At ultracold temperatures, particles
 do not have well-defined trajectories in phase space, the spherical harmonics $Y_{lm}(\theta, \phi)$, also called 
-partial waves with $l = 0, 1, 2, \cdots$, are used to describe their collisions. In the absence of external field, as $T 
+partial waves with $l = 0, 1, 2, \cdots$ that represent the angular momenta of the rotational motion of the collision complex,  are used to describe the collisions. In the absence of external field, as $T 
 \rightarrow 0$, the quantum threshold regime is reached and only the lowest allowed partial wave contributes to the 
 collision\cite{wigner1948, krems2005}. For collisions between reactive particles at ultracold temperatures, the quantum phenomena is
 even more dramatic. As the kinetic energy is so small, the tunneling under reaction barriers becomes the 
 dominant mechanism of chemical reactions, giving temperature-independent reaction rate constants that 
 can be very large at zero Kelvin\cite{balakrishnan2001, bodo2002, bodo2004, weck2004}. Moreover, quantum statistics 
-governs the chemistry at ultracold temperatures. For example, depending on 
-whether the colliding molecules are in the same internal quantum state or not, the collisions can be dominated by $s$-
-wave collisions or $s$-wave and $p$-wave collisions, giving very different reaction rates\cite{ospelkaus2010}. 
+governs reactive collisions at ultracold temperatures. For example, depending on 
+whether the colliding molecules are in the same internal quantum state or not, the collisions can be dominated by 
+$s$-wave collisions or $s$-wave and $p$-wave collisions, giving very different reaction rates\cite{ospelkaus2010}. 
 
 Third, ultracold temperatures enable numerious control possibilities. It has been a long-sought goal to control atomic and 
 molecular dynamics by utilizing their interactions with external fields. However, at normal temperatures, the thermal 
-motion of atoms and molecules randomize their encounters and diminishes the effect of external fields. As the temperature
+motion of atoms and molecules randomizes their encounters and diminishes the effect of external fields. As the temperature
 approaches a few $\mu$K, the kinetic energy of ultracold molecules becomes so small  that it is even less than 
-the energy splittings of hyperfine structures. In this case, an external field of modest strength can produce an perturbation
+the energy splittings of hyperfine structures of molecules. In this case, an external field of moderate strength can produce an perturbation
 in energy that is larger than the translation energy of molecules, creating dramatic changes in the collisions properties of
-molecules. which allows for numerious studys on controlling ultracold collision by external field\cite{krems2005}. The 
-slow motion of particles at ultracold temperature makes the trapping and confinement of them relatively easy. 
-
-Fourth, 
- have a profound influence. 
-
-why are they unqiue?
-
-%\section{Ultracold systems on Optical lattices}
-%\label{sec:opticalLattices}
-%
-%what's optical lattices?
-
+molecules\cite{krems2005}. The 
+slow motion of particles at ultracold temperature also allows for the loading of atoms and molecules into a variety of 
+traps, such as electrostatic traps\cite{bethlem2000}, AC electric traps\cite{vanVeldhoven2005}, optical and microwave
+traps\cite{optical-lattice-review, deMille2004}, and magnetic and magneto-optical traps\cite{hogan2008, 
+vanhaecke2002, wang2004}. Within the traps, the particles are in complete isolation from the environment, so their
+interaction with external fields can be more precisely controlled. This leads to unprecedented precision of 
+spectroscopic measurement because of the much longer  interrogation time\cite{vandeMeerakker2005, 
+gilijamse2007, campbell2008}. Because the shapes of the traps can be changed, the trapped ultracold atoms and 
+molecules can be confined in restricted geometries. This may be used for quantum simulations of 
+fundamental many-body systems\cite{Baranov2012} and various setups for quantum computing\cite{brennen1999,
+jaksch1999, pachos2003, kay2004, micheli2006, buchler2007a, bloch2008}.  
 
 
-\section{Controllability of ultracold systems}
+\section{External field control of ultracold atoms and molecules}
 \label{sec:control}
+Perhaps the most important feature of ultracold atoms and molecules is their controllability via interactions with  
+external fields. Since the corresponding research field is so vast, as reviewed by Ref.\cite{lemoshko2013}, 
+here we limit ourself to giving only a conceptual introduction to the field. 
+%here we only touch the surface of the external control
+
+For ultracold atoms, much of their controllability comes from the magnetic field tunable Feshbach resonances\cite{chin2010}, 
+which can be used to precisely control the
+scattering length of collisions. The Feshbach resonance occurs when the kinetic energy  of the colliding particles 
+matches the energy of a bound state of the collision complex, giving a huge change of the scattering length. When 
+the bound state of the collison complex has a different magnetic moment from that of two free atoms, a magnetic 
+field can be used to change the energy of the bound state, thereby shifting the feshbach resonance points. As the scattering
+length is proportional to the effective interparticle interaction in ultracold quantum gases, tuning the scattering length is
+actually changing the interaction between atoms. Thus Feshbach resonances provide a mechanism to tune the effective
+interparticle interaction in ultracold gases\cite{chin2010, kohler2006} and leads to numerous applications, including
+magneto-assocation to produce ultracold molecules\cite{ni2008, danzl2010}, Bose-Einstein condensate of fermionic dimers\cite{zwierlein2003, regal2004}, and the crossover from Bose-Einstein condensate to Bardeen-Cooper-Schreifer superconductor in dilute gases\cite{chin2004}. 
 
 
-\section{Physics of ultracold molecules on optical lattices}
+Unlike atoms, molecules have additional vibrational and rotational degrees of freedom, which leads to even more 
+control possibilities. Here, we outline the possibilities from the aspect of single molecule and from
+the aspect of intermolecular interaction separately. 
+
+First of all, the internal states of ultracold molecules can be selected by their interaction with  
+external fields. This is very important because it enables the production of a near quantum degenerate gas of 
+molecules in their rovibronic ground state\cite{ni2008, danzl2010}, which provides a basis for other research that 
+requires a supply of  ultracold molecules. 
+Recently, it has been demonstrated that a rovibronic ground-state molecular quantum gas  can be prepared in a single 
+hyperfine state or in an arbitrary coherent superposition of hyperfine states\cite{ospelkaus2010} by using two-photon
+microwave transition in the presence of a magnetic field. This control over hyperfine structures, together with the 
+manipulation of electronical, vibrational, and rotational states, completes the full control of all internal degrees of
+freedom of molecules. As quantum information can be encoded 
+into the internal states of molecules,  the ability to manipulate the internal states constitutes the basis of 
+quantum computation. For instance, as presented in Ref.\cite{pellegrini2011}, the universal quantum gates can be 
+implemented using the hyperfine levels of ultracold 
+heteronuclear polar molecules in their electronically, vibrationally, and rotationally ground state. This high-fidelity 
+logic gates, driven by microwave pulses between hyperfine states, offer versatile encoding possibilities as a 
+consequence of the richness of the energy structures and the state mixing of molecules in external fields. The precise control of internal states also 
+facilitates quantum simulation of many-body systems using ultracold molecules. For example, it has been shown that hyperfine structures of polar molecules in a one-dimensional 
+lattices can be controllably accessed and manipulated as a resource for generating complex quantum dynamics
+\cite{Carr2}.  
+
+Moreover, the permanent electric dipole moment of polar molecules enables the tuning of long-range intermolecular 
+interaction. The electric dipole moment describes the separation of positive and negative electrical charges
+in a molecule and is given by
+\oneline{
+\boldsymbol{\mu} = \sum_{n} q_n \mathbf{r}_{n} \ ,
+}
+where $\mathbf{r}_{n}$ gives the positions of charges $q_n$ and the sum is over all charges in the molecule including 
+electrons and nuclei. For molecules in a particular electronic and vibrational state, it is convenient to define the permanent
+dipole operator as $\boldsymbol{d} = \matelement{\psi}{\boldsymbol{\mu}} {\psi}$ by integrating over the electronic and
+vibrational wavefunction $\psi$. The permanent dipole operator has the property that it only couples states with different
+parity. Since a molecular rotational eigenstate $\ket{J, M}$  has a well-defined parity 
+determined by the angular momentum quantum number $J$ in the following way:
+\oneline{
+P \ket{J, M} = (-1)^{J} \ket{J, M} \ ,
+}
+where $P$ is the parity operator, it follows that molecules in a rotational eigenstate have no permanent dipole moment as $\matelement{J, M}{\boldsymbol{d}} {J, M} = 0$. At ultracold temperatures, in consideration of stability against inelastic collisions, 
+molecules are usually prepared in their electronic, vibrational and rotational ground state, therefore they possess no net
+dipole moment and interact via a van der Waals attraction which falls off as $\frac{1 }{r^6}$ with respect to the
+interparticle separation $r$. With the application of electric fields that mix rotational states of different parity, static or 
+oscillating dipoles are induced in molecules, leading to a new type of interaction -- dipole-dipole interaction, which falls off
+as $\frac{1}{r^3}$ and dominates over the van der Waals interaction at long range. The dipole-dipole interaction can be
+modified by external fields to change the strength and shape of interaction potential between 
+polar molecules\cite{micheli2007, buchler2007a}. This tunability, combined with the anisotropy characteristic of 
+dipole-dipole interaction, inspires a large body of research on the condensed matter theory of dipolar quantum 
+gases\cite{baranov2008, lahaye2009, trefzger2011, Baranov2012}. 
+
+
+
+
+\section{Ultracold polar molecules on optical lattices}
 \label{sec:opticalLattice}
+
+In the past few years, our group has been interested in ensembles of ultracold polar molecules trapped on optical lattices.  Optical lattices are
+ periodic potentials formed by the standing wave patterns of counterpropagating laser 
+ beams\cite{Jessen1996, phillips1998}. These periodic potentials use ac-stark shift to trap and organize ultracold atoms and molecules in 
+ crystal-like structures, creating aritifical crystals. Different from solid state crystals with the lattice constants on the order of a few angstroms, these artifical crystals of ultracold atoms and molecules have much larger lattice site separations
+ on the order of an optical wavelength (micron), thus open the possibility to address single site in optical lattices\cite{atom-mott1, atom-mott2}. Because of the ability to change the geometry of the set of laser beams and their intensity, it is possible to realize optical lattices of various geometry and dimensionalities with tunable trap depth\cite{Jessen1996,
+  phillips1998}. With polar molecules trapped inside, optical lattices provide a very versatile platform for studying controllable many-body 
+  phenomena\cite{Baranov2012} and for implementing new schemes of quantum computing\cite{demille, yelin2006, ortner2011}. 
+  
+The low-energy physics of particles trapped in an optical lattice can be described by the Hubbard Hamiltonian:
+\oneline{
+H = - \sum_{i, j, \sigma} J_{ij}^{\sigma} b^{\dagger}_{i, \sigma} b_{j, \sigma} + \sum_{i, j, \sigma, \sigma'} 
+\frac{U_{i j}^{\sigma \sigma'}}{2} b^{\dagger}_{i, \sigma} b_{i, \sigma} b^{\dagger}_{j, \sigma'} b_{j, \sigma'} \ ,
+\label{eqn:hubbardHam}
+}
+where $b^{\dagger}_{i, \sigma} (b_{i, \sigma})$ are the creation (annihilation) operators for a particle at site $i$ in the
+internal state $\sigma$, $J_{ij}^{\sigma}$ describes the hopping of a particle from site $j$ to site $i$, and $U_{i j}^{\sigma \sigma'}$ is the onsite ($i=j$) or offsite ($i\neq j$) interaction between the particle at site $i$ in state $\sigma$ and the particle at site $j$ in state $\sigma'$. By tuning the trap depth, different ratio between $J$ and $U$ can
+be achieved. When  the particle number is commensurate with the 
+number of lattice sites and the trap depth is deep enough such that $J \ll U$, a phase transition from the superfluid phase to the Mott insulator can be 
+observed\cite{Greiner2002, spielman2007, haller2010}. In the Mott insulator state, the tunneling of particles between sites
+is suppressed and the number of particles at a site is an integer value. For the system that our group is interested -- ensembles of 
+polar molecules trapped on optical lattices, a lot of effort has been devoted to exploring the exotic quantum phases (see Ref.\cite{Baranov2012} and the references therein) because of the long-range and anisotropic characteristic of the 
+dipole-dipole interaction between trapped polar molecules.  
+In those studies, many novel phase diagrams, associated with different extents of particle tunneling and various types of 
+interparticle interactions, have been discovered.
+
+Our group instead focus on the Mott insulator phase and explore the tunability of the system of ultracold molecules in the 
+context of collective excitations. The form of Hamiltonian is still the same as \autoref{eqn:hubbardHam}, but the creation
+and annihilation operators are defined with respect to the quasiparticles -- the molecular excitations, rather than the real 
+particles.  So $J$ now describes the propgation of the excitation energy in the crystal and $U$ represents the interaction
+between two molecular excitations. This line of research gives another perspective to the field of ultracold molecules and
+may shed new light on the study of collective phenomena. For example, previous research of our group have demonstrated
+that the artifical crystals of polar molecules in Mott insulator state can be used to investigate exciton-impurity interaction\cite{felipe},
+to control collective spin excitations\cite{perez-rios2010}, to achieve open quantum systems with tunable coupling to the bath\cite{felipe-polarons}, and to study new polaron models\cite{felipe-arxive-polaron}. 
+
 
 \section{Thesis outline}
 \label{sec:outline}
+
+My thesis represents an extended effort of our group on the study of quasiparticles on optical lattices. Unlike the previous 
+studies of our group which considered  only one excitation, the research presented in \autoref{ch:biexciton} increased the number of 
+excitations to two and three and investigated the binding mechanism of these excitations. In \autoref{ch:energy-transfer}, 
+the study focused on the propagation properties of excitations and proposed a new scheme to control the energy transfer 
+in 
+ordered and disordered crystals. In \autoref{ch:greenfunc}, not satisfied with the current theoretical tools to study the 
+dynamics of quasiparticles, I extendend Berciu's method\cite{Berciu2010, Berciu2011, Berciu2012} to calculate 
+two-particle 
+Green's functions in disordered crystals and described a method to study the tunneling of biexciton states through 
+disorders. \autoref{ch:conclusion} summarized the conclusions of the thesis. 
+
 
