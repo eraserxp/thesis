@@ -8,7 +8,7 @@ This chapter  briefly outlines the background material that is directly related 
 \label{sec:reviewAngularMomentum}
 
 In this section, we briefly review the theory of angular momentum. Instead of giving a comprehensive 
-picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, sakurai-book, RotSpect} have already done, we take a pragmatic approach that is more concerned with the intuitive 
+picture as various books\cite{edmonds-book, rose-book, brink-book, zare-book, silver-book, kleinman-book, Varshalovich-book, sakurai-book, RotSpect} have already done, we take a pragmatic approach that is more concerned with intuitive 
 understanding, discussing only the concepts and ideas that are relevant to research in this thesis. 
 
 \subsection{Symmetry groups}  
@@ -23,7 +23,7 @@ As group theory is an important tool that is used to determine symmetry, we intr
 A set of operations $\{ A, B, C, \cdots \}$ is called a group if it satisfies the following properties:
 \begin{itemize}
 \item there is an identity operation $I$ in the set such that $A I = A$
-\item  each operation $A$ has an inverse operation $A^{-1}$ in the same set such that $A A^{-1} = I$
+\item  each operation $A$ has an inverse operation $A^{-1}$ in the same set such that $A A^{-1}= A^{-1} A = I$
 \item  the multiplication of two operations is also an operation in the same set
 \item  operations are associative such that $(AB)C = A(BC)$
 \end{itemize}
@@ -39,9 +39,9 @@ A set of operations $\{ A, B, C, \cdots \}$ is called a group if it satisfies th
 \subsection{Rotation operators and spherical harmonics}
 
 As the theory of angular
- momentum concerns with the symmetry under rotations, we start by defining the rotation operator in quantum 
+ momentum concerns  symmetry under rotations, we start by defining the rotation operator in quantum 
  mechanics. Given a rotation $R$, we associate a rotation operator 
- $D(R)$ that transform a state from the original system to the rotated system:
+ $D(R)$ that transform a state from the original system to the rotated system
  \oneline{
  \ket{\psi}_{R} = D(R) \ket{\psi} \ .
  }
@@ -65,9 +65,14 @@ By compounding successively infinitesimal rotations about the same axis, we can 
 \multiline{
 D( \mathbf{\hat{n}}, \alpha) &=& \lim_{m\rightarrow \infty} \left[ 1- i\left(\frac{ \alpha}{m}\right) \left( \frac{ J_{\mathbf{\hat{n}}} }{\hbar}\right) \right]^m \nonumber \\
 &=& \exp\left( \frac{ - i \alpha  J_{\mathbf{\hat{n}} } }{\hbar} \right) \nonumber \\
-&=& 1 - \frac{i\alpha J_{\mathbf{\hat{n}} } }{\hbar} - \frac{1}{2!} \frac{ \alpha^2 J_{\mathbf{\hat{n}} }^2}{\hbar^2} + \cdots  \label{eqn:rotationInTermsOfJ}
+&=& 1 - \frac{i\alpha J_{\mathbf{\hat{n}} } }{\hbar} - \frac{1}{2!} \frac{ \alpha^2 J_{\mathbf{\hat{n}} }^2}{\hbar^2} + \cdots  \ . \label{eqn:rotationInTermsOfJ}
 } 
-It is obvious that the set of all rotations satisfy the four conditions of a group (see 
+where in the second step the following equation,
+\oneline{
+\lim_{x\rightarrow \infty}\left[ 1 + \left( \frac{1}{x} \right) \right]^{x} = e \ ,
+}
+was used. 
+It is obvious that the set of all rotation operations satisfy the four conditions of a group (see 
 \autoref{sec:groupTheory}). Correspondingly, 
  the infinite set of rotation operators also satisfy the same conditions and thus form a group which is called the full 
 rotation group. 
@@ -79,11 +84,11 @@ its Cartesian components.
 To illustrate this point, let's consider rotations $R_x$, $R_y$, and $R_z$ about the $x$, $y$ and $z$ axes respectively. In 
 coordinate space, these rotations can be represented by $3\times 3$ matrices. For instance, the rotation by angle $\phi$ about the $z$ axis can be expressed as
 \oneline{
-R_{z} (\phi) = \mat{\cos\phi & -\sin\phi &  0 \\ \sin\phi& \cos\phi& 0 \\ 0& 0& 1}
+R_{z} (\phi) = \mat{\cos\phi & -\sin\phi &  0 \\ \sin\phi& \cos\phi& 0 \\ 0& 0& 1} \ .
 } 
 In the case of an infinitesimal angle $\phi\rightarrow\varepsilon$, the above equation can be written as
 \oneline{
-R_{z} (\varepsilon) = \mat{1-\frac{\varepsilon^2}{2} & -\varepsilon &  0 \\ \varepsilon& 1-\frac{\varepsilon^2}{2}& 0 \\ 0& 0& 1}
+R_{z} (\varepsilon) = \mat{1-\frac{\varepsilon^2}{2} & -\varepsilon &  0 \\ \varepsilon& 1-\frac{\varepsilon^2}{2}& 0 \\ 0& 0& 1} \ .
 } 
 By comparing the effect of a $y$-axis rotation followed by an $x$-axis rotation with that of an $x$-axis rotation 
 followed by a $y$-axis rotation, we can show that 
@@ -95,11 +100,11 @@ making use of \autoref{eqn:rotationOperator}, we obtain
 \oneline{
 \left[ J_x, J_y\right] = i\hbar J_{z} \ .
 }
-Repeating the above analysis for other axes, we obtain the commutation relations for the components of angular momentum:
+Repeating the above analysis for other axes, we obtain the commutation relations for the components of angular momentum
 \oneline{
 \left[ J_i, J_j\right] = i\hbar \varepsilon_{ijk} J_{k} \ , \label{eqn:angularMomentumCommutation}
 }
-where $i$, $j$, $k$ can be any one of $x$, $y$ and $z$, and $ \varepsilon_{ijk}$ are defined as follows
+where $i$, $j$, $k$ can be any one of $x$, $y$ and $z$, and $ \varepsilon_{ijk}$ is defined as 
 \oneline{
 \varepsilon_{ijk} = \left\{ 
   \begin{array}{l l}
@@ -111,7 +116,7 @@ where $i$, $j$, $k$ can be any one of $x$, $y$ and $z$, and $ \varepsilon_{ijk}$
 
 Many important properties follow from the angular-momentum commutation relation represented by \autoref{eqn:angularMomentumCommutation}. For example, by making use of \autoref{eqn:angularMomentumCommutation}, we can show that the operator $\mathbf{J}^2$ defined by
 \oneline{
-\mathbf{J}^2 \equiv J_x^2 + J_y^2 + J_z^2
+\mathbf{J}^2 \equiv J_x^2 + J_y^2 + J_z^2 \ ,
 }
 commutes with any one of $J_x$, $J_y$ and $J_z$, namely,
 \oneline{
@@ -120,7 +125,7 @@ commutes with any one of $J_x$, $J_y$ and $J_z$, namely,
 Since $\mathbf{J}^2$ and $J_z$ commute, the eigenstates of $\mathbf{J}^2$ can be chosen to be also the eigenstates of
 $J_z$. We denote these states by $\ket{j, m}$ such that
 \multiline{
-\mathbf{J}^2\ket{j, m} &=& j (j+1)\hbar^2 \ket{j, m} \nonumber \\
+\mathbf{J}^2\ket{j, m} &=& j (j+1)\hbar^2 \ket{j, m} \ , \nonumber \\
 J_z \ket{j, m} &=& m\hbar \ket{j, m} \ .
 }
 To determine the allowed values for $j$ and $m$, it is convenient to work with the non-Hermitian operators
@@ -128,10 +133,10 @@ To determine the allowed values for $j$ and $m$, it is convenient to work with t
 J_{\pm} = J_x \pm i J_y \ ,
 }
 where $J_{+}$ is called the raising operator and $J_{-}$ is called the lowering operator. $J_{\pm}$ satisfy the following
-commutation relations:
+commutation relations
 \multiline{
-\left[ J_{+}, J_{-}\right] &=& 2 \hbar J_z \nonumber \\
-\left[ J_{z}, J_{\pm}\right] &=& \pm \hbar J_{\pm} \nonumber \\
+\left[ J_{+}, J_{-}\right] &=& 2 \hbar J_z \ , \nonumber \\
+\left[ J_{z}, J_{\pm}\right] &=& \pm \hbar J_{\pm} \ , \nonumber \\
 \left[ \mathbf{J}^2, J_{\pm}\right] &=& 0 \ ,
 }
 all of which can easily be derived from \autoref{eqn:angularMomentumCommutation}. 
@@ -141,7 +146,7 @@ $\mathbf{L} = \mathbf{r} \times \mathbf{p}$ has components that satisfy the same
 \oneline{
 \left[ L_i, L_j\right] = i\hbar \varepsilon_{ijk} L_{k} \ .
 }
-Using the fact that momentum is the generator of translation:
+Using the fact that momentum is the generator of translation
 \multiline{
 T(d\mathbf{x}) \ket{\mathbf{r}} = \left[ 1 - i \left(\frac{\mathbf{p}}{\hbar}\right) \cdot d\mathbf{x}\right]\ket{\mathbf{r}} = \ket{\mathbf{r} + dx \,\mathbf{\hat{x}}} \ ,
 }
@@ -151,12 +156,12 @@ T(d\mathbf{x}) \ket{\mathbf{r}} = \left[ 1 - i \left(\frac{\mathbf{p}}{\hbar}\ri
 && = \left[ 1 - i \left(\frac{p_y}{\hbar}\right) x d\phi + i \left(\frac{p_x}{\hbar}\right) y d\phi \right] \ket{x, y, z} \nonumber \\
 && = \ket{x - y d\phi, y + x d\phi, z} \ . \label{eqn:rotationZ}
 }
-The above equation shows exactly the effect of an infinitesimal rotation about $z$ axis as one would expect. For an 
+The above equation shows exactly the effect of an infinitesimal rotation about the $z$ axis, as one would expect. For an 
 arbitrary state $\ket{\psi}$, an infinitesimal rotation about $z$ axis changes the wavefunction $\left\langle x, y, z \right.\ket{\psi}$ to 
 \oneline{
 \bra{x, y, z} \left[ 1 - i \left(\frac{d\phi}{\hbar}\right) L_z\right] \ket{\psi} = \left\langle x + y d\phi, y - x d\phi, z\right. \ket{\psi} \ .
 }
-By changing to the spherical coordinates $(r, \theta, \phi)$, the above equation can be converted into
+By changing to spherical coordinates $(r, \theta, \phi)$, the above equation can be converted to
 \multiline{
 &&\bra{r, \theta, \phi} \left[ 1 - i \left(\frac{d\phi}{\hbar}\right) L_z\right] \ket{\psi} = \bra{r, \theta, \phi-d\phi} \psi \rangle \nonumber \\
 && =\bra{r, \theta, \phi} \psi \rangle -d\phi \frac{\partial}{\partial \phi} \bra{r, \theta, \phi} \psi \rangle \ .
@@ -165,7 +170,7 @@ Therefore, we obtain
 \oneline{
 L_{z} = -i\hbar \frac{\partial}{\partial \phi} \ .
 }
-In the way, we can also derive the expressions for other orbital angular momentum operators:
+In the way, we can also derive the expressions for the other orbital angular momentum operators, giving
 \multiline{
 L_x &=& - i\hbar \left( -\sin\phi \frac{\partial}{\partial \theta} - \cot\theta \cos\phi \frac{\partial}{\partial \phi}\right) \ , \nonumber \\
 L_y &=& - i\hbar \left( \cos\phi \frac{\partial}{\partial \theta} - \cot\theta \sin\phi \frac{\partial}{\partial \phi}\right) \ .
@@ -174,10 +179,10 @@ L_y &=& - i\hbar \left( \cos\phi \frac{\partial}{\partial \theta} - \cot\theta \
 
 The eigenfunctions of $\mathbf{L}^2$ and $L_z$ are known as the spherical harmonics, which are given by
 \oneline{
-\braket{\mathbf{\hat{n}}}{l, m} = Y_{l m}(\theta, \phi)
+\braket{\mathbf{\hat{n}}}{l, m} = Y_{l m}(\theta, \phi) \ ,
 }
 where $\theta$ and $\phi$ specify the orientation of $\mathbf{\hat{n}}$. The dependence of spherical harmonics on 
-angles can be separated:
+angles can be separated so that
 \oneline{
 Y_{l m}(\theta, \phi) = \Theta_{lm}(\theta) \Phi_{m}(\phi) \ , \label{eqn:sphericalHarmonicsExpression}
 }
@@ -187,7 +192,7 @@ where
 }
 and 
 \oneline{
-\Theta_{lm}(\theta) = (-1)^{m} \left[ \frac{2 l + 1}{2} \frac{(l-m)!}{(l+m)!} \right]^{1/2} P_l^{m}(\cos\theta)
+\Theta_{lm}(\theta) = (-1)^{m} \left[ \frac{2 l + 1}{2} \frac{(l-m)!}{(l+m)!} \right]^{1/2} P_l^{m}(\cos\theta) \ ,
 }
 for $m\ge 0$ and $\Theta_{lm}(\theta) =(-1)^{m} \Theta_{l-m}(\theta) $ for $m<0$, and $P_l^{m}(\cos\theta)$ are the 
 associated Legendre polynomials. Sometimes, it is more convenient
@@ -196,13 +201,13 @@ to work with modified spherical harmonics $C_{lm}$ defined by
 C_{lm}(\theta, \phi) = \sqrt{\frac{4\pi}{2 l + 1}} Y_{lm}(\theta, \phi) \ .
 }
 
-\subsection{Rotation matirces}
+\subsection{Rotation matrices}
 
 Since an arbitrary rotation can be decomposed into rotations about three coordinate axes ($x$, $y$, and $z$ axis), 
 it is usually convenient to express the orientations of a body in terms of rotations about some fixed axes. For this to 
 work, we have to choose an initial orientation as a reference on which the rotations are operating. 
 For a vector described by the two spherical polar angles $\theta$ and $\phi$, we use a reference orientation parallel 
-to the $Z$ axis. It is obvious to see that a rotation of this reference orientation through an angle $\theta$ about 
+to the space-fixed $Z$ axis. It is obvious to see that a rotation of this reference orientation through an angle $\theta$ about 
 the space-fixed $Y$ axis and a rotation by an angle $\phi$ about the space-fixed $Z$ axis can reproduce the 
 orientation of the vector. For a general body, three Euler angles $\phi$, $\theta$ and $\chi$ are needed to
  describe an arbitrary rotation.
@@ -226,12 +231,12 @@ body-fixed $z$ axis. It is an azimuthal angle about the $z$ axis just as $\phi$ 
 Based on \autoref{eqn:rotationInTermsOfJ}, the rotation operator that corresponds to the three Euler angles can be 
 written as
 \oneline{
-D(\phi, \theta, \chi) = \exp\left(\frac{-i \phi J_{Z}}{\hbar}\right) \exp\left(\frac{-i \theta J_{Y}}{\hbar}\right) \exp\left(\frac{-i \chi J_{Z}}{\hbar}\right) \label{eqn:rotationEulerAngles}
+D(\phi, \theta, \chi) = \exp\left(\frac{-i \phi J_{Z}}{\hbar}\right) \exp\left(\frac{-i \theta J_{Y}}{\hbar}\right) \exp\left(\frac{-i \chi J_{Z}}{\hbar}\right) \ . \label{eqn:rotationEulerAngles}
 }
 Because of the closure property of the full rotation group, the multiplication of three rotation operators in 
 \autoref{eqn:rotationEulerAngles} is equivalent to another rotation operator
 \oneline{
-D(R) =  \exp\left(\frac{-i \alpha \mathbf{J}\cdot{\mathbf{\hat{n}}}}{\hbar}\right) = D(\phi, \theta, \chi) \ ,
+D(R) =  \exp\left(\frac{-i \alpha \mathbf{J_{\hat{n}}}}{\hbar}\right) = D(\phi, \theta, \chi) \ ,
 }
 which corresponds to a rotation $R$  through an angle $\alpha$ about an axis $\mathbf{\hat{n}}$. 
 
@@ -241,11 +246,10 @@ any component of $\mathbf{J}$,  the rotation operator $D(R)$, a function of $J_{
 with $\mathbf{J}^2$. Thus the eigenfunctions $\ket{j, m}$ of $\mathbf{J}^2$ are also eigenfunctions of the rotation
 operator and rotations don't change the total angular momentum. 
 As a result, to see the effect of a rotation on a state with a definite angular momentum, we only need to calculate the
- matrix elements of the rotation operator, 
+ matrix elements of the rotation operator between two states with the same $j$ value, that is
 \oneline{
- D^{j}_{m^{\prime} m} = \bra{j, m^{\prime}}  \exp\left(\frac{-i \alpha \mathbf{J}\cdot{\mathbf{\hat{n}}}}{\hbar}\right) \ket{j, m} \ ,
+ D^{j}_{m^{\prime} m} = \bra{j, m^{\prime}}  \exp\left(\frac{-i \alpha \mathbf{J_{\hat{n}}}}{\hbar}\right) \ket{j, m} \ .
 }
-between two states with the same $j$ value. 
 The $(2 j + 1) \times (2 j + 1)$ matrix formed by $D^{j}_{m^{\prime} m}$ in the above equation is called the rotation
 matrix.  Making use of \autoref{eqn:rotationEulerAngles}, we can easily show that
 \multiline{
@@ -253,13 +257,17 @@ D^j_{m^{\prime}, m} (\phi, \theta, \chi) &=& \exp(-i\phi m^{\prime} - i\chi m) \
 &\equiv& \exp(-i\phi m^{\prime} - i\chi m) d^j_{m^{\prime}, m}(\theta) \ , \label{eqn:rotationMatrixEulerAngle}
 }
 where $d^j_{m^{\prime}, m}(\theta)$ is the element of a reduced rotation matrix. As the above equation shows, the
-reduced rotation matrix can be calculated from the matrix representation of $J_Y$. We give its 
-expression here:
+reduced rotation matrix can be calculated from the matrix representation of $J_Y$ and  its 
+expression is\cite{zare-book}:
 \multiline{
-d^j_{m, n}(\theta) =&& \sum_{t} (-1)^t \frac{\left[ (j+m)! (j-m)! (j+n)! (j-n)! \right]^{1/2} }{(j + m -t)! (j-n-t)! t! (t+n-m)!} \nonumber \\
-&& \times \left( \cos\frac{\theta}{2} \right)^{2 j + m - n - 2 t} \left( \sin\frac{\theta}{2} \right)^{2 t - m + n } \ , \label{eqn:reducedRotationMatrix}
+d^j_{m', m}(\theta) =&& \sum_{t} (-1)^t \frac{\left[ (j+m')! (j-m')! (j+m)! (j-m)! \right]^{1/2} }{(j + m' -t)! (j-m-t)! t! (t+m-m')!} \nonumber \\
+&& \times \left( \cos\frac{\theta}{2} \right)^{2 j + m' - m - 2 t} \left( \sin\frac{\theta}{2} \right)^{2 t - m' + m } \ , \label{eqn:reducedRotationMatrix}
 }
-where the sum over $t$ is for all integers for which the factorial arguments are nonnegative. 
+where the sum over $t$ is for all integers for which the factorial arguments are nonnegative. It can be shown that  $d^j_{m', m}(\theta)$
+satifies the following symmetry relations\cite{zare-book}:
+\oneline{
+d^j_{m', m}(\theta) = (-1)^{m' - m} d^j_{m, m'}(\theta) = (-1)^{m' - m} d^j_{-m', m}(\theta) \ . \label{eqn:dSymmetryRelation}
+}
 
 To understand the physical meaning of the rotation matrix, we start from a state $\ket{j, m}$ and rotate it. Even though
 the rotation $R$ doesn't change the $j$ value, we will generally expect the $m$ value to be different after the rotation. 
@@ -269,7 +277,7 @@ D(R) \ket{j, m} &=& \sum_{j^{\prime}} \sum_{m^{\prime}} \ket{j^{\prime},m^{\prim
 &=& \sum_{m^{\prime}} \ket{j, m^{\prime}} \bra{j, m^{\prime}} D(R) \ket{j, m} \nonumber \\
 &=&  \sum_{m^{\prime}}  \ket{j, m^{\prime}} D^{j}_{m^{\prime}, m}(R) \ . \label{eqn:JMTransformRotation}
 }
-From the above equation, it is now obvious that the matrix element $D^{j}_{m^{\prime}, m}(R)$ is simply the 
+From the above equation, one can see that the matrix element $D^{j}_{m^{\prime}, m}(R)$ is simply the 
 probability amplitude for the rotated state to
 be found in $\ket{j, m^{\prime}}$ when the original state is $\ket{j, m}$. 
 
@@ -279,27 +287,28 @@ Let's consider some important properties of the rotation matrices. From the last
 $\ket{j, m}$ are orthonormal and remain so on rotation, this means that the matrices that represent rotations are
 unitary, that is, $D^{-1} = D^{\dagger}$. More specifically, we have 
 \oneline{
-D^{j}_{m, n}(R^{-1}) = \left( D^{\dagger} \right)^{j}_{m, n}(R) = \left[ D_{n, m}^{j} (R)\right]^{*} \ ,
+D^{j}_{m', m}(R^{-1}) = \left( D^{\dagger} \right)^{j}_{m', m}(R) = \left[ D_{m', m}^{j} (R)\right]^{*} \ , \label{rotationInverse}
 }
-where $R^{-1}$ denotes the reverse of the rotation $R$. 
+where $R^{-1}$ denotes the inverse of the rotation $R$. 
 
 From \autoref{eqn:reducedRotationMatrix}, we can see the matrix elements of reduced rotation matrices are always
- real. Taking this fact into account, the expression of rotation matrices, \autoref{eqn:rotationMatrixEulerAngle}, leads to the following property of
-rotation matrices:
+ real. Taking this fact into account, and using  \autoref{eqn:rotationMatrixEulerAngle} and \autoref{eqn:dSymmetryRelation}, we arrive at
 \multiline{
-D^{j}_{m, n}(R)^* &=&  \exp\left[-i\phi (-m) - i\chi (-n)\right]  d^{j}_{m, n}(\theta) \nonumber \\
-&=&  \exp\left[-i\phi (-m) - i\chi (-n)\right] (-1)^{n-m} d^{j}_{-m, -n}(\theta) \nonumber \\
-&=& (-1)^{n-m} D^{j}_{-m, -n}(R) \ . \label{eqn:complexToNormal}
+D^{j *}_{m', m}(R) &=&  \exp\left[-i\phi (-m') - i\chi (-m)\right]  d^{j}_{m', m}(\theta) \nonumber \\
+&=&  \exp\left[-i\phi (-m') - i\chi (-m)\right] (-1)^{m-m'} d^{j}_{-m', -m}(\theta) \nonumber \\
+&=& (-1)^{m-m'} D^{j}_{-m', -m}(R) \ . \label{eqn:complexToNormal}
 }
 As will be seen later, this equation is very useful because it helps us to deal with the complex conjugates of matrix 
 elements of rotation matrices. 
 
-Another important property that we cover here is that the 
-rotation matrix elements  $D^{j}_{m, n}$ reduces to spherical harmonics: 
-\oneline{
-D^{j}_{m, 0}(\phi, \theta, \chi) = C_{jm}(\theta, \phi)^{*} = \sqrt{\frac{2 j + 1}{4 \pi } } Y_{jm}(\theta, \phi)^{*} \ , \label{eqn:relationDandY}
+Another important property  is that the 
+rotation matrix elements  $D^{l}_{m', m}$ reduces to spherical harmonics when $l$ is an integer and $m'$ or $m$ is zero\cite{zare-book}, that is
+\multiline{
+D^{l}_{m, 0}(\phi, \theta, \chi) &=& C_{l m}^{*}(\theta, \phi) = \sqrt{\frac{2 j + 1}{4 \pi } } Y_{l m}^{*}(\theta, \phi) \ , \nonumber \\
+D^{l}_{0, m}(\phi, \theta, \chi) &=& C_{l -m} (\theta, \phi) = \sqrt{\frac{2 j + 1}{4 \pi } } Y_{l -m} (\theta, \phi) \  .
+   \label{eqn:relationDandY}
 }
-when $j$ is an integer and $m$ or $n$ is zero. Given a general state $\ket{ \mathbf{\hat{n} } }$ with the unit vector 
+Given a general state $\ket{ \mathbf{\hat{n} } }$ with the unit vector 
 $\mathbf{\hat{n}}$ with the orientation specified by $(\theta, \phi)$, we know from previous discussion that  it can be constructed 
 from the state $\ket{\mathbf{\hat{z}}}$ by a rotation about $y$ axis by angle $\theta$ and a rotation about $z$ axis by
 angle $\phi$. Thus we obtain
@@ -307,35 +316,37 @@ angle $\phi$. Thus we obtain
 \ket{ \mathbf{\hat{n} } } &=& D(\phi, \theta, \chi) \ket{\mathbf{\hat{z}}} \nonumber \\
 &=& \sum_{l^{\prime}}\sum_{m^{\prime}} D(\phi, \theta, \chi) \ket{l^{\prime}, m^{\prime} } \braket{l^{\prime}, m^{\prime} } {\mathbf{\hat{z}}}
 }
-where $\chi$ is undetermined. Multiplying both sides of the above equation by $\bra{j, m}$, we get 
+where $\chi$ is undetermined. Multiplying both sides of the above equation by $\bra{l, m}$, we get 
 \oneline{
-\braket{l, m } {\mathbf{\hat{n}}} = \sum_{m^{\prime}} D^{j}_{m, m^{\prime} } (\phi, \theta, \chi)  \braket{l, m^{\prime} } {\mathbf{\hat{z}}} \ . \label{eqn:DtransformSphericalHarmonics}
+\braket{l, m } {\mathbf{\hat{n}}} = \sum_{m^{\prime}} D^{l}_{m, m^{\prime} } (\phi, \theta, \chi)  \braket{l, m^{\prime} } {\mathbf{\hat{z}}} \ . \label{eqn:DtransformSphericalHarmonics}
 }
 Based on the definition of the spherical harmonics, $\braket{l, m^{\prime} } {\mathbf{\hat{z}}}$ is just 
-$Y_{lm^{\prime}}^{*}(\theta, \phi)$ with $\theta = 0$ and $\phi$ undetermined. At $\theta = 0$, the associated Legendre
- Polynomials $P_{lm}(cos\theta)$ vanish except when $m=0$. Then from the expression for the spherical harmonics,
- \autoref{eqn:sphericalHarmonicsExpression} , we know that $Y_{lm}$ vanish for $m\neq 0$. Then 
+$Y_{lm^{\prime}}^{*}(\theta, \phi)$ with $\theta = 0$ and $\phi$ undetermined. 
+%At $\theta = 0$, the associated Legendre
+% Polynomials $P_{lm}(cos\theta)$ vanish except when $m=0$. Then from the expression for the spherical harmonics,
+% \autoref{eqn:sphericalHarmonicsExpression} , we know that $Y_{lm}$ vanish for $m\neq 0$. Then 
+For $\theta=0$ the associated Legendre polynomials satisfy $P_{l}^{m}(1) =\delta_{m, 0}$, so that the spherical harmonics of \autoref{eqn:sphericalHarmonicsExpression} gives rise to 
 \multiline{
 \braket{l, m^{\prime} } {\mathbf{\hat{z}}}  &=& Y_{lm}^{*}(\theta=0, \phi) \delta_{m, 0} \nonumber \\
-&=& \sqrt{ \frac{2 l + 1}{4 \pi } }  \delta_{m, 0} \ ,
+&=& \sqrt{ \frac{2 l + 1}{4 \pi } }  \delta_{m, 0} \ .
 } 
-and a substitution of this equation into \autoref{eqn:DtransformSphericalHarmonics} gives rise to \autoref{eqn:relationDandY}. 
+Substituting this equation into \autoref{eqn:DtransformSphericalHarmonics} yields \autoref{eqn:relationDandY}. 
 
 Finally, we consider the integral of rotation matrices. From \autoref{eqn:rotationMatrixEulerAngle} and 
-\autoref{eqn:reducedRotationMatrix}, it can shown that the integral of a rotation matrix over $d\omega = \sin\theta d\phi d\theta d\chi$ is a
-product of delta functions:
+\autoref{eqn:reducedRotationMatrix}, it can shown that the integral of a rotation matrix over $d\omega = \sin\theta d\theta d\phi  d\chi$ is a
+product of delta functions\cite{RotSpect}, that is
 \oneline{
-\int D^j_{m^{\prime}, m}(\phi, \theta, \chi) d\omega = \delta_{j, 0}  \delta_{m^{\prime}, 0}  \delta_{m, 0} \ .
+\int D^j_{m^{\prime}, m}(\phi, \theta, \chi) d\omega = 8\pi^2 \delta_{j, 0}  \delta_{m^{\prime}, 0}  \delta_{m, 0} \ .
 }
-Similarly, the integral of two rotation matrices is given by
+Similarly, the integral of two rotation matrices is given by\cite{zare-book}
 \oneline{
-\int D^{j_1}_{m_1^{\prime}, m_1}(\phi, \theta, \chi)^* \; D^{j_2}_{m_2^{\prime}, m_2}(\phi, \theta, \chi)d\omega = \frac{8\pi^2}{2 j_1 + 1}\delta_{j_1, j_2}  \delta_{m_1^{\prime}, m_2^{\prime}}  \delta_{m_1, m_2} \ . \label{eqn:normalizationRotationMatrix} \ ,
+\int D^{j_1 *}_{m_1^{\prime}, m_1}(\phi, \theta, \chi) \; D^{j_2}_{m_2^{\prime}, m_2}(\phi, \theta, \chi)d\omega = \frac{8\pi^2}{2 j_1 + 1}\delta_{j_1, j_2}  \delta_{m_1^{\prime}, m_2^{\prime}}  \delta_{m_1, m_2} \ . \label{eqn:normalizationRotationMatrix} \ ,
 }
 which describes the normalization condition for rotation matrices. 
 
 \subsection{Coupling of angular momenta}
 
-Suppose a system can be divided into two parts with different anglular momenta $\mathbf{J}_1$ and $\mathbf{J}_2$ 
+Suppose a system can be divided into two parts with different angular momenta $\mathbf{J}_1$ and $\mathbf{J}_2$ 
 respectively. When the two parts of the system interact through some physical mechanism, $\mathbf{J}_1$ and 
 $\mathbf{J}_2$ become coupled and we define the addition of the two angular momenta as
 \oneline{
@@ -355,14 +366,14 @@ This representation is called the uncoupled representation. The other complete s
   momentum are used. Note that the bracket ``()'' in $\ket{(j_1 j_2)j, m}$ indicates the coupling of the two 
   angular momenta $\mathbf{J}_1$ and $\mathbf{J}_2$ and the result of the coupling is represented by the number $j$ immediately after the bracket.
 
-The two representations are describing the same set of states of the system, so they can be related by the following unitary
-transformation in the sense of connecting two bases:
+The two representations describe the same set of states of the system so they can be related by an unitary
+transformation connecting two bases, that is
 \oneline{
 \ket{(j_1 j_2)j, m} = \sum_{m_1, m_2} \ket{j_1, m_1; j_2, m_2} \braket{j_1, m_1; j_2, m_2} {(j_1 j_2)j, m} \ , \label{eqn:defCGCoeffs}
 }
 where $\braket{j_1, m_1; j_2, m_2} {(j_1 j_2)j, m}$ are called the Clebsch-Gordan coefficients. Due to symmetry 
-consideration, it is often convenient to expresse the coefficients by the 3-$j$ symbols. The relation between the Clebsch-Gordan 
-coefficients and 3-$j$ symbols is given by the following two equations:
+considerations, it is often convenient to express the coefficients by the 3-$j$ symbols. The relation between the Clebsch-Gordan 
+coefficients and 3-$j$ symbols is\cite{zare-book}
 \begin{equation}
 \left( 
 \begin{array}{ ccc }
@@ -380,7 +391,7 @@ m_{1} & m_{2} & -m_{3}
 \end{array}
 \right)  \ . \label{CG-3j}
 \end{equation}
-The 3-$j$ symbols are more symmetric than the Clebsch-Gordan coefficients. We do not discuss the symmetry properties here as they are not important for understanding the thesis. The interested readers should refer to Zare's book\cite{zare-book}.  The 3-$j$ symbols are subject to the selection rules of angular momentum, that is, 
+The 3-$j$ symbols are more symmetric than the Clebsch-Gordan coefficients. We do not discuss the symmetry properties here as they are not important for understanding the thesis. The interested readers should refer to Zare's book\cite{zare-book}.  The 3-$j$ symbols are subject to the selection rules of angular momentum, that is
 %%\begin{itemize}
 %%\item 
 \begin{equation}
@@ -431,8 +442,8 @@ symbols and gives the algebraic expressions for the commonly encountered 3-$j$ s
 %\end{itemize}
 
 Different from the coupling of two angular momenta, the coupling of three angular momenta has more than one possible
- coupling schemes, and all these coupling schemes are related by unitary transformations. We might couple $\mathbf{j}_{1}$, $\mathbf{j}_{2}$ and $\mathbf{j}_{3}$ in such a way that
-  $\mathbf{j}_{1} + \mathbf{j}_{2}=\mathbf{j}_{12}$, $\mathbf{j}_{12} + \mathbf{j}_{3}= \mathbf{j}$. The eigenfunctions in this coupling scheme are given by $\ket{\left[(j_1 j_2) j_{12} j_3\right] j, m}$, where
+ coupling scheme, and all these coupling schemes are related by unitary transformations. We might couple $\mathbf{J}_{1}$, $\mathbf{J}_{2}$ and $\mathbf{J}_{3}$ in such a way that
+  $\mathbf{J}_{1} + \mathbf{J}_{2}=\mathbf{J}_{12}$, $\mathbf{J}_{12} + \mathbf{J}_{3}= \mathbf{J}$. The eigenfunctions in this coupling scheme are given by $\ket{\left[(j_1 j_2) j_{12} j_3\right] j, m}$, where
   the brackets ``[]'' and ``()'',  indicate the coupling of two angular momenta $j_{12}$ and $j_3$ 
   to produce  $j$. We can also couple $\mathbf{j}_{2}$ and $\mathbf{j}_{3}$ to produce a new angular momentum 
   $\mathbf{j}_{23}$, and then couple $\mathbf{j}_{23}$ with  $\mathbf{j}_{1}$ to produce the total angular
@@ -445,7 +456,7 @@ where $\ket{ (j_1 j_{23}) j, m }$ is a short-hand way to write  $\ket{\left[j_1(
 equation, since $\braket{ (j_{12} j_3) j, m \allowbreak}{ (j_1 j_{23}) j^{\prime}, m^{\prime} }$ is a scalar product, it 
 doesn't depend on the orientation of the coordinate system and is independent of the projection quantum numbers. Thus we can drop $m$ and $m^{\prime}$ and write it as 
 $\braket{ (j_{12} j_3) j }{ (j_1 j_{23}) j^{\prime} }$. These recoupling coefficients can be replaced with the so-called
-6-$j$ symbols defined as
+6-$j$ symbols defined as\cite{zare-book}
 \multiline{
 \left\{
 \begin{array}{ccc}
@@ -453,32 +464,32 @@ j_{1}&j_{2}&j_{12} \\
 j_{3}&j&j_{23}
 \end{array}
 \right\}
-= (-1)^{j_1 + j_2 + j_3 + j} \left[ (2 j_{12} + 1 ) ( 2 j_{23} + 1 )\right]^{-\frac{1}{2} } \braket{ (j_{12} j_3) j }{ (j_1 j_{23}) j^{\prime} } \nonumber \\
+= (-1)^{j_1 + j_2 + j_3 + j} \left[ (2 j_{12} + 1 ) ( 2 j_{23} + 1 )\right]^{-\frac{1}{2} } \braket{ (j_{12} j_3) j }{ (j_1 j_{23}) j^{\prime} } \ . \nonumber \\
 }
 
 
   
   
-Similarly, the coupling of four angular momenta also has more than one possible coupling schemes. For example, 
-  $|\left[(j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}\right] j, m \rangle$ is associated with this coupling scheme:
+Similarly, the coupling of four angular momenta also has more than one possible coupling scheme. For example, 
+  $|\left[(j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}\right] j, m \rangle$ is associated with the coupling scheme
  \oneline{
- \mathbf{j}_{1} + \mathbf{j}_{2}=\mathbf{j}_{12}\ , \;\;
- \mathbf{j}_{3} + \mathbf{j}_{4}=\mathbf{j}_{34} \ , \;\;
- \mathbf{j}_{12} + \mathbf{j}_{34}=\mathbf{j} \ , \nonumber
+ \mathbf{J}_{1} + \mathbf{J}_{2}=\mathbf{J}_{12}\ , \;\;
+ \mathbf{J}_{3} + \mathbf{J}_{4}=\mathbf{J}_{34} \ , \;\;
+ \mathbf{J}_{12} + \mathbf{J}_{34}=\mathbf{J} \ , \nonumber
   } 
 and  $|\left[(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}\right] j, m \rangle$ is associated with another coupling scheme:
  \oneline{
- \mathbf{j}_{1} + \mathbf{j}_{4}=\mathbf{j}_{14}\ , \;\;
- \mathbf{j}_{2} + \mathbf{j}_{3}=\mathbf{j}_{23} \ , \;\;
- \mathbf{j}_{14} + \mathbf{j}_{23}=\mathbf{j} \ . \nonumber
+ \mathbf{J}_{1} + \mathbf{J}_{4}=\mathbf{J}_{14}\ , \;\;
+ \mathbf{J}_{2} + \mathbf{J}_{3}=\mathbf{J}_{23} \ , \;\;
+ \mathbf{J}_{14} + \mathbf{J}_{23}=\mathbf{J} \ . \nonumber
   } 
-The relation between the states corresponding to different
+The relation between the states corresponding to those two
 coupling schemes is
 \begin{eqnarray}
 |\left[(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}\right] j, m \rangle &=& \sum_{j_{12}}\sum_{j_{34}} \langle (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j  | (j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j \rangle \nonumber \\
 & & \times |\left[ (j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}\right] j, m \rangle \ , \label{9-j1}
 \end{eqnarray}
-and correspondingly the 9-$j$ symbol is defined by
+and the correspondingly the 9-$j$ symbol is defined by\cite{zare-book}
 \begin{eqnarray}
 &&\braket{ (j_{1}j_{2})j_{12}(j_{3}j_{4})j_{34}j } {(j_{1}j_{4})j_{14}(j_{2}j_{3})j_{23}j } \nonumber \\
 & & = \sqrt{(2j_{12} + 1) (2j_{34} +1)(2j_{14}+1)(2j_{23} + 1)}
@@ -488,60 +499,60 @@ j_{1}& j_{2}&j_{12} \\
 j_{3}&j_{4}&j_{34} \\
 j_{14}&j_{23}&j 
 \end{array}
-\right\} \ . \label{9-j2}
+\right\} \ . \nonumber \\ \label{9-j2}
 \end{eqnarray}
 The last column of the 9-$j$ symbol is related to the first coupling scheme and the last row is 
 associated with the second coupling scheme.
 
 \subsection{Clebsch-Gordan series}
 
-After discussing the coupling of angular momenta, we now return to rotation matrix and further develop its 
+After discussing the coupling of angular momenta, we now return to the rotation matrix and further develop its 
 properties in the context of angular momentum coupling. We consider the connection between the uncoupled 
  $\ket{j_1, m_1}\ket{j_2, m_2}$ and the coupled $\ket{j, m}$ representations under a rotational transformation. 
 Applying the rotation transformation on $\ket{j_1, m_1}$, $\ket{j_1, m_1}$ and $\ket{j, m}$ individually and using
-\autoref{eqn:JMTransformRotation}, we obtain
+\autoref{eqn:JMTransformRotation} we obtain
 \multiline{
 &&\sum_{m_1^{\prime}} \sum_{m_2^{\prime} } D^{j_1}_{m_1^{\prime}, m_1}(R) D^{j_2}_{m_2^{\prime}, m_2}(R) \ket{j_1, m_1^{\prime}}\ket{j_2, m_2^{\prime} } \nonumber \\
 && = \sum_{j}\sum_{m^{\prime}} \braket{j_1, m_1; j_2, m_2} {j, m} D^{j}_{m^{\prime}, m}(R) \ket{j, m^{\prime}} \ .
 }
-Multiplying both sides by $\bra{j_1, m_1^{\prime}}\bra{j_2, m_2^{\prime} }$, we obtain the so-called Clebsch-Gordan 
+Multiplying both sides by $\bra{j_1, m_1^{\prime}}\bra{j_2, m_2^{\prime} }$ and making use of \autoref{eqn:complexToNormal}, we obtain the so-called Clebsch-Gordan 
 series:
 \multiline{
 D^{j_1}_{m_1^{\prime}, m_1}(R)\; D^{j_2}_{m_2^{\prime}, m_2}(R) &=& \sum_{j} \braket{j_1, m_1; j_2, m_2} {j, m}  \braket{j_1, m_1^{\prime}; j_2, m_2^{\prime} } {j, m^{\prime} }  D^{j}_{m^{\prime}, m}(R)  \nonumber \\
-&=&  \sum_{j} (2 j + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j}{m}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j}{m^{\prime}} D^{j}_{m^{\prime}, m}(R)^* \nonumber \\ \label{eqn:CGSeries}
+&=&  \sum_{j} (2 j + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j}{m}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j}{m^{\prime}} D^{j *}_{m^{\prime}, m}(R) \nonumber \\ \label{eqn:CGSeries}
 }
 Similarly, the inverse Clebsch-Gordan series are given by
 \multiline{
-D^{j}_{m^{\prime}, m}(R)^* 
+D^{j *}_{m^{\prime}, m}(R)
 &= & \sum_{m_1}\sum_{ m_1^{\prime}} \sum_{m_2} \sum_{m_2^{\prime} } (2 j + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j}{m}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j}{m^{\prime}}  \nonumber \\
 && \times D^{j_1}_{m_1^{\prime}, m_1}(R) \; D^{j_2}_{m_2^{\prime}, m_2}(R) \ .
 }
 
 The Clebsch-Gordan series can help us to evaluate the integral over a product of three rotation matrix elements. 
-Multiplying both sides of \autoref{eqn:CGSeries} by $D^{j_3}_{m_3^{\prime}, m_3}(R)$, we have
+Multiplying both sides of \autoref{eqn:CGSeries} by $D^{j_3}_{m_3^{\prime}, m_3}(R)$ we have
 \multiline{
-D^{j_1}_{m_1^{\prime}, m_1}(R)\; D^{j_2}_{m_2^{\prime}, m_2}(R)  \; D^{j_3}_{m_3^{\prime}, m_3}(R) &=& \sum_{j_3} (2 j_3 + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}}  \nonumber \\
-&\times& D^{j_3}_{m_3^{\prime}, m_3}(R)^*  \; D^{j_3}_{m_3^{\prime}, m_3}(R) \ .
+D^{j_1}_{m_1^{\prime}, m_1}(R)\; D^{j_2}_{m_2^{\prime}, m_2}(R)  \; D^{j_3}_{m_3^{\prime}, m_3}(R) &=& \sum_{j} (2 j + 1) \threejm{j_1}{m_1}{j_2}{m_2}{j}{m}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j}{m^{\prime}}  \nonumber \\
+&\times& D^{j}_{m^{\prime}, m}(R)^*  \; D^{j_3}_{m_3^{\prime}, m_3}(R) \ .
 }
-Then integrating over $d\omega = \sin\theta d\phi d\theta d\chi$, we obtain
+Integrating over $d\omega = \sin\theta d\theta d\phi  d\chi$ and utilizing the normalization condition of \autoref{eqn:normalizationRotationMatrix} then gives
 \multiline{
 &&\int D^{j_1}_{m_1^{\prime}, m_1}(\phi, \theta, \chi) \; D^{j_2}_{m_2^{\prime}, m_2}(\phi, \theta, \chi) \; D^{j_3}_{m_3^{\prime}, m_3}(\phi, \theta, \chi) d\omega \nonumber \\
-&& = 8\pi^2  \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}} \label{eqn:integral3RotationMatrices}
+&& = 8\pi^2  \threejm{j_1}{m_1^{\prime} }{j_2}{m_2^{\prime}}{j_3}{m_3^{\prime}} \threejm{j_1}{m_1}{j_2}{m_2}{j_3}{m_3}   \ .\label{eqn:integral3RotationMatrices}
 }
-by utilizing the normalization condition of rotation matrix (see \autoref{eqn:normalizationRotationMatrix}). The 
+The 
 above equation is very important because alternative ways to evaluate the integral are very laborious. We will use this
 equation in the derivation of the Wigner-Eckart theorem. 
 Since the rotation matrix is proportional to the spherical
 harmonics under some special conditions (see \autoref{eqn:relationDandY}), we have
 \multiline{
-&&\int D^{l_1}_{0, m_1}(\phi, \theta, \chi) \; D^{l_2}_{0, m_2}(\phi, \theta, \chi) \; D^{l_3}_{0, m_3}(\phi, \theta, \chi) d\omega \nonumber \\
+&&\int D^{l_1}_{m_1, 0}(\phi, \theta, \chi) \; D^{l_2}_{m_2, 0}(\phi, \theta, \chi) \; D^{l_3}_{m_3, 0}(\phi, \theta, \chi) d\omega \nonumber \\
 && = 8\pi^2  \threejm{l_1}{m_1}{l_2}{m_2}{l_3}{m_3}  \threejm{l_1}{0 }{l_2}{0}{l_3}{0} \nonumber \\
 && =\sqrt{ \frac{4\pi\cdot 4\pi \cdot 4\pi}{( 2 l_1 + 1) (2 l_2 + 1)(2 l_3 + 1)} } \nonumber \\
-&& \hspace{0.5cm}\times 2\pi \int Y_{l_1  m_1}(\phi, \theta)^* \; Y_{l_2  m_2}(\phi, \theta)^* \; Y_{l_3  m_3}(\phi, \theta)^*  \sin\theta d\phi d\theta \ .
+&& \hspace{0.5cm}\times 2\pi \int Y_{l_1  m_1}^* (\phi, \theta) \; Y_{l_2  m_2}^* (\phi, \theta) \; Y_{l_3  m_3}^*  (\phi, \theta) \sin\theta d\phi d\theta \ ,
 }
-This gives rise to
+which gives rise to
 \multiline{
-&&\int Y_{l_1  m_1}(\phi, \theta) \; Y_{l_2  m_2}(\phi, \theta) \; Y_{l_3  m_3}(\phi, \theta)  \sin\theta d\phi d\theta \nonumber \\
+&&\int Y_{l_1  m_1}(\phi, \theta) \; Y_{l_2  m_2}(\phi, \theta) \; Y_{l_3  m_3}(\phi, \theta)  \sin\theta d\theta d\phi  \nonumber \\
 && = \sqrt{ \frac{( 2 l_1 + 1) (2 l_2 + 1)(2 l_3 + 1)}{4\pi} } \threejm{l_1}{m_1}{l_2}{m_2}{l_3}{m_3}  \threejm{l_1}{0 }{l_2}{0}{l_3}{0} \ . \nonumber \\ \label{eqn:threeYintegral}
 }
 
@@ -555,13 +566,12 @@ on  \autoref{eqn:JMTransformRotation}, a general state $\ket{\alpha}$ is changed
 \ket{\alpha} \rightarrow D(R) \ket{\alpha} \ .  \label{eqn:ketStateTransform}
 }
 Now we study how an operator transforms under a rotation. Let's consider 
-a so-called vector operator, for example $\mathbf{J}$, which is composed of operators $J_X$, $J_Y$ and $J_Z$
-for three directions. We know a vector in classical physics with three components transforms like $V_j \rightarrow \sum_{j} R_{i, j} V_j$ under a rotation R. It is reasonable to expect that the expectation value of a vector operator 
-$\mathbf{V}$ transforms like a classical vector, that is,
+a so-called vector operator, for example $\mathbf{J}$, which is composed of operators $J_X$, $J_Y$ and $J_Z$. We know a vector in classical physics with three components transforms like $V_j \rightarrow \sum_{j} R_{i, j} V_j$ under a rotation R. It is reasonable to expect that the expectation value of a vector operator 
+$\mathbf{V}$ transforms like a classical vector, that is
 \oneline{
 \matelement{\alpha}{V_i}{\alpha} \rightarrow \matelement{\alpha}{D^{\dagger}(R) V_i D(R) }{\alpha} = \sum_{j} R_{i, j} \matelement{\alpha}{V_j}{\alpha} \ , \label{eqn:expectationValueTransform}
 }
-where \autoref{eqn:ketStateTransform} is used. From the above equation, it follows that the transformed operator in
+where \autoref{eqn:ketStateTransform} has been used. From the above equation, it follows that the transformed operator in
 the original basis is given by
 \oneline{
 D^{\dagger}(R) V_i D(R) = \sum_{j} R_{i, j} V_j \ . \label{eqn:operatorTransform}
@@ -575,8 +585,8 @@ T_{ijk \cdots } \rightarrow \sum_{i^{\prime}} \sum_{j^{\prime} } \sum_{k^{\prime
 The number of indices is called the rank of a tensor. Such a tensor is called a Cartesian tensor because its components
 $T_{ijk \cdots }$ are defined with respect to the Cartesian axes. 
 
-The problem with a Cartesian tensor is that it is reducible, which means that it contains parts that
-transform differently under rotations. Take for example a Cartesian tensor $\mathbf{T}$ formed from two vectors $\mathbf{U}$ and $\mathbf{V}$ as follows:
+The problem with a Cartesian tensor is that it is reducible meaning it contains parts that
+transform differently under rotations. Take for example a Cartesian tensor $\mathbf{T}$ formed from the product of two vectors $\mathbf{U}$ and $\mathbf{V}$ 
 \oneline{
 T_{ij} \equiv U_{i} V_{j} \ .
 }
@@ -591,16 +601,16 @@ rewrite it as
 (1-\delta_{i, j} ) \frac{U_i V_j - U_j V_i }{2}  + \delta_{i, j}\left( U_i V_i - \frac{\mathbf{U}\cdot\mathbf{V} }{3} \right) \ , \nonumber 
 }
 where the first term represents the off-diagonal part of the $3\times 3$ tensor and the second term represent the 
-diagonal part. Now,  it can be easily seen that the tensor is symmetric and its trace is zero. Thus, the tensor contains
+diagonal part. Now,  it can be easily seen that this term is symmetric and its trace is zero. So it contains
 5 independent components. The number of independent components associated with the three terms in \autoref{eqn:decomposeTensor} is 1, 3, and 5 respectively, which are precisely the multiplicities of angular momenta
 with $l=0$, $l=1$, and $l=2$ respectively. This suggests that the tensor $\mathbf{T}$ can be decomposed into tensors
 that can transform like spherical harmonics with $l=0$, 1, and 2. 
 
-From  the above example of decomposition of the tensor $\mathbf{T}$, it seems like the spherical harmonics can be 
-used as the irreducible tensor to represent any reducible tensor. This motivates us to define the irreducible spherical
+From  the above example, it seems like the spherical harmonics can be 
+used as irreducible tensors to represent any reducible tensor. This motivates us to define irreducible spherical
 tensors based on the spherical harmonics. Before presenting the definition of a spherical tensor, let's first investigate
 how the spherical harmonics tranform under rotations. For a direction eigenket $\ket{  \mathbf{\hat{n}}  }$, a rotation 
-transforms it to another direction eigenket $\ket{  \mathbf{\hat{n }^{\prime} }  }$:
+transforms it to another direction eigenket $\ket{  \mathbf{\hat{n }^{\prime} }  }$, that is
 \oneline{
 \ket{  \mathbf{\hat{n}^{\prime}  }  } = D(R) \ket{  \mathbf{\hat{n}}  } \ .
 }
@@ -612,21 +622,21 @@ The spherical harmonics can be used as both functions and operators just like th
 be used as position operators. Treating the spherical harmonics as operators, $Y_{lm}(\mathbf{\hat{n}^{\prime} })$ on
  the left hand side of \autoref{eqn:howYTransform} are the operators after the rotation transformation, which can be written in terms of  
 the original operator $D^{\dagger}(R) Y_{lm}(\mathbf{\hat{n} }) D(R)$ based on \autoref{eqn:operatorTransform}. 
-Then \autoref{eqn:howYTransform} becomes
+So that \autoref{eqn:howYTransform} becomes
 \oneline{
-D^{\dagger}(R) Y_{lm}(\mathbf{\hat{n} }) D(R) = \sum_{m^{\prime} } Y_{lm^{\prime} }(\mathbf{\hat{n} })D^{l\, *}_{m m^{\prime} }(R)
+D^{\dagger}(R) Y_{lm}(\mathbf{\hat{n} }) D(R) = \sum_{m^{\prime} } Y_{lm^{\prime} }(\mathbf{\hat{n} })D^{l\, *}_{m m^{\prime} }(R) \ .
 }
-Similarly to the above equation, we define an irreducible spherical tensor operator of rank $k$ with $(2 k + 1)$ components as
+Similarly, we define an irreducible spherical tensor operator of rank $k$ with $(2 k + 1)$ components as
 \oneline{
 D^{\dagger}(R) T_{q}^{(k)}(\mathbf{\hat{n} }) D(R) = \sum_{q^{\prime} =-k}^{k} D^{k\, *}_{q q^{\prime} }(R) T_{q^{\prime}}^{(k)} (\mathbf{\hat{n} })\ . \label{eqn:sphericalTensorDef1}
 }
-Replacing the rotation $R$ by its inverse $R^{-1}$, the above definition can be recasted into the following form:
+Replacing the rotation $R$ by its inverse $R^{-1}$ and using \autoref{rotationInverse}, the above definition can be recast as 
 \oneline{
 D(R)  T_{q}^{(k)} (\mathbf{\hat{n} }) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{\hat{n} }) D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef2}
 }
 Note that $T_{q}^{(k)} $ and $T_{q^{\prime}}^{(k)}$ here are defined with respect to the same 
 axis system. Because the spherical harmonics and the irreducible spherical tensors transform in the same way under 
-rotations, they are proportional to each other. We give their relationship as follows:
+rotations, they are proportional to each other, that is\cite{zare-book}
 \oneline{
 T^{(k)}_{q} (\mathbf{\hat{n} }) = \left( \frac{4\pi k!}{(2 k + 1)!!} \right)^{1/2} Y_{k q} (\mathbf{\hat{n} })\ , \label{eqn:relationTwithY}
 }
@@ -639,32 +649,32 @@ n!! = \left\{
     1 & \quad \text{if $n$ is $-1$ or 0}
   \end{array} \right.
 }
-From \autoref{eqn:relationTwithY}, it is obvious that the first-rank irreducible spherical tensor is just the modified 
-spherical harmonics:
+From \autoref{eqn:relationTwithY}, it follows that the first-rank irreducible spherical tensor is just the modified 
+spherical harmonics, namely
 \oneline{
 T^{(1)}_{q} = C_{1 q} \ . \label{eqn:TtoC}
 }
 
 
-In quantum mechanics, operators are usually written in term of Cartesian vectors, like the position vector 
+In quantum mechanics, operators are usually written in terms of Cartesian vectors, like the position vector 
 $\mathbf{r}$ and the electric dipole moment operator $\mathbf{d}$, and we want to know their corresponding spherical 
-tensor operators. In such cases, the definition of spherical tensors is 
-not very useful and we need to find alternative ways. It turns out that the irreducible spherical tensor can be written in 
+tensor operators. In such cases, the definition of the spherical tensors is 
+not very useful and we need to find alternative ways. It turns out that the irreducible spherical tensors can be written in 
 terms of Cartesian 
- coordinates. For example the first-rank irreducible spherical tensor is given by:
+ coordinates. For example the first-rank irreducible spherical tensor is given by
 \begin{equation}
 T^{(1)}_{1} = - \frac{1}{\sqrt{2}} (\hat{X} + i \hat{Y}) \ , 
 \end{equation}
 \begin{equation}
-T^{(1)}_{0}(\mathbf{V})  = \hat{Z} \ ,
+T^{(1)}_{0}  = \hat{Z} \ ,
 \end{equation}
 \begin{equation}
-T^{(1)}_{-1}(\mathbf{V}) =  \frac{1}{\sqrt{2}} (\hat{X} - i \hat{Y}) \ ,  
+T^{(1)}_{-1} =  \frac{1}{\sqrt{2}} (\hat{X} - i \hat{Y}) \ ,  
 \end{equation}
 where $\hat{X}$, $\hat{Y}$, and $\hat{Z}$ represents the units lengths for the Cartesian coordinate system.
 For every cartesian vector $\mathbf{V}$, there is one corresponding first-rank spherical tensor $T^{(1)}(\mathbf{V})$.  
 Similar to the irreducible spherical tensor,  $T^{(1)}(\mathbf{V})$ can also be written in terms of cartesian vectors 
-$\mathbf{V}$:
+$\mathbf{V}$, that is
 \begin{equation}
 T^{(1)}_{1}(\mathbf{V}) = - \frac{1}{\sqrt{2}} (V_{X}\,\hat{X} + i V_{Y}\,\hat{Y}) \ , \label{t11}
 \end{equation}
@@ -679,20 +689,20 @@ T^{(1)}_{-1}(\mathbf{V}) =  \frac{1}{\sqrt{2}} (V_{X}\hat{X} - i V_{Y}\hat{Y}) \
 \subsection{Coupling of spherical tensors}
 
 As we have seen, the spherical tensors behave like spherical harmonics. As a result, the spherical tensors  
-couple in the same way as angular momenta. For example, two spherical tensor $\mathbf{R}^{k_1}$ and  
-$\mathbf{S}^{k_2}$ can be combined to form a tensor of rank $K$:
+couple in the same way as angular momenta. For example, two spherical tensors $\mathbf{R}^{k_1}$ and  
+$\mathbf{S}^{k_2}$ can be combined to form a tensor of rank $K$,
 \oneline{
 T_{P}^{(K)}(\mathbf{R}^{k_1}, \mathbf{S}^{k_2} ) = \sum_{p_1,  p_2} \braket{k_1, p_1; k_2, p_2}{K, P} T_{p_1}^{(k_1)}(\mathbf{R}) T_{p_2}^{(k_2)}(\mathbf{S}) \ . \label{eqn:tensorCouple}
 }
 In practice, we can regard the above equation as the coupling of two angular momenta $\mathbf{j}_1$ and 
 $\mathbf{j}_2$ to form $\mathbf{j}$. Comparing \autoref{eqn:defCGCoeffs} with \autoref{eqn:tensorCouple}, we can easily see that $j_1$ corresponds to $k_1$, $p_1$ to $m_1$, $j_2$ to $k_2$, $p_2$ to $m_2$,
 $j$ to $K$, and $m$ to $P$. Similarly, $K$ can only takes the values from $|k_1 - k_2|$ to $k_1 + k_2$. We call 
-$T_{P}^{(K)}$ as the tensor product of $\mathbf{R}^{k_1}$ and  $\mathbf{S}^{k_2}$ and sometimes denote it as
+$T_{P}^{(K)}$ the tensor product of $\mathbf{R}^{k_1}$ and  $\mathbf{S}^{k_2}$ and sometimes denote it as
 \oneline{
 T_{P}^{(K)}(\mathbf{R}^{k_1}, \mathbf{S}^{k_2} ) = \left[  \mathbf{R}^{(k_1)} \otimes \mathbf{S}^{(k_2)} \right]^{(K)}_{P} \ . \nonumber
 }
 
-For later reference, we write the two most important cases of \autoref{eqn:tensorCouple} here:
+For later reference, the two most important cases of \autoref{eqn:tensorCouple} are\cite{zare-book}
 \oneline{
  \left[   \mathbf{A}^{(k)} \otimes \mathbf{B}^{(k)} \right]^{(0)}_{0}  = (2 k + 1)^{-\frac{1}{2}} \sum_{q} (-1)^{k-q} T^{(k)}_q  (\mathbf{A})  T^{(k)}_{-q} (\mathbf{B})\  , \label{eqn:tensorContraction00} 
 }
@@ -702,55 +712,56 @@ For later reference, we write the two most important cases of \autoref{eqn:tenso
 \  . \nonumber \\ \label{eqn:tensorContraction112} 
 }
 
-\clearpage
+
 It is helpful to examine further the meaning of $\left[  A^{(1)} \otimes B^{(1)} \right]^{(0)}_{0}$. 
-Based on \autoref{eqn:tensorContraction00}), we obtain
+Based on \autoref{eqn:tensorContraction00}) we obtain
 \begin{eqnarray}
-\left[ \mathbf{A}^{(1)}\otimes \mathbf{B}^{(1)} \right]_{0}^{(0)} =\frac{1}{\sqrt{3}}\left[T^{(1)}_{1}(\mathbf{A}) T^{(1)}_{-1}(\mathbf{B}) -T^{(1)}_{0}(\mathbf{A}) T^{(1)}_{0}(\mathbf{B}) +  T^{(1)}_{-1} (\mathbf{A}) T^{(1)}_{1}(\mathbf{B})\right] \nonumber \\
+\left[ \mathbf{A}^{(1)}\otimes \mathbf{B}^{(1)} \right]_{0}^{(0)} =\frac{1}{\sqrt{3}}\left[T^{(1)}_{1}(\mathbf{A}) T^{(1)}_{-1}(\mathbf{B}) -T^{(1)}_{0}(\mathbf{A}) T^{(1)}_{0}(\mathbf{B}) +  T^{(1)}_{-1} (\mathbf{A}) T^{(1)}_{1}(\mathbf{B})\right] \ . \nonumber \\
 \end{eqnarray}
-Substituting Eq. (\ref{t11}), (\ref{t10}) and (\ref{t1-1}) into the above equation, we obtain
+Substituting Eqs. (\ref{t11}), (\ref{t10}) and (\ref{t1-1}) into the above equation gives
 \begin{equation}
-\left[ \mathbf{A}^{(1)}\otimes \mathbf{B}^{(1)} \right]_{0}^{(0)}  = -\frac{1}{\sqrt{3}} (A_{X}B_{X}+ A_{Y}B_{Y} + A_{Z}B_{Z}) = -\frac{1}{\sqrt{3}} \mathbf{A}\cdot\mathbf{B} \ .
+\left[ \mathbf{A}^{(1)}\otimes \mathbf{B}^{(1)} \right]_{0}^{(0)}  = -\frac{1}{\sqrt{3}} (A_{X}B_{X}+ A_{Y}B_{Y} + A_{Z}B_{Z}) = -\frac{1}{\sqrt{3}} \mathbf{A}\cdot\mathbf{B} \ . \label{eqn:tensorDotProduct}
 \end{equation}
 Therefore, the rank-zero tensor product of two rank-one tensors is equivalent to the scalar product of the corresponding
  vectors except for a factor.  
-Similarly, it can be shown that the tensor product of rank $k=1$ is related to the cross product. 
+Similarly, it can be shown that the tensor product of rank $k=1$ is related to the cross product by 
 \begin{equation}
 \left[ A^{(1)} \otimes B^{(1)} \right]_{q}^{(k)} = (\mathbf{A}\times \mathbf{B})\cdot \mathbf{\hat{e}}_{q} \ ,
 \label{eqn:crossProduct}
 \end{equation}
 where
 \begin{eqnarray}
-\mathbf{\hat{e}}_{+1} &=& -\frac{1}{\sqrt{2}}(\mathbf{\hat{X}} + i \mathbf{\hat{Y}}) \nonumber \\
-\mathbf{\hat{e}}_{0} &=& \mathbf{\hat{Z}} \nonumber \\
+\mathbf{\hat{e}}_{+1} &=& -\frac{1}{\sqrt{2}}(\mathbf{\hat{X}} + i \mathbf{\hat{Y}}) \ , \nonumber \\
+\mathbf{\hat{e}}_{0} &=& \mathbf{\hat{Z}} \ , \nonumber \\
 \mathbf{\hat{e}}_{-1} &=& \frac{1}{\sqrt{2}}(\mathbf{\hat{X}} - i \mathbf{\hat{Y}}) \ .
 \end{eqnarray}
 
-It is worthwhile to mention that all the results about spherical tensor operators so far assume that those spherical
-tensor operator are defined with respect to one specific fixed axis system. However,
+It is worthwhile mentioning that all the results  so far assume that the spherical
+tensor operators are defined with respect to one specific fixed axis system. However,
  in practice, this assumption is usually not valid. Some tensor operators are naturally described in body-fixed coordinates, for example the molecular
 dipole moment operator, and other operators are more conveniently expressed in space-fixed coordinates, for instance
-the external field operator.  This leads to a question:  how the spherical harmonics defined in the 
+the external field operator.  This leads to the question, ``How the spherical harmonics defined in the 
 space-fixed axis system 
-is related to those in body-fixed axis system?  
+be related to those in body-fixed axis system?''. 
 Suppose the molecule-fixed axes can be obtained by a rotation $R$ of the 
-space-fixed axes, \autoref{eqn:sphericalTensorDef2} will still be valid and we write it here:
-\oneline{
-D(R)  T_{q}^{(k)}(\mathbf{T}) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{T})  D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef3}
-}
-Now the tensor operators are all defined in the space-fixed axis system and the body-fixed axes can be obtained by rotation 
+space-fixed axes. Equation (\ref{eqn:sphericalTensorDef2}) will still be valid.
+% and we write it here:
+%\oneline{
+%D(R)  T_{q}^{(k)}(\mathbf{T}) D^{\dagger}(R)  = \sum_{q^{\prime} =-k}^{k} T_{q^{\prime}}^{(k)}(\mathbf{T})  D^{k}_{q^{\prime} q }(R) \ . \label{eqn:sphericalTensorDef3}
+%}
+Now, the tensor operators are all defined in the space-fixed axis system and the body-fixed axes can be obtained by rotation 
 $R$ of the space-fixed axes. We recall that a transformation $S$ turns a wavefunction $\psi$ into  $S\psi$ and  turns 
 an operator $T$ into $S T S^{-1}$ in the transformed basis set. In the case of the rotation transformation $D$, 
 the new operator in the rotated basis set is given by $D T D^{-1} = D T D^{\dagger}$. Therefore, the left hand side of
-\autoref{eqn:sphericalTensorDef3} is just the new tensor operator in the rotated axis system (or body-fixed axis
- system), and \autoref{eqn:sphericalTensorDef3} can be written as
+\autoref{eqn:sphericalTensorDef2} can be interpreted as new tensor operator in the rotated axis system (or body-fixed axis
+ system), and \autoref{eqn:sphericalTensorDef2} can be written as
 \oneline{
 T_{b}^{(k)}(\mathbf{T}) = \sum_{s =-k}^{k} D^{k}_{sb }(R) T_{s}^{(k)}(\mathbf{T})  \ , \label{eqn:sTob}
 }
 where $T_{b}^{(k)}$ is the tensor operator defined in body-fixed axis system and $T_{s}^{(k)}$ is the tensor operator
 defined in space-fixed axis system. Note that $s$ labels space-fixed components and $q$ labels body-fixed 
-components. Replacing $R$ with its inverse $R^{-1}$ and exchanging $b$ and $s$, we obtain the inverse of
- \autoref{eqn:sTob}:
+components. Replacing $R$ with its inverse $R^{-1}$, using \autoref{rotationInverse} and exchanging $b$ and $s$, we obtain the inverse of
+ \autoref{eqn:sTob}, namely
 \oneline{
 T_{s}^{(k)}(\mathbf{T}) = \sum_{s =-k}^{k} D^{k}_{sb }(R)^* \; T_{b}^{(k)}(\mathbf{T})  \ . \label{eqn:bTos}
 }
@@ -758,7 +769,7 @@ T_{s}^{(k)}(\mathbf{T}) = \sum_{s =-k}^{k} D^{k}_{sb }(R)^* \; T_{b}^{(k)}(\math
 
 \subsection{Matrix elements of tensor operators} 
 
- We now consider how to evaluate  matrix elements of tensor operators with respect to angular-momentum eigenstates. 
+ We now consider the evaluation of  matrix elements of tensor operators with respect to angular-momentum eigenstates. 
 Given a matrix element $\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}}$ where
 $\eta$ and $\eta^{\prime}$ denotes quantum numbers other than rotational quantum numbers, we can rotate the bra, 
 operator and ket using \autoref{eqn:JMTransformRotation} and \autoref{eqn:sTob}, the result must be the same. 
@@ -768,61 +779,62 @@ Therefore we obtain
 &&= \sum_{n, n^{\prime}, p} D^j_{n m}(R)^* \; D^k_{p q}(R) \; D^{j^{\prime}}_{n^{\prime} m^{\prime} }(R) \matelement{\eta, j, n}{T_p^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, n^{\prime}}  
 \ . \label{eqn:matrixElement}
 }
-Integrating over $d\omega = \sin\theta d\phi d\theta d\chi$, we obtain on the left hand side $8\pi^2 \times$ ``original 
-term'' as the matrix element is a scalar and independent of any angles, and we have on the right hand side the integral over three rotation matrices:
+Integrating over $d\omega = \sin\theta d\theta d\phi  d\chi$, we obtain on the left hand side $8\pi^2 \times$ ``original 
+term'' as the matrix element is a scalar and independent of any angles, and we have on the right hand side the integral over three rotation matrices, that is
 \oneline{
-\int d\omega D^j_{n m}(R)^* \; D^k_{p q}(R) \; D^{j^{\prime}}_{n^{\prime} m^{\prime} }(R) \ .
+\int d\omega D^{j *}_{n m}(R) \; D^k_{p q}(R) \; D^{j^{\prime}}_{n^{\prime} m^{\prime} }(R) \ .
 }
-Rewriting $D^j_{n m}(R)^*$ in terms of $D^j_{-n -m}(R)$ using \autoref{eqn:complexToNormal} and evaluating the integral 
-using \autoref{eqn:integral3RotationMatrices}, we obtain
+Rewriting $D^{j *}_{n m}(R)$ in terms of $D^j_{-n -m}(R)$ using \autoref{eqn:complexToNormal} and evaluating the integral 
+using \autoref{eqn:integral3RotationMatrices} gives the value as
 \oneline{
-(-1)^{n-m} 8\pi^2  \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} }  \threejm{j}{-n }{k}{p}{j^{\prime} }{n^{\prime}} \ .
+(-1)^{n-m} 8\pi^2  \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} }  \threejm{j}{-n }{k}{p}{j^{\prime} }{n^{\prime}} \ ,
 }
-Then we can tidy up both sides of \autoref{eqn:matrixElement} and arrive at
+which then used in \autoref{eqn:matrixElement} gives
 \multiline{
 &&\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}} \nonumber \\
 && = (-1)^{j-m} \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} } \Bigg\{ \sum_{n, n^{\prime}, p} (-1)^{j-n} \threejm{j}{-n }{k}{p}{j^{\prime} }{n^{\prime}}  \nonumber \\
 &&\hspace{0.5cm}  \times \matelement{\eta, j, n}{T_p^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, n^{\prime}}  \Bigg \} \ .
 }
-The term in the brackets is indepedent of the projection quantum numbers and we write it as $\matelement{\eta, j}{|T_p^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}}$. Thus, we have
+The term in the braces is indepedent of the projection quantum numbers and we write it as $\matelement{\eta, j}{|T_p^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}}$. Thus, we have\cite{RotSpect}
 \oneline{
-\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}} =  (-1)^{j-m} \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} }  \matelement{\eta, j}{|T^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}} \ .
+\matelement{\eta, j, m}{T_q^{(k)}(\mathbf{A}) } {\eta^{\prime}, j^{\prime}, m^{\prime}} =  (-1)^{j-m} \threejm{j}{-m}{k}{q}{j^{\prime} }{m^{\prime} }  \matelement{\eta, j}{|T^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}} \ . \label{eqn:wignerEckart}
 }
-This is the Wigner-Eckart theorem which states that the matrix element of a tensor operator in angular-momentum
+This is the Wigner-Eckart theorem and states that the matrix element of a tensor operator in angular-momentum
 eigenstates can be separated into a part which describes all the angular dependence  and another part which is 
 independent of projection quantum numbers and hence of orientation. 
 
 To make the Wigner-Eckart theorem useful, we need to know how to evaluate the reduced matrix element 
 $\matelement{\eta, j}{|T_p^{(k)}(\mathbf{A})| } {\eta^{\prime}, j^{\prime}}$. The usual approach is to calculate the 
-matrix element for some special cases and then derive the reduced matrix element from the result. From example,
+matrix element for some special cases and then derive the reduced matrix element from the result. For example,
 if we want to calculate the matrix elements associated with the tensor operator of the modified spherical harmonics 
 $C_{kq}(\theta, \phi)$, $\matelement{ l_1, m_1}{C_{kq}(\theta, \phi) } { l_2, m_2}$, 
 %\oneline{
 %\matelement{ l_1, m_1}{C_{kq}(\theta, \phi) } { l_2, m_2} =  (-1)^{l_{1} -m_{1} } \threejm{l_1}{-m_1}{k}{q}{l_2 }{m_2 }  \matelement{ l_1}{|C^{(k)}| } {l_2} \ , \label{eqn:matrixElementSpecial}
 %}
-we can consider the special case when $q=0$, $m_1 =0$ and $m_2 =0$. The corresponding matrix element can be converted to an integral over a product of three spherical harmonics:
+we can consider the special case when $q=0$, $m_1 =0$ and $m_2 =0$. The corresponding matrix element can be converted to an integral over a product of three spherical harmonics, that is
 \oneline{
 \matelement{ l_1, 0}{C_{k0}(\theta, \phi) } { l_2, 0} = \sqrt{\frac{4\pi}{2 k + 1}} \matelement{ Y_{ l_1 0} }{Y_{k0} } { Y_{ l_2 0}} \ , \nonumber \\
 }
 which gives rise to 
 \oneline{
-\left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2}  {\threejm{l_1}{0 }{k}{0}{l_2}{0}}^2   \label{eqn:resultSpecialCase}
+\left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2}  {\threejm{l_1}{0 }{k}{0}{l_2}{0}}^2  \ ,  \label{eqn:resultSpecialCase}
 }
 based on \autoref{eqn:threeYintegral}. 
-Alternatively, from the Wigner-Eckart theorem, we have
+Alternatively, from the Wigner-Eckart theorem we have
 \oneline{
 \matelement{ l_1, 0}{C_{k0}(\theta, \phi) } { l_2, 0} =  (-1)^{l_1}  \threejm{l_1}{0}{k}{0}{l_2 }{0 }  \matelement{ l_1}{|C^{(k)}| } {l_2} \ . \label{eqn:resultW-Etheorem}
 }
-Comparing \autoref{eqn:resultSpecialCase} with \autoref{eqn:resultW-Etheorem}, we obtain
+Comparing \autoref{eqn:resultSpecialCase} with \autoref{eqn:resultW-Etheorem} gives
 \oneline{
  \matelement{ l_1}{|C^{(k)}| } {l_2} = (-1)^{l_1} \left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2} \threejm{l_1}{0}{k}{0}{l_2 }{0 } \ .
 }
-From this reduced matrix element, any matrix elements can be calculated from
+From this reduced matrix element, any matrix elements can be calculated using the Wigner-Eckart theorem, so that
+\autoref{eqn:wignerEckart} gives
 \multiline{
 \matelement{ l_1, m_1}{C_{kq}(\theta, \phi) } { l_2, m_2} &=&  (-1)^{m_{1} } \left[ (2 l_1 + 1) (2 l_2 + 1) \right]^{1/2}  \threejm{l_1}{0}{k}{0}{l_2 }{0 } \nonumber \\
-&\times& \threejm{l_1}{-m_1}{k}{q}{l_2 }{m_2 }  \label{eqn:matrixElementModifiedY}
+&\times& \threejm{l_1}{-m_1}{k}{q}{l_2 }{m_2 }  \ . \label{eqn:matrixElementModifiedY}
 }
-based on the Wigner-Eckart theorem.
+
 
 \section{Application of angular momentum theory}
 \label{sec:applicationAMT}
@@ -832,14 +844,14 @@ problems closely related to the research in this thesis.
 
 \subsection{Diatomic molecule in external field}
 \label{sec:moleculeInField}
-The first problem is about calculating the dressed rotational states of molecules in an external field. For simplicity, we 
+The first problem involves calculating the dressed rotational states of molecules in an external field. For simplicity, we 
 only consider $^1\Sigma$ molecules with a permanent dipole momentum and no spins. Since only rotational states are
 relevant here, the total Hamiltonian can be written as
 \oneline{
 H = H_{\rm rot} + H_{I} \ ,
 }
 where $H_{\rm rot} $ describes the rotational states of the system without any external field 
-and $H_{I}$ describes the interaction of the molecule with external field. In the case of a $^1\Sigma$ molecules,  $H_{\rm rot}$ is given by
+and $H_{I}$ describes the interaction with the external field. For $^1\Sigma$ molecules,  
 \oneline{
 H_{\rm rot} = B \hat{N}^2 \ ,
 }
@@ -854,25 +866,25 @@ and is given by
 The evaluation of the contribution from the interaction part is more involved and we discuss it in the following two 
 cases.
 
-First, we consider a fixed DC field. The interaction part of the Hamiltonian can be written as
+First, consider a static electric (DC) field for which
 \oneline{
 H_{I} =  -\mathbf{d} \cdot \mathbf{E} = d \mathcal{E}_{ \tiny \rm DC}  \;\cos\theta \ ,
 }
-where $\mathbf{d}$ is the permanent dipole, $\mathbf{E}$ represents the external DC field, and $\theta$ is the 
+where $\mathbf{d}$ is the permanent dipole, $\mathbf{E}$ is the external field, and $\theta$ is the 
 angle between $\mathbf{d}$ and $\mathbf{E}$. To evaluate the corresponding matrix elements, we need to 
 calculate $\matelement{N, M}{\cos\theta}{N^{\prime}, M^{\prime}}$. Because $\cos\theta$ can be expressed
-in terms of a spherical harmonic:
+in terms of a spherical harmonic
 \oneline{
 \cos\theta = \sqrt{\frac{4\pi}{3} }Y_{10}(\theta, \phi) = C_{10} \ ,
 }
-from \autoref{eqn:matrixElementModifiedY}, we obtain
+\autoref{eqn:matrixElementModifiedY} gives
 \multiline{
 &&\matelement{N, M}{H_{I}}{N^{\prime}, M^{\prime}} =  E d \matelement{N, M}{C_{10}}{N^{\prime}, M^{\prime}} \nonumber \\
  &&=(-1)^{M }  d \mathcal{E}_{ \tiny \rm DC}\sqrt{ (2N + 1) (2N^{\prime} + 1)}  \threejm{N}{0}{1}{0}{N^{\prime} }{0 }
 \threejm{N}{-M}{1}{0}{N^{\prime} }{M^{\prime} } \ . \nonumber \\
 }
 
-Second, we consider a  laser field which is off-resonant with any vibrational, electronic states 
+Second, we consider a  laser (AC) field which is off-resonant with any vibrational or electronic states 
 of the molecule. The strength of the AC field  is given by 
 \oneline{
 \mathcal{E}_{ AC} (t)= \mathcal{E}_{ AC, 0}\; \cos(\omega t) \ ,
@@ -881,22 +893,22 @@ where $\omega$ is the frequency of the laser field. In this case, the interactio
 \oneline{
 H_{I}(t) = - d \mathcal{E}_{ AC} (t) \cos\theta_{AC} - \frac{1}{2} \mathcal{E}_{ AC}^2 (t) \left( \alpha_{\parallel} \cos^2\theta_{AC} + \alpha_{\perp}\sin^2 \theta_{AC} \right) \ , \label{eqn:Hit}
 }
-where $\theta_{AC}$ is the angle between the dipole moment of the molecule and the AC field, $\alpha_\|$ and
-$\alpha_{\perp}$ are the parallel and perpendicular polarizabilities of the molecule. 
+where $\theta_{AC}$ is the angle between the dipole moment of the molecule and the AC field, and $\alpha_\|$ and
+$\alpha_{\perp}$ are the parallel and perpendicular polarizabilities of the molecule respectively.  
 The interaction Hamiltonian is a function of time, and changes very fast as $\mathcal{E}_{ AC} (t)$ oscillates at optical 
 frequency.
 During one period of rotational motion of the molecule, the interaction Hamiltonian has oscillated many times. 
 Therefore, we can average $H_{I}(t)$ over one oscillation period of the light and obtain the effective interaction
-interaction Hamiltonian:
+ Hamiltonian
 \oneline{
 H_{I} =  - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \left( \Delta \alpha \cos^2\theta_{AC} + \alpha_{\perp} \right) \ , \label{eqn:Hit}
 }
-where $\Delta \alpha = \alpha_{\parallel} - \alpha_{\perp}$
-As we did in the case of DC field, to calculate the matrix elements of the interaction Hamiltonian, we rewrite 
-$\cos^2\theta_{AC}$ in terms of the spherical harmonics  and express the matrix elements in terms of the matrix 
-elements of the modified spherical harmonics. As a consequence, we obtain
+where $\Delta \alpha = \alpha_{\parallel} - \alpha_{\perp}$. 
+As we did in the case of the DC field, to calculate the matrix elements of the interaction Hamiltonian, we rewrite 
+$\cos^2\theta_{AC}$ in terms of spherical harmonics  and express the matrix elements in terms of those of the modified spherical harmonics. As a consequence, we obtain
 \multiline{
-&&\matelement{N, M}{H_{I}}{N^{\prime}, M^{\prime}} = - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \matelement{N, M}{\left( \Delta\alpha \cos^2\theta_{AC} + \alpha_{\perp} \right)}{N^{\prime}, M^{\prime}}\nonumber \\ 
+&&\matelement{N, M}{H_{I}}{N^{\prime}, M^{\prime}} \nonumber \\
+&& = - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \matelement{N, M}{\left( \Delta\alpha \cos^2\theta_{AC} + \alpha_{\perp} \right)}{N^{\prime}, M^{\prime}}\nonumber \\ 
 &&= - \frac{1}{4} \mathcal{E}_{ AC, 0}^2 \matelement{N, M}{\left[ \Delta\alpha \left(\frac{2}{3} C_{20} + \frac{1}{3} \right) + \alpha_{\perp} \right]}{N^{\prime}, M^{\prime}} \nonumber \\
 &&= - \frac{\mathcal{E}_{ AC, 0}^2}{12}  \bigg[ (-1)^M 2\Delta\alpha\sqrt{(2 N + 1)(2 N^{\prime} + 1)} \threejm{N}{0}{2}{0}{N^{\prime} }{0 }
 \threejm{N}{-M}{2}{0}{N^{\prime} }{M^{\prime} } \nonumber \\
@@ -908,15 +920,15 @@ based on  \autoref{eqn:matrixElementModifiedY}.
 \subsection{Dipole-dipole interaction}
 \label{sec::ddInteraction}
 
-The second problem that we consider is about calculating the matrix of the dipole-dipole interaction between two molecules by using the theory of angular momentum. 
-We have two molecules A and B, which are in rotational states $|N_{A}M_{A}\rangle$ and $|N_{B}M_{B}\rangle$ 
-respectively. In free space, one molecule can rotate around another molecule, then the state of the two molecules
-are expressed by
+The second problem we consider calculates the matrix elements of the dipole-dipole interaction between two molecules by using the theory of angular momentum. 
+Consider two molecules A and B, in rotational states $|N_{A}M_{A}\rangle$ and $|N_{B}M_{B}\rangle$, 
+respectively. In free space, one molecule can rotate around the other and the state of the two molecules
+can be expressed as
 \begin{equation}
 |N_{A}M_{A}\rangle |N_{B}M_{B}\rangle |lm\rangle  \ , \nonumber
 \end{equation}
-where $l$ is the angular momentum due to the rotation motion of A with respect to B. 
-However, in solid state or optical lattices, the position of molecules are fixed to a good approximation, they cannot rotate 
+where $l$ is the orbital angular momentum  of A around B. 
+However, in the solid state or optical lattices, the position of molecules are fixed to a good approximation, and they cannot rotate 
 around each other. In this case, their states are given by $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ if there is no 
 interaction between them. If we consider the interaction between the two molecules, we can always use $|N_{A}M_{A}\rangle |N_{B}M_{B}\rangle$ as basis set. By expanding the Hamiltonian in this basis set and diagonalizing 
 it, we can get the new eigenstates.
@@ -927,25 +939,26 @@ As the first step, we have to know  the interaction between the two molecules. I
 \end{equation}
 where $\mathbf{d}_{A}$ and $\mathbf{d}_{B}$ are the dipole moment operators for molecule $A$ and molecule 
 $B$. 
-Here we only consider the dipole moment, there also exists quadrupole, octopole, ..., etc., but their magnitudes are so small that we can ignore them at large distances, say, 400 nm. Our final goal is to evaluate the matrix element $\langle N_{A}M_{A}|\langle N_{B}M_{B} | \hat{V}_{\mbox{\tiny dd}}|N_{A}^{'}M_{A}^{'}\rangle |N_{B}^{'}M_{B}^{'}      \rangle$. The general scheme to calculate the matrix elements is to rewrite the dipole-dipole operator (\autoref{dd-operator}) in terms of spherical harmonics, and then the matrix elements can be written in terms of 3-$j$ symbols, which can be calculated numerically. 
+Here we only consider the dipole moment. There also exists quadrupole, octopole, and higher order moments, but their magnitudes are so small that we can ignore them at large distances, say, 400 nm. Our final goal is to evaluate the matrix element $\langle N_{A}M_{A}|\langle N_{B}M_{B} | \hat{V}_{\mbox{\tiny dd}}|N_{A}^{'}M_{A}^{'}\rangle |N_{B}^{'}M_{B}^{'}  \rangle$ by rewriting $\hat{V}_{\mbox{\tiny dd}}$  in terms of spherical harmonics, and then  in terms of 3-$j$ symbols which can be calculated numerically. 
 
-The first term in the square bracket of \autoref{dd-operator}, can be expressed in terms of a tensor product:
+The first term in the square bracket of \autoref{dd-operator}, can be expressed in terms of a tensor product using 
+\autoref{eqn:tensorDotProduct}, that is
 \begin{equation}
 \mathbf{d}_{A}\cdot\mathbf{d}_{B} = - \sqrt{3} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]_{0}^{(0)} \ . \label{dot-product}
 \end{equation}
-The second term in the square bracket of \autoref{dd-operator} is the product of two scalars $(\mathbf{d}_{A}\cdot\mathbf{\hat{R} })(\mathbf{d}_{B}\cdot\mathbf{\hat{R}})$, we consider it as a special case of the dot product of two vectors in one-dimensional space. Then according to \autoref{dot-product}, we obtain
+The second term in the square bracket of \autoref{dd-operator} is the product of two scalars $(\mathbf{d}_{A}\cdot\mathbf{\hat{R} })(\mathbf{d}_{B}\cdot\mathbf{\hat{R}})$, which we consider as a special case of the dot product of two vectors in one-dimensional space. So that according to \autoref{dot-product}, we can write
 \begin{equation}
 (\mathbf{d}_{A}\cdot\mathbf{\hat{R}})(\mathbf{d}_{B}\cdot \mathbf{\hat{R} })= 3\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}  \ . \label{eqn:dRdR}
 \end{equation}
 There is a simple understanding of the above equation: an angular momentum $\mathbf{d}_{A}$ with $j_{1}=1$ 
 couples  another angular momentum $\hat{R}$ with $j_{2}=1$ to give rise to a new angular momentum, and an 
 angular momentum $\mathbf{d}_{B}$ with $j_{3}=1$ couples  with another angular momentum $\hat{R}$ with $j_{4}=1$ 
-to give rise to another new angular momentum, and then these two new angular momentum couples with each other. 
+to give rise to another new angular momentum, and then these two new angular momenta couple with each other. 
 
 The form of \autoref{eqn:dRdR} is not convenient for calculations. We know only $\mathbf{d}_A$ and $\mathbf{d}_B$ 
 operate on the rotational states $\ket{N_A, M_A} \ket{N_B, M_B}$, but they are coupled with $\mathbf{\hat{R}}$, which makes the calculation of the matrix element associated with \autoref{eqn:dRdR} cumbersome. Therefore, it is necessary to regroup these operators so that the dipole operators are separated from the position operators. 
 Let us expand $\left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}\otimes \left[ \mathbf{d}_{B}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}  \right]_{0}^{(0)}$ in terms of another coupling scheme, where $\mathbf{d}_{A}$ couples with $\mathbf{d}_{B}$ and $\mathbf{\hat{R}}$ couples with $\mathbf{\hat{R}}$. 
-This involves the definition of 9-$j$ symbols. Based on \autoref{9-j1} and \autoref{9-j2}, we have
+This involves the definition of 9-$j$ symbols. Based on \autoref{9-j1} and \autoref{9-j2} we have
 \begin{equation}
 (\mathbf{d}_{A}\cdot\mathbf{\hat{R}})(\mathbf{d}_{B}\cdot\mathbf{\hat{R} })= 3\sum_{k}(2k + 1) 
 \left\{
@@ -957,7 +970,7 @@ This involves the definition of 9-$j$ symbols. Based on \autoref{9-j1} and \auto
 \right\} 
 \left[ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}\otimes \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}  \right]_{0}^{(0)} \ . \label{regrouping}
 \end{equation}
-The 9-$j$ symbols in the above equation can be expressed in terms of 6-$j$ symbols (related to the coupling of 3 angular momenta). In the special case where the final angular momentum $j_{9}=0$, we have
+The 9-$j$ symbols in the above equation can be expressed in terms of 6-$j$ symbols (related to the coupling of 3 angular momenta). In the special case where the final angular momentum $j_{9}=0$, we have\cite{zare-book}
 \begin{eqnarray}
 \left\{
 \begin{array}{ccc}
@@ -974,9 +987,9 @@ j_{1}& j_{2}&j_{3} \\
 j_{5}&j_{4}&j_{7} 
 \end{array}
 \right\} 
-\delta_{j_{3}j_{6}}\delta_{j_{7}j_{8}} \ . 
+\delta_{j_{3}j_{6}}\delta_{j_{7}j_{8}} \ ,
 \end{eqnarray}
-Then
+so that
 \begin{eqnarray}
 \left\{
 \begin{array}{ccc}
@@ -998,7 +1011,7 @@ Then
 \frac{1}{3} (-1)^{-k} & 0\leq k \leq 2 \\
 0 & \mbox{otherwise}
 \end{array}
-\right.
+\right. \ . \nonumber \\
 \end{eqnarray}
 Because $k$ results from the coupling of $j_{1}=1$ and $j_{2}=1$, it is in the range of $|j_{1}-j_{2}|, \cdots, |j_{1}+j_{2}|$, and the above equation can be simplified as
 \begin{equation}
@@ -1010,32 +1023,32 @@ Because $k$ results from the coupling of $j_{1}=1$ and $j_{2}=1$, it is in the r
 \end{array}
 \right\} = \frac{(2k + 1)^{-\frac{1}{2}}}{3} \ . \label{9-j-value}
 \end{equation}  
-Substituting Eq. (\ref{9-j-value}) into Eq. (\ref{regrouping}) and using Eq. (\ref{eqn:tensorContraction00}), we obtain
+Substituting Eq. (\ref{9-j-value}) into Eq. (\ref{regrouping}) and using Eq. (\ref{eqn:tensorContraction00}) gives
 \begin{eqnarray}
 (\mathbf{d}_{A}\cdot\mathbf{\hat{R} })(\mathbf{d}_{B}\cdot  \mathbf{\hat{R} })
 = \sum_{k=0,1,2}\sum_{q} (-1)^{k-q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(k)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k)}_{-q} \ . \label{scalarXscalar}
 \end{eqnarray}
-Since the tensor product of rank 1 is related to the cross product (see \autoref{eqn:crossProduct}), $\left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k=1)}_{-q}$ is associated with $\mathbf{\hat{R}}\times\mathbf{\hat{R}}=0$ and it is zero. Then \autoref{scalarXscalar} can be simplified further as
+Since the tensor product of rank 1 is related to the cross product (see \autoref{eqn:crossProduct}), $\left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(k=1)}_{-q}$ is associated with $\mathbf{\hat{R}}\times\mathbf{\hat{R}}=0$ and is zero. So that \autoref{scalarXscalar} simplifies to 
 \begin{eqnarray}
 (\mathbf{d}_{A}\cdot \mathbf{\hat{R} })(\mathbf{d}_{B}\cdot\mathbf{\hat{R} })&=&\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(0)}_{0} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(0)}_{0} \nonumber \\
 & & + \sum_{|q|=0,1,2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
 &=& (-\frac{1}{\sqrt{3}} \mathbf{d}_{A}\cdot \mathbf{d}_{B})(-\frac{1}{\sqrt{3}}\mathbf{\hat{R}}\cdot\mathbf{\hat{R}} ) \nonumber \\
 & & +  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\
-&=& \frac{\mathbf{d}_{A}\cdot \mathbf{d}_{B}}{3}+  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \nonumber \\ 
+&=& \frac{\mathbf{d}_{A}\cdot \mathbf{d}_{B}}{3}+  \sum_{q} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \  . \nonumber \\ 
 \label{term2}
 \end{eqnarray}
-Substitution of \autoref{term2} into the expression for the dipole-dipole interaction (\autoref{dd-operator}) yields
+Substituting \autoref{term2} into \autoref{dd-operator} yields
 \begin{equation}
 \hat{V}_{\mbox{\tiny dd}}(\mathbf{R}) = \frac{-3}{R^{3}} \sum_{q=-2}^{2} (-1)^{q} \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q} \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} \ .
 \end{equation}
-In the above equation, $\mathbf{\hat{R}}$ can be viewed as the first-order irreducible spherical tensor, therefore the
-contraction of two $\mathbf{\hat{R}}$ gives rise to the second-order  irreducible spherical tensor:
+In the above equation, $\mathbf{\hat{R}}$ can be viewed as a first-order irreducible spherical tensor, therefore the
+contraction of two $\mathbf{\hat{R}}$ gives rise to the second-order  irreducible spherical tensor
 \oneline{
  \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} = T^{(2)}_{-q}(\mathbf{\hat{R}}) \ .
 }
-Then based on \autoref{eqn:relationTwithY}, we obtain:
+Based on \autoref{eqn:relationTwithY} we obtain
 \oneline{
- \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} = \sqrt{ \frac{8 \pi}{15} } Y_{2 -q}(\theta_{R}, \phi_{R})
+ \left[ \mathbf{\hat{R}}^{(1)} \otimes \mathbf{\hat{R}}^{(1)} \right]^{(2)}_{-q} = \sqrt{ \frac{8 \pi}{15} } Y_{2 -q}(\theta_{R}, \phi_{R}) \ ,
 }
 where $\theta_{R}$ and $\phi_{R}$ describe the orientation of $\mathbf{\hat{R}}$ in the space-fixed axis system, and
 then the dipole-dipole operator becomes:
@@ -1044,7 +1057,7 @@ then the dipole-dipole operator becomes:
 }
 
 To calculate the matrix elements of the dipolar operator, we now only need to consider the tensor product 
-$\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q}$. Based on \autoref{eqn:tensorContraction112}, we can express the tensor product in terms of the tensor components in some axis system:
+$\left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q}$. Using \autoref{eqn:tensorContraction112}, we can express the tensor product in terms of the tensor components in some axis system
 \multiline{
 \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{q}  
 = \sum_{q_{A} } (-1)^q \sqrt{5} \threejm{1}{q_A }{1}{q_B }{2}{-q} T^{(1)}_{q_{A} } (\mathbf{d}_A )  T^{(1)}_{q_B } (\mathbf{d}_B )
@@ -1055,36 +1068,36 @@ defined in the same axis system can operate on them directly. Therefore, for the
 components in \autoref{eqn:tensorComponents} should also be in the space-fixed axis system. 
 However, the dipole moment of a molecule is
  most conveniently expressed in the body-fixed axis system. In the case of a diatomic polar molecule, we can choose
- the body-fixed $z$-axis to be in the same direction as the dipole moment.  Then the only nonzero body-fixed $b$ 
+ the body-fixed $z$-axis to be in the same direction as the dipole moment.  So that the only nonzero body-fixed $b$ 
  component is given by
  \oneline{
  T^{(1)}_{b=0} (\mathbf{d} ) = d \hat{z} \ ,
  }
- where $d$ is the magnitude of the dipole moment. Now the problem is how to obtain the space-fixed dipole moment
+ where $d$ is the magnitude of the dipole moment. Now the problem is obtaining the space-fixed dipole moment
   component from the body-fixed component. From \autoref{eqn:bTos}, we have
 \multiline{
 T^{(1)}_{s } (\mathbf{d} ) &=& \sum_{b=-1}^{1} D^{1 *}_{sb} T^{(1)}_{b} (\mathbf{d} ) \nonumber \\
 &=& D^{1 *}_{s 0} d \nonumber \\
 &=& d_0 C_{1 s} \ ,  \label{eqn:dipoleSpaceFixed}
 }
-where $T^{(1)}_{s }$ is the tensor component in space-fixed axis system and the last equality comes from \autoref{eqn:relationDandY}. Substituting \autoref{eqn:dipoleSpaceFixed} into  \autoref{eqn:tensorComponents}, we
-obtain:
+where $T^{(1)}_{s }$ is the tensor component in space-fixed axis system and the last equality comes from \autoref{eqn:relationDandY}. Substituting \autoref{eqn:dipoleSpaceFixed} into  \autoref{eqn:tensorComponents}
+then gives 
 \multiline{
 \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{s}  
 = \sum_{s_{A} } (-1)^s \sqrt{5}d_A d_B \threejm{1}{s_A }{1}{s_B }{2}{-s} C_{1 s_A} C_{1 s_B}
 \  .  \label{eqn:dipoleOperatortoC}
 }
-Based on \autoref{eqn:matrixElementModifiedY}, the corresponding matrix elements are given by
+Using \autoref{eqn:matrixElementModifiedY}, the corresponding matrix elements are given by
 \multiline{
 &&\bra{N_A, M_A} \matelement{N_B, M_B}{ \left[ \mathbf{d}_{A}^{(1)} \otimes \mathbf{d}_{B}^{(1)} \right]^{(2)}_{s} }{N_A^{\prime}, M_A^{\prime}}\ket{N_B^{\prime}, M_B^{\prime}} \nonumber \\
 &&= (-1)^{M_A + M_B} d_A d_B \sqrt{5} \sqrt{(2 N_A + 1)(2 N_B + 1) (2 N_A^{\prime} + 1)  (2 N_B^{\prime} + 1)} \nonumber \\
 &&\hspace{0.5cm} \times \threejm{N_A}{0}{1}{0}{N_A^{\prime}}{0} \threejm{N_B}{0}{1}{0}{N_B^{\prime}}{0} \nonumber \\
-&&\hspace{0.5cm} \times \sum_{s_A} \threejm{N_A}{-M_A}{1}{s_A}{N_A^{\prime}}{M_A^{\prime}} \threejm{N_B}{-M_B}{1}{s_B}{N_B^{\prime}}{M_B^{\prime}} \threejm{1}{s_A}{1}{s_B}{2}{s} \ . \nonumber \\
+&&\hspace{0.5cm} \times \sum_{s_A} \threejm{N_A}{-M_A}{1}{s_A}{N_A^{\prime}}{M_A^{\prime}} \threejm{N_B}{-M_B}{1}{s_B}{N_B^{\prime}}{M_B^{\prime}} \threejm{1}{s_A}{1}{s_B}{2}{-s} \ . \nonumber \\
 \label{eqn:matrixElementDD}
 }
 
 
-Finally, after considering every possible $q$ value in \autoref{eqn:dipoleOperatorInDD} and making use of \autoref{eqn:dipoleOperatorInDD}, we arrive at the matrix elements of the dipole operator:
+Finally, after considering every possible  value of $q$ in \autoref{eqn:dipoleOperatorInDD} and making use of \autoref{eqn:dipoleOperatorInDD}, we arrive at 
 \multiline{
 &&\bra{N_A , M_A} \bra{N_B , M_B} \hat{V}_{\rm dd}(\mathbf{R}) \ket{N_A^{'}, M_A^{'}} \ket{N_B^{'} , M_B^{'} } \nonumber \\
 &&= - \frac{F}{2 R^3} \bigg\{ 3\sin^2\theta_{R} e^{-2 i \phi_{R} } D^{A}_{-} D^{B}_{-} - 6\sin\theta_{R}\cos\theta_{R} e^{- i\phi_{R}} \left[ D_0^A D_{-}^B + D_{-}^A D_0^B\right] \nonumber \\
@@ -1096,10 +1109,10 @@ where
 && F =  (-1)^{M_A + M_B} d_A d_B \sqrt{5} \sqrt{(2 N_A + 1)(2 N_B + 1) (2 N_A^{\prime} + 1)  (2 N_B^{\prime} + 1)} \nonumber \\
 &&\hspace{1cm} \times \threejm{N_A}{0}{1}{0}{N_A^{\prime}}{0} \threejm{N_B}{0}{1}{0}{N_B^{\prime}}{0} \ ,
 }
-and $D^{A}_{\pm, 0}D^{B}_{\pm, 0}$ are defined based on 
+and $D^{A}_{\pm, 0}D^{B}_{\pm, 0}$ are defined using
 \multiline{
-f_{AB}(s_A, s_B) = \threejm{N_A}{-M_A}{1}{s_A}{N_A^{\prime}}{M_A^{\prime}} \threejm{N_B}{-M_B}{1}{s_B}{N_B^{\prime}}{M_B^{\prime}} \threejm{1}{s_A}{1}{s_B}{2}{s} \nonumber \\ \label{eqn:fAB}
-} in the following way:
+f_{AB}(s_A, s_B) = \threejm{N_A}{-M_A}{1}{s_A}{N_A^{\prime}}{M_A^{\prime}} \threejm{N_B}{-M_B}{1}{s_B}{N_B^{\prime}}{M_B^{\prime}} \threejm{1}{s_A}{1}{s_B}{2}{s} \ , \nonumber \\ \label{eqn:fAB}
+} in the following way
 \multiline{
 D^{A}_{+}D^{B}_{+} &=& f_{AB}(1, 1) \ , \nonumber \\
 D^{A}_{+}D^{B}_{0} &=& f_{AB}(1, 0) \ , \nonumber \\
@@ -1116,17 +1129,17 @@ The factor $F$ describes the selection rule of rotational quantum number $N$ for
 says that  only two consecutive rotational levels are coupled. $D^{A}_{\pm, 0}D^{B}_{\pm, 0}$ describes the change of
 the projection quantum number $M$ by the dipole-dipole interaction. It can be easily seen from \autoref{eqn:fAB}
 that $D^{A}_{X}D^{B}_{Y}$ is nonzero only if the projection quantum numbers change in a certain way. For example, 
-only $D^{A}_{+}D^{B}_{+}$ is nonzero if $M_A - M_A^{\prime} = 1$ and $M_B - M_B^{\prime} = 1$.  
+$D^{A}_{+}D^{B}_{+}$ is nonzero if only $M_A - M_A^{\prime} = 1$ and $M_B - M_B^{\prime} = 1$.  
 
-\section{Introduction to exciton in molecular crystal}
+\section{Introduction to excitons in molecular crystals}
 \label{sec: exciton}
-In this section, we aim to give a very brief introduction to exciton. For simplicity, we consider a 1D molecular 
+In this section, we aim to give a very brief introduction to excitons. For simplicity, we consider a 1D molecular 
 crystal with every lattice site occupied by one molecule. The Hamiltonian is given by
 \oneline{
 H = \sum_{n} H_n + \frac{1}{2} \sum_{n}\sum_{m\neq n} V_{n m} \ , \label{eqn:hamMolecularCrystal}
 }
 where $n$ is the molecule index, $H_{n}$ is the Hamiltonian for an isolated molecule $n$, and $V_{nm}$ describes 
-the interaction between two molecules $n$ and $m$. The extension to 2D and 3D molecular arrays is straightforward:
+the interaction between the two molecules labelled $n$ and $m$. The extension to 2D and 3D molecular arrays is straightforward:
 one only needs to replace the number index $n$ by a vector index $\mathbf{n}$ in the 2D or 3D dimensional space.   
 
 \subsection{Commutation relation}
@@ -1137,8 +1150,11 @@ system,
 it is suitable to use the second-quantization formalism which is convenient for describing many-particle systems. 
 
 
-The second-quantization representation uses a basis that describes the number of particles occupying each state in a complete orthonormal set of single-particle states. Assuming the distance between any two molecules is large such that their wavefunctions hardly overlap, we can choose the single-particle states  to be the eigenfunctions $\psi^f_n$ of the isolated molecule Hamiltonian $H_n$.  Then the basis set for the second-quantization formalism is  
-given by the following wavefunction that describes a crystal formed by non-interacting molecules:
+The second-quantization representation uses a basis that describes the number of particles occupying each state in a 
+complete orthonormal set of single-particle states. Assuming the distance between any two molecules is large such 
+that their wavefunctions hardly overlap, we can choose the single-particle states  to be the eigenfunctions $\psi^f_n$ 
+of the isolated molecule Hamiltonian $H_n$.  The basis set for the second-quantization formalism is  then
+given by the wavefunction that describes a crystal formed by non-interacting molecules, that is
 \begin{equation}
 \left. |N_{1f_{1}} N_{2f_{2}} ...N_{nf} ... \right\rangle \nonumber \ , 
 \end{equation}
@@ -1150,8 +1166,8 @@ the occupation number operator is defined as
 For the crystal formed by interacting molecules, its eigenstates can be expressed in terms of linear combinations
 of the above basis set. 
 
-\clearpage
-For a molecule in site $n$, it must be in some state, therefore the occupation operators of all states sum up to the identity
+
+The molecule at site $n$ must be in some state, therefore the occupation operators of all states sum up to the identity
 operator:
 \begin{equation}
 \sum_{f}\hat{N}_{nf} = 1 \ , \label{must-be-in-a-state}
@@ -1166,8 +1182,8 @@ and express the occupation number operator as the product of these two operators
 \begin{equation}
 \hat{N}_{nf} =b_{nf}^{\dagger} b_{nf} \ .
 \end{equation}
-The physical meaning of the two operators is clear: $b_{nf}^{\dagger}$ creates a state $f$ in molecule $n$ and 
-$b_{nf}$ destroys a state $f$ in molecule $n$.  It follows from Eq. (\ref{single-molecule-operator}) that the 
+The physical meaning of the two operators is clear: $b_{nf}^{\dagger}$ creates the state $f$ in molecule $n$ and 
+$b_{nf}$ destroys the state $f$ in molecule $n$.  It follows from Eq. (\ref{single-molecule-operator}) that the 
 commutation relation of the $b$ operators for the same energy level of the same molecule is given by
 \begin{eqnarray}
 b_{nf}b_{nf}^{\dagger} &+& b_{nf}^{\dagger}b_{nf} = 1 \ , \nonumber \\
@@ -1182,9 +1198,9 @@ as
 P_{ne}^{\dagger} = b_{ne}^{\dagger} b_{ng} \ , \;\;P_{ne}=b_{ng}^{\dagger} b_{ne} \ , \label{creation&annihilation}
 \end{equation}
 where $g$ denotes the ground state and $e$ represents any excited state. 
-Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it is obvious that $P_{nf}^{\dagger}$ creates a 
-excited state from the vacuum state $\ket{0}$ and $P_{nf}$ does the reverse.
-Making use of \autoref{commutation-relation-single-molecule}, we obtain from the above definition:
+Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it is clear that $P_{ne}^{\dagger}$ creates a 
+excited state from the vacuum state $\ket{0}$ and $P_{ne}$ does the reverse.
+Making use of \autoref{commutation-relation-single-molecule}, we obtain from the above definitions that
 \begin{eqnarray}
 P_{ne}^{\dagger} P_{ne} &=& b_{ne}^{\dagger} b_{ng}b_{ng}^{\dagger} b_{ne} \nonumber \\
                                       &=& b_{ne}^{\dagger}(1-b_{ng}^{\dagger}b_{ng})b_{ne} \nonumber \\
@@ -1195,7 +1211,7 @@ P_{ne} P_{ne}^{\dagger} &=& b_{ng}^{\dagger} b_{ne} b_{ne}^{\dagger} b_{ng} \non
                                       &=& b_{ng}^{\dagger}(1-b_{ne}^{\dagger}b_{ne})b_{ng} \nonumber \\
                                       &=& \hat{N}_{ng} \ . \label{annihilation-creation}
 \end{eqnarray}
-Based on \autoref{must-be-in-a-state}, the subtraction and the addition of \autoref{creation-annihilation} and \autoref{annihilation-creation} yield:
+Based on \autoref{must-be-in-a-state}, the subtraction and addition of \autoref{creation-annihilation} and \autoref{annihilation-creation} yield:
 \begin{equation}
 P_{ne} P_{ne}^{\dagger} - P_{ne}^{\dagger} P_{ne} = 1 - \sum_{f\neq g} \hat{N}_{nf}  -\hat{N}_{ne}\ , \label{exact-relation}
 \end{equation}
@@ -1204,7 +1220,7 @@ P_{ne} P_{ne}^{\dagger} + P_{ne}^{\dagger} P_{ne} = 1  - \sum_{f\neq g} \hat{N}_
 \end{equation}
 Because $P_{nf}$ and $P_{nf}^{\dagger}$ don't operate on a different
 molecule $n'$, any exciton operators corresponding to different molecules or different states
-commute with each other. Then \autoref{exact-relation} can be extended as 
+commute with each other, so that \autoref{exact-relation} can be extended as 
 \begin{equation}
 P_{ne}P_{n'e'}^{\dagger}-P_{n' e'}^{\dagger}P_{n e}  =  \delta_{nn'}\delta_{ee'}\left(1-\sum_{f\neq g}\hat{N}_{nf} -\hat{N}_{ne} \right)  \ . \label{exact-relation2}
 \end{equation}
@@ -1214,9 +1230,9 @@ statistics in most cases. Usually, only a small number of molecules in a crystal
 \begin{equation}
 \left\langle N_{ne} \right\rangle \ll 1 \label{condition-for-Bose-approx}
 \end{equation}
-holds for any excited state $e$. This means that we can ignore the operators $\hat{N}_{ne}$ in practice. However, we cannot
+holds for any excited state $e$. This means we can ignore the operators $\hat{N}_{ne}$ in practice. However, we cannot
 ignore all $\hat{N}_{ne}$ in both \autoref{exact-relation} and \autoref{eqn:addition} as it will lead to contradictory 
-results, that is,  
+results, that is  
 \begin{equation}
 P_{ne} P_{ne}^{\dagger} - P_{ne}^{\dagger} P_{ne} = 1\ , \label{eqn:subtractionApproximate}
 \end{equation}
@@ -1229,10 +1245,10 @@ which describes two fermions at the same site.
 The above two equations cannot be satisfied at the same time, so we have to choose either one of them. Considering the 
 fact that two excitations cannot reside at the same site as a molecule cannot be excited twice, 
 it seems to more reasonable to choose \autoref{eqn:additionApproximate} to be valid. In addition, 
-in the case Heitler-London approximation where only the ground state and the first excited state are considered, 
+in the Heitler-London approximation where only the ground and first excited states are considered, 
 \autoref{eqn:additionApproximate} becomes exact as $ \hat{N}_{ng}  + \hat{N}_{ne}=1$. As the Heitler-London 
 approximation is usually a good approximation, it also makes sense to choose \autoref{eqn:additionApproximate}. 
-Therefore, we usually rewrite the commutation relations of exciton as follows:
+Therefore, we usually rewrite the commutation relations for excitons as 
 \oneline{
 P_{n'e'}P_{ne}^{\dagger} - P^{\dagger}_{n'e'}  P_{ne} =0 \quad\mbox{for $n \neq n'$ or $e \neq e'$} \ ,  \label{eqn:bosonCommutation}
 }
@@ -1241,7 +1257,7 @@ P_{ne} P_{ne}^{\dagger} + P_{ne}^{\dagger} P_{ne} = 1 \ . \label{eqn:fermionComm
 }
 This is called the Pauli commutation relation as \autoref{eqn:bosonCommutation} looks like the commutation relation for 
 bosons and \autoref{eqn:fermionCommutation} looks like the commutation relation for fermions. For the convience
-of calculations, the commutation relation is rewritten as:
+of calculations, the commutation relation is rewritten as
 \multiline{
 &&\{ P_{ne} , P^{\dagger}_{me} \}= \delta_{m,n} + (1-\delta_{m,n})2 P^{\dagger}_{me} P_{ne} \ , \nonumber \\
 &&[P_{ne}, P_{me}] = [P^{\dagger}_{ne}, P^{\dagger}_{me}] = 0 \ , \nonumber \\
@@ -1257,15 +1273,15 @@ The Hamiltonian in \autoref{eqn:hamMolecularCrystal} can be rewritten in terms o
 annihilation operators. Here, we first derive the Hamiltonian in the two-level approximation and then give
 the Hamiltonian for the most general case.
 
-In the first step, we express the Hamiltonian in terms of the $b$ operators. The result is
+In the first step, we express the Hamiltonian in terms of the $b$ operators. The result is\cite{zare-book}
 \multiline{
 H = \sum_{i}\varepsilon_{i} b_{i f}^{\dagger} b_{i f} + \frac{1}{2} \sum_{i, j\neq i} \sum_{f', f, l', l} b_{if'}^{\dagger} b_{j l'}^{\dagger} b_{i f} b_{j l} \matelement{f' l'}{V_{ij}}{f l} \ , \label{eqn:hamInb}
 }
 where $i$ and $j$ are site indices, $f$, $f'$, $l$ and $l'$ represent any molecular state, and $\matelement{f' l'}{V_{ij}}{f l}$ is a shorthand for $\langle f' |_{i} \langle l' |_{i}  V_{ij} | f\rangle_{i}  | l\rangle_{j}$. 
 
 Now we consider the two-level approximation where each molecule has only two energy levels: the ground 
-state $g$ and one excited state $e$. Then $f$, $f'$, $l$ and $l'$ in \autoref{eqn:hamInb} can only take $g$ or $e$. 
-Making use of the definitions of exciton creation and annihilation operators, we can easily show that 
+state $g$ and one excited state $e$ such that $f$, $f'$, $l$ and $l'$ in \autoref{eqn:hamInb} can only take $g$ or $e$. 
+Making use of the definitions of exciton creation and annihilation operators(\autoref{creation&annihilation}), we can easily show that 
 \autoref{eqn:hamInb} can be written as
 \multiline{
 && H = \sum_{i} \left( \varepsilon_{g} \bod{ig}\bo{ig} + \varepsilon_{e} \bod{ie}\bo{ie} \right) + \sum_{i, j\neq i} \bigg[ \frac{1}{2} \bod{ig}\bo{ig}\bod{jg}\bo{jg} \matelement{gg}{V_{ij} }{gg}    \nonumber \\
@@ -1311,23 +1327,23 @@ H_6 = \sum_{i, j\neq i} \bigg[ \matelement{eg}{V_{ij} }{ee} - \matelement{eg}{V_
 }
 
 For the general case with multiple energy levels, the derivation of the Hamiltonian in terms of exciton operators is
-very similar but tedious. So I choose to use mathematica to write a symbolic program to handle the derivations. For 
-reference, the result is given below. The Hamiltonian can be divided as follows:
+very similar but tedious. So I choose to use the Mathematica software\cite{mathematica} to write a symbolic program to handle the derivations. For 
+reference, the result is given below. The Hamiltonian can be divided as 
 \oneline{
-H = H^{(0)} + H^{(1)} + H^{(2)} + H^{(3)} + H^{(4)}\ ,
+H = H^{(0)} + H^{(1)} + H^{(2)} + H^{(3)} + H^{(4)}\ , \label{eqn:fullHam}
 }
-where the superscripts ``$(n)$'' means that the corresponding term contains $n$ exciton operators. In the following, we 
+where the superscripts ``$(n)$'' mean that the corresponding term contains $n$ exciton operators. In the following, we 
 use captical characters $L$, $L'$, $M$ and $M'$ to represent any excited state of molecule, and $G$ to denote the 
-ground state. Then $H^{(0)}$ can be expressed as
+ground state. The first two term can be expressed as
 \multiline{
-H^{(0)} = \varepsilon_{G} N_{\rm mol} + \frac{1}{2} \sum_{i, j\neq i} \matelement{GG}{V_{ij} }{GG} \ . 
+H^{(0)} = \varepsilon_{G} N_{\rm mol} + \frac{1}{2} \sum_{i, j\neq i} \matelement{GG}{V_{ij} }{GG} \ ,
 }
-$H^{(1)}$ is given by
+%$H^{(1)}$ is given by
 \multiline{
 H^{(1)} = \sum_{i, j \neq i} \sum_{M} \left[ \matelement{GG}{V_{ij}}{GM} P_{jM} + \matelement{GM}{V_{ij}}{GG} P^{\dagger}_{jM} \right] \ ,
 }
-which doesn't conserve particle numbers. 
-$H^{(2)}$ can be further divided into the part that conserves particle numbers and the part that doesn't:
+neither of which doesn't conserve particle numbers. 
+$H^{(2)}$ can be further divided into a part that conserves particle numbers and a part that doesn't, that is
 \multiline{
 H^{(2)} = H^{(2)}_{\rm conserving} + H^{(2)}_{\rm non-conserving} \ ,
 }
@@ -1340,42 +1356,42 @@ where
 \multiline{
 &&H^{(2)}_{\rm non-conserving} = \frac{1}{2}\sum_{i, j\neq i} \sum_{L, M} \bigg[ \matelement{GG}{V_{ij}}{ML} P_{iM} P_{jL} +  \matelement{ML}{V_{ij}}{GG} P^{\dagger}_{iM} P^{\dagger}_{jL} \bigg ] \ . \nonumber \\
 }
-$H^{(3)}$ doesn't conserve particle numbers and it is given by
+$H^{(3)}$ doesn't conserve particle numbers and  is given by
 \multiline{
 && H^{(3)} = \sum_{i, j\neq i} \sum_{M, M', L}\Bigg\{ \bigg[ \matelement{MG}{V_{ij}}{M' L} - \delta_{M, M'} \matelement{GG}{V_{ij}}{GL} \bigg] P^{\dagger}_{iM} P_{i M'} P_{j L}  \nonumber \\
 && \hspace{1.5cm} +  \bigg[ \matelement{ML}{V_{ij}}{M' G} - \delta_{M, M'} \matelement{GL}{V_{ij}}{GG} \bigg] P^{\dagger}_{iM} P_{i M'} P_{j L} \Bigg\} \ .
 }
-$H^{(4)}$ conserves particle numbers and it is given by
+$H^{(4)}$ conserves particle numbers and is given by
 \multiline{
 && H^{(4)} =\frac{1}{2} \sum_{i, j\neq i} \sum_{M, M', L, L'} \bigg[ \delta_{M, M'} \delta_{L, L'} \matelement{GG}{V_{ij}}{GG} + \matelement{ML}{V_{ij}}{M' L'} \nonumber \\
 && \hspace{2cm} - 2\delta_{L, L'} \matelement{MG}{V_{ij}}{M' G} \bigg] P^{\dagger}_{iM} P_{i M'} P^{\dagger}_{j L} P_{j L'} \ . 
 }
 
 
-\subsection{Eigenstates of the exciton Hamiltonian in Heitler-London approximation}
+\subsection{Eigenstates of the exciton Hamiltonian in the Heitler-London approximation}
 \label{sec:eigenstateExcitonHam}
 
 The Heitler-London approximation was first used by Frenkel  in his study \cite{Frenkel1, Frenkel2} of
  electronic excitations in molecular crystals. Considering only two levels of a molecule, the ground state $g$ and 
 excited state $e$, the approximation assumes the following:
 \begin{itemize}
-\item the ground-state wavefunction of the crystal is the product of the ground-state wavefunction of individual molecule that constitute the crystal
+\item the ground-state wavefunction of the crystal is the product of the ground-state wavefunction of individual molecules that constitute the crystal
 % 
 \item an excited state of the crystal is a superposition of products $ \cdots \ket{g}_i \ket{e}_j\ket{g}_k\cdots$ in which
 only one molecule $j$ is excited and all other molecules are in the ground state
 \end{itemize}
 From the above two statements, we see that the  Heitler-London approximation is expected to be good when the 
-intermolecular interaction is weak and the molecules in the crystal preserve large part of their individuality. 
+intermolecular interaction is weak and the molecules in the crystal preserve a large part of their individuality. 
 
 We now consider the lowest excited state of a crystal, which corresponds to the basis set $\{ \; \cdots \ket{g}_i \ket{e}_j\ket{g}_k\cdots \; \}$  with only one molecule excited. In this case, the number of excitations is conserved, so
-that only the parts of Hamiltonian in \autoref{eqn:hamSplited} that conserve particle numbers need to be included, and we can rewrite   the 
+that only the parts of the Hamiltonian in \autoref{eqn:hamSplited} that conserve particle numbers need to be included, and we can rewrite   the 
 Hamiltonian as
 \multiline{
 H = H_0 + H_1 + H_2 + H_4 \ . \label{eqn:hamConserving}
 }
 
 
-To understand the problem better, we analyze the Hamiltonian in \autoref{eqn:hamConserving} term by term. 
+To understand the problem better, we analyze this Hamiltonian. 
 $H_0$ is a constant and thus we can set it as zero energy and ignore it. $H_1$ can be written as 
 \multiline{
 H_1 = \sum_{i} \left( \Delta \varepsilon_e  +  \mathscr{D}_e \right) P^{\dagger}_{ie} P_{ie} \ ,
@@ -1390,7 +1406,7 @@ where
 }
 is the difference of the two interactions: one for the excited molecule with all remaining ground-state  
 molecules  in the crystal, and the other  for  the same nonexcited molecule with all remaining ground-state 
-molecules. $\mathscr{D}_e$ is also called gas-condensed matter shift and it exists when the molecules in the crystal
+molecules. $\mathscr{D}_e$ is also called the gas-condensed matter shift and it exists when the molecules in the crystal
 are interacting with each other.  $H_2$,  as given by
 \oneline{
 H_2 = \sum_{i, j\neq i} \matelement{eg}{V_{ij} }{ge} P^{\dagger}_{ie} P_{je} \ ,
@@ -1404,17 +1420,17 @@ $H_4$ is the so-called the dynamic interaction, which describes the interaction 
 \multiline{
 H_4 = \frac{1}{2} \sum_{i, j\neq i} \Phi_{ij} P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je} \ ,
 }
-and its strengh
+and its strength
 is determined by the matrix elements
 \[
 \Phi_{ij}  = \matelement{ee}{V_{ij} }{ee} + \matelement{gg}{V_{ij} }{gg} - 2 \matelement{eg}{V_{ij} }{eg} \ .
 \]
 In molecular crystals, the dipole-dipole interaction is an important kind of interaction $V_{ij}$ between molecules. For 
 molecules with a center of inversion, their eigenstates (for example $\ket{e}$ and $\ket{g}$) have well-defined
-parity, the above matrix elements are zero. Under these circumstance, the dynamic interaction is zero and $H_4$ can 
+parity, and the above matrix elements are zero. Under these circumstance, the dynamic interaction is zero and $H_4$ can 
 be ignored. In the case studied in this thesis, when we are concerned with the one-excitation subspace, we can safely ignore the 
 dynamic interaction because it requires two excitations in the crystal. From another perspective, we can ignore the 
-dynamic interaction because its matrix elements in the one-excitation subspace vanish. For illustration purpose, we give the derivation here. Based on \autoref{eqn:excitonCommutationRelation}, it can be shown that the
+dynamic interaction because its matrix elements in the one-excitation subspace vanish. For illustration purposes, we give the derivation here. Based on \autoref{eqn:excitonCommutationRelation}, it can be shown that the
 matrix element of $H_4$ is given by
 \multiline{
 &&\matelement{e_n, g_m } { \frac{1}{2} \sum_{i, j\neq i} \Phi_{ij} P^{\dagger}_{ie} P_{ie} P^{\dagger}_{je}  P_{je} } {g_n, e_m} \nonumber \\
@@ -1426,30 +1442,29 @@ the above equation gives  0 as it consists of terms in which either $P^{\dagger}
 operates on $\ket{0}$. 
 
 
-The above analysis shows that the Hamiltonian can be simplifed to
+The above analysis shows that \autoref{eqn:fullHam} can be simplifed to
 \oneline{
 H =  \sum_{n} \left( \Delta \varepsilon_e  +  \mathscr{D}_e \right) P^{\dagger}_{ne} P_{ne} + \sum_{n, m\neq n} \matelement{eg}{V_{n m} }{ge} P^{\dagger}_{ne} P_{me} \ , \label{eqn:hamHeitler-London}
 }
 if one is only interested in the lowest-energy excited state of the crystal. 
-\Autoref{eqn:hamHeitler-London} gives the exciton Hamiltonian in Heitler-London approximation. The corresponding 
+\Autoref{eqn:hamHeitler-London} gives the exciton Hamiltonian in the Heitler-London approximation. The corresponding 
 eigenstates are called Frenkel excitons, which are many-body excited states of the whole crystal.
  
-The Hamiltonian in the Heitler-London approximation can be diagonalized analytically. Before showing the analytical way 
-for diagonalization, we first introduce the concepts of site representation and quasimomentum representation. 
-Previously,  the excitation creation and annihilation operators $P_{nf}$ and $P_{nf}^{\dagger}$ are defined with respect 
+The Hamiltonian in the Heitler-London approximation can be diagonalized analytically. Before showing this, we first introduce the concepts of site representation and quasimomentum representation. 
+Previously,  the excitation creation and annihilation operators $P_{nf}$ and $P_{nf}^{\dagger}$ were defined with respect 
 to the lattice site $n$. 
-These operators form the site representation. Due to the periodicity of the crystal, we can use the quasimomentum representation, to represent excitations by the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$: 
+These operators form the site representation. Due to the periodicity of the crystal, we can use the quasimomentum representation, to represent excitations by taking the Fourier transforms of $P_{nf}$ and $P_{nf}^{\dagger}$, that is
 \begin{eqnarray}
 P_{f}(k)  &=& \frac{1}{\sqrt{N}} \sum_{n}  e^{-ikn}  P_{nf} \ , \nonumber \\
 P_{f}^{\dagger}(k)  &=& \frac{1}{\sqrt{N}} \sum_{n}  e^{ikn} P_{nf}^{\dagger} \ , \label{eqn:KInTermsOfN}
 \end{eqnarray}
-where $N$ is the number of molecules in the crystal. Accordingly, the inverse Fourier transform is given by:
+where $N$ is the number of molecules in the crystal. Accordingly, the inverse Fourier transforms are
 \begin{eqnarray}
 P_{nf}   &=& \frac{1}{\sqrt{N}} \sum_{k}  e^{ikn} P_{f}(k)  \ , \nonumber \\
 P_{nf}^{\dagger}   &=& \frac{1}{\sqrt{N}} \sum_{k}  e^{-ikn} P_{f}^{\dagger}(k) \ . \label{eqn:NInTermsOfK}
 \end{eqnarray}
 The conversion between the site representation and the quasimomentum representation usually involves the 
-following equalities:
+ equalities
 \multiline{
 \frac{1}{N} \sum_{k} e ^{ i k (n - m)} &=& \delta_{n, m} \ , \nonumber \\
 \frac{1}{N} \sum_{n} e ^{ i n (k - k' )} &=& \delta_{k, k'} \ . \label{eqn:orthonormalityCondition}
@@ -1459,7 +1474,7 @@ These two equalities are very important and we will use them frequently in later
 
 %It is useful to explain the wavevector $k$ in the quasimomentum representation. 
 
-Substituting \autoref{eqn:NInTermsOfK} into the Hamiltonian, we obtain:
+Substituting \autoref{eqn:NInTermsOfK} into \autoref{eqn:hamHeitler-London} gives
 \multiline{
 && H  = \sum_{n} \left( \Delta \varepsilon_e  +  \mathscr{D}_e \right) \frac{1}{N} \sum_{k} e^{-ikn} P_{f}^{\dagger}(k)  \sum_{k'} e^{ik'n} P_{f}(k') \nonumber \\
 &&\hspace{1cm} + \sum_{n}\sum_{ m\neq n} \matelement{eg}{V_{n m} }{ge} \frac{1}{N} \sum_{k} e^{-ik m} P_{f}^{\dagger}(k)  \sum_{k'} e^{ik'n} P_{f}(k') \nonumber \\
@@ -1467,7 +1482,7 @@ Substituting \autoref{eqn:NInTermsOfK} into the Hamiltonian, we obtain:
 &&\hspace{1cm} + \sum_{n} \sum_{ l = n - m } \matelement{eg}{V_{n, n-l} }{ge} e^{i k l} \left( \frac{1}{N}  e^{i n (k' - k )}\right) P_{f}^{\dagger}(k) P_{f}(k') \ . \nonumber \\
 }
 Because of the periodicity of the crystal, the interaction $V_{n, m}$ only depends on the separation of the two molecules
-at site $n$ and $m$. Then  $\matelement{eg}{V_{n, n-l} }{ge} $ in the above equation is independent of the index $n$, so 
+at site $n$ and $m$. Thus  $\matelement{eg}{V_{n, n-l} }{ge} $ in the above equation is independent of the index $n$, so 
 we rewrite it as $\matelement{eg}{V(l) }{ge}$. After that, making use of \autoref{eqn:orthonormalityCondition}, we can easily show
 that the diagonal form of the Hamiltonian is
 \oneline{
@@ -1477,9 +1492,9 @@ where $E_f(k) $ is the eigenenergy of the system and is given by
 \oneline{
 E_f(k) = \Delta \varepsilon_e  +  \mathscr{D}_e + \sum_{l} \matelement{eg}{V(l) }{ge} e^{i k l} \ , \label{eqn:EkDispersion}
 }
-and thus the eigenstates of the Hamiltonian are:
+and thus the eigenstates of the Hamiltonian are
 \oneline{
-\ket{k} = P^{\dagger} (k) \ket{0} = \frac{1}{\sqrt{N} } \sum_{n} e^{i k n} \ket{n}  \ , 
+\ket{k} = P_{f}^{\dagger} (k) \ket{0} = \frac{1}{\sqrt{N} } \sum_{n} e^{i k n} \ket{n}  \ , 
 }
 where $\ket{0}$ is the vacuum state and $\ket{n}$ represents the single-excitation state in which molecule $n$ is in the 
 excited state and all other molecules are in the ground state. The state $\ket{k}$ is a Frenkel exciton with 

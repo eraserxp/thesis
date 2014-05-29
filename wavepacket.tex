@@ -21,7 +21,8 @@ that the proposed technique can allow control of energy transfer  in completely 
 \label{sec:energyTransferIntro}
 
 The experiments with ultracold atoms and molecules trapped in optical lattices have opened a new frontier of 
-condensed-matter physics research. The unique properties of these systems -- in particular, large ($>$ 400 nm) 
+condensed-matter physics research\cite{our-njp-review, friedrich2009, schnell2009, Bell2009, krems2010cold, Ni2009,
+Jin2011, Jin2012, quemener2012, Baranov2012}. The unique properties of these systems -- in particular, large ($>$ 400 nm) 
 separation of lattice sites, the possibility of tuning the tunnelling amplitude of particles  between lattice sites by
  varying the trapping field and the possibility of controlling interparticle interactions with external electric or 
 magnetic fields -- offer many exciting applications ranging from quantum simulation of complex lattice models 
@@ -113,7 +114,7 @@ Any singly excited state of the system is given by
 \neq n} |g_i\rangle . \label{basis}
 \end{eqnarray}
 %
-In general, the expansion coefficients $C_n$ are complicated functions of $n$ determined by the properties of the system, in particular, the translational invariance or lack thereof as well as the strength of disorder potential. 
+In general, the expansion coefficients $C_n$ are complicated functions of $n$ determined by the properties of the system, in particular, the translational invariance or lack thereof as well as the strength of the disorder potential. 
  If an ideal, periodic system with lattice constant $a$ is excited by a single-photon transition, 
 the expansion coefficients are  $C_n =
 e^{iakn}/\sqrt{N}$ and  $|\psi_{\rm exc} \rangle \Rightarrow
@@ -122,9 +123,9 @@ Frenkel exciton, characterized by the wave vector $k$
 \cite{agranovich}. The magnitude of the wave vector $k$ is determined by the conservation of the total (exciton plus photon) momentum. 
 The energy of the exciton is given by 
 \oneline{
-E(k) =\Delta E_{e-g} + \alpha(k) \label{eqn:dispersionExact}
+E(k) =\Delta E_{e-g} + \alpha(k) \ ,  \label{eqn:dispersionExact}
 } with $\alpha(k) =\sum_n \alpha(n)
-e^{-i  a k n}$. In the nearest neighbor approximation,
+e^{-i  a k n}$. In the nearest neighbor approximation 
 \begin{eqnarray}
 E(k) = \Delta E_{e-g} + 2 \alpha \cos ak, \label{dispersion}
 \label{Eexc}
@@ -170,18 +171,18 @@ Here we consider the transformations leading to acceleration or deceleration of 
 
 Before we discuss how to accelerate or decelerate the motion of collective excitations, we first clarify
 what determines their propagation behavior.  The propagation dynamics of an exciton wave packet is determined by 
-the exciton dispesion curve. More specifically, the first derivative of the dispersion curve
+the exciton dispersion curve. More specifically, the first derivative of the dispersion curve
 gives approximately the propagation speed of a wave packet in real space. This can be easily shown by  simple derivations. 
 
 In a perfect crystal, the eigenstates of the system are characterized by a wavevector $k$ and their time evolution is 
 determined by $E(k)$ through
 \multiline{
 \ket{k(t)} &=& e^{-i \frac{E(k)}{\hbar}t}\ket{k(t=0)} \nonumber \\
-&=&\frac{1}{\sqrt{N}} \sum_{n} e^{i \left[k a n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \label{eqn:kState}
+&=&\frac{1}{\sqrt{N}} \sum_{n} e^{i \left[k a n - \frac{E(k)}{\hbar}t \right]} \ket{n(t=0)} \ , \label{eqn:kState}
 }
 where $N$ is the number of sites in the crystal and $\ket{n(t=0)}$ represents the state of system in which only site
 $n$ is in the excited state. It can be seen from \autoref{eqn:kState} that the probability of excitation at each site is always $1/N$ for 
-state $\ket{k}$. So the plane wave $\ket{k}$ doesn't move in real space, which is as expected. Different from a plane
+state $\ket{k}$, so the plane wave $\ket{k}$ doesn't move in real space, as expected. Different from a plane
  wave state, a wave packet composed of different $\ket{k(t)}$ states is not stationary in real space. This is because
  different $\ket{k(t)}$ components correspond to different energy $E(k)$, so they will have different time evolutions, 
  leading to a 
@@ -193,12 +194,12 @@ space
 }
 where $A$ is the normalization constant. 
 Expanding $E(k)$ around the point $k=k_0$ and ignoring terms with second and higher-order powers of $(k-k_0)$, and replacing the
- summation over $k$ by integration, we obtain an equation that describes the time-evolution of the wave packet in 
-real space:
+ summation over $k$ by integration, an equation describing the time-evolution of the wave packet in 
+real space is obtained, that is
 \multiline{
 \ket{\psi(t)} = A^{'}\sum_{n} e^{-\frac{(n-v_{\rm g}t)^2}{2(1/\sigma_{k})^2}}\ket{n(t=0)} \ ,
 }
-where $A^{'}$ is some constant that normalizes the wavefunction. The group velocity
+where $A^{'}$ is some factor that has nothing to do with the shape of the wavepacket in real space. The group velocity
 \oneline{
 v_{\rm g} = \frac{1}{\hbar}\left.\frac{d E(k)}{d k}\right|_{k=k_0} \label{eqn:groupVelocity}
 }
@@ -207,12 +208,12 @@ determines how fast the center of the wave packet moves in real space. Therefore
 \subsection{Phase kicking in quasimomentum space}
 
 As an example, \autoref{fig:movewave packet} presents an exciton dispersion curve. It can seen  that different
- regions of the dispersion curve have different slopes that correspond to different group velocities. 
+ regions of the dispersion curve have different slopes, corresponding to different group velocities. 
 Direct optical excitation can create an exciton wave packet which centers around $k\approx 0$ in the $k$ space. 
 However, such a wave packet hardly travels in real space as a whole since its group velocity is zero. Based on 
 \autoref{fig:movewave packet} , if we want to accelerate a  wave packet centered around $k = 0$, a sensible way is to move the 
-wave packet to the region of the Brillouine zone near $k=\pi/2$ where the slop of the dispersion curve is steep. Similarly, to decelerate a
- wave packet we should move it to a place where the slop is more shallow. Now the problem of
+wave packet to the region of the Brillouine zone near $k=\pi/2$ where the slope of the dispersion curve is steep. Similarly, to decelerate a
+ wave packet we should move it to a place where the slope is more shallow. Now the problem of
 accelerating/decelerating an exciton wave packet becomes the problem of moving the wave packet  as
 a whole in $k$ space. 
 
@@ -231,7 +232,7 @@ expression of the plane wave state
 \oneline{
 \ket{k(t)} = \frac{1}{\sqrt{N}}\sum_n e^{i k a n} \ket{n(t)} \ . \label{eqn:kStateExpansion}
 }
-\Autoref{eqn:kStateExpansion} suggests that we can change $\ket{k}$ to $\ket{k+\delta}$ by adding a
+This equation suggests that we can change $\ket{k}$ to $\ket{k+\delta}$ by adding a
  factor $e^{i \delta a n}$ to each term in the expansion.  Since the increment $\delta$ is independent of the $\ket{k}$
 state, 
 %For modifying the group velocity of a collective excitation, the
@@ -240,8 +241,8 @@ state,
 each $| k\rangle$ component in a wave packet (\autoref{basis}) can be transformed into $|
 k+\delta\rangle$ in this way. This transformation shifts the
 wave packets by $\delta$ in $k$-space while preserving their
-shape. As a result, one can engineer wave packets probing any part
-of the dispersion $E(k)$ leading to different group velocity and
+shape. As a result, one can engineer wave packets to probe any part
+of the dispersion $E(k)$ leading to different group velocities and
 shape evolution. 
 %The feasibility of such transformation in an ensemble of atoms or molecules on an optical lattice is discussed below and in \autoref{sec:excitationAtomMolecule}. 
 
@@ -267,19 +268,19 @@ where
 \oneline{
 \phi_{n}^f = -\frac{1}{\hbar}\int_{0}^{T} E_{n}^f(t )dt \ , \label{eqn:expressionOfPhase}
 }
-$E_{n}^f (t)$ is the instantaneous eigenenergy and $f$ can be $e$
+and $E_{n}^f (t)$ is the instantaneous eigenenergy and $f$ can be $e$
 or $g$.
 %The operator $\hat{P}_n^\dag = |e_n\rangle\langle g_n |$ acquires the phase $\Phi_n = \phi_{n}^e-\phi_{n}^g$.
-Now consider the action of such phase change on the collective
-excitation state (\ref{basis}). If $T\ll T_e$, the
+Now consider the action of such a phase change on the collective
+excitation state of \autoref{basis}. If $T\ll T_e$, the
 change is sudden with respect to the excitation transfer between
 monomers, so during the time $T$ the excitation probability doesn't have enough time to propagate 
-between different monomers and $C_n$'s in \autoref{basis} remain almost the same. Since $G_k$'s are just fourier
+between different monomers and the $C_n$'s in \autoref{basis} remain almost the same. Since the $G_k$'s are just fourier
 transforms of $C_n$'s, $G_k$ will remain the same as well, conserving the shape of the wave packet $|\psi_{\rm exc}\rangle$ in $k$ space. 
- Then the wave packet $|\psi_{\rm exc}\rangle$ acquires a site-dependent
+ The wave packet $|\psi_{\rm exc}\rangle$ then acquires a site-dependent
 phase $\Phi_n = \phi_{n}^e-\phi_{n}^g$ that will influence each $\ket{k}$ component in the same way. 
 If $\Phi_n = \Phi_0 + n a\delta $, then the momentum $\delta$ is imparted onto the
-excitonic wavefunction without changing its shape. By analogy with ``pulsed alignment of
+excitonic wavefunction without changing its shape. By analogy with the ``pulsed alignment of
 molecules'' \cite{alignment-review}, we call this transformation a
 ``phase kick'' or ``momentum kick''. Its action is also similar to
 that of a thin prism on a wavefront of a monochromatic laser beam.
@@ -312,7 +313,7 @@ $\Phi_n \simeq \Phi_0  -1.29 n$. The corresponding experimental setup is illustr
 In order to illustrate the shifting of exciton wave packets in the
 momentum space, we solve numerically the time-dependent
 Schr\"{o}dinger equation with the unperturbed Hamiltonian
-(\ref{ham}),  subjected to a transient site-dependent external
+ of \autoref{ham},  subjected to a transient site-dependent external
 perturbation that temporarily modulates $\Delta E_{e-g}$.
 We choose the parameters $\Delta E_{e-g} =12.14\mbox{ GHz}$, $\alpha =22.83\mbox{ kHz}$ and the lattice constant $a=400\mbox{ nm}$ that correspond to an array of
 polar molecules trapped in an optical lattice, as described in detail in \autoref{sec:excitationAtomMolecule}.
@@ -329,16 +330,16 @@ entire wave packet acquires momentum during the external perturbation pulse (lef
 panels). This is manifested as a phase variation in the coordinate
 representation, and as a shift of the central momentum in the
 $k$-representation. After the external perturbation is gone, the
-wave packet does not evolve in the $k$-representation and moves
+wave packet does not evolve in the $k$-representation but moves
 with the acquired uniform velocity in the coordinate
 representation.
 
 %% add the block oscillation part %%%%%%%%%%%%%%%%%%%
-As a side note, we find that if the laser intensity remains the
+As a side note,  if the laser intensity remains the
 same after reaching the maximum, the wave packet oscillates in momentum and coordinate spaces (see 
-\autoref{bloch-osci}). This phenomenon is a analogous to conventional Bloch oscillations although here
- the force is acting on a quasi-particle rather than real
-particles\cite{b-oscillation}. This suggests a possibility to study condensed-matter excitations and energy transport without statistical averaging.
+\autoref{bloch-osci}). This phenomenon is analogous to conventional Bloch oscillations although here
+ the force is acting on a quasi-particle rather than on real
+particles\cite{b-oscillation}. This suggests the possibility of studying condensed-matter excitations and energy transport without statistical averaging.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -354,7 +355,7 @@ in response to the linear laser field. However, since the wave vector is limited
 when the wave packet reaches $-\pi$ or $\pi$, it disappears at the boundary and reappears at the other 
 boundary. Part (b) presents the motion of the wave packet in coordinate space in accordance with the phase
 kicking in $k$ space. Note that the wave packet  spreads in both the momentum and coordinate spaces
-because the laser intensity profile along the molecular array is not perfect and this is amplified over extended
+because the laser intensity profile along the molecular array is not perfect and this is amplified over an extended
 time period. 
 } 
 \label{bloch-osci}
@@ -362,7 +363,7 @@ time period.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The results presented in \autoref{momentum-kick}  and all subsequent results of this work are for a single 
-collective excitaion in an interacting many-particle system. A general experimental implementation may result in 
+collective excitation in an interacting many-particle system. A general experimental implementation may result in 
 multiple excitations, leading to non-linear exciton interactions. There are two mechanisms for exciton - exciton 
 interactions: kinematic interactions arising from the statistical properties of excitons and dynamical 
 interactions determined by the matrix elements of the inter-particle interactions in the Hilbert sub-space of binary 
@@ -404,7 +405,7 @@ of the coefficients $C_n(t)$ in  \autoref{basis}. In order to find the expressio
  at $t=0$ in a Fourier series
 \begin{eqnarray}
 C_n(t=0) = \sum_q
-\frac{e^{iq a n}}{\sqrt{N}}C(q; t=0)
+\frac{e^{iq a n}}{\sqrt{N}}C(q; t=0) \ ,
 \end{eqnarray}
 and apply the propagator $e^{-iE(q)t/\hbar}$ to each $q$-component with
 $E(q)$ representing the exciton energy given by \autoref{dispersion}.
@@ -424,9 +425,9 @@ extended time interval as long as the accumulated phase gives the desired outcom
 \subsection{Focusing to a single site}
 \label{sec:singleSiteFocusing}
 As \autoref{Cn(t)} shows, the focusing efficiency is determined by the phase transformation and
-the shape of the dispersion curve $E(k)$. Given the cosine dispersion of excitons (\ref{dispersion}), is it possible to
+the shape of the dispersion curve $E(k)$. Given the cosine dispersion of excitons in \autoref{dispersion}, is it possible to
  focus a delocalized excitation onto a single lattice site?
-To answer this question, we assume an initial condition where the excitation is localized to the site $n_0$, that is,
+To answer this question, we assume an initial condition where the excitation is localized to the site $n_0$, that is
 \multiline{
 C_n (t=0) = \delta_{n, n_0} \ ,
 }
@@ -439,17 +440,17 @@ we obtain
 \multiline{
 C_m (-\tau) &=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [k a
 (m-n) - E(k) (-\tau)/\hbar ]} \nonumber \\
-&=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i [k a (m-n)}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
-&=& \frac{1}{N} \sum_{n,k} \delta_{n, n_0} e^{i [k a (m-n)}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
+&=&  \frac{1}{N} \sum_{n,k} C_n(t=0) e^{i k a (m-n)}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
+&=& \frac{1}{N} \sum_{n,k} \delta_{n, n_0} e^{i k a (m-n)}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
 &=&  \frac{1}{N} \sum_{k} e^{i k a (m-n_0 )}\sum_{n'} e^{- i(ka - \pi/2) n'}  J_{n'}(2\alpha \tau/\hbar) \nonumber \\
 &=& \sum_{n'} e^{i\pi n'}  J_{n'}(2\alpha \tau/\hbar) \left( \frac{1}{N}\sum_{k} e^{i k a (m-n_0 - n')}\right) \nonumber \\
 &=& \sum_{n'} e^{i\pi n'}  J_{n'}(2\alpha \tau/\hbar) \delta_{n', m-n_0} \nonumber \\
 &=& e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha \tau/\hbar\right) \ , \label{eqn:cosineFocusing}
 }
-where $J_n$ are the Bessel functions of first kind. 
+where $J_n$ are Bessel functions of the first kind. 
 This  calculation shows that a wavepacket in  the site representation,
 $C_m(0)= e^{i \pi (m - n_0)/2}J_{m-n_0}\left(2\alpha t/\hbar\right)$,  will focus onto the lattice 
-site $n_0$ after evolving for time $t$. We can be easily verify the result by running a forward-in-time evolution
+site $n_0$ after evolving for time $t$. We can easily verify the result by running a forward-in-time evolution
 starting with the initial wave packet and making use of 
 the orthonormality  of the Bessel functions
 \begin{eqnarray}
@@ -472,7 +473,7 @@ focused, while those with linear dispersion propagate without changing
 the wave packet shape \cite{focusing-books-1,focusing-books-2}. It is this interplay of the quadratic (at low $k$) and
  linear (at $k \approx \pm \pi/2a$) parts of the cosine-like exciton dispersion (\autoref{dispersion}) that precludes perfect  focusing of a general collective excitation.
 In order to avoid the undesirable amplitude modulations, it may be possible to focus delocalized excitations by a phase transformation that
- constrains the wave packet (\ref{k-rep}) to the quadratic part of the dispersion $E(k)$.  For such wave packets, adding a quadratic phase
+ constrains the wave packet of \autoref{k-rep} to the quadratic part of the dispersion $E(k)$.  For such wave packets, adding a quadratic phase
 $\vp(n) = \vp_{0} (n-n_0)^2$ must lead to
 focusing around site $n_0$. Below we illustrate the effect of the quadratic phase transformation for a broad wave packet in coordinate space. In the next subsection (\autoref{sec:planewaveFocusing}), we continue to explore the case of a plane wave. 
 
@@ -485,7 +486,7 @@ C_k =  A e^{-\frac{ a^2 k^2}{2\sigma ^2_{k, 0} } } \ , \label{eqn:initialWavepac
 where $A$ is some normalization factor. Since the normalization factor doesn't matter for the discussion
  here, we will ignore it in the following derivations. The wave packet represented by
  \autoref{eqn:initialWavepacketInk} is also a Gaussian wave packet in coordinate space. This can be verified
-by the following transformation from $k$ space to coordinate space :
+by the  transformation from $k$ space to coordinate space , that is
 \multiline{
 C_n &=&\frac{1}{\sqrt{N}} \sum_{k} C_k(t=0) e^{  i k a n} \nonumber \\
 &\approx& \frac{A}{\sqrt{N}} \int_{-\infty}^{\infty} dk \; e^{-\frac{a^2 k^2}{2\sigma ^2_{k, 0} }  + i k a n}  \nonumber \\
@@ -493,17 +494,16 @@ C_n &=&\frac{1}{\sqrt{N}} \sum_{k} C_k(t=0) e^{  i k a n} \nonumber \\
 &=& \frac{A}{\sqrt{N}} \frac{\sigma_{k, 0} \sqrt{2\pi} }{a} \; e^{-\frac{n^2 \sigma ^2_{k, 0} }{2 } } \nonumber \\
 &\propto&  e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \ , \label{eqn:initialWavepacketInRealSpace}
 } 
-where in the second step we use the integration to approximate the summation over $k$ in the first Brillouin zone and 
-extend the integration range from $(-\pi/a, \pi/a]$ to $(-\infty, \infty)$ since the width $\sigma_k$ is very small. 
+where in the second step the integration approximates the summation over $k$ in the first Brillouin zone with its range extended from $(-\pi/a, \pi/a]$ to $(-\infty, \infty)$ since the width $\sigma_k$ is very small. 
 \Autoref{eqn:initialWavepacketInRealSpace} also shows that the width of the wave packet in coordinate space is the 
 inverse of its width in $k$ space, that is, $\sigma_{x, 0} = 1/\sigma_{k, 0}$. 
 
-To focus the wave packet, we apply an inhomogeneous phase $\Phi(n) = \Phi_0 (n-n_0)^2$ at $t=0$.  Then the wave 
+To focus the wave packet, we apply an inhomogeneous phase $\Phi(n) = \Phi_0 (n-n_0)^2$ at $t=0$ so that the wave 
 packet becomes
 \multiline{
 C_n(t=0) \propto e^{-\frac{n^2 }{2(1/\sigma_{k, 0} ) ^2} } \; e^{i \Phi_0 (n-n_0)^2}\ ,
 }
-which upon a transformation from coordinate space to $k$ space gives rise to
+which upon a transformation from coordinate space to $k$ space gives
 \multiline{
 C_k(t=0) &=& \frac{1}{\sqrt{N}}  \sum_{n} C_n(t=0) e^{-i k a n} \nonumber \\
 &\approx& \frac{1}{\sqrt{N}} \int_{\infty}^{\infty} dn\; C_n(t=0) e^{-i k a n} \nonumber \\
@@ -532,19 +532,19 @@ To see how the wave packet evolves after the phases are added, we can apply the 
 \oneline{
 E(k) \approx E_0 + \beta a^2 k^2 \ .  \label{eqn:quadraticApprox}
 }
-Using \autoref{eqn:quadraticApprox},
+Using this equation,
 we obtain the wavefunction of the wave packet after time $t$
 \multiline{
 C_n(t) &=& \frac{1}{\sqrt{N} }\sum_{k} e^{ i k a n} e^{-i E(k) t} C_k(0) \nonumber \\
 &\propto& \sum_{k} e^{ i k a n} e^{-i E(k) t/\hbar} e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \nonumber \\
-&\propto& e^{- \frac{(n + 4 t \beta\Phi_0  n_0)^2 }{2 \sigma_{x}(t)^2 } }
+&\propto& e^{- \frac{(n + 4 t \beta\Phi_0  n_0)^2 }{2 \sigma_{x}(t)^2 } } \ ,
 }
 where $\sigma_{x}(t)$ is a time-dependent width given by
 \oneline{
 \sigma_{x}(t) = \sigma_{x, 0} \sqrt{ (1 + 4 t \beta \Phi_0 )^2 +  \frac{4 t^2 \beta^2}{\sigma_{x, 0}^4 }} \ .
 }
 Taking the derivative of $\sigma_{x}(t)$ with respect to time and setting it to zero, we can find the time at which the
-wave packet is most focused:
+wave packet is most focused, namely
 \multiline{
 T_{\rm F} = -\frac{\Phi_0  \sigma _{x, 0}^4}{\beta  \left(1+4 \Phi_0 ^2 \sigma _{x, 0}^4\right)} \ .
 }
@@ -552,7 +552,7 @@ At time $T_{\rm F}$, the minimum width is
 \oneline{
 \sigma_{x, {\rm F}} = \frac{\sigma _{x, 0} }{\sqrt{ 1+4 \Phi_0 ^2 \sigma _{x, 0}^4 } } \ , \label{eqn:widthAtFocus}
 }
-and the center of the wave packet is 
+and the center of the wave packet is at
 \oneline{
 n_{\rm c} = 4 T_{\rm F} \beta \Phi_0 n_0 =  \frac{4 \Phi_0 ^2}{\sigma_{k, 0} ^4+4 \Phi_0 ^2} n_0\approx n_0 \ .
 }
@@ -626,24 +626,24 @@ attractive couplings ($\alpha<0$).
 \subsection{Focusing a plane wave in coordinate space}
 \label{sec:planewaveFocusing}
 
-Consider a completely delocalized excitation (\ref{basis})
+Consider a completely delocalized excitation of \autoref{basis}
 with $C_n(k;t=0) = {e^{iakn}}/{\sqrt{N}}$ describing an eigenstate
 of an ideal system of $N$ coupled monomers.
 Suppose $E(k)$ in \autoref{Cn(t)}  can be approximated as $E(k) = \D E_{e-g}
 -\alpha a^2 k^2$. As we saw in the derivation of last section, the effect of $E(k)$ on the wave packet is to
 add a phase due to time evolution, i.e. $e^{-i E(k) t}$. Since $\D E_{e-g}$ in $E(k)$ contributes the same phase to all
-$k$ component and thus adds a trivial phase to the whole wavefunction, we can saftely ignore it if only the shape of
+$k$ components and thus adds a trivial phase to the whole wavefunction, we can saftely ignore it if only the shape of
 the wavefunction is concerned. Therefore, we use   $E(k) = -\alpha a^2 k^2$ instead in the following derivation. To
 focus the plane wave, the quadratic phase $\vp(n) = \vp_0
 n^2$ is applied at $t=0$. This changes the initial wavefunction to 
 \multiline{
 C_n(k; t=0) &=&  \frac{1}{\sqrt{N}}  e^{i k a n } e^{i \Phi_0 n^2 } \ ,
 }
-which renders the wavefunction a wave packet in $k$ space with the coefficients:
+which renders the wavefunction a wave packet in $k$ space with the coefficients
 \multiline{
 C_q(t=0) =\frac{1}{\sqrt{N}} \sum_{n} e^{- i q a n} C_n(k; t=0) \ . \label{eqn:qComponent}
 }
-Each $q$ component in \autoref{eqn:qComponent} evolves according to 
+Each $q$ component in this equation evolves according to 
 \multiline{
 C_q(t) = e^{-i E(q) t} C_q(0) = e^{i \alpha a^2 q^2} C_q(0) \ ,
 }
@@ -694,7 +694,7 @@ C_m(t) =\sqrt{i} e^{-i N a^2 k^2 / 4\pi} \delta_{m,-\nu_k} \ , \label{eqn:cmPlan
 where   $\nu_k$
 is the index of the initial wave vector $k = 2\pi \nu_k / Na$, quantized due to the discreteness of the lattice.
 %However, this works well for a true quadratic dispersion only.
-According to step function  $\Theta(z)$ in \autoref{C_plane_wave}, the dimensionless width
+According to the step function  $\Theta(z)$ in \autoref{C_plane_wave}, the dimensionless width
 of the wave packet in the wave vector space is $\Delta_k(\Phi_0)
 \equiv a\sigma_{k}(\Phi_0) \approx 2N\Phi_0$. When $\Phi_0 = \pi /
 N$, the wave packet spreads over the entire Brillouin zone, including the
@@ -717,18 +717,17 @@ unpopulated, we choose the optimal focusing phase $\Phi_0^*
 \subsection{Numerical results}
 \label{sec:focusingNumerical}
 
-In \autoref{sec:wavepacketFocusing} and \autoref{sec:planewaveFocusing}, \autoref{x-focusing-Gauss} and \autoref{x-focusing-PlaneWave} are derived based on the cosine dispersion curve which are
+In \autoref{sec:wavepacketFocusing} and \autoref{sec:planewaveFocusing}, \autoref{x-focusing-Gauss} and \autoref{x-focusing-PlaneWave} are derived based on the cosine dispersion curve which is
 valid for a many-body system with nearest neighbor interactions
 only. In most physical systems, the energy dispersion is modified
 by long-range couplings. In order to confirm that the above
 predictions are also valid for systems with long-range
  interactions and illustrate the focusing of
-delocalized excitations, we compute the time evolution of the wave
+delocalized excitations, I compute the time evolution of the wave
 packets by solving the wave equation numerically for a system with
-long-range dipole-dipole interactions. In the calculations, we expanded the Hamiltonian (\ref{ham}) in the site 
+long-range dipole-dipole interactions. In the calculations, I expanded the Hamiltonian of \autoref{ham} in the site 
 basis, i.e. $\{ |e_n\rangle \prod_{i\neq n} |g_i\rangle\}$,  and applied the corresponding phase to the state
-$\ket{e_n}$ of each site at $t=0$ and then run the time evolution to obtain the wavefunction at each time point and 
-save them to files. To find the time for the optimal focusing, we searched for the largest probability at the target focusing site while scanning the wavefunctions at every time point.  
+$\ket{e_n}$ of each site at $t=0$ and then calculated the time evolution to obtain the wavefunction at each time point. To find the time for the optimal focusing, I searched for the largest probability at the target focusing site while scanning the wavefunctions at every time point.  
 Figure \ref{focusing-1d}
 illustrates the focusing dynamics of a completely delocalized
 excitation (panels a and b) and a broad Gaussian wave packet (panels c and d) in a
@@ -744,7 +743,7 @@ explicitly discussed in \autoref{sec:energyTransferVacancy}.
 \caption{ Focusing of a completely delocalized collective
 excitation (panels a and b) and a broad Gaussian wave packet of
 Frenkel excitons (panels c and d) in a one-dimensional array using the quadratic phase
-transformations at $t=0$ as described in text. In panels (b) and (d),
+transformations at $t=0$ as described in \autoref{sec:wavepacketFocusing} and \autoref{sec:planewaveFocusing}. In panels (b) and (d),
 the excitation probability distribution is displayed by color.
 The dashed lines
 show the initial distribution magnified by 20 and 5 respectively
@@ -789,12 +788,12 @@ at $t=0$.
 \section{ Experimental feasibility of phase transformation}
 \label{sec:excitationAtomMolecule}
 
-In  \autoref{sec:phaseKicking}  and \autoref{sec:focusing}, we have discussed the idea of phase kicking and its
- application in focusing delocalized excitations, but we were mainly concerned with the theoretical perspective. So in 
-this section, we focus on the experimental feasibility and show
+In  \autoref{sec:phaseKicking}  and \autoref{sec:focusing}, we discussed the idea of phase kicking and its
+ application in focusing delocalized excitations, but  were mainly concerned with the theoretical perspective. In 
+this section, we focus on experimental feasibility and show that
 the techniques proposed in \autoref{sec:phaseKicking}  and \autoref{sec:focusing}  can be realized with ultracold atoms or molecules trapped in an
 optical lattice  with one particle per lattice site \cite{atom-mott1, atom-mott2, atom-mott3, Ye-arrays-PRL12}.
-There are three general requirements that must be satisfied:
+Three general requirements  must be satisfied:
 
 \begin{itemize}
 \item
@@ -817,22 +816,21 @@ on the time scale of the excitonic evolution in the entire array, set by $K\hbar
 Optical lattices offer long coherence times ($> 1$ sec) and large lattice constants ($>400$ nm)
  \cite{optical-lattice-review}. The lifetime of the
 collective excitations depends on the internal states
- of the particles used in the experiment and the momentum distribution of the excitonic states in the wave packet
-(\ref{k-rep}). In the following two subsections, we discuss the case of ultracold atoms and the case of ultracold molecules separately. 
+ of the particles used in the experiment and the momentum distribution of the excitonic states in the wave packet. In the following two subsections, the case of ultracold atoms and  molecules are discussed, separately. 
 
 %\subsection{Collective excitation of ultracold atoms}
 \subsection{Supressing spontaneous emission in system of ultracold atoms}
 \label{sec:excitationAtoms}
 
-For ultracold alkali metal atoms in an optical lattice, an optical excitation may generate collective states (\ref{basis}),
+For ultracold alkali metal atoms in an optical lattice, an optical excitation may generate the collective states of \autoref{basis},
 as discussed in Ref. \cite{electronic-exciton1, electronic-exciton2}. The lifetime of these excited states is limited by the spontaneous emission of the electronically excited atoms and is
 in the range of 10 - 30 ns.
-However, the collective excited states can be protected from spontaneous emission if the wave vector range populated by excitons in the wave packet (\ref{k-rep}) is
+However, the collective excited states can be protected from spontaneous emission if the wave vector range populated by excitons in the wave packet of \autoref{k-rep} is
 %sufficiently far from zero \cite{cone-matter-papers}. Due to momentum conservation,
 outside of the so-called light cone, so that $k >\Delta E_{e-g}/\hbar c$.  To understand why this is the case, we 
 investigate the interaction of the collective excitation state of atoms with light. A photon can excite an exciton
  state of ultracold atoms and the exciton can also decay as a photon. 
-During these optical processes,  the energy is conserved, which leads to 
+During these optical processes  the energy is conserved, which leads to 
 \oneline{
 E_{\rm ph} =\hbar c k = \hbar c \sqrt{k_{\parallel}^2 + k_{\perp}^2} = E_{\rm ex}(k_{\rm ex}) \ , \label{eqn:photonExciton}
 }
@@ -846,11 +844,11 @@ k_{\parallel} = k_{\rm ex} < k \ . \label{eqn:wavevectorConservation}
 The exciton energy $E_{\rm ex}(k_{\rm ex})$ in \autoref{eqn:photonExciton} can be approximated by the
  corresponding excitation energy $ \Delta E_{e-g}$ since the interaction $\alpha$ between atoms is much smaller
  than the energy gap between the ground state and the excited state of a single atom 
-(see \autoref{eqn:dispersionExact}). Then the wave vector of the photon can be calculated from \autoref{eqn:photonExciton}:
+(see \autoref{eqn:dispersionExact}). With this approximation, the wave vector of the photon can be calculated from \autoref{eqn:photonExciton} as
 \oneline{
 k_* = \frac {\Delta E_{e-g}}{ \hbar c} \ .
 }
-Since the wave vector $k_{\rm ex}$ is just the parallel component of $k_{*}$, only the excitonic states with 
+Since $k_{\rm ex}$ is just the parallel component of $k_{*}$, only the excitonic states with 
 $k_{\rm ex} \leq k_*$  can satisfy both the energy conservation (\autoref{eqn:photonExciton}) and the momentum
  conservation (\autoref{eqn:wavevectorConservation}) at the same time, and thus interact with light. 
 %The number of $k$-states in the bright and dark regions depends on the relation between the wavelength of the 
@@ -859,7 +857,7 @@ $k_{\rm ex} \leq k_*$  can satisfy both the energy conservation (\autoref{eqn:ph
 By comparing $k_*$ and the largest value of $k_{\rm ex}$ in the first Brillouin zone $(-\pi/a, \pi/a]$, we can obtain
 the number of excitonic $k$-states in the bright and dark regions. 
 For Frenkel excitons originating from electronic transitions in solid-state crystals, the wavelength of excitation light
- $\lambda_0$ ($\sim$ several hundred nm) is much bigger than the lattice constant $a$ ($\sim$ a few {\AA}), the bright region is 
+ $\lambda_0$ ($\sim$ several hundred nm) is much bigger than the lattice constant $a$ ($\sim$ a few {\AA}), so the bright region is 
 narrow: $ k_{\rm ex} < k_* = 2\pi/\lambda_0\approx 0$. For atoms trapped in optical lattices, the typical values of $\lambda_0$ are of the same magnitude as the lattice constant $a$ (several hundred nm), and a large portion of the
  dispersion curve lies in the bright region and the dark region may be narrow. 
  In an ideal infinite system those states in the dark region have infinitely long radiative lifetimes, as there is no free-space 
@@ -886,7 +884,7 @@ $\delta \omega = 3 V_{eg}$, and the laser intensity $I = 5\times10^{10}$ W/cm$^2
  $\phi = \D E_{AC} \times T_{\rm pulse} = \pi $ can be achieved in less than 1 ns. 
 %{This shift brings a wave packet initially centered at $k=0$ to the ``dark" edge of the Brillouin zone, where the dispersion of excitons is still quadratic and all the focusing schemes discussed in Section 3 can be applied. 
 Another phase transformation can bring the excited state back to the bright region, where it can be observed via fast spontaneous emission. 
- The experiments with ultracold atoms have demonstrated  the lattice filling factor reaching 99 \%  \cite{atom-mott1, atom-mott2, atom-mott3}.
+ The experiments with ultracold atoms have demonstrated  a lattice filling factor reaching 99 \%  \cite{atom-mott1, atom-mott2, atom-mott3}.
  The phase transformations proposed here can be used to stabilize excitonic states in ultracold atomic ensembles against spontaneous emission  
 for multiple interesting applications \cite{Zoubi1, Zoubi-review}. 
 
@@ -914,12 +912,12 @@ $|g\rangle$ and the rotational excited state $|J=1, M_J = 0
 degenerate with the states $|J=1, M_J = \pm 1 \rangle$. This
 degeneracy can be lifted by applying a homogeneous DC electric
 field, making the $|g\rangle$ and $|e\rangle$ states an isolated
-two-level system. The molecules in different lattice sites are
+two-level system. The molecules on different lattice sites are
 coupled by the dipole-dipole interaction $V_{\rm dd}(n-m)$.
 The magnitude of
 the coupling constant $\alpha(n-m) = \langle e_{n} , g_{m} |
 {V}_{\rm dd}(n-m) | g_{n}, e_{m} \rangle$ between molecules with
-the dipole moment $1$ Debye separated by 500 nm is on the order of
+a dipole moment of $1$ Debye separated by 500 nm is on the order of
 1 kHz \cite{felipe}. Due to the low value of $\Delta E_{e-g}$, the spontaneous emission time of
 rotationally excited molecules  exceeds 1 second.
 
@@ -934,29 +932,29 @@ given by \cite{friedrich-95}
 E_{J,M_J}  &\approx&  BJ(J+1) +  \frac{\mu^2 \mathcal{E}_{DC}^2
 }{2B} G(J,M_J) \nonumber \\
 && - \frac{ \alpha_{\perp}\mathcal{E}_{AC}^2 }{4} + \frac{
-(\alpha_{||}-\alpha_{\perp})\mathcal{E}_{AC}^2 }{4}F(J,M_J)
+(\alpha_{||}-\alpha_{\perp})\mathcal{E}_{AC}^2 }{4}F(J,M_J) \ ,
  \label{DressedEnery-Sum}
 \end{eqnarray}
 %
-where $B$ is the rotational constant,  and $G(J, M_J)$ is given by
+where $B$ is the rotational constant,  $G(J, M_J)$ is given by
 \oneline{
 G(J, M_J) = \frac{J^2 - | M_J |^2}{J (2 J + 1) (2 J - 1)} - \frac{(J+1)^2 - | M_J |^2}{(J + 1) (2 J + 1) (2 J + 3)} \ ,
 }
-and $F(J, M_J)$ is given by
+$F(J, M_J)$ is given by
 \oneline{
 F(J, M_J ) = -\frac{1}{2} \left[ 1 - \frac{(2 |M_J | - 1) (2 | M_J | + 1)}{ (2 J - 1) (2 J + 3)} \right] \ ,
 }
 %$G(0,0) = -1/3$, $G(1,0) =1/5$, $F(0,0) = -1/3$, $F(1,0) = -3/5$, 
-and $\mathcal{E}_{AC}$ is the
+$\mathcal{E}_{AC}$ is the
 envelope of the quickly oscillating AC field, $\alpha_\|$ and
 $\alpha_{\perp}$ are the parallel and perpendicular
-polarizabilities and $\mu$ is the permanent dipole moment of the
+polarizabilities, and $\mu$ is the permanent dipole moment of the
 molecule.
 
 The momentum shift of the exciton wave packets can be achieved by
 applying a time-varying DC electric field $\mathcal{E}(t)
 =\mathcal{E}_{\ast} + \mathcal{E}(n)\sin^{2}(\pi t/T)$, where
-$\mathcal{E}(n)$ is linear with respect to $n$. Assuming that
+$\mathcal{E}(n)$ is linear with respect to $n$. Assuming 
 $\mathcal{E}(n) = (n-n_0) A$ and $\mathcal{E}(n) \ll
 \mathcal{E}_{{\ast}}$, and using \autoref{eqn:expressionOfPhase} and
 \autoref{DressedEnery-Sum}, we obtain the phase accumulated by the excited state $\ket{1, 0}_{n}$ at site $n$ with
@@ -973,7 +971,7 @@ In the above equation, the term that is linear with lattice index $n$ will give 
 \oneline{
 \delta = - 4 A \mathcal{E}_{{\ast}} \mu^2 T / 15 \hbar B a \ .
 }
- We have confirmed
+I have confirmed
 this result by a numerical computation showing that for LiCs
 molecules in an electric field of $\mathcal{E}_{{\ast}}=1$ kV/cm,
 an electric field pulse with $A=7.434\times 10^{-4}$ kV/cm and
@@ -1006,12 +1004,12 @@ radial distance from the center axis of the beam, $z$ is the axial
 distance from the beam center,  $z_R=\pi w_0^2/\lambda$ is
 Rayleigh range, $w_0$ is the beam waist and $\lambda$ is the wavelength.
 %% %%%%%%%% recover my old writing %%%%%%%%%%%
-In order for the dressed rotational states $\ket{J, M_J}$ have a definite space quantization axis, the laser is linearly polarized in the direction of the DC field. 
+In order for the dressed rotational states $\ket{J, M_J}$ to have a definite space quantization axis, the laser is linearly polarized in the direction of the DC field. 
 As shown in \autoref{fig:experimentalSetup}, we put the 1D molecular array  along the z-axis of
 the beam so that $r=0$ for all the molecules. 
 Based on Eq.
-(\ref{gaussian-intensity-profile}), we can write out the
-intensity for each molecule of the array:
+(\ref{gaussian-intensity-profile}),  the
+intensity for each molecule of the array is
 \begin{equation}
 I(n) = \frac{I_0}{1+ \frac{(z_0 + na)^2}{z_R^2}} \  ,
 \label{gaussian-intensity-profile2}
@@ -1029,27 +1027,27 @@ practice, we can assume that the wave packet is confined within
 the range $[-S_x a, S_x a]$ for a time period much shorter than
 $1/\alpha$.  
 To make the intensity $I(n)$ vary linearly with $n$, the natural way is to put the molecular array far away from the beam center such that $na << z_0$.
-In this case, we can Taylor expand the intensity fuction as follows:
+In this case, a Taylor series expansion of the intensity function gives
 \begin{equation}
-I(n) =I_0\left\{ \frac{z_R^2}{z_0^2+z_R^2}-\frac{2 a n z_0 z_R^2}{\left(z_0^2+ z_R^2\right)^2}+\frac{a^2 n^2 z_R^2 \left(3 z_0^2-z_R^2\right)}{\left(z_0^2+z_R^2\right)^3}  + O(n^3)\right\} \ , \label{taylor-expansion}
+I(n) =I_0\left\{ \frac{z_R^2}{z_0^2+z_R^2}-\frac{2 a n z_0 z_R^2}{\left(z_0^2+ z_R^2\right)^2}+\frac{a^2 n^2 z_R^2 \left(3 z_0^2-z_R^2\right)}{\left(z_0^2+z_R^2\right)^3}  + O(n^3)\right\} \ . \label{taylor-expansion}
 \end{equation}
-and ignore the terms that are higher than linear order in $n$. However, when $z_0$ is large enough such that
- omission of higher terms is justified, the slope of the approximately linear intensity function $I(n)$ is small which
- means that more powerful laser field is needed to give the momentum kick. This is undesirable for experiments.
-Instead, we find that one doesn’t need to put the molecular array very far away from the beam center
+When $z_0$ is large enough  that
+ omission of terms higher than linear is justified, the slope of the approximately linear intensity function $I(n)$ is small, 
+ meaning a more powerful laser field is needed to give the momentum kick. This is undesirable for experiments.
+Instead, we find that one does not need to put the molecular array very far away from the beam center
 to obtain a linear intensity profile. The trick is to let $z_0 = z_R /\sqrt{3}$ so that some higher terms (like the 
-second-oder term) in \autoref{taylor-expansion} vanish. Rather than working with the
-Taylor series, we find that it is more convenient to work with the original intensity function directly. Substituting
-$z_0 = z_R /\sqrt{3}$ and assuming $1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R}$, we have
+second-order term) in \autoref{taylor-expansion} vanish. Rather than working with the
+Taylor series, it is more convenient to work with the original intensity function directly. Substituting
+$z_0 = z_R /\sqrt{3}$ and assuming $1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R}\neq 0$ gives
 \multiline{
 I(n) &=& \frac{I_0}{1+ \frac{(z_0 + na)^2}{z_R^2}} = \frac{I_0 \left( 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} \right)}{\left[ 1 + \left(\frac{1}{\sqrt{3} } + \frac{n a}{z_R}\right)^2 \right] \left( 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} \right) } \nonumber \\
 &=& \frac{ 1 - \frac{\sqrt{3}}{2} \frac{a n}{z_R} } {\frac{4}{3}\left[ 1 - \frac{3\sqrt{3}}{8} \left( \frac{a n}{z_R } \right)^3 \right] } \ . \label{eqn:IntensitySpecial}
 }
 For $I(n)$ to be linear within the range $[ - S_x , S_x ]$, the second term in the square brackets in
  \autoref{eqn:IntensitySpecial} should be much less than 1.
-This leads to a restriction on the width of the wave packet:
+This leads to a restriction on the width of the wave packet, namely
 \begin{equation}
-S_x a\lesssim 0.5 z_R
+S_x a\lesssim 0.5 z_R \ .
 \end{equation}
 Therefore if the two conditions $z_0 = z_R/\sqrt{3}$ and $S_x
 a\lesssim 0.5 z_R$ are satisfied, we can implement the momentum
@@ -1059,10 +1057,10 @@ kick for the wave packet. Using \autoref{phase} ,
 \begin{equation}
 \delta = -\sqrt{3}T I_{0} (\alpha_{\|}-\alpha_\perp) / 80 z_R \ . \label{Kick-AC}
 \end{equation}
-To demonstrate the feasibility of momentum kick by laser
-pulse, we have run a simulation with $z_0 = 45\; \mu$m and
-$z_R=73.8\; \mu$m, and find that the results shown in Figure
-\ref{momentum-kick} deviate only by about $7\%$ from the
+To demonstrate the feasibility of momentum kick by a laser
+pulse, a simulation with $z_0 = 45\; \mu$m and
+$z_R=73.8\; \mu$m was performed. The momentum kick of the wavepacket in $k$ space, as shown in Figure
+\ref{momentum-kick},  deviates only by about $7\%$ from the
 analytical estimates.
 
 
@@ -1078,8 +1076,9 @@ analytical estimates.
 
 \subsection{Focusing in system of ultracold molecules}
 \label{sec:focusingMolecules}
-The Gaussian intensity profile (\ref{gaussian-intensity-profile}) can also be used  to implement the quadratic phase 
-transformations needed for focusing of collective excitations. 
+
+The Gaussian intensity profile of \autoref{gaussian-intensity-profile} can also be used  to implement the quadratic phase 
+transformations needed for focusing collective excitations. 
 To achieve this, a molecular array (1D or 2D) must be arranged in the $z=0$ plane of the Gaussian beam. As
  mentioned in \autoref{sec:phaseKickingMolecules}, an extra  DC field is also needed here to lift the degeneracy of 
 rotational states and to avoid mixing of different exciton bands.  In addition, the laser is linearly polarized along the
@@ -1089,23 +1088,23 @@ rotational states and to avoid mixing of different exciton bands.  In addition, 
 
 \addfigure{
 \includegraphics[width=\linewidth]{quadratic-phase-experiment.png}
-\caption{An illustration to show the orientations of 1D  and 2D molecular arrays inside the Gaussian beam. (a): the
+\caption{An illustration to show the orientations of 1D  and 2D molecular arrays inside the Gaussian beam. (a) the
 1D lattice lies along the $x$-axis of the $z=0$ plane and the DC field is at some angle with the $x$-axis
-such that the coupling $\alpha$ between molecules is negative. (b): the 2D square lattice is at the the center of
+such that the coupling $\alpha$ between molecules is negative. (b) the 2D square lattice is at  the center of
 the $z=0$ plane and the DC field is at $45^\circ$ degree with the $x$-axis. In both cases, the laser is linearly
 polarized along the direction of the DC field.
  }
 \label{fig:quadraticExperimentalSetup}
 }
 
-First, we consider the case of 1D molecular array. The wave packet that we want to focus is a Gaussian wave packet
-with the width $\sigma_x$. 
+First, we consider the case of a 1D molecular array. The wave packet  we want to focus is a Gaussian wave packet
+of width $\sigma_x$. 
 We put  the beam center at the center of the wave packet and define the $x$-axis of the $z=0$ plane to be along the intermolecular 
 axis (see \autoref{fig:quadraticExperimentalSetup} (a)). Then the molecules in the lattice
 can be indexed by theirs $x$ coordinates as $n_x a$. 
 If the dimension of the wave packet is smaller than one third of the
-beam waist, we can approximate the Gaussian intensity profile in
-\autoref{gaussian-intensity-profile} by
+beam waist,  the Gaussian intensity profile in
+\autoref{gaussian-intensity-profile} can be approximated as
 \begin{equation}
 I(x, y=0, z=0) \approx I_{0}\left(1- \frac{2 n_x^2 a^2}{w_0^2}\right) \ ,  \label{quadratic-profile-1D}
 \end{equation}
@@ -1120,9 +1119,9 @@ between molecules. As shown in \autoref{control-exciton} (a), $\theta$ must be i
 to ensure the attractive coupling. 
 
 From previous
-discussions in \autoref{sec:wavepacketFocusing}, we know that good focusing effect occurs when the quadratic 
-phase profile applied is $\Phi(n) = \Phi_0 n^2$ with $\Phi_0 = -a/2\sigma_x$ if $\alpha<0$. So we will use this
- particular value of $\Phi_0$ to estimate the strength of the laser field that are needed for the focusing.  
+discussions in \autoref{sec:wavepacketFocusing},  good focusing occurs when the quadratic 
+phase profile  is $\Phi(n) = \Phi_0 n^2$ with $\Phi_0 = -a/2\sigma_x$ if $\alpha<0$. So we will use this
+ particular value of $\Phi_0$ to estimate the strength of the laser field  needed for the focusing.  
 Specifically, we are proposing to use a laser pulse with a short ramp-up and
 ramp-down time $T_s$ and a long steady time $T_l$:
 \begin{equation}
@@ -1143,7 +1142,7 @@ at site $n_x$ with respect to the molecule at the beam center is given by
 }
 where $T_{l} \ll T_{s}$ is assumed in the last step. Equating $\phi(n_x)$ with the optimal phase profile 
 $\Phi(n_x) = \Phi_0 n_x^2 = -a/2\sigma_x n_x^2$,
-and assuming that the laser power is $P$ and the initial width of the wave
+and assuming the laser power is $P$ and the initial width of the wave
 packet is $\sigma_x = S a$, we can estimate the
 duration of the laser pulse to be
 \begin{equation}
@@ -1151,28 +1150,28 @@ T_l \approx \frac{15 \pi
 w_0^4}{4 Sa^2(\alpha_{\|}-\alpha_\perp)P} \ .
 \label{pulse-duration}
 \end{equation}
-For LiCs molecules trapped on a optical lattice with the lattice constant $a = 400 $nm, if the initial width of the 
-wave packet is about 100 lattice sites and the beam waist is 3 times larger than that width,  the
+For LiCs molecules trapped on an optical lattice with the lattice constant $a = 400 $nm, if the initial width of the 
+wave packet is about 100 lattice sites and the beam waist is 3 times larger than the width,  the
 pulse duration calculated from Eq. (\ref{pulse-duration}) is about
 335 $\mu$s for a laser Gaussian beam with the power of 10 W. To ensure the focusing works
 as expected, the wave packet should be exposed to the laser field for long enough time to accumulate the required phases, so the focusing time $T_f$ for the wave packet to become
 most focused must be longer than the duration of the laser pulse.
 This is not a problem considering that $T_f$ is inversely
-proportional to the coupling strength $\alpha$:
+proportional to the coupling strength $\alpha$
 \oneline{
 T_f \approx \frac{1}{4 \alpha \Phi_0} \ , 
 }
-and $\alpha$ can be tunned to be very small through changing the magnitude of the DC field
-\cite{felipe} by only a few kV/cm or by increasing the angle $\theta$. For instance, when the DC field is about 1 kV/cm and orientate along the intermolecular axis,  the focusing time 
+and $\alpha$ can be tuned to be very small values by changing the magnitude of the DC field
+\cite{felipe} by only a few kV/cm or by increasing the angle $\theta$. For instance, when the DC field is about 1 kV/cm and orientated along the intermolecular axis,  the focusing time 
 \oneline{
 T_f \approx  \frac{1}{4 \alpha \Phi_0} = \frac{1}{4 (-20 \mbox{ kHz}) (-\frac{1}{200})} = 2.5 \mbox{ ms}
 }
 is much longer than the duration of the laser pulse, leaving enough time for the accumulation of the phases. 
 
-Second, we consider the case of a 2D molecular array. The situation is similar to the 1D case except that the anisotropy
+Second, we consider the case of a 2D molecular array. The situation is similar to the 1D case except the anisotropy
 of the dipole-dipole interaction comes into play. Instead of only considering the coupling between molecules in 
 the $x$-axis, we also have to consider the dipole-dipole interactions along the $y$-axis and along other directions
-between the $x$-axis and $y$-axis. This is because the DC field will be at different angles with the different chains of 
+between the $x$-axis and $y$-axis. This is because the DC field will be at different angles with  different chains of 
 molecules, giving rise to different dipole-dipole interactions in different directions. For simplicity, we use the
  nearest neighbor approximation here and only consider
 the dipole-dipole interactions along the $x$-axis and $y$-axis. Assuming the dimension of the wave packet is
@@ -1239,36 +1238,36 @@ While, in general, the coupling constant $\alpha$ in \autoref{ham} can be determ
 \subsection{The effect of long-range interaction}
 \label{sec:long-rangeInteraction}
 
-The dipolar interactions are long-range and anisotropic. This long-range character
-manifests itself in the modification of the exciton dispersion (\ref{Eexc}). While \autoref{Eexc} is valid for a system 
+Dipolar interactions are long-range and anisotropic. This long-range character
+manifests itself in the modification of the exciton dispersion. While \autoref{Eexc} is valid for a system 
 with nearest neighbour couplings only, higher-order couplings in the case of $\alpha(n-m) \propto 1/ |n-m|^3$ 
 modify the exciton dispersion leading to a cosine-like, 
 but non-analytic dispersion relation, both in 1D  and 2D. 
 
-To see why the dispersion curve is non-analytic, we start from the expression for $E(k)$:
+To see why the dispersion curve is non-analytic, we start from the expression for $E(k)$
 \multiline{
 E (k) &=& \Delta E_{eg} + \sum_{n} \alpha(n) e^{- i k a n} \nonumber \\
 &=&  \Delta E_{eg} + \sum_{n} \frac{\alpha}{|n|^3} e^{- i k a n} \ , \label{eqn:dispersionCurveExpression}
 }
-where $n$ is the difference of the two molecular indexes and the summation goes from $-\infty$ to $-1$ and from
-$1$ to $\infty$ for a crystal of inifinite size. Restricting $n$ to be a positive integer,
+where $n$ is the difference between the two molecular indexes and the summation goes from $-\infty$ to $-1$ and from
+$1$ to $\infty$ for a crystal of infinite size. Restricting $n$ to be a positive integer,
 \autoref{eqn:dispersionCurveExpression} can be written as
 \multiline{
-E (k) &=& \Delta E_{eg} + \sum_{n = 1}^{\infty} \frac{2 \alpha \cos(k a n) }{n^3} \ . \label{eqn:EkPositiveN}
+E (k) &=& \Delta E_{eg} + \sum_{n = 1}^{\infty} \frac{2 \alpha \cos(k a n) }{n^3} \ , \label{eqn:EkPositiveN}
 }
-Then the first derivative of the dispersion curve is given by
+giving the first derivative of the dispersion curve as
 \multiline{
 \frac{d E(k)}{d (k a)} = -\sum_{n = 1}^{\infty} \frac{2 \alpha \sin(k a n) }{n^2} \ , \label{eqn:firstDerivative}
 }
-and the second derivative of the dispersion curve is given by
+and the second derivative as
 \multiline{
 \frac{d^2 E(k)}{d (k a)^2} = -\sum_{n = 1}^{\infty} \frac{2 \alpha \cos(k a n) }{n} \ . \label{eqn:secondDerivative}
 }
 The series in \autoref{eqn:EkPositiveN} and \autoref{eqn:firstDerivative} converge with respect to $n$, but the 
 series in \autoref{eqn:secondDerivative} doesn't. 
 For example, when $k a = 0$ or $\pi$, the series in \autoref{eqn:secondDerivative} becomes the harmonic series and
- it diverges with respect to $n$. 
-Therefore, the dispersion curve cannot be Taylor expanded as follows:
+ diverges with respect to $n$. 
+Therefore, the dispersion curve cannot be Taylor series expanded as
 \multiline{
 E(k) = E(k_0) + \left.\frac{d E(k)}{d k}\right|_{k_0} (k - k_0) +  \left.\frac{d^2 E(k)}{d k^2}\right|_{k_0} (k - k_0)^2 + \cdots  \ . \label{eqn:taylorExpansionInvalid}
 } 
@@ -1282,15 +1281,15 @@ dependent on the first derivative of the dispersion curve, and all neighbors are
 properties determined by the second derivative. 
 
 
-To investigate the effect of this nonanalyticity in dispersion curve, we have performed a series of calculations with the long-range couplings neglected 
+To investigate the effect of this nonanalyticity in dispersion curve, a series of calculations were performed with the long-range couplings neglected 
 after a certain lattice site separation $n-m$ for the 1D system. The results become  converged (to within 0.2 \%) when
  each molecule is directly coupled with 20 nearest molecules. While the calculations with only the nearest neighbor
  couplings are in good agreement  with the analytical predictions given by \autoref{focus-time} and \autoref{x-focusing-Gauss}, the full calculations reveal that long-range 
 couplings somewhat decrease the focusing efficiency. The long-range couplings also decrease the focusing time, 
 by up to a factor of 2. The dynamics of collective excitations leads to interference oscillation patterns clearly 
 visible in panels a and c of Figure \ref{focusing-1d}. These oscillations are much less pronounced when all but nearest
- neighbor couplings are omitted. Given that the analytical derivation in \autoref{sec:focusing} are based on possible 
-invalid taylor expansion of dispersion curve (\autoref{eqn:taylorExpansionInvalid}), the numerical results of 
+ neighbor couplings are omitted. Given that the analytical derivation in \autoref{sec:focusing} are based on a possible 
+invalid Taylor series expansion of the dispersion curve (\autoref{eqn:taylorExpansionInvalid}), the numerical results of 
 \autoref{focusing-1d} and \autoref{focusing-2d} are particularly important
  because they demonstrate that the phase transformations introduced in the present work are effective  for 
 systems with dipolar interactions. 
@@ -1302,7 +1301,7 @@ The anisotropy of the dipolar interactions can be exploited for controlling ener
 For example,  for polar molecules on an optical lattice,  
 the matrix elements  $\alpha(n-m) = \langle e_{n} , g_{m} | {V}_{\rm dd}(n-m) | g_{n}, e_{m} \rangle$ depend not only on the choice of
  the states $|g\rangle$ and $|e\rangle$, but also on the magnitude and orientation of an external dc electric field
-\cite{biexcitons, felipe}. Since the value of $\alpha$ determines the exciton dispersion (\ref{Eexc}),
+\cite{biexcitons, felipe}. Since the value of $\alpha$ determines the exciton dispersion,
  the exciton properties can be controlled by varying the angle $\theta$ between the intermolecular axis
 and the applied DC field. This is illustrated in \autoref{control-exciton}. 
 
@@ -1312,25 +1311,25 @@ and the applied DC field. This is illustrated in \autoref{control-exciton}.
 \includegraphics[width=\linewidth]{control-exciton.pdf}
 \caption{ Control of excitation transfer in a 1D many-body system with dipolar interactions by varying the 
 direction of an external electric field.
-Panel (a): Exciton dispersion curves for a 1D
+(a) Exciton dispersion curves for a 1D
 ensemble  of diatomic molecules on an optical lattice for
 different angles $\theta$ between the direction of the external DC
-electric field and the axis of the molecular array.  In 1D, the coupling $\alpha\propto (1/3 - \cos^2\theta)$.  Panel (b):
+electric field and the axis of the molecular array.  In 1D, the coupling $\alpha\propto (1/3 - \cos^2\theta)$.  (b)
 Propagation of a wave packet centered at $ak =-\pi/3$ controlled
-by tuning the electric field direction. Thin dotted line depicts
+by tuning the electric field direction. Then thin dotted line depicts
 the corresponding angle variations with time. The brightness
-of color corresponds to the probability of the excitation. }
+of the color corresponds to the probability of the excitation. }
 \label{control-exciton}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-The calculations presented in Figure \ref{control-exciton} are for a 1D array of LiCs molecules in a lattice with  $a=400$ nm.
+The results presented in Figure \ref{control-exciton} are for a 1D array of LiCs molecules in a lattice with  $a=400$ nm.
 As before, $|g\rangle$ is the absolute ground state of the molecule and $|e\rangle$ is the rotationally excited state
  that adiabatically correlates
 with the rotational state $|J=1, M_J = 0 \rangle$ in the limit of vanishing electric field. 
-The upper panel of Figure 4
+The upper panel of \autoref{control-exciton}
 shows that the angle $\theta$ between the electric field vector and the molecular array axis
 determines the sign and magnitude of $\alpha$, and therefore the shape of the dispersion
 curve. This enables
@@ -1365,8 +1364,8 @@ many-body systems with anisotropic interparticle interactions.
 \subsection{Computation details}
 \label{sec:numerical}
 
-In this subsection, we describes the details of the calculations presented in \autoref{sec:anisotropy}. We first 
-evaluate dipole-dipole interaction in the 1D and 2D molecular arrays , then discuss how to form the Hamiltonian
+This subsection describes details of the calculations presented in \autoref{sec:anisotropy}. We first 
+evaluate the dipole-dipole interaction in the 1D and 2D molecular arrays , then discuss how to form the Hamiltonian
 matrix in an efficient way, and finally present some approximations that can reduce the computation cost 
 significantly. 
 
@@ -1374,16 +1373,16 @@ As discussed in \autoref{sec::ddInteraction}, the dipole-dipole operator for mol
 connected by a vector
 $\vec{R}$ in optical lattices is given by
 \oneline{
-\hat{V}_{\rm dd}(R) = -2 \sqrt{\frac{6 \pi }{5}} \left( \frac{1}{R} \right)^3 \sum_{q} (-1)^q Y_{2, -q}(\theta_{R}, \phi_{R}) \left[ d_{A}^{(1)} \otimes d_{B}^{(1)}\right]_{q}^{(2)}
+\hat{V}_{\rm dd}(R) = -2 \sqrt{\frac{6 \pi }{5}} \left( \frac{1}{R} \right)^3 \sum_{q} (-1)^q Y_{2, -q}(\theta_{R}, \phi_{R}) \left[ d_{A}^{(1)} \otimes d_{B}^{(1)}\right]_{q}^{(2)} \ ,
 }
 where the angles $(\theta_{R}, \phi_{R})$ describe the orientation of the vector  $\vec{R}$ in the coordinate
- system whose $z$-axis coincides with the the direction of DC field and $Y_{2, -q}$ are these spherical harmonics:
+ system whose $z$-axis coincides with the  direction of DC field and $Y_{2, -q}$ are the spherical harmonics
 \multiline{
-Y_{2, -2} &=& \frac{1}{4} \sqrt{\frac{15}{2\pi}}\sin^2 \theta_{R} e^{- 2 i \phi_{R}} \nonumber \\
-Y_{2, -1} &=& \frac{1}{2} \sqrt{\frac{15}{2\pi}}\sin \theta_{R} \cos \theta_{R} e^{-  i \phi_{R}} \nonumber \\
-Y_{2, 0} &=& \frac{1}{4} \sqrt{\frac{5}{\pi}} (3\cos^2\theta_{R} - 1) \nonumber \\
-Y_{2, 1} &=& -\frac{1}{2} \sqrt{\frac{15}{2\pi}}\sin \theta_{R} \cos \theta_{R} e^{  i \phi_{R}} \nonumber \\
-Y_{2, 2} &=& \frac{1}{4} \sqrt{\frac{15}{2\pi}}\sin^2 \theta_{R} e^{2 i \phi_{R}}
+Y_{2, -2} &=& \frac{1}{4} \sqrt{\frac{15}{2\pi}}\sin^2 \theta_{R} e^{- 2 i \phi_{R}} \ ,\nonumber \\
+Y_{2, -1} &=& \frac{1}{2} \sqrt{\frac{15}{2\pi}}\sin \theta_{R} \cos \theta_{R} e^{-  i \phi_{R}} \ ,\nonumber \\
+Y_{2, 0} &=& \frac{1}{4} \sqrt{\frac{5}{\pi}} (3\cos^2\theta_{R} - 1) \ , \nonumber \\
+Y_{2, 1} &=& -\frac{1}{2} \sqrt{\frac{15}{2\pi}}\sin \theta_{R} \cos \theta_{R} e^{  i \phi_{R}} \ ,\nonumber \\
+Y_{2, 2} &=& \frac{1}{4} \sqrt{\frac{15}{2\pi}}\sin^2 \theta_{R} e^{2 i \phi_{R}} \ .
 }
 To calculate the dipole-dipole interaction, we evaluate the matrix element of the dipole-dipole operator in the basis
 of bare rotational states:
@@ -1411,11 +1410,11 @@ $\phi_{R}$ when calculating the dipole-dipole interaction in a 2D molecular arra
 
 \addfigure{
 \includegraphics[width=\linewidth]{1Dand2D.pdf}
-\caption{The orientations of the DC field and molecular arrays in the coordinate systems. (a): The DC field is along 
-the $z$-axis and the 1D molecular array is in the direction represented by $\theta_{R}$ and $\phi_{R}$. (b): The 2D
-molecular array is on the $XY$ plane and the orientation of DC field is represented by $(\theta, \phi)$. For clarity,
-we have only drawn the molecules (as blue dots) along a particular axis which is at angle $\gamma$ with the $X$-axis.
-It is to be understood that there are also other intermolecular axes which are at different angles with the $X$-axis.
+\caption{The orientations of the DC field and molecular arrays in the coordinate systems. (a) The DC field is along 
+the $z$-axis and the 1D molecular array is in the direction represented by $\theta_{R}$ and $\phi_{R}$. (b) The 2D
+molecular array is on the $XY$ plane and the orientation of the DC field is represented by $(\theta, \phi)$. For clarity,
+we have only drawn the molecules (as blue dots) along a particular axis which is at angle $\gamma$ with respect to the $X$-axis.
+It is to be understood that there are also other intermolecular axes at different angles with the $X$-axis.
 Note part (a) and part (b) have different coordinate systems and the meaning of $(\theta_R, \phi_R )$ is different
 from that of $(\theta, \phi)$. In fact, the angle $\theta_{R}$ between the DC field and the molecular array in (b)
 is related to $\theta$ and $\phi$ by $\cos \theta_{R} = \cos\theta \cos(\phi - \gamma)$. 
@@ -1432,7 +1431,7 @@ Keeping track of both angles $\theta_{R}$ and $\phi_{R}$ is complicated. Fortuna
 dependence on $\phi_{R}$ in \autoref{eqn:ddMatrixElement} by choosing to deal with only certain rotational states.  
 In a DC field or a linearly polarized laser field, the dressed rotational states $\ket{\Tilde{N}, |M|}$ of the
 system are a linear combinations of the bare rotational states with the same projection along the direction of the DC field 
-or along the direction of laser polarization, that is,
+or along the direction of laser polarization, that is
 \oneline{
 \ket{\Tilde{N}, |M|} = \sum_{N} C_{N, M} \ket{N, M} \ .
 }
@@ -1440,40 +1439,40 @@ Note that the coefficients $C_{N, M}$ only depend on the magnitude of the extern
 with the angles $\theta_{R}$ and $\phi_{R}$. 
 Because those dressed states with different 
 projections $|M|$ have different energies, we can choose to work with the states with a particular value of $|M|$ 
-by tunning the excitation energy to match the corrsponding energy levels. 
+by tuning the excitation energy to match the corresponding energy levels. 
 In the current study, 
 $|M|$ is chosen to be zero, therefore only the bare rotational states with $M_X = 0$ are involved, so only the
-term associated with $D_0^A D_0^B$ in  \autoref{eqn:ddMatrixElement} is nonzero, and we have
+term associated with $D_0^A D_0^B$ in  \autoref{eqn:ddMatrixElement} is nonzero, giving
 \oneline{
 \bra{N_A , 0} \bra{N_B , 0} \hat{V}_{\rm dd}(R) \ket{N_A^{'}, 0} \ket{N_B^{'} , 0} =  - \frac{\sqrt{6} F}{2 R^3}  (3\cos^2\theta_{R}-1) D_0^A D_0^B \ . \label{eqn:ddM=0}
 }
-Then the dipole-dipole interaction between two dressed state with $|M| = 0$ can be expressed as a linear combinations of \autoref{eqn:ddM=0}:
+The dipole-dipole interaction between two dressed states with $|M| = 0$ can then be expressed as  linear combinations of \autoref{eqn:ddM=0}, that is
 \multiline{
 &&\bra{\Tilde{N}_A, 0} \bra{\Tilde{N}_B, 0} \hat{V}_{\rm dd}(R) \ket{\Tilde{N}_A^{'}, 0} \ket{\Tilde{N}_B^{'}, 0} \nonumber \\
 && = \sum_{N_A} \sum_{N_B} \sum_{N_A^{'}} \sum_{N_B^{'}} C_{N_A, 0}^{*} C_{N_B, 0}^{*} C_{N_A^{'}, 0}  C_{N_B^{'}, 0} \bra{N_A , 0} \bra{N_B , 0} \hat{V}_{\rm dd}(R) \ket{N_A^{'}, 0} \ket{N_B^{'} , 0} \ .  \nonumber \\ \label{eqn:ddM=0Dressed}
 }
-\Autoref{eqn:ddM=0} and \autoref{eqn:ddM=0Dressed} show that we only need to consider the angle $\theta_{R}$
+Equation (\ref{eqn:ddM=0}) and \autoref{eqn:ddM=0Dressed} show that we only need to consider the angle $\theta_{R}$
 between the intermolecular axis and the external field if only the dressed rotational states with $|M|=0$ are
- involved. This is valid for both 1D and 2D cases.  
+ involved. This is valid for both the 1D and 2D cases.  
 
 Since a 1D molecular array can be treated as a limiting case of a 2D molecular array with only a single intermolecular
  axis, we focus on the discussion of the 2D case. As illustrated by \autoref{fig:1Dand2D}, we suppose the 2D molecular 
 array is in the $XY$ plane, and the orientation of the external field is given by $(\theta, \phi)$. For any two 
-molecules in the intermolecular axis that are at angle $\gamma$ with the $X$-axis, $\cos^2\theta_{R}$ 
+molecules whose intermolecular axis is at angle $\gamma$ with respect to the $X$-axis, $\cos^2\theta_{R}$ 
  can be calculated as
 \multiline{
 \cos^2\theta_{R} &=& \left[\cos\left(\frac{\pi}{2}-\theta\right) \cos(\phi - \gamma)\right]^2 \nonumber \\
 &=& \sin^2\theta \left(\cos\phi \cos\gamma + \sin\phi \sin\gamma \right)^2 \ . \label{eqn:threeAnglesRelation}
 }
 Therefore the dipole-dipole interaction between two molecules can be calculated from \autoref{eqn:ddM=0} and
- \autoref{eqn:ddM=0Dressed} provided that the angle between the intermolecular axis and the $X$-axis is known. 
+ \autoref{eqn:ddM=0Dressed} provided the angle between the intermolecular axis and the $X$-axis is known. 
 
 
 Once the dipole-dipole interaction is known, we can form the Hamiltonian matrix by expanding the Hamiltonian in 
 the basis of individual sites. Suppose the 2D molecular array is a square lattice with $\mathbb{N}\times\mathbb{N}$
 sites and the coordinate system is oriented such that its $X$-axis and $Y$-axis coincide with the
-bottom and left edge of the 2D lattice respectively. Then the position of the
-molecule in the array can be represented by its coordinates $(x, y)$. Without loss of generality, we consider only 
+bottom and left edge of the 2D lattice respectively. The position of the
+molecule in the array can then be represented by its coordinates $(x, y)$. Without loss of generality, we consider only 
 the case where the external field is oriented such that $0\le \theta\le 90^\circ$ and $0 \le \phi \le 90^\circ$, and
 give the indexes $0, 1, 2, \cdots, \mathbb{N}^2-1$ to every molecule in the 2D array, starting from the bottom to 
 the top of the array and from left to right in each row. Based on \autoref{eqn:ddM=0} and
@@ -1484,15 +1483,16 @@ the top of the array and from left to right in each row. Based on \autoref{eqn:d
 }
 where $R_{i,j}$ is the distance between molecules in sites $i$ and $j$, and $\theta_{R}(i,j)$ is the angle between the external field
 and the intermolecular axis. Assuming the unit length of the coordinate system is the lattice constant of the 2D array,
- the distance between the two site $i$ and $j$ can be calculated from their coordinates
+ the distance between the two sites $i$ and $j$ can be calculated from their coordinates
 \oneline{
 R_{i,j} = a \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2} \ ,
 }
 where
 \multiline{
 x_i &=&  i \% \mathbb{N} \nonumber \\
-y_i &=& i/\mathbb{N} \ .
+y_i &=& i/\mathbb{N} \ ,
 }
+and $\%$ is the mod operator. 
 Since the angle $\gamma$ between the external field and the 
 intermolecular axis connecting molecules in sites $i$ and $j$ is given by
 \oneline{
@@ -1507,23 +1507,23 @@ essential problem is to solve the time-dependent Schr{\"o}dinger equation
 } 
 Solving the above differential equations  involves the computation of the Hamiltonian matrix at many different 
 time points. To make the simulation as fast as possible, I now explore how to evaluate $H(t)$ efficiently.
-In the calculations, we change the direction of the DC field adiabatically with respect to the time scale of the excitation
- hopping while keeping the magnitude of the field, therefore the coefficients $C_{N_A, 0}$, $C_{N_B, 0}$, $C_{N_A^{'}, 0}$, and $C_{N_B^{'}, 0}$ in \autoref{eqn:hij2D} will remains the same and the time dependence of
-the Hamiltonian matrix is solely due to the time dependence of $\theta_{R}(t)$. Based on this observation, we can
-separate the Hamiltonian matrix into two parts: 
+In the calculations,  the direction of the DC field is changed adiabatically with respect to the time scale of the excitation
+ hopping while the magnitude of the field is kept constant, therefore the coefficients $C_{N_A, 0}$, $C_{N_B, 0}$, $C_{N_A^{'}, 0}$, and $C_{N_B^{'}, 0}$ in \autoref{eqn:hij2D} remain the same and the time dependence of
+the Hamiltonian matrix is solely due to the time dependence of $\theta_{R}(t)$. Based on this observation, 
+the Hamiltonian matrix can be separated into two parts: 
 \oneline{
 H(t) = H_{1}\left[\theta(t), \phi(t) \right] * H_{2} \ ,
 }
 where  ``*'' means element-wise multiplication, $H_{1}$ is the time-dependent part that needs to be 
 updated whenever $\theta(t)$ and $\phi(t)$ change, and $H_{2}$ is the time-independent part that can be 
-computed once and be saved into memory for later retrieval. It is easy to derive from 
- \autoref{eqn:hij2D} the expression for $H_2$:
+computed once and saved into memory for later retrieval. It is easy to derive from 
+ \autoref{eqn:hij2D} the expression for $H_2$, that is
 \oneline{
 H_{2} = \sum_{N_A} \sum_{N_B} \sum_{N_A^{'}} \sum_{N_B^{'}} - \frac{\sqrt{6} F}{2 R_{i,j}^3} D_0^A D_0^B C_{N_A, 0}^{*} C_{N_B, 0}^{*} C_{N_A^{'}, 0}  C_{N_B^{'}, 0} \ .
 }
-Because the angle $\gamma$ in \autoref{eqn:threeAnglesRelation} is only dependent on the positions of the lattice sites, we can further separate the evalulation of $H_1$ into different parts for the purpose of computing efficiency. The expression for $H_1$ is given by
+Because the angle $\gamma$ in \autoref{eqn:threeAnglesRelation} is only dependent on the positions of the lattice sites, we can further separate the evaluation of $H_1$ into different parts for the purpose of computing efficiency. The expression for $H_1$ is given by
 \oneline{
-H_{1}(\theta(t), \phi(t) ) = 3\cos^2[\theta(t) ]*\bigg\{\cos[\phi(t)]*K^{\cos} + \sin[\phi(t)]*K^{\sin} \bigg\}**2 - 1
+H_{1}(\theta(t), \phi(t) ) = 3\cos^2[\theta(t) ]*\bigg\{\cos[\phi(t)]*K^{\cos} + \sin[\phi(t)]*K^{\sin} \bigg\}**2 - 1 \ ,
 }
 where ``**2'' means element-wise square, and $K^{\cos}$ is a matrix whose elements are given by 
 \oneline{
@@ -1542,7 +1542,7 @@ compute $H$.
 For the simulations, I used a complex ordinary differential equation solver called ``ZVODE''\cite{vode, odepack} to solve 
 \autoref{eqn:tdse2d}. Given an initial state $\Psi(t=0)$, the
 derivative $\dot{\Psi}$ of the wavefunction with respect to time, and the desired accurary for the calculation,
-the solver gives the wavefuntion $\Psi(t)$ at a later time $t$. In my experience, the ZVODE solver is not 
+the solver gives the wavefunction $\Psi(t)$ at a later time $t$. In my experience, the ZVODE solver is not 
 efficient for solving a rapidly changing system of differential equations where the potential energy change is very steep. 
 If this is the case, it is better to convert
 the time-dependent Schr\"odinger equation into a real  ordinary differential equation and use the corresponding
@@ -1560,13 +1560,13 @@ and  $\mathbf{H}$ as
 \oneline{
 \mathbf{H} = \mathbf{H}_{\rm real} + i \;\mathbf{H}_{\rm imag} \ ,
 }
-and collecting the real part and imaginary part separately in \autoref{eqn:complexOde}, we obtains two real 
-equations:
+and collecting the real part and imaginary part separately in \autoref{eqn:complexOde}, we obtain two real 
+equation
 \multiline{
-\hbar \mathbf{\dot{C}}_{\rm real} &=& \mathbf{H}_{\rm imag} \mathbf{C}_{\rm real} +  \mathbf{H}_{\rm real} \mathbf{C}_{\rm imag} \nonumber \\
+\hbar \mathbf{\dot{C}}_{\rm real} &=& \mathbf{H}_{\rm imag} \mathbf{C}_{\rm real} +  \mathbf{H}_{\rm real} \mathbf{C}_{\rm imag} \ , \nonumber \\
 \hbar \mathbf{\dot{C}}_{\rm imag} &=& -\mathbf{H}_{\rm real} \mathbf{C}_{\rm real} +  \mathbf{H}_{\rm imag} \mathbf{C}_{\rm imag} \ .
 }
-The above two equations can be written  in the block matrix form:
+The above two equations can be written  in  block matrix form as
 \multiline{
 \hbar \begin{pmatrix}
               \mathbf{\dot{C}}_{\rm real} \\
@@ -1584,17 +1584,17 @@ The above two equations can be written  in the block matrix form:
 }
 which leads to  a real differential equation
 \oneline{
-\hbar \mathbf{\dot{C}}_{\rm new} = \mathbf{H}_{\rm new}\mathbf{C}_{\rm new}
+\hbar \mathbf{\dot{C}}_{\rm new} = \mathbf{H}_{\rm new}\mathbf{C}_{\rm new} \ ,
 }
-that is equivalent to the original Schr\"odinger equation. 
+equivalent to the original Schr\"odinger equation. 
  
-Finally, we discuss a few tricks and approximations that enable us to do the 2D simulations efficiently. For a 2D 
+Finally, I discuss a few tricks and approximations that enable us to do the 2D simulations efficiently. For a 2D 
 molecular array
 with $\mathbb{N}\times\mathbb{N}$ sites, since the couplings between every two sites are included, the dimension 
 of the Hamiltonian matrix is $O(\mathbb{N}^2 \times \mathbb{N}^2)$. For a medium-sized 2D array 
 with $\mathbb{N}=100$, the number of coupled differential equations is about $10^4$, which is close to the limit 
 that our code can handle. As $\mathbb{N}$ becomes larger, the number of differential equations will increase 
-dramatically. This poses a dilemma for us. On one side, we want to limit the size of the crystal so that the computation 
+dramatically. This poses a dilemma. On one side, we want to limit the size of the crystal so that the computation 
 is fast. On the other side,  as we are studying the motion of an exciton wave packet in a DC field whose orientation 
 is changing adiabatically with respect to the excitation hopping, the simulation time period can be long. This requires a 
 large crystal with enough space in which the wave packet can propagate for a relatively long time without hitting the 
@@ -1605,32 +1605,32 @@ packet with a width of $\sim 60$ lattice sites in coordinate space is good for i
 is used for simulations, the crystal size must be much larger than $100 \times 100$, which is beyond the limit size
  that our code can handle.  There are two ways to resolve the small-or-large-crystal dilemma.
  The most obvious choice is to use the nearest neighbor approximation so that each molecule will only interact with
-four molecules that are closest to it. Then the dimension of the Hamiltonian matrix scales like 
+the four molecules that are closest to it. The dimension of the Hamiltonian matrix will then scale like 
 $O(\mathbb{N}\times \mathbb{N})$, and the number  of differential equations drops significantly. However, this 
-approach fails to account for the long-range interaction and misses some characteristics of anisotropy of the dipole-dipole
-interaction as it only considers the interactions only along the $X$-axis and the $Y$-axis. In our simulation, we take 
+approach fails to account for the long-range interaction and misses some characteristics of the anisotropy of the dipole-dipole
+interaction as it only considers the interactions only along the $X$-axis and the $Y$-axis. In the simulation, I take 
 another approach by treating different regions of the crystal separately. 
 As the dipole-dipole interaction decays fast with distance, the lattice sites that are close to the position of the wave 
-packet are most important and should be always taken into account. So we define a computation zone as the 
+packet are most important and should be always taken into account. So I define a computation zone as the 
 square box that encloses the wavepacket, and define the rest of the crystal as
-the supplement zone. At the beginning of  the simulation, we choose a large enough computation zone such that
+the supplement zone. At the beginning of  the simulation, I choose a large enough computation zone such that
 the probability to find excitation at the edges of the zone is almost zero, and
 compute all the interactions between any two molecules inside the zone to form the Hamiltonian matrix. All the 
 other lattice sites beyond the computation zone are ignored. 
 In this way, the size of the Hamiltonian matrix will be determined by the smaller computation 
 zone rather than the whole lattice and the most important part of the long-range interaction is also kept. After each
-time step, we find the new position of the wave packet center and shift the computation zone such that its 
-center coincides with the wave packet center. In the process of the shifting, we lose a small portion of the
+time step, I find the new position of the wave packet center and shift the computation zone such that its 
+center coincides with the wave packet center. In the process of the shifting, I lose a small portion of the
 wave packet because the sites near the boundaries of the computation zone will be removed out of the computation
 zone at the next time point and the excitation population at those sites will also be lost. However, if the compuation 
 zone is large enough, this should not be a problem. 
 Therefore maintaining a small computation zone and dynamically moving it  based on 
 the movement of the wave packet allows for the calculation of the motion of  a wave packet in a much bigger crystal.  
 In \autoref{control-2d-wavepacket}, we have used a computation zone with the size $101\times101$ and 
-the size of the whole crystal is $1001 \times 1001$ (not shown in the figure). During the simulation, we notice that
-the wave packet spreads in the coordinate space as time goes on, but $99\%$ of the wavepacket is still inside the
+the size of the whole crystal is $1001 \times 1001$ (not shown in the figure). During the simulation, I noticed that
+the wave packet spreads in coordinate space as time goes on, but $99\%$ of the wavepacket is still inside the
 computation zone. Because the wave packet spreads over time, our simulation will eventually break up at some point 
-as more and more part of the wave packet will get lost at the boundaries of the computation zone. 
+as more and more part of the wave packet gets lost at the boundaries of the computation zone. 
 
 
 
@@ -1668,13 +1668,13 @@ localize collective excitations \cite{perez-rios2010}.
  Because the natural time evolution of the wave packet in a disorder potential may lead to enhancement of the probability in certain
 regions of the lattice, it is necessary to distinguish the effect of the vacancy-induced localization and the effect of the focusing phase
 transformation. To quantify these two effects, we define two factors:
-the enhancement of the probability at the target molecule with respect to the initial value,
+the enhancement of the probability at the target molecule with respect to the initial value, that is
 \begin{equation}
 \eta = \frac{p' (t=t_{\ast})}{p(t=0)},
 \label{eta}
 \end{equation}
-and the ratio of the probability to find the excitation on the target molecule with ($p'$) and without ($p$) the focusing
-phase transformation,
+and the ratio of the probability to find the excitation on the target molecule with ($p'$) and without ($p$) the 
+phase transformation, that is
 \begin{equation}
 \chi = \frac{p' (t=t_{{\ast}})}{p (t=t_{ {\ast}})}.
 \end{equation}
@@ -1698,7 +1698,7 @@ molecule (71, 71) reaches maximum  for a given phase transformation. (d) The pro
 distribution of the wave function at the focusing time when the
 focusing scheme is not applied. The calculations are performed
 with the same parameters as in Figure \ref{focusing-2d}. The
-probabilities in (b) and (d) are magnified by 16 and 6
+probabilities in (b) and (d) are magnified by 16 and 6,
 respectively. } \label{focusing-with-vacancy}
 \end{figure}
 
@@ -1754,7 +1754,7 @@ The initial state for an ensemble of molecules on a lattice with multiple vacanc
 \end{equation}
 where 
 \begin{eqnarray}
-| i \rangle = |e_i\rangle \prod_{j\neq i} |g_j\rangle
+| i \rangle = |e_i\rangle \prod_{j\neq i} |g_j\rangle \ ,
 \end{eqnarray}
 and the indexes $i$ and $j$ run over all occupied sites. After a long evolution time $T$, the probability amplitude for the excitation to reside on a particular target molecule is given by  
 \begin{equation}
@@ -1778,7 +1778,7 @@ individual site. It may be more desirable to work with blocks of several lattice
 can be divided into $M$ blocks, each containing many molecules, and that the blocks can be perturbed individually, the excitation probability amplitude at the target molecule at time $T$ is 
 %\tz{Let us divide the whole array into $N$ blocks (``channels''), each containing many molecules, in such a way that it is possible to apply an overall phase to molecules in one block without perturbing the others. The excitation at the target molecule at time $T$ is}
 %
-\begin{equation} c_{o}(T) =  \sum_{\gamma=1}^M c_{\gamma}(T)
+\begin{equation} c_{o}(T) =  \sum_{\gamma=1}^M c_{\gamma}(T) \ ,
 \label{blocks-contribution}
 \end{equation}
 %
@@ -1789,7 +1789,7 @@ where the contribution from block $\gamma$ is given by
 \label{inblock-contribution}
 \end{equation}
 In \autoref{inblock-contribution}, the time evolution operator $U$ depends on the randomness of vacancy sites 
-and thus is out of control, but we can manipulate the initial state $c_i(t=0)$. 
+and thus is out of our control, but we can manipulate the initial state $c_i(t=0)$. 
 %
 %
 %---------------------------------------------------------------
@@ -1834,8 +1834,8 @@ It turns out that the contributions
 from different blocks can be made to interfere constructively by adding
  a phase $\exp(-i \phi_{\gamma})$ to each occupied site in block
  $\gamma$. For $M$ blocks in the array and quasi-random evolution matrix, simply setting all the phases equal
- may lead to $\sim M$-fold increase of the excitation probability at the target molecule, as compared to
- a sum of $M$ quasi-random phasors in \autoref{blocks-contribution} \cite{opaque-1}.
+ may lead to an $\sim M$-fold increase of the excitation probability at the target molecule, as compared to
+ the sum of $M$ quasi-random phasors in \autoref{blocks-contribution} \cite{opaque-1}.
 
 Similarly to optics, the phases $-\phi_\gamma$ which must be added in each block, can be found experimentally provided
 that the same (or similar) realization of disorder persists in a series of
@@ -1864,9 +1864,9 @@ probabilities in (b) and (d) are magnified by 60 and 5,
 respectively. } \label{t-matrix-focusing}
 \end{figure}
 
-For a proof-of-principle calculation, we consider a 2D lattice of size 101$\times$101 with 60\% of sites vacant and 
+For a proof-of-principle calculation, we consider a 2D lattice of size 101$\times$101 with 60\% of the sites vacant and 
 each non-vacant site occupied by a single LiCs molecule. 
-First, we figure out the phase $\exp(-i\phi_{\gamma})$ applied to block $\gamma$.  Due to time reversibility of the time
+First, we determine the phase $\exp(-i\phi_{\gamma})$ applied to block $\gamma$.  Due to time reversibility of the time
 evolution operator $U(T)$ and \autoref{inblock-contribution}, we obtain 
 %the phase $\exp(-i \phi_{M})$ can be obtained as follows:
 \begin{equation}
@@ -1878,7 +1878,7 @@ calculated by performing a backward time propagation starting from a
 local excitation at site ``$o$'' and calculating the coefficient
 $c_j(t)$ at time $-T$. 
 Alternatively, one can propagate the evolution equations forward in time, finding $c_j(T)$: 
-Since the Hamiltonian (1) is real, its eigenfunctions are real, and the evolution matrix $U$ is symmetric, $U_{o, j} = U_{j, o}$. Thus we find
+Since the Hamiltonian of \autoref{ham} is real, its eigenfunctions are real, and the evolution matrix $U$ is symmetric, $U_{o, j} = U_{j, o}$. Thus we find
 \begin{equation}
 c_j(T) = \sum_{i}U_{j, i}^\gamma (T) c_i(0) = U_{j, o}^\gamma (T) \ ,
 \end{equation}
@@ -1936,7 +1936,7 @@ An experimental observation of the excitations described here can be achieved by
 
 We have presented numerical calculations for an ensemble of polar molecules trapped on an optical lattice that demonstrate the feasibility of
 both momentum-shifting and focusing of collective excitations by applying external laser fields, with parameters that can be easily achieved in the laboratory.
-We have also investigated the effect of disorder potential arising from incomplete population of the lattice. Our results show that the phase transformations
+We have also investigated the effect of the disorder potential arising from incomplete population of the lattice. Our results show that the phase transformations
  leading to focusing of collective excitations on different regions of a 2D lattice remain effective in the presence of vacancies
 with concentrations not exceeding 10 \%. For systems with larger concentrations of vacancies and affected by strong disorder potentials, we propose an alternative procedure based on engineering constructive interference of the wave function contributions arising from difference parts of the lattice. 
 
