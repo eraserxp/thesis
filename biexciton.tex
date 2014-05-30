@@ -65,15 +65,15 @@ where $J(n-m) = \langle e_{n} , g_{m} | \hat{V}_{dd}(n-m) | g_{n}, e_{m} \rangle
  $|g\rangle$ and $|e\rangle$, and the operators $\hat{P}_n^\dag$ and $\hat{P}_n$ are defined by the relations 
 $\hat{P}_n^\dag | g_{m} \rangle = \delta_{nm} | e_{n}
 \rangle$ and $\hat{P}_n | e_{m} \rangle = \delta_{nm} | g_{n} \rangle$.
-The $\hat{P}_n$ and $\hat{P}_m$ operators satisfy the bosonic commutation if $n \neq m$, and the fermionic commutation if $n = m$, as shown by \autoref{eqn:bosonCommutation} and \autoref{eqn:fermionCommutation}. 
-%\begin{equation}
-%\p{n}\pd{m} - \pd{m}\p{n} = \delta_{n,m} = 0 \  ,
-%\end{equation}
-% if $n \neq m$, and the fermionic commutation
-%\begin{equation}
-%\p{n}\pd{m} + \pd{m}\p{n} = 1 \  ,
-%\end{equation}
-% if $n = m$ \cite{agranovich}.
+The $\hat{P}_n$ and $\hat{P}_m$ operators satisfy the Pauli commutation relation, as shown by \autoref{eqn:bosonCommutation} and \autoref{eqn:fermionCommutation}. More specifically, by omitting the subscript ``$e$'', we have the fermionic commutation
+\begin{equation}
+\p{n}\pd{m} + \pd{m}\p{n} = 1 \  ,
+\end{equation}
+ if $n = m$, and the bosonic commutation
+\begin{equation}
+\p{n}\pd{m} - \pd{m}\p{n} = \delta_{n,m} = 0 \  ,
+\end{equation}
+ if $n \neq m$ \cite{agranovich}.
  It is useful to combine the two commutation relations as 
 \begin{equation}
 \p{n}\pd{m} + \pd{m}\p{n} = \delta_{m,n} + (1-\delta_{m,n})2\pd{m}\p{n} \ ,  \label{eqn:commutation-relation}
@@ -96,7 +96,7 @@ D(n - m)& =& \langle e_{n}, e_{m} | \hat{V}_{dd}(n-m) | e_{n}, e_{m} \rangle +
 \langle g_{n}, g_{m} | \hat{V}_{dd}(n-m) | g_{n}, g_{m} \rangle  \nonumber \\
 & & - 2\langle e_{n}, g_{m} |\hat{V}_{dd}(n-m) | e_{n}, g_{m} \rangle ,
 \end{eqnarray} 
-and the factor 1/2 is there to cancel the effect of double couting of the pairs $(n, m)$. In the above summations, we
+and the factor 1/2 is there to cancel the effect of double counting of the pairs $(n, m)$. In the above summations, we
  have the restriction that $m$ cannot equal to $n$ because two excitations cannot sit at the same lattice site (or in other
  words a molecule can't be excited twice to the same excited state). The dipole - dipole interaction operator
  $\hat{V}_{dd}(n-m)$ can only couple states of different parity \cite{RotSpect}. If $|g \rangle$ and $| e \rangle$ are
@@ -203,7 +203,7 @@ respectively. The right hand side of \autoref{eqn:schrodinger} is
 \oneline{
 E\ket{\psi} = E\sum_{n,m}C_{n,m}\pd{n}\pd{m} \ket{0} \ .
 }
-Given the fact that $\pd{n}\pd{m}$ and $\pd{m}\pd{n}$ are equivalent, a comparsion of both sides of the
+Given the fact that $\pd{n}\pd{m}$ and $\pd{m}\pd{n}$ are equivalent, a comparison of both sides of the
  Schr{\"o}dinger equation yields the following equation for $C_{n, m}$ when $n \neq m$
 \oneline{
 (E - 2E_0 )C_{n, m} -  \sum_{n'}J(n'-n)C_{n', m} -  \sum_{n'}J(n'-m)C_{n, n'} = D(n-m)C_{n,m} \ . \label{eqn:nNotEqualm}
@@ -488,18 +488,24 @@ Substituting  \autoref{eqn:CKk} and \autoref{eqn:GKConvertedToGn} into \autoref{
 \text{\circled{10}} = \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1 - k_2 ) l /2} \ ,
 }
 \multiline{
-\text{\circled{11}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \sum_{n} D(n) e^{i (k_1 - k_1^{'} )n} \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
+\text{\circled{11}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \sum_{n} D(n) e^{i (k_1 - k_1^{'} )n}\nonumber \\
+&&  \hspace{2cm} \times \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
+\nonumber \\
 &=& \frac{1}{N_{\rm mol} \sqrt{N_{\rm mol}} }\sum_{m,n,l}  \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } G^{K}(m) e^{- i (k_1 - k_2 ) m /2} D(-n) e^{-i(k_1 - k_1^{'})n}  \nonumber \\
-&& \hspace{4cm} \times C^{K}(l)   e^{- i \left[k_1^{'} - (k_1 + k_2 - k_1^{'} )\right] l /2}  \nonumber \\
-&=&  \frac{1}{N_{\rm mol} \sqrt{N_{\rm mol}} }\sum_{m,n,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} D(n) e^{-i k_1 n }   C^{K}(l)   e^{i (k_1 + k_2 ) l /2}   \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } e^{i k_1^{'} (n-l)}\nonumber \\
+&& \hspace{4cm} \times C^{K}(l)   e^{- i \left[k_1^{'} - (k_1 + k_2 - k_1^{'} )\right] l /2}  \nonumber \\ 
+\nonumber \\
+&=&  \frac{1}{\left(N_{\rm mol}\right)^{3/2}  }\sum_{m,n,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} D(n) e^{-i k_1 n }   C^{K}(l)   e^{i (k_1 + k_2 ) l /2}  \sum_{\substack{k_1^{'} + k_2^{'} \\= k_1 + k_2} } e^{i k_1^{'} (n-l)}\nonumber \\
 &=&  \frac{1}{ \sqrt{N_{\rm mol}} } \sum_{m,n,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} D(n) e^{-i k_1 n }   C^{K}(l)   e^{i (k_1 + k_2 ) l /2} \delta_{n,l} \nonumber \\
 &=& \frac{1}{ \sqrt{N_{\rm mol}} } \sum_{m,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2}D(l)C^{K}(l) e^{-i(k_1 - k_2 )l/2} \ ,
 }
 \multiline{
-\text{\circled{12}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \left[ E_0 + \sum_{n} J(n) e^{i k_1^{'} )n} \right] \frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
+\text{\circled{12}} &=& \frac{1}{N_{\rm mol}} \sum_{m} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } \left[ E_0 + \sum_{n} J(n) e^{i k_1^{'} )n} \right] \nonumber \\
+&&  \hspace{2cm} \times\frac{1}{\sqrt{N_{\rm mol}}} \sum_{l} C^{K}(l) e^{- i (k_1^{'} - k_2^{'} ) l /2} \nonumber \\
+\nonumber \\
 &=&  \frac{1}{\sqrt{N_{\rm mol}} }\sum_{m,n,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} e^{ i (k_1 + k_2 ) l /2} \nonumber \\
-&& \hspace{1cm}\times\left[
+&& \hspace{0.2cm}\times\left[
 E_0   C^{K}(l) \frac{1}{N_{\rm mol}} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } e^{-i k_1^{'} l} + J(l) C^{K}(l)  \frac{1}{N_{\rm mol}} \sum_{k_1^{'} + k_2^{'} = k_1 + k_2 } e^{i k_1^{'} (n-l)} \right] \nonumber \\
+\nonumber \\
 &=& \frac{1}{\sqrt{N_{\rm mol}} }\sum_{m,n, l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} e^{ i (k_1 + k_2 ) l /2}\left[ E_0   C^{K}(l) \delta_{l,0} + J(l) C^{K}(l)\delta_{l,n}\right] \nonumber \\
 &=& \frac{1}{ \sqrt{N_{\rm mol}} }\sum_{m,l} G^{K}(m) e^{- i (k_1 - k_2 ) m /2} J(l) C^{K}(l) e^{ i K l/2} 
 }
@@ -618,17 +624,17 @@ two-exciton states. (c)$\theta$-dependence of the biexciton binding energy $\Del
 
 
 For molecules in an optical lattice, the magnitudes of $J$ and $D$ depend on the strength of the applied electric field
- and the angle between the field and the molecular array  ($\theta$), as seen in figure (\ref{fig:HowDJChanges} c).  We
+ and the angle between the field and the molecular array  ($\theta$), as seen in \autoref{fig:HowDJChanges} (c).  We
  calculate these parameters for a 1D array of $^1\Sigma$ polar molecules (such as alkali metal dimers produced in
  ultracold molecule experiments) trapped on an optical lattice with the lattice separation $a = 400$ nm.
- Figure (\ref{fig:HowDJChanges} b)
+ \autoref{fig:HowDJChanges} (b)
  shows that for a fixed angle $\theta$ the ratio $D/J$ increases as the electric field magnitude increases. 
 For LiCs molecules, the condition of \autoref{biexc-formation} is satisfied for electric fields $>3.6$~kV/cm. Note that the
  ratio $D/J$ is independent of $\theta$. 
 
  Frenkel excitons are quasiparticles characterized by an effective mass, $m_{\rm eff}$. The sign of $J$ determines the
  sign of the  effective mass \cite{felipe}: negative $J$ corresponds to positive $m_{\rm eff}$ and vice versa, as seen
- in figure \ref{fig:HowDJChanges} d). Due to the linearity of the Schr\"{o}dinger equation, a positive potential is
+ in \autoref{fig:HowDJChanges} (d). Due to the linearity of the Schr\"{o}dinger equation, a positive potential is
  attractive for particles with negative mass, just like a negative potential is attractive for particles with positive mass. 
  Because the signs of $J$ and $D$ are the same (and consequently the signs of $D$ and $m_{\rm eff}$ are opposite), the
  dynamical interaction of \autoref{dynamical} between excitons in this system is attractive.
@@ -646,17 +652,19 @@ To demonstrate the formation of the biexciton and calculate the biexciton energy
 \end{eqnarray}
 where $K = k_1+k_2$ and $k = (k_1 - k_2)/2$, and $k_1$ and $k_2$ denote the wavevectors of the interacting
  excitons. The Hamiltonian matrix is diagonalized numerically for fixed values of $K$, which is conserved.
- Figure (\ref{fig:biexcitonSpectrum} c) shows that for $\theta = 90^o > \theta^*=\arccos(1/\sqrt{3})$ the biexciton energy is
+ \Autoref{fig:biexcitonSpectrum} (c) shows that for $\theta = 90^o > \theta^*=\arccos(1/\sqrt{3})$ the biexciton energy is
  above the two-exciton continuum (binding for particles with negative mass), and for
  $\theta = \arccos \sqrt{2/3} <  \theta^*$ below it (binding for particles with positive mass). The binding energy of the
  biexciton changes sign at $\theta = \theta^*$. The biexciton wave function $\psi_{K}(r)$ is plotted in
-figure (\ref{fig:biexcitonSpectrum} d). \Autoref{fig:HowDJChanges} and \autoref{fig:biexcitonSpectrum} thus illustrate
+\autoref{fig:biexcitonSpectrum} (d). \Autoref{fig:HowDJChanges} and \autoref{fig:biexcitonSpectrum} thus illustrate
  that the biexciton binding energy and size can be tuned by varying the strength and orientation of the electric field. 
  
 
 
 \section{Non-optical creation of biexcitons} 
-The possibility of forming Frenkel biexcitons has been proposed quite a long time ago \cite{efremov1973}. However, in 
+The possibility of forming Frenkel biexcitons has been proposed quite a long time ago\cite{ biexciton-theory-2}.  
+%\cite{efremov1973}. 
+However, in 
 contrast to the well-known Wannier-Mott biexcitons in semiconductors, Frenkel biexcitons in solid-state molecular
  crystals are very difficult to observe. 
 We now explain the reasons. First, many molecular crystals, such as anthracene or naphthalene,  possess inversion
@@ -909,7 +917,9 @@ We have shown that rotational excitation of molecules trapped on an optical latt
  biexcitons and tuning of the electric field to the regime of zero binding energy can
  thus be used for the controlled preparation of entangled pairs of non-interacting excitons. In order to observe the
  biexcitons, one could measure correlations between the populations of the rotationally excited states of molecules on
- different lattice sites using the method proposed in Ref. \cite{demille}. 
+ different lattice sites  by applying a gradient of an electric field and detecting resonant transitions from Stark-shifted
+ levels, as proposed in Ref. \cite{demille}.
+%using the method proposed in Ref. \cite{demille}. 
 
 
 

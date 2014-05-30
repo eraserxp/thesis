@@ -45,8 +45,8 @@ where $z = E + i\eta$ is a complex energy with a small imaginary part $\eta$. Fr
 }
 The above equation  describes the system compactly. 
 
-Depending on the system under consideration, the creation and anhilation opreators will satisfy different commutation
-rules. For instance, if the particles are femions, $\pd{n}$ and $\p{m}$ satisfy the anticommutation relations
+Depending on the system under consideration, the creation and annihilation operators will satisfy different commutation
+rules. For instance, if the particles are fermions, $\pd{n}$ and $\p{m}$ satisfy the anticommutation relations
 \multiline{
 &&\{\pd{n}, \p{m}\} = \pd{n}\p{m} + \p{m}\pd{n} = \delta_{n, m} \ , \nonumber \\
 &&\{\pd{n}, \pd{m}\} = \{\p{n}, \p{m}\} = 0 \ ,
@@ -98,8 +98,11 @@ G(n, m, n^{\prime}, m^{\prime}; z) =  \bra{n} \bra{m} \hat{G}(z) \ket{n^{\prime}
 }
 Similarly, substituting \autoref{eqn:excitonCommutation} into the right hand side of \autoref{eqn:startEqnForG}  gives
 rise to 
-\oneline{
- \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} }= \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
+\multiline{
+ \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} }&=&\matelement{0}{\p{n}\p{m} \pd{n'}\pd{m'}}{0} \nonumber \\
+&=& \matelement{0}{\p{n}\left[ \delta_{m, n'} + (1- \delta_{m, n'})  \pd{n'}\p{m}\right]\pd{m'}}{0} \nonumber \\
+&=&
+ \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
 }
 Therefore, the equation of the motion for the Green's function is 
 \multiline{
@@ -262,7 +265,7 @@ $\mathbf{V}_{n-1} = \mathbf{\Tilde{A}}_{n-1} \mathbf{V}_{n} $ into \autoref{eqn:
 \multiline{
 \mathbf{V}_{n} = \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right]^{-1}\boldsymbol\beta_{n}(z) \mathbf{V}_{n+1} \ ,
 }
-which upon comparsion with \autoref{eqn:definitionForTildeA} gives
+which upon comparison with \autoref{eqn:definitionForTildeA} gives
 \multiline{
 \mathbf{\Tilde{A}}_{n} = \left[ 1- \boldsymbol\alpha_{n}(z) \mathbf{\Tilde{A}}_{n-1}\right]^{-1}\boldsymbol\beta_{n}(z)  \ . \label{eqn:recursionForTildeA}
 }
@@ -287,7 +290,7 @@ center until $\mathbf{\Tilde{A}}_{K_c - 1}$ is reached. We have to stop there be
 \autoref{eqn:definitionForTildeA} is not valid for  $\mathbf{V}_{K_c}$. 
 We then proceed from the right boundary to the center and calculate $\mathbf{A}_{2N-1}$, 
 $\mathbf{A}_{2N-2}$, $\cdots$ and stop when we reach $\mathbf{A}_{K_c + 1}$ beyond which
-\autoref{eqn:definitionForA} is not valid. Knowning the value of $\mathbf{A}_{K_c + 1}$ and 
+\autoref{eqn:definitionForA} is not valid. Knowing the value of $\mathbf{A}_{K_c + 1}$ and 
 $\mathbf{\Tilde{A}}_{K_c - 1}$, we rewrite $\mathbf{V}_{K_c +1}$ and $\mathbf{V}_{K_c - 1}$ in terms of
  $\mathbf{V}_{K_c}$ using
 \multiline{
@@ -575,7 +578,7 @@ $\mathbf{R}$. The Hamiltonian has the following useful feature:
 \oneline{
 H \ket{\mathbf{R}} = \mathbf{t}_{\mathbf{R}, \mathbf{R-1}} \ket{ \mathbf{R-1}} + h_{\mathbf{R}, \mathbf{R}}  \ket{ \mathbf{R}} + \mathbf{t}_{\mathbf{R}, \mathbf{R+1}}  \ket{ \mathbf{R+1}} \ , \label{eqn:propertyLocalState}
 }
-where $h_{\mathbf{R}, \mathbf{R}}$ is the on-site energy, $\mathbf{t}$ are the matices related to the hopping terms, and 
+where $h_{\mathbf{R}, \mathbf{R}}$ is the on-site energy, $\mathbf{t}$ are the matrices related to the hopping terms, and 
 $\ket{ \mathbf{R-1}}$ and $\ket{ \mathbf{R+1}}$ denote the states whose particle 
 positions are 1 site  different from that of $\ket{ \mathbf{R}}$. As a specific example, 
 \autoref{eqn:hamOn2particleState} clearly demonstrates this property of the local state $\ket{ \mathbf{R}} = 

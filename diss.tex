@@ -19,7 +19,7 @@
 %%   oneside, twoside
 %%       whether to format for single-sided or double-sided printing
 %%   balanced
-%%       when double-sided, ensure page content is centred
+%%       when double-sided, ensure page content is centered
 %%       rather than slightly offset (the default)
 %%   singlespacing, onehalfspacing, doublespacing
 %%       set default inter-line text spacing; the ubcdiss class
@@ -388,7 +388,7 @@
   \def\chapterautorefname~#1\null{chapter~(#1)\null}%
   \def\sectionautorefname~#1\null{section~(#1)\null}%
   \def\subsectionautorefname~#1\null{section~(#1)\null}%
-  \def\figureautorefname~#1\null{figure~(#1)\null}%
+  \def\figureautorefname~#1\null{Fig.~#1\null}%
   \def\tableautorefname~#1\null{table~(#1)\null}%
   \def\equationautorefname~#1\null{Eq.~(#1)\null}%
 
@@ -397,7 +397,7 @@
   \def\chapterautorefname~##1\null{Chapter~(##1)\null}%
   \def\sectionautorefname~##1\null{Section~(##1)\null}%
   \def\subsectionautorefname~##1\null{Section~(##1)\null}%
-  \def\figureautorefname~##1\null{Figure~(##1)\null}%
+  \def\figureautorefname~##1\null{Figure~##1\null}%
   \def\tableautorefname~##1\null{Table~(##1)\null}%
   \def\equationautorefname~##1\null{Eq.~(##1)\null}%
   \autoref{#1}%
@@ -506,6 +506,10 @@
 %% avoiding reprocessing the entire file.
 %\includeonly{intro,conclusions}
 %\includeonly{discussion}
+
+% allow long equations to appear on two pages
+%page breaks are allowed, but avoided if possible
+\allowdisplaybreaks[0]
 
 \begin{document}
 
