@@ -35,7 +35,7 @@ Jin2011, Jin2012, quemener2012, Baranov2012}.
 %Jin2011, Jin2012, quemener2012, Baranov2012}. 
 %The word ``ultracold'' merits some explanation. 
 By convention, a distinction is made between two ranges of 
-temperature $T$: cold means that 1 mK $<$ $T$ $<$ 1 K; ultracold means that $T < $ 1 mK.   
+temperature $T$: cold 1 mK $<$ $T$ $<$ 1 K, and ultracold $T < $ 1 mK.   
 %Different from its literal 
 %meaning, the word  ``ultracold'' doesn't directly 
 %refer to temperatures  as most ultracold systems under experimental investigations are not in thermodynamic 
@@ -43,9 +43,9 @@ temperature $T$: cold means that 1 mK $<$ $T$ $<$ 1 K; ultracold means that $T <
 %quantify the kinetic energy of particles according to the relation $E_{\rm kin} = k_{\rm B} T$ where $k_{\rm B}$ is the 
 %Boltzmann constant.   So the actual meaning of ``ultracold'' is ``ultra-slow'', referring to the translational motion of 
 %particles. 
-At ultracold temperatures, the translational motion of particles has a very small velocity of a few cm/s or even smaller, in 
+At ultracold temperatures, the translational motion of particles has a velocity that can be as low as a few cm/s, in 
 sharp contrast with the speed of a few hundred m/s at room temperatures. 
-The small kinetic energies associated with the ultra-slow translational motion have some important consequences, which is summarized below.
+The small kinetic energies associated with the ultra-slow translational motion have some important consequences, summarized below.
 %These ultracold temperatures have some important consequences, which is summarized below.
 
 First, ultracold temperatures allow for novel macroscopic quantum states of matter. A particle in the gaseous phase behaves as a quantum-mechanical 
@@ -64,7 +64,7 @@ Second, ultracold temperatures lead to new collision phenomena.
 Because of the large de Broglie wavelengths of ultracold particles, their low-energy collision is 
 qualitatively different from the collision at thermal temperatures. At ultracold temperatures, particles
 do not have well-defined trajectories in phase space, the spherical harmonics $Y_{lm}(\theta, \phi)$, also called 
-partial waves with $l = 0, 1, 2, \cdots$ that represent the angular momenta of the rotational motion of the collision complex,  are more suitable to describe the collisions. In the absence of external fields, as $T 
+partial waves with $l = 0, 1, 2, \cdots$ that represent the angular momenta of the rotational motion of the collision complex,  are commonly used to describe the collisions. In the absence of external fields, as $T 
 \rightarrow 0$, the quantum threshold regime is reached and only the lowest allowed partial wave contributes to the 
 collision\cite{wigner1948, krems2005}. For collisions between reactive particles at ultracold temperatures, the quantum phenomena are
 even more dramatic. As the kinetic energy is so small, the tunneling under reaction barriers becomes the 
@@ -139,7 +139,7 @@ in a molecule and is given by
 \boldsymbol{\mu} = \sum_{n} q_n \mathbf{r}_{n} \ ,
 }
 where $\mathbf{r}_{n}$ gives the positions of charges $q_n$ and the sum is over all charges in the molecule including 
-electrons and nuclei. For molecules in a particular electronic and vibrational state, it is convenient to define the
+the electrons and nuclei. For molecules in a particular electronic and vibrational state, it is convenient to define the
 dipole operator as $\mathbf{d} = \matelement{\psi}{\boldsymbol{\mu}} {\psi}$ by integrating over the electronic and
 vibrational wavefunction $\psi$. The dipole moment operator only couples states with different
 parity. Take a simple $^{1}\Sigma$ molecule for example,  its rotational eigenstate $\ket{J, M}$  has a well-defined parity 
@@ -147,14 +147,16 @@ determined by the angular momentum quantum number $J$ in the following way:
 \oneline{
 P \ket{J, M} = (-1)^{J} \ket{J, M} \ ,
 }
-where $P$ is the parity operator. It follows that molecules in a rotational eigenstate have no net dipole moment as $\matelement{J, M}{\mathbf{d}} {J, M} = 0$ in the laboratory frame. At ultracold temperatures, in consideration of stability against inelastic collisions, 
-molecules are usually prepared in their electronic, vibrational and rotational ground state, therefore they possess no net
-dipole moment and interact via a van der Waals attraction which falls off as $\frac{1 }{r^6}$ with respect to the
+where $P$ is the parity operator. It follows that molecules in a rotational eigenstate have no net dipole moment as $\matelement{J, M}{\mathbf{d}} {J, M} = 0$ in the laboratory frame. 
+%At ultracold temperatures, in consideration of stability against inelastic collisions, 
+%molecules are usually prepared in their electronic, vibrational and rotational ground state, therefore they possess no net
+If molecules are prepared in their electronic, vibrational and rotational ground state, they possess no net
+dipole moment and interact at large intermolecular distances via a van der Waals attraction which falls off as $\frac{1 }{r^6}$ with respect to the
 interparticle separation $r$. With the application of electric fields that mix rotational states of different parity, static or 
-oscillating dipoles are induced in molecules, leading to a new type of interaction -- dipole-dipole interaction, which falls off
+oscillating dipoles are induced in molecules, leading to nonzero interaction -- dipole-dipole interaction, which falls off
 as $\frac{1}{r^3}$ and dominates over the van der Waals interaction at long range. The dipole-dipole interaction can be
 modified by external fields to change the strength and shape of the interaction potential between 
-polar molecules\cite{micheli2007, buchler2007a}. This tunability, combined with the anisotropy characteristic of 
+polar molecules\cite{micheli2007, buchler2007a}. This tunability, combined with the anisotropy characteristic of the
 dipole-dipole interaction, has inspired a large body of research on the condensed matter theory of dipolar quantum 
 gases\cite{baranov2008, lahaye2009, trefzger2011, Baranov2012}. 
 
@@ -229,7 +231,8 @@ to control collective spin excitations\cite{perez-rios2010}, to engineer open qu
 \section{Thesis outline}
 \label{sec:outline}
 
-The current thesis extends the work on collective excitations in several new directions. In the following, I outline the research conducted in the thesis chapter by chapter. 
+The current thesis extends the work on collective excitations in several new directions. 
+%In the following, I outline the research conducted in the thesis chapter by chapter. 
 %The outline of the whole thesis is the following: \autoref{ch:background} introduces the 
 %background material that can help the reader to understand the research of the thesis; \autoref{ch:conclusion} summarizes
 %the thesis and gives comments on future research directions; the remaining chapters describe the research work of 
@@ -238,40 +241,46 @@ The current thesis extends the work on collective excitations in several new dir
 %Unlike the previous 
 %studies of our group which considered  only one excitation, the research presented in \autoref{ch:biexciton} increased the number of 
 %excitations to two and three and investigated the binding mechanism of these excitations. 
-The research presented in \autoref{ch:biexciton} investigates the interactions between multiple collective excitations, and
+\autoref{ch:biexciton} investigates the interactions between multiple collective excitations, and
 in particular the binding mechanism of these excitations. 
 We study a particular kind of quasiparticles -- rotational Frenkel excitons in a 
 periodic lattice potential. These quasiparticles are the collective excitonic modes of polar molecules 
 trapped on an optical lattice in the Mott insulator phase, and are induced by the dipole-dipole interaction which couples the 
-rotational states of different molecules. As superpositions of elementary excitations localized on different
- lattice sites, the rotational excitons  bear a strong resemblance to the electronic excitons in organic solids\cite{agranovich}.
-We show that the application of an moderate electric field,  through mixing rotational states of different parity, can give 
-rise to a non-linear dynamic interaction $D$ between the rotational excitons, which doesn't exist in 
-natural molecular crystals with inversion symmetry. We find that the dynamic interaction is always attractive and its 
+rotational states of different molecules. 
+%As superpositions of elementary excitations localized on different
+% lattice sites, the rotational excitons  bear a strong resemblance to the electronic excitons in organic %solids\cite{agranovich}.
+We show that the application of a moderate electric field,  through mixing rotational states of different parity, can give 
+rise to a non-linear dynamic interaction $D$ between the rotational excitons. The dynamic interaction is always attractive and its 
 strength can be tuned by the external DC field. This leads to controllable formation of biexciton states with tunable binding
 energy, as demonstrated numerically for a 1D array of LiCs molecules on an optical lattice. We also obtain the 
 two-excitation spectra of the rotational excitons and derive analytical expressions for the wavefunction of biexciton states 
 using the nearest-neighbor approximation. In an effort to extend the theoretical model of exciton binding, we calculate 
-three-excitation spectra of rotational excitons and observed the three-body bound states of the excitons.
-To make our theoretical study of biexciton states more relevant to experimental investigation, we proposed an nonoptical way to create the rotational biexciton states, avoiding the difficulty involved in 
-direct excitation. This method makes use of the resonance between the high-energy (N=2) excitonic states 
-and the biexciton states of low-energy (N=1) excitons and can produce biexcitons with high efficiency. 
+three-excitation spectra of rotational excitons and observe the three-body bound states of the excitons.
+To make our theoretical study of biexciton states more relevant to experiments, we propose an nonoptical way to create the rotational biexciton states, avoiding the difficulty involved in 
+direct excitation. This method makes use of the resonance between the high-energy ($N=2$) excitonic states 
+and the biexciton states of low-energy ($N=1$) excitons and can produce biexcitons with high efficiency. 
 
-In \autoref{ch:energy-transfer}, 
-the study is focused on the propagation properties of excitations. This chapter proposes a new scheme to control the 
+\autoref{ch:energy-transfer} focuses on the propagation properties of excitations. This chapter proposes a new scheme to control the 
 energy transfer in ordered and disordered crystals. 
 %In \autoref{ch:energy-transfer}, we studied a more general type of quasiparticles -- collective excitations in an array of 
 %coupled monomers and considered the generic problem of excitation energy transfer in the array of monomers. In our research, the excitations can be of any type and the array can be ordered or disordered.  
 We 
 show that the energy transfer through an array of coupled quantum monomers can be controlled by applying a 
-transient external potential which modifies the phase of the quantum states of the individual monomers. The success of the method relies 
-on two very different time scales in the quantum evolution of the many-body states: one time scale is related to the 
-local excitation of a single monomer, and the other depends on the interaction between two monomers that is responsible
-for the propagation of excitation energy. If the former time scale is much faster than the latter, it is possible to find a suitable
-local perturbation to a single monomer that is adiabatic with respect to the former time scale but is sudden
-with respect to the latter time scale.  In an ordered crystal, if such perturbations are applied to give different phases to 
-different monomers, the quasimoment of the collective excitation is modified and its propagation behavior is influenced
-as well. Our research shows that different phase transformations can accelerate or decelerate quantum energy transfer and 
+transient external potential which modifies the phase of the quantum states of the individual monomers. The success of the 
+method relies 
+on two very different time scales in the quantum evolution of the many-body states, namely the fast time scale 
+corresponding to the excitation of a single monomer and the slow one associated with the excitation hopping between 
+monomers.  Because of these two different time scales,  it is possible to find a suitable
+local perturbation to a single monomer that is adiabatic with respect to the monomer excitation but is sudden
+with respect to the excitation hopping. 
+%one time scale is related to the 
+%local excitation of a single monomer, and the other depends on the interaction between two monomers that is responsible
+%for the propagation of excitation energy. If the former time scale is much faster than the latter, it is possible to find a suitable
+%local perturbation to a single monomer that is adiabatic with respect to the former time scale but is sudden
+%with respect to the latter time scale. 
+ In an ordered crystal, if such perturbations are applied to give different phases to 
+different monomers, the momentum of the collective excitation is modified and its propagation behavior is influenced
+as well. Our work shows that different phase transformations can accelerate or decelerate quantum energy transfer and 
 spatially focus delocalized excitations onto different parts of those ordered arrays. On the other hand, for a completely disordered array,  random scattering at numerous lattice sites disturbs the above phase transformations. In this case,  inspired by the ``transfer matrix'' methods for focusing  a 
 collimated light beam in an opaque medium\cite{opaque-1, Gigan-TMeasure-PRL10, Mosk-NPhot10, Cizmar-NPhot10, 
 Silberberg-11, Chatel-Focusing-11, Lagendijk-Focusing-11, zhenia-11, cui-11, kim-11},
@@ -280,17 +289,17 @@ can achieve effective focusing of a delocalized excitation in the presence of st
 ultracold molecules,  we also consider possible experimental implementations of the proposed technique in an array of 
 ultracold atoms or molecules trapped on an optical lattice, and demonstrate the feasibility of the phase transformations. 
 
-In \autoref{ch:greenfunc}, I extend the method\cite{Berciu2010, Berciu2011, Berciu2012} for computing the Green's 
+\autoref{ch:greenfunc} extends the method\cite{Berciu2010, Berciu2011, Berciu2012} for computing the Green's 
 functions for particles in periodic potentials to calculate 
 two-particle 
-Green's functions in disordered crystals. 
+Green's functions in disordered crystals. This provides a powerful tool to study the quantum dynamics of quasiparticles in a disordered potential. 
 % and describe a method to study the tunneling of biexciton states through impurities. 
 This chapter shows that by grouping Green's functions into different set of vectors, the 
 equation of motion of Green's function can be rewritten as a recursion relation that links three consecutive vectors. 
 Provided that certain boundary conditions are assumed, the recursion relation enables the recursive calculations of Green's 
 functions. I present the recursive method in the form of a generic algorithm which can be easily 
-adapted to systems with long-range interactions and high dimensionalities, and describe its advantages over the conventional methods to calculate Green's functions. As an application of the method, I propose
-to use the Green’s function to study the tunneling of biexciton states through
+adapted to systems with long-range interactions and high dimensionalities, and describe its advantage over the conventional methods to calculate Green's functions. As an application of the method, I propose
+to use the Green's function to study the tunneling of biexciton states through
  impurities.
 
 
