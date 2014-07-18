@@ -100,7 +100,7 @@ Similarly, substituting \autoref{eqn:excitonCommutation} into the right hand sid
 rise to 
 \multiline{
  \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} }&=&\matelement{0}{\p{n}\p{m} \pd{n'}\pd{m'}}{0} \nonumber \\
-&=& \matelement{0}{\p{n}\left[ \delta_{m, n'} + (1- \delta_{m, n'})  \pd{n'}\p{m}\right]\pd{m'}}{0} \nonumber \\
+&=& \matelement{0}{\p{n}\left[ \delta_{m, n'} + (1- 2\delta_{m, n'})  \pd{n'}\p{m}\right]\pd{m'}}{0} \nonumber \\
 &=&
  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
 }
@@ -379,10 +379,10 @@ where
 \mathbf{W}_{2K+1} = \mat{\mathbf{Z}_{K} & -\mathbf{M}_{K,K+1} \\ -\mathbf{M}_{K+1,K} & \mathbf{Z}_{K+1} } \ ,
 }
 \oneline{
-\boldsymbol\alpha_{2K-3} = \mat{\mathbf{M}_{K, K-2} & -\mathbf{M}_{K, K-1} \\ \mathbf{0} & \mathbf{Z}_{K+1, K-1} } \ ,
+\boldsymbol\alpha_{2K-3} = \mat{\mathbf{M}_{K, K-2} & \mathbf{M}_{K, K-1} \\ \mathbf{0} & \mathbf{M}_{K+1, K-1} } \ ,
 }
 \oneline{
-\boldsymbol\beta_{2K+5} = \mat{\mathbf{M}_{K, K+2} &  \mathbf{0} \\  \mathbf{M}_{K+1, K+2} & \mathbf{Z}_{K+1, K+3} } \ .
+\boldsymbol\beta_{2K+5} = \mat{\mathbf{M}_{K, K+2} &  \mathbf{0} \\  \mathbf{M}_{K+1, K+2} & \mathbf{M}_{K+1, K+3} } \ .
 }
 Comparing \autoref{eqn:blockEqnNNN} with \autoref{eqn:VkNotEqual} shows that the method introduced
 in \autoref{sec:nna} will also work for the current case if 
@@ -451,6 +451,11 @@ be used to calculate $\mathbf{M}_{K,K-2}$ and $\mathbf{M}_{K,K+2}$:
        \EndIf
 %
       \If {$j-2 > i$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(j-2, i)$  
+                   \State $\mathbf{M}_{K,K-2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{j-2, j}$
+       \EndIf
+%
+      \If {$j-2 < i$}
                    \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i, j-2)$  
                    \State $\mathbf{M}_{K,K-2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{j-2, j}$
        \EndIf
@@ -458,6 +463,11 @@ be used to calculate $\mathbf{M}_{K,K-2}$ and $\mathbf{M}_{K,K+2}$:
         \State Set every element of $\mathbf{M}_{K,K+2}$ to 0
       \If {$i+2 < j$}
                    \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(i+2, j)$  
+                   \State $\mathbf{M}_{K,K+2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{i+2, i}$ 
+       \EndIf
+%
+     \If {$i+2 > j$}
+                   \State $m^{\rm th}$ $\gets$ $ \mathbf{I}(j, i+2)$  
                    \State $\mathbf{M}_{K,K+2}(n^{\rm th}, m^{\rm th})$ $\gets$ $t_{i+2, i}$ 
        \EndIf
 %
@@ -513,7 +523,7 @@ where ${\sum_{n}}^{\prime}$ represents  summation over the discrete spectrum and
  continuous spectrum. 
 
 This brute-force method is simple but the computational cost is large. Consider a 
-two-particle state $\ket{i}\ket{j}$ in a 1D lattice with $N \times N$ sites. The number of two-particle basis sets used
+two-particle state $\ket{i}\ket{j}$ in a 1D lattice with $N$ sites. The number of two-particle basis sets used
 to represent the system is $O(N^2)$ and the dimension of the matrix is $O(N^2 \times N^2)$. As most of the 
 algorithms for eigenvalue computations scale like $O(n^3)$ for a $n\times n$ matrix, the computational cost of
 \autoref{eqn:eignProblemDirect} scales like $O(N^6)$. To calculate one Green's function from 

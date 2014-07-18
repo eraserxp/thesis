@@ -1,6 +1,6 @@
 
 
-Quantum control of dynamics of quasiparticles in periodic and aperiodic lattice potentials
+Quantum control of dynamics of quasiparticles in periodic and disordered lattice potentials
 ==========================================================================================
 
 This thesis describes research on controlling the dynamics of quasiparticles in periodic and disordered lattice potentials. Working with model systems of arrays of atoms and molecules trapped in  optical lattices, I focus on, but not limited to, the rotational excitons of polar molecules and propose to use external fields to control the binding and propagation of quasiparticles. 

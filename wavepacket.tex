@@ -459,7 +459,7 @@ the orthonormality  of the Bessel functions
 \Autoref{eqn:cosineFocusing} shows that  the focusing of a wave packet onto a
  single site would require not only adding the phase $\Phi(n) = {\rm Arg}[C_m(-\tau)]$, but also the amplitude
  modulations of the coefficients equal to the absolute values of $C_m(-\tau)$. This second task is
- beyond the manipulation tools considered here. However, creating such a wave packet may require multiple and 
+ beyond the manipulation tools considered here. Creating such a wave packet may require multiple and 
 complicated phase transformations, which may be difficult to realize in experiments. 
 
 
@@ -535,7 +535,7 @@ E(k) \approx E_0 + \beta a^2 k^2 \ .  \label{eqn:quadraticApprox}
 Using this equation,
 we obtain the wavefunction of the wave packet after time $t$
 \multiline{
-C_n(t) &=& \frac{1}{\sqrt{N} }\sum_{k} e^{ i k a n} e^{-i E(k) t} C_k(0) \nonumber \\
+C_n(t) &=& \frac{1}{\sqrt{N} }\sum_{k} e^{ i k a n} e^{-i E(k) t/\hbar} C_k(0) \nonumber \\
 &\propto& \sum_{k} e^{ i k a n} e^{-i E(k) t/\hbar} e^{-\frac{\sigma_{k, 0}^2 (k a - 2 n_0 \Phi_0 )^2 }{2 (\sigma_{k, 0}^4 + 4 \Phi_0^2 )}} \nonumber \\
 &\propto& e^{- \frac{(n + 4 t \beta\Phi_0  n_0)^2 }{2 \sigma_{x}(t)^2 } } \ ,
 }
@@ -1316,7 +1316,7 @@ ensemble  of diatomic molecules on an optical lattice for
 different angles $\theta$ between the direction of the external DC
 electric field and the axis of the molecular array.  In 1D, the coupling $\alpha\propto (1/3 - \cos^2\theta)$.  (b)
 Propagation of a wave packet centered at $ak =-\pi/3$ controlled
-by tuning the electric field direction. Then thin dotted line depicts
+by tuning the electric field direction. The thin dotted line depicts
 the corresponding angle variations with time. The brightness
 of the color corresponds to the probability of the excitation. }
 \label{control-exciton}

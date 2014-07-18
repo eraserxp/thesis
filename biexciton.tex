@@ -65,7 +65,8 @@ where $J(n-m) = \langle e_{n} , g_{m} | \hat{V}_{dd}(n-m) | g_{n}, e_{m} \rangle
  $|g\rangle$ and $|e\rangle$, and the operators $\hat{P}_n^\dag$ and $\hat{P}_n$ are defined by the relations 
 $\hat{P}_n^\dag | g_{m} \rangle = \delta_{nm} | e_{n}
 \rangle$ and $\hat{P}_n | e_{m} \rangle = \delta_{nm} | g_{n} \rangle$.
-The $\hat{P}_n$ and $\hat{P}_m$ operators satisfy the Pauli commutation relation, as shown by \autoref{eqn:bosonCommutation} and \autoref{eqn:fermionCommutation}. More specifically, by omitting the subscript ``$e$'', we have the fermionic commutation
+The $\hat{P}_n$ and $\hat{P}_m$ operators satisfy the Pauli commutation relation, as shown by   
+\autoref{eqn:fermionCommutation} and \autoref{eqn:bosonCommutation}. More specifically, by omitting the subscript ``$e$'' in these two equations, we have the fermionic commutation
 \begin{equation}
 \p{n}\pd{m} + \pd{m}\p{n} = 1 \  ,
 \end{equation}
@@ -294,7 +295,7 @@ There is an additional constraint for $C_{k_1, k_2}$ which is due to the assumpt
 &=&  \sum_{k_1} \frac{1}{N}\sum_{n,m}  C_{n,m}  e^{- i [k_1 n + (K-k_1)m]} \nonumber \\
 &=& \sum_{n,m}  C_{n,m}  e^{i K m} \frac{1}{N} \sum_{k_1} e^{-i k_1 (n-m)}  \nonumber \\
 &=&  \sum_{n,m}  C_{n,m}  e^{i K m} \delta_{n,m} \nonumber \\
-&=& \sum_{n} C_{n,n} = 0  \ . \label{eqn:cnnConstraint}
+&=& \sum_{n} C_{n,n} e^{i K n} = 0  \ . \label{eqn:cnnConstraint}
 }
 Because of \autoref{eqn:cnnConstraint}, we can eliminate $E$ terms in the first summation on the right hand side of
  \autoref{eqn:forAllk} and obtain
@@ -534,7 +535,7 @@ Although this equation is only strictly valid for a lattice with infinite number
 of sufficiently large lattices with a large $N_{\rm mol}$.  Substituting \autoref{eqn:getRidOfExponent} into 
 \autoref{eqn:term11AfterExchangingIndex}, we obtain
 \oneline{
-\text{\circled{11}} = \frac{1}{ \sqrt{N_{\rm mol}} } \sum_{m,l}G^{K}(l-m) D(m) C^{K}(m) \ ,
+\text{\circled{11}} = \frac{1}{ \sqrt{N_{\rm mol}} } \sum_{m,l}G^{K}(l-m) D(m) C^{K}(m) e^{-i (k_1 - k_2 ) l/2} \ ,
 }
 so that  \autoref{eqn:eqToStart} reduces to
 \oneline{
@@ -549,7 +550,7 @@ where  $G^{K}(l)$ can be calculated from \autoref{eqn:GKnExpression} and $J_K$ i
 Substituting \autoref{eqn:GKnExpression} into \autoref{eqn:eqForCKlNNA} and taking $l$ to be 1, we obtain an 
 equation for the biexciton energy $E^{K}_{b}$ which can be solved to give 
 \oneline{
-E^{K}_{b} = E_0 + D + \frac{J_K^{2}}{D} \ .
+E^{K}_{b} = 2 E_0 + D + \frac{J_K^{2}}{D} \ .
 } 
 Substituting this solution into \autoref{eqn:GKnExpression}, we can obtain an expression for $G^{K}(n)$ in terms of
 $D$ and $J$
@@ -570,7 +571,7 @@ So the biexciton wave function in the site representation in the nearest neighbo
 &&\psi_{K}(r) = \frac{\sqrt{D^2 - 4 J^2\cos^2 (K/2)}}{2D \sqrt{N_{\rm  mol}}} \left(
 \frac{2 J\cos(K/2)}{D} \right)^{|r|-1} , \label{eqn:biexcitonWavefunction}
 \end{eqnarray}
-where $r=n-m$ is the distance between two excitations. Since $J_{K} = 2 J \cos(K/2) > J$, we can see from the 
+where $r=n-m$ is the distance between two excitations. Since $J_{K} = 2 J \cos(K/2) < D$, we can see from the 
 biexciton wavefunction that the amplitude $\psi_{K}(r)$ for two excitations to appear at two sites decays 
 exponentially with the distance between the two sites, which
  indicates that biexciton states are indeed bound states. 

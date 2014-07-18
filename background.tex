@@ -41,7 +41,7 @@ A set of operations $\{ A, B, C, \cdots \}$ is called a group if it satisfies th
 As the theory of angular
  momentum concerns  symmetry under rotations, we start by defining the rotation operator in quantum 
  mechanics. Given a rotation $R$, we associate a rotation operator 
- $D(R)$ that transform a state from the original system to the rotated system
+ $D(R)$ that transforms a state from the original system to the rotated system
  \oneline{
  \ket{\psi}_{R} = D(R) \ket{\psi} \ .
  }
@@ -266,7 +266,7 @@ d^j_{m', m}(\theta) =&& \sum_{t} (-1)^t \frac{\left[ (j+m')! (j-m')! (j+m)! (j-m
 where the sum over $t$ is for all integers for which the factorial arguments are nonnegative. It can be shown that  $d^j_{m', m}(\theta)$
 satisfies the following symmetry relations\cite{zare-book}:
 \oneline{
-d^j_{m', m}(\theta) = (-1)^{m' - m} d^j_{m, m'}(\theta) = (-1)^{m' - m} d^j_{-m', m}(\theta) \ . \label{eqn:dSymmetryRelation}
+d^j_{m', m}(\theta) = (-1)^{m' - m} d^j_{m, m'}(\theta) = (-1)^{m' - m} d^j_{-m', -m}(\theta) \ . \label{eqn:dSymmetryRelation}
 }
 
 To understand the physical meaning of the rotation matrix, we start from a state $\ket{j, m}$ and rotate it. Even though
@@ -384,7 +384,7 @@ m_{1} & m_{2} & m_{3}
 \right) \equiv (-1)^{j_{1} - j_{2} - m_{3}} (2j_{3} +1)^{-\frac{1}{2}} \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \ ,
 \end{equation}
 \begin{equation}
- \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; -m_{3}\rangle \equiv (-1)^{j_{1} - j_{2} + m_{3}} (2j_{3} +1)^{\frac{1}{2}}
+ \langle j_{1}m_{1}, \; j_{2} m_{2} | j_{3}\; m_{3}\rangle \equiv (-1)^{j_{1} - j_{2} + m_{3}} (2j_{3} +1)^{\frac{1}{2}}
 \left( 
 \begin{array}{ ccc }
 j_{1} & j_{2} & j_{3} \\
@@ -510,7 +510,7 @@ associated with the second coupling scheme.
 After discussing the coupling of angular momenta, we now return to the rotation matrix and further develop its 
 properties in the context of angular momentum coupling. We consider the connection between the uncoupled 
  $\ket{j_1, m_1}\ket{j_2, m_2}$ and the coupled $\ket{j, m}$ representations under a rotational transformation. 
-Applying the rotation transformation on $\ket{j_1, m_1}$, $\ket{j_1, m_1}$ and $\ket{j, m}$ individually and using
+Applying the rotation transformation on $\ket{j_1, m_1}$, $\ket{j_1, m_1}$ and $\ket{j, m}$ in \autoref{eqn:defCGCoeffs} individually and using
 \autoref{eqn:JMTransformRotation} we obtain
 \multiline{
 &&\sum_{m_1^{\prime}} \sum_{m_2^{\prime} } D^{j_1}_{m_1^{\prime}, m_1}(R) D^{j_2}_{m_2^{\prime}, m_2}(R) \ket{j_1, m_1^{\prime}}\ket{j_2, m_2^{\prime} } \nonumber \\
@@ -581,7 +581,7 @@ D^{\dagger}(R) V_i D(R) = \sum_{j} R_{i, j} V_j \ . \label{eqn:operatorTransform
 By generalizing the definition of a vector $V_j \rightarrow \sum_{j} R_{i, j} V_j$, we define a tensor as a quantity which
 transforms like
 \oneline{
-T_{ijk \cdots } \rightarrow \sum_{i^{\prime}} \sum_{j^{\prime} } \sum_{k^{\prime} } R_{i, i^{\prime}} R_{j, j^{\prime}} R_{k, k^{\prime} }\cdots T_{i^{\prime} j^{\prime} k^{\prime} \cdots } \ . 
+T_{ijk \cdots } \rightarrow \sum_{i^{\prime}} \sum_{j^{\prime} } \sum_{k^{\prime} }\sum_{\cdots} R_{i, i^{\prime}} R_{j, j^{\prime}} R_{k, k^{\prime} }\cdots T_{i^{\prime} j^{\prime} k^{\prime} \cdots } \ . 
 }
 The number of indices is called the rank of a tensor. Such a tensor is called a Cartesian tensor because its components
 $T_{ijk \cdots }$ are defined with respect to the Cartesian axes. 
@@ -1199,7 +1199,7 @@ as
 P_{ne}^{\dagger} = b_{ne}^{\dagger} b_{ng} \ , \;\;P_{ne}=b_{ng}^{\dagger} b_{ne} \ , \label{creation&annihilation}
 \end{equation}
 where $g$ denotes the ground state and $e$ represents any excited state. 
-Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it is clear that $P_{ne}^{\dagger}$ creates a 
+Based on the physical meaning of $b_{nf}^{\dagger}$ and $b_{nf}$, it is clear that $P_{ne}^{\dagger}$ creates an 
 excited state from the vacuum state $\ket{0}$ and $P_{ne}$ does the reverse.
 Making use of \autoref{commutation-relation-single-molecule}, we obtain from the above definitions that
 \begin{eqnarray}
@@ -1246,7 +1246,7 @@ P_{ne} P_{ne}^{\dagger} + P_{ne}^{\dagger} P_{ne} = 1 \ , \label{eqn:additionApp
 which describes two fermions at the same site. 
 The above two equations cannot be satisfied at the same time, so we have to choose either one of them. Considering the 
 fact that two excitations cannot reside at the same site as a molecule cannot be excited twice, 
-it seems to more reasonable to choose \autoref{eqn:additionApproximate} to be valid. In addition, 
+it seems more reasonable to choose \autoref{eqn:additionApproximate} to be valid. In addition, 
 in the Heitler-London approximation where only the ground and first excited states are considered, 
 \autoref{eqn:additionApproximate} becomes exact as $ \hat{N}_{ng}  + \hat{N}_{ne}=1$. As the Heitler-London 
 approximation is usually a good approximation, it also makes sense to choose \autoref{eqn:additionApproximate}. 
@@ -1279,7 +1279,7 @@ In the first step, we express the Hamiltonian in terms of the $b$ operators. The
 \multiline{
 H = \sum_{i}\varepsilon_{i} b_{i f}^{\dagger} b_{i f} + \frac{1}{2} \sum_{i, j\neq i} \sum_{f', f, l', l} b_{if'}^{\dagger} b_{j l'}^{\dagger} b_{i f} b_{j l} \matelement{f' l'}{V_{ij}}{f l} \ , \label{eqn:hamInb}
 }
-where $i$ and $j$ are site indices, $f$, $f'$, $l$ and $l'$ represent any molecular state, and $\matelement{f' l'}{V_{ij}}{f l}$ is a shorthand for $\langle f' |_{i} \langle l' |_{i}  V_{ij} | f\rangle_{i}  | l\rangle_{j}$. 
+where $i$ and $j$ are site indices, $f$, $f'$, $l$ and $l'$ represent any molecular state, and $\matelement{f' l'}{V_{ij}}{f l}$ is a shorthand for $\langle f' |_{i} \langle l' |_{j}  V_{ij} | f\rangle_{i}  | l\rangle_{j}$. 
 
 Now we consider the two-level approximation where each molecule has only two energy levels: the ground 
 state $g$ and one excited state $e$ such that $f$, $f'$, $l$ and $l'$ in \autoref{eqn:hamInb} can only take $g$ or $e$. 
