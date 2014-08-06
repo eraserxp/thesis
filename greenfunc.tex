@@ -71,21 +71,21 @@ if $n = m$. For convenience, we can combine \autoref{eqn:boson-like} and \autore
 \p{m}\pd{n} = \delta_{m, n} + (1- 2 \delta_{m, n}) \pd{n}\p{m} \ .  \label{eqn:excitonCommutation}
 }
 
-Using the two-particle basis set $\ket{n}\ket{m}$ (and $n \neq m$), \autoref{eqn:equationForG} can be rewritten as
+Using the two-particle basis set $\ket{n, m}$ (and $n \neq m$), \autoref{eqn:equationForG} can be rewritten as
 \oneline{
-\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } = \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} } \ . \label{eqn:startEqnForG}
+\bra{n, m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime}, m^{\prime} }  = \bra{n, m}I \ket{n^{\prime}, m^{\prime} }  \ . \label{eqn:startEqnForG}
 }
 To simplify the above equation, we make use of \autoref{eqn:excitonCommutation} and evaluate the effect of the 
 Hamiltonian operating on the basis states, giving
 \multiline{
-\hat{H} \ket{n} \ket{m} &=& (e_{n} + e_{m} ) \ket{n} \ket{m} + \sum_{r \neq 0}(1-\delta_{n-r, m}) t_{n-r, n} \ket{n-r} \ket{m}  \nonumber \\
-&& + \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \ket{n} \ket{m - r} +  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \ket{n} \ket{m}  \ ,  \nonumber \\  \label{eqn:hamOn2particleState}
+\hat{H} \ket{n, m}  &=& (e_{n} + e_{m} ) \ket{n, m}  + \sum_{r \neq 0}(1-\delta_{n-r, m}) t_{n-r, n} \ket{n-r, m}  \nonumber \\
+&& + \sum_{r \neq 0} (1-\delta_{n, m-r}) t_{m-r, m} \ket{n, m - r} +  \sum_{r \neq 0} d_{n, m} \delta_{n-m, \pm r} \ket{n, m}  \ ,  \nonumber \\  \label{eqn:hamOn2particleState}
 }
-where the factors like $(1-\delta_{n-r, m})$ appear because only the two-particle states $\ket{n}\ket{m}$ with 
+where the factors like $(1-\delta_{n-r, m})$ appear because only the two-particle states $\ket{n, m}$ with 
 $n \neq m$ are included in the basis set. 
 The left-hand side of \autoref{eqn:startEqnForG} becomes
 \multiline{
-&&\bra{n} \bra{m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } \nonumber \\
+&&\bra{n, m} (z - \hat{H}) \hat{G}(z) \ket{n^{\prime}, m^{\prime} } \nonumber \\
 &&= (z - e_{n} - e_{m} ) G(n, m, n^{\prime}, m^{\prime}; z) 
 - \sum_{r \neq 0} (1-\delta_{n-r, m}) t_{n-r, n} G(n-r, m, n^{\prime}, m^{\prime}; z) \nonumber \\
 && - \sum_{r \neq 0}(1-\delta_{n, m-r}) t_{m-r, m} G(n, m-r, n^{\prime}, m^{\prime}; z) 
@@ -94,12 +94,12 @@ The left-hand side of \autoref{eqn:startEqnForG} becomes
 where $G(n, m, n^{\prime}, m^{\prime}; z)$ represents the matrix element of the Green's operator in the two-particle 
 basis set 
 \oneline{
-G(n, m, n^{\prime}, m^{\prime}; z) =  \bra{n} \bra{m} \hat{G}(z) \ket{n^{\prime} } \ket{m^{\prime} } \ .
+G(n, m, n^{\prime}, m^{\prime}; z) =  \bra{n, m} \hat{G}(z) \ket{n^{\prime}, m^{\prime} } \ .
 }
 Similarly, substituting \autoref{eqn:excitonCommutation} into the right hand side of \autoref{eqn:startEqnForG}  gives
 rise to 
 \multiline{
- \bra{n} \bra{m} I \ket{n^{\prime} } \ket{m^{\prime} }&=&\matelement{0}{\p{n}\p{m} \pd{n'}\pd{m'}}{0} \nonumber \\
+ \bra{n, m} I \ket{n^{\prime}, m^{\prime} }&=&\matelement{0}{\p{n}\p{m} \pd{n'}\pd{m'}}{0} \nonumber \\
 &=& \matelement{0}{\p{n}\left[ \delta_{m, n'} + (1- 2\delta_{m, n'})  \pd{n'}\p{m}\right]\pd{m'}}{0} \nonumber \\
 &=&
  \delta_{m, n^{\prime}}  \delta_{n, m^{\prime}} +  \delta_{n, n^{\prime}}  \delta_{m, m^{\prime}} \ .
@@ -486,7 +486,7 @@ In the last two subsections, we only discuss the 1D lattice. It turns out that e
 straightforward. For instance, in the case of a 2D lattice, we 
 want to calculate the Green's function 
 \oneline{
-\Tilde{G}(n_x, n_y, m_x, m_y; z)\equiv \bra{n_x, n_y} \bra{m_x, m_y} \hat{G}(z) \ket{n_x^{\prime}, n_y^{\prime} } \ket{m_x^{\prime}, m_y^{\prime} } \ ,
+\Tilde{G}(n_x, n_y, m_x, m_y; z)\equiv \bra{n_x, n_y, m_x, m_y} \hat{G}(z) \ket{n_x^{\prime}, n_y^{\prime}, m_x^{\prime}, m_y^{\prime} } \ ,
 }
 where $\ket{n_x, n_y}$ represents the state of the particle at site $(n_x, n_y)$ and $n_x^{\prime}$, $n_y^{\prime}$,
 $m_x^{\prime}$, and $m_y^{\prime}$ are fixed. Due to the structure of the equation of  
